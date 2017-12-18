@@ -1,0 +1,10 @@
+{
+  "name": "el-templates",
+  "version": "1.0.0",
+  "description": "Templates and their corresponding JSON Schema's for Evolution Lawyers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshgagnon/el-templates.git"
+  },
+  "private": true
+}
