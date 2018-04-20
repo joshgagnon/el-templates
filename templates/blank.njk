@@ -1,12 +1,154 @@
 {% extends 'layouts/default.njk' %}
 
+{% import 'partials/macros.njk' as macros %}
+
 {% block body %}
 
-<text:p text:style-name="P1">Cover Page</text:p>
+{{ macros.title('TEST TITLE 1')}}
+{{ macros.title('TEST TITLE 2')}}
 
-<text:p text:style-name="P1">
-    <text:soft-page-break/>
-    {{ content }}
-</text:p>
+
+    <text:p text:style-name="Standard">
+        <text:span>Document attributes:</text:span>
+    </text:p>
+
+     <text:p text:style-name="Standard" />
+
+    <text:list text:style-name="el_list">
+        <text:list-item>
+            <text:p text:style-name="el_list_paragraph">
+                <text:span>List paragraph</text:span>
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:list>
+                <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+                        <text:span>A4 size – 210 mm x 290 mm</text:span>
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:list>
+                        <text:list-item>
+                            <text:p text:style-name="el_list_paragraph">
+                                <text:span>A4 size – 210 mm x 290 mm</text:span>
+                            </text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:list>
+                                <text:list-item>
+                                    <text:p text:style-name="el_list_paragraph">
+                                        <text:span>A4 size – 210 mm x 290 mm</text:span>
+                                    </text:p>
+                                </text:list-item>
+                            </text:list>
+                        </text:list-item>
+                    </text:list>
+                </text:list-item>
+            </text:list>
+        </text:list-item>
+    </text:list>
+     <text:p text:style-name="Standard" />
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            <text:span>Numbered paragraph</text:span>
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:list>
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+                    <text:span>A4 size – 210 mm x 290 mm</text:span>
+                </text:p>
+            </text:list-item>
+            <text:list-item>
+                <text:list>
+                    <text:list-item>
+                        <text:p text:style-name="el_numbered_list_paragraph">
+                            <text:span>A4 size – 210 mm x 290 mm</text:span>
+                        </text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:list>
+                            <text:list-item>
+                                <text:p text:style-name="el_numbered_list_paragraph">
+                                    <text:span>A4 size – 210 mm x 290 mm</text:span>
+                                </text:p>
+                            </text:list-item>
+                        </text:list>
+                    </text:list-item>
+                </text:list>
+            </text:list-item>
+        </text:list>
+    </text:list-item>
+</text:list>
+     <text:p text:style-name="Standard" />
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_party_list_paragraph">
+            <text:span>Parties list</text:span>
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_party_list_paragraph">
+            <text:span>more stuff</text:span>
+        </text:p>
+    </text:list-item>
+</text:list>
+
+<text:list text:style-name="el_background_list">
+    <text:list-item>
+        <text:p text:style-name="el_background_list_paragraph">
+            <text:span>Background list</text:span>
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_background_list_paragraph">
+            <text:span>more stuff</text:span>
+        </text:p>
+    </text:list-item>
+                    <text:list-item>
+                        <text:list>
+                            <text:list-item>
+                                <text:p text:style-name="el_background_list_paragraph">
+                                    <text:span>A4 size – 210 mm x 290 mm</text:span>
+                                </text:p>
+                            </text:list-item>
+                        </text:list>
+                    </text:list-item>
+</text:list>
+
+
+     <text:p text:style-name="Standard" />
+<text:list text:style-name="el_clause_list">
+    <text:list-item>
+        <text:p text:style-name="el_clause_para">
+            <text:span>Clause list</text:span>
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+    <text:list>
+        <text:list-item>
+            <text:p text:style-name="el_subclause_para">
+                <text:span>hi</text:span>
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_subclause_para">
+                <text:span>there</text:span>
+            </text:p>
+        </text:list-item>
+    </text:list>
+</text:list-item>
+</text:list>
+
+     <text:p text:style-name="Standard" />
+    <text:p text:style-name="el_quote">
+        <text:span>This is a quote</text:span>
+    </text:p>
+
 
 {% endblock %}

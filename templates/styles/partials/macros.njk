@@ -60,3 +60,8 @@
         {% endfor %}
     </text:list-style>
 {% endmacro %}
+
+
+{% macro title(text) %}
+    <text:h text:style-name="el_heading_1">{{ text }}</text:h>
+{% endmacro %}
