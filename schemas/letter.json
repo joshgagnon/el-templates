@@ -5,14 +5,48 @@
         "dateString": {
             "title": "Date",
             "type": "string",
+            "formatDate": "D MMMM YYYY",
             "x-hints" : {
                 "form": {
                   "inputComponent": "date"
                 }
             }
         },
+
         "recipient": {
              "$ref": "#/definitions/recipient"
+        },
+        "subject": {
+            "title": "Subject",
+            "type": "string"
+        },
+        "valediction": {
+            "title": "Valediction",
+            "enum": [
+                "sincerely",
+                "faithfully"
+            ]
+        },
+        "copyTo": {
+            "type": "array",
+            "title": "Copy To",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "address": {
+                        "$ref": "#/definitions/address"
+                    }
+                },
+                "required": ["name"]
+            }
         }
     }
 }

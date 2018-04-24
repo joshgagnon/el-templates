@@ -2,6 +2,228 @@
 
 {% import 'partials/macros.njk' as macros %}
 
+{% block automaticStyles %}
+  <office:automatic-styles>
+
+        <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_email_title" style:display-name="Email Title" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="left" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+            <style:text-properties fo:font-weight="bold" fo:text-transform="uppercase" style:font-family-generic-asian="system" style:font-family-generic-complex="system" style:font-name-asian="F" style:font-name-complex="F" style:font-pitch-asian="variable" style:font-pitch-complex="variable" style:font-size-complex="11pt" style:font-weight-asian="bold"/>
+        </style:style>
+
+
+        <style:style style:family="table" style:master-page-name="First_20_Page" style:name="Table1">
+            <style:table-properties style:page-number="auto" style:width="17cm" table:align="margins"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="Table1.A">
+            <style:table-column-properties style:column-width="8.497cm" style:rel-column-width="32753*"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="Table1.B">
+            <style:table-column-properties style:column-width="8.504cm" style:rel-column-width="32782*"/>
+        </style:style>
+        <style:style style:family="table-cell" style:name="Table1.A1">
+            <style:table-cell-properties fo:border="none" fo:padding="0cm"/>
+        </style:style>
+        <style:style style:family="table-cell" style:name="Table1.A2">
+            <style:table-cell-properties fo:border="none" fo:padding="0cm" style:vertical-align="middle"/>
+        </style:style>
+        <style:style style:family="table" style:name="Table2">
+            <style:table-properties style:may-break-between-rows="false" style:width="17cm" table:align="margins"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="Table2.A">
+            <style:table-column-properties style:column-width="17cm" style:rel-column-width="65535*"/>
+        </style:style>
+        <style:style style:family="table-cell" style:name="Table2.A1">
+            <style:table-cell-properties fo:border="none" fo:padding="0cm"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P1" style:parent-style-name="Footer">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties officeooo:paragraph-rsid="0101360c" officeooo:rsid="0101360c"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P2" style:parent-style-name="Footer">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P3" style:parent-style-name="Footer">
+            <style:paragraph-properties>
+                <style:tab-stops>
+                    <style:tab-stop style:position="1.655cm"/>
+                    <style:tab-stop style:position="7.96cm" style:type="center"/>
+                    <style:tab-stop style:position="15.921cm" style:type="right"/>
+                </style:tab-stops>
+            </style:paragraph-properties>
+            <style:text-properties style:font-name="Calibri" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P4" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00e74de0" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P5" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00fbcb28" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P6" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="013326d2" officeooo:rsid="000bac1b" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P7" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01618a13" officeooo:rsid="000bac1b" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P8" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01698f09" officeooo:rsid="000bac1b" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P9" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01618a13" officeooo:rsid="013d46b1" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P10" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="016b6f11" officeooo:rsid="013d46b1" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P11" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="0170316c" officeooo:rsid="013d46b1" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P12" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01618a13" officeooo:rsid="000ca0c9" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P13" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01618a13" officeooo:rsid="000ca0c9" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P14" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="0164900f" officeooo:rsid="0164900f" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P15" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="016b6f11" officeooo:rsid="0164900f" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P16" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="016c3a88" officeooo:rsid="0164900f" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P17" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01618a13" officeooo:rsid="016722c9" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P18" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="016c3a88" officeooo:rsid="016c3a88" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P19" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="016f09a4" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P20" style:parent-style-name="Table_20_Contents">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="016f09a4" officeooo:rsid="01b171c2" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P21" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P22" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties officeooo:paragraph-rsid="00f0ee57"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P23" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties officeooo:paragraph-rsid="00f231c7"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P24" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties officeooo:paragraph-rsid="015e85e5"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P25" style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties officeooo:paragraph-rsid="00f231c7" officeooo:rsid="0113c220"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P26" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00caf789" officeooo:rsid="00c09a7c" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P27" style:parent-style-name="Standard">
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00caf789" officeooo:rsid="00c09a7c" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P28" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00caf789" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P29" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01759407" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P30" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="01792e2a" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P31" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00caf789" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P32" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always" fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00caf789" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P33" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00be83f5" officeooo:rsid="013d46b1" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P34" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="justify" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="0059f6aa" officeooo:rsid="005b9d7f" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="paragraph" style:name="P35" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always"/>
+            <style:text-properties fo:font-size="11pt" fo:font-weight="bold" officeooo:paragraph-rsid="00caf789" officeooo:rsid="00c09a7c" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:family="paragraph" style:master-page-name="" style:name="P36" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:keep-together="always" fo:keep-with-next="always" style:page-number="auto"/>
+            <style:text-properties fo:font-size="11pt" officeooo:paragraph-rsid="00caf789" officeooo:rsid="00c09a7c" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="text" style:name="T1">
+            <style:text-properties style:font-name="Calibri" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="text" style:name="T2">
+            <style:text-properties fo:font-size="11pt" officeooo:rsid="00d7d42c" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="text" style:name="T3">
+            <style:text-properties fo:font-size="11pt" officeooo:rsid="0076ce1f" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="text" style:name="T4">
+            <style:text-properties fo:font-size="11pt" officeooo:rsid="01052e13" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="text" style:name="T5">
+            <style:text-properties fo:font-size="11pt" officeooo:rsid="010e5f6e" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+        <style:style style:family="text" style:name="T6">
+            <style:text-properties fo:country="NZ" fo:font-size="16pt" fo:font-weight="bold" fo:language="en" style:country-asian="NZ" style:font-size-asian="16pt" style:font-size-complex="16pt" style:font-weight-asian="bold" style:language-asian="en"/>
+        </style:style>
+        <style:style style:family="text" style:name="T7">
+            <style:text-properties officeooo:rsid="009631ec"/>
+        </style:style>
+        <style:style style:family="text" style:name="T8">
+            <style:text-properties officeooo:rsid="0113c220"/>
+        </style:style>
+        <style:style style:family="text" style:name="T9">
+            <style:text-properties officeooo:rsid="016205aa"/>
+        </style:style>
+        <style:style style:family="text" style:name="T10">
+            <style:text-properties officeooo:rsid="016b6f11"/>
+        </style:style>
+        <style:style style:family="text" style:name="T11">
+            <style:text-properties officeooo:rsid="0170316c"/>
+        </style:style>
+        <style:style style:family="text" style:name="T12">
+            <style:text-properties officeooo:rsid="0171081e"/>
+        </style:style>
+        <style:style style:family="text" style:name="T13">
+            <style:text-properties officeooo:rsid="01759407"/>
+        </style:style>
+        <style:style style:family="text" style:name="T14">
+            <style:text-properties officeooo:rsid="017640a5"/>
+        </style:style>
+        <style:style style:family="text" style:name="T15">
+            <style:text-properties officeooo:rsid="01792e2a"/>
+        </style:style>
+        <style:style style:family="graphic" style:name="fr1" style:parent-style-name="Graphics">
+            <style:graphic-properties draw:blue="0%" draw:color-inversion="false" draw:color-mode="standard" draw:contrast="0%" draw:fill="none" draw:fill-color="#ffffff" draw:gamma="100%" draw:green="0%" draw:image-opacity="100%" draw:luminance="0%" draw:red="0%" fo:background-color="transparent" fo:border="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" fo:padding="0cm" style:horizontal-pos="from-left" style:horizontal-rel="page" style:mirror="none" style:number-wrapped-paragraphs="no-limit" style:run-through="background" style:vertical-pos="from-top" style:vertical-rel="page" style:wrap="run-through"/>
+        </style:style>
+        <style:style style:family="graphic" style:name="fr2" style:parent-style-name="Graphics">
+            <style:graphic-properties draw:blue="0%" draw:color-inversion="false" draw:color-mode="standard" draw:contrast="0%" draw:gamma="100%" draw:green="0%" draw:image-opacity="100%" draw:luminance="0%" draw:red="0%" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" style:horizontal-pos="from-left" style:horizontal-rel="paragraph-content" style:mirror="none" style:vertical-pos="from-top"/>
+        </style:style>
+    </office:automatic-styles>
+
+{% endblock %}
+
 {% block body %}
 
             <table:table table:name="Table1" table:style-name="Table1">
@@ -10,41 +232,41 @@
                 <table:table-row>
                     <table:table-cell office:value-type="string" table:style-name="Table1.A1">
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{{ dateString }}</text:text-input>
+                            {{ dateString }}
                         </text:p>
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{% if recipient.recipientType == 'company' %}</text:text-input>
+                            {% if recipient.recipientType == 'company' %}
                         </text:p>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{{ recipient.companyName }}</text:text-input>
+                            {{ recipient.companyName }}
                         </text:p>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{% elif recipient.individuals %}</text:text-input>
+                            {% elif recipient.individuals %}
                         </text:p>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{% for individual in recipient.individuals %}</text:text-input>
+                            {% for individual in recipient.individuals %}
                         </text:p>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{{ individual.firstName }} {{individual.lastName }}</text:text-input>
+                            {{ individual.firstName }} {{individual.lastName }}
                         </text:p>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{% endfor %}</text:text-input>
+                            {% endfor %}
                         </text:p>
                         <text:p text:style-name="P19">
-                            <text:text-input text:description="">{% endif %}</text:text-input>
+                            {% endif %}
                             <text:text-input text:description=""/>
                         </text:p>
                         <text:p text:style-name="P20">
-                            <text:text-input text:description="">{% for address in  recipient.contactMethod['address'] %}</text:text-input>
+                            {% for address in  recipient.contactMethod['address'] %}
                         </text:p>
                         <text:p text:style-name="P20">
-                            <text:text-input text:description="">{{ address }}</text:text-input>
+                            {{ address }}
                         </text:p>
                         <text:p text:style-name="P20">
-                            <text:text-input text:description="">{% endfor %}</text:text-input>
+                            {% endfor %}
                         </text:p>
                         <text:p text:style-name="P6"/>
                     </table:table-cell>
@@ -57,81 +279,81 @@
                         <text:p text:style-name="P5"/>
                         <text:p text:style-name="P21">
                             <text:span text:style-name="T2">
-                                <text:text-input text:description="">{% if recipient.contactMethod %}</text:text-input>
+                                {% if recipient.contactMethod %}
                             </text:span>
                             <text:span text:style-name="T5">
-                                <text:text-input text:description="">{% if recipient.contactMethod.method == 'email' %}</text:text-input>
+                                {% if recipient.contactMethod.method == 'email' %}
                             </text:span>
                             <text:span text:style-name="T3">By email: </text:span>
                             <text:span text:style-name="T3">
-                                <text:text-input text:description="">{{ recipient.contactMethod.email }}</text:text-input>
+                                {{ recipient.contactMethod.email }}
                             </text:span>
                             <text:span text:style-name="T3">
-                                <text:text-input text:description="">{% elif recipient.contactMethod.method == 'hand' %}</text:text-input>
+                                {% elif recipient.contactMethod.method == 'hand' %}
                             </text:span>
                             <text:span text:style-name="T4">By hand </text:span>
                             <text:span text:style-name="T4">
-                                <text:text-input text:description="">{% elif recipient.contactMethod.method == 'courier' %}</text:text-input>
+                                {% elif recipient.contactMethod.method == 'courier' %}
                             </text:span>
                             <text:span text:style-name="T4">By courier</text:span>
                             <text:span text:style-name="T4">
-                                <text:text-input text:description="">{% elif recipient.contactMethod.method == 'post' %}</text:text-input>
+                                {% elif recipient.contactMethod.method == 'post' %}
                             </text:span>
                             <text:span text:style-name="T4">By post </text:span>
                             <text:span text:style-name="T4">
-                                <text:text-input text:description="">{% endif %}</text:text-input>
+                                {% endif %}
                             </text:span>
                             <text:span text:style-name="T4">
-                                <text:text-input text:description="">{% endif %}</text:text-input>
+                                {% endif %}
                             </text:span>
                         </text:p>
                         <text:p text:style-name="P25">
-                            <text:text-input text:description="">{% if matter and matter['matterId'] %}</text:text-input>
+                            {% if matter and matter['matterId'] %}
                         </text:p>
                         <text:p text:style-name="P23">ID:
                             <text:span text:style-name="T8">
-                                <text:text-input text:description="">{{ matter['matterId'] }}</text:text-input></text:span>
+                                {{ matter['matterId'] }}</text:span>
                         </text:p>
                         <text:p text:style-name="P22">
-                            <text:text-input text:description="">{% endif %}</text:text-input>
+                            {% endif %}
                         </text:p>
                         <text:p text:style-name="P24">
-                            <text:text-input text:description="">{% if status and status.mode %}</text:text-input>
+                            {% if status and status.mode %}
                         </text:p>
                         <text:p text:style-name="P24">
-                            <text:text-input text:description="">{% if status.mode == 'custom' %}</text:text-input>
+                            {% if status.mode == 'custom' %}
                             <text:text-input text:description=""/>
                             <text:text-input text:description=""/>
-                            <text:text-input text:description="">{{ status.message }}</text:text-input>
+                            {{ status.message }}
                             <text:text-input text:description=""/>
-                            <text:text-input text:description="">{% else %}</text:text-input>
-                            <text:text-input text:description="">{{ status.mode }}</text:text-input>
-                            <text:text-input text:description="">{% endif %}</text:text-input>
+                            {% else %}
+                            {{ status.mode }}
+                            {% endif %}
                         </text:p>
                         <text:p text:style-name="P24">
-                            <text:text-input text:description="">{% endif %}</text:text-input>
+                            {% endif %}
                         </text:p>
                     </table:table-cell>
                 </table:table-row>
                 <table:table-row>
                     <table:table-cell office:value-type="string" table:style-name="Table1.A2">
                         <text:p text:style-name="P4">
-                            <text:text-input text:description="">{% if recipient.recipientType == 'company' %}</text:text-input>For:
-                            <text:text-input text:description="">{{ recipient['contact'] }}</text:text-input>
-                            <text:text-input text:description="">{% else %}</text:text-input>
+                            {% if recipient.recipientType == 'company' %}For:
+                            {{ recipient['contact'] }}
+                            {% else %}
                             Dear
-                            <text:text-input text:description="">{{ recipient.individuals|join_and( 'firstName') }}</text:text-input>
+                            {{ recipient.individuals|join_and( 'firstName') }}
                             <text:span text:style-name="T7"/>
                             <text:span text:style-name="T7">
-                                <text:text-input text:description="">{% endif %}</text:text-input></text:span>
+                                {% endif %}</text:span>
                         </text:p>
                     </table:table-cell>
                     <table:covered-table-cell/>
                 </table:table-row>
             </table:table>
             <text:p text:style-name="P34"/>
-            <text:h text:outline-level="1" text:style-name="Heading">
-                <text:text-input text:description="">{{ subject }}</text:text-input>
+            <text:h text:outline-level="1" text:style-name="el_email_title">
+                {{ subject }}
             </text:h>
             <text:p text:style-name="Paragraph"/>
             <table:table table:name="Table2" table:style-name="Table2">
@@ -139,106 +361,106 @@
                 <table:table-row>
                     <table:table-cell office:value-type="string" table:style-name="Table2.A1">
                         <text:p text:style-name="P36">Yours
-                            <text:text-input text:description="">{{ valediction }}</text:text-input></text:p>
+                            {{ valediction }}</text:p>
                         <text:p text:style-name="P35">Evolution Lawyers</text:p>
                         <text:p text:style-name="P26"/>
                         <text:p text:style-name="P26"/>
                         <text:p text:style-name="P26"/>
                         <text:p text:style-name="P27"/>
                         <text:p text:style-name="P26">
-                            <text:text-input text:description="">{% if sender %}</text:text-input>
+                            {% if sender %}
                         </text:p>
                         <text:p text:style-name="P28">
-                            <text:text-input text:description="">{{ sender }}</text:text-input>
+                            {{ sender }}
                         </text:p>
                         <text:p text:style-name="P28">
-                            <text:text-input text:description="">{{ mappings.sender[sender].title }}</text:text-input>
+                            {{ mappings.sender[sender].title }}
                         </text:p>
                         <text:p text:style-name="P30">
                             <text:span text:style-name="T15">
-                                <text:text-input text:description="">{% if mappings.sender[sender].phone %}</text:text-input>
+                                {% if mappings.sender[sender].phone %}
                             </text:span>
                             <text:span text:style-name="T15">DDI: </text:span>
-                            <text:text-input text:description="">{{ mappings.sender[sender].phone }}</text:text-input>
+                            {{ mappings.sender[sender].phone }}
                             <text:span text:style-name="T13">
-                                <text:text-input text:description="">{% endif %}</text:text-input>
+                                {% endif %}
                             </text:span>
                         </text:p>
                         <text:p text:style-name="P29">
                             <text:span text:style-name="T13">
-                                <text:text-input text:description="">{% if mappings.sender[sender].mobile %}</text:text-input>
+                                {% if mappings.sender[sender].mobile %}
                             </text:span>
                             <text:span text:style-name="T13">M: </text:span>
                             <text:span text:style-name="T13">
-                                <text:text-input text:description="">{{ mappings.sender[sender].mobile }}</text:text-input>
+                                {{ mappings.sender[sender].mobile }}
                             </text:span>
                             <text:span text:style-name="T13">
-                                <text:text-input text:description="">{% endif %}</text:text-input>
+                                {% endif %}
                             </text:span>
                         </text:p>
                         <text:p text:style-name="P32">
                             <text:span text:style-name="T14">E: </text:span>
-                            <text:text-input text:description="">{{ mappings.sender[sender].email }}</text:text-input>
+                            {{ mappings.sender[sender].email }}
                         </text:p>
                         <text:p text:style-name="P31">
-                            <text:text-input text:description="">{% endif %}</text:text-input>
+                            {% endif %}
                         </text:p>
                     </table:table-cell>
                 </table:table-row>
             </table:table>
             <text:p text:style-name="P18">
-                <text:text-input text:description="">{% if copyTo %}</text:text-input>
+                {% if copyTo %}
             </text:p>
             <text:p text:style-name="P33"/>
             <text:p text:style-name="P33"/>
             <text:p text:style-name="P9">
-                <text:text-input text:description="">{% for copy in copyTo %}</text:text-input>
+                {% for copy in copyTo %}
             </text:p>
             <text:p text:style-name="P17">
-                <text:text-input text:description="">{% if loop.index == 1 %}</text:text-input>
+                {% if loop.index == 1 %}
             </text:p>
             <text:p text:style-name="P12">Copy To:
                 <text:tab/>
                 <text:span text:style-name="T9">
-                    <text:text-input text:description="">{{ copy.name }}</text:text-input></text:span>
+                    {{ copy.name }}</text:span>
             </text:p>
             <text:p text:style-name="P14">
-                <text:text-input text:description="">{% else %}</text:text-input>
+                {% else %}
             </text:p>
             <text:p text:style-name="P14">
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T9">
-                    <text:text-input text:description="">{{ copy.name }}</text:text-input>
+                    {{ copy.name }}
                 </text:span>
             </text:p>
             <text:p text:style-name="P14">
-                <text:text-input text:description="">{% endif %}</text:text-input>
+                {% endif %}
             </text:p>
             <text:p text:style-name="P10">
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T10">
-                    <text:text-input text:description="">{% if copy.email %}</text:text-input>
+                    {% if copy.email %}
                 </text:span>
             </text:p>
             <text:p text:style-name="P10">
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T10">
-                    <text:text-input text:description="">{{ copy.email }}</text:text-input>
+                    {{ copy.email }}
                 </text:span>
             </text:p>
             <text:p text:style-name="P15">
                 <text:tab/>
                 <text:tab/>
-                <text:text-input text:description="">{% endif %}</text:text-input>
+                {% endif %}
             </text:p>
             <text:p text:style-name="P9">
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T12">
-                    <text:text-input text:description="">{% for addressLine in copy['address'] %}</text:text-input>
+                    {% for addressLine in copy['address'] %}
                 </text:span>
             </text:p>
             <text:p text:style-name="P11">
@@ -246,22 +468,22 @@
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T11">
-                    <text:text-input text:description="">{{ addressLine }}</text:text-input>
+                    {{ addressLine }}
                 </text:span>
             </text:p>
             <text:p text:style-name="P8">
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T11">
-                    <text:text-input text:description="">{% endfor %}</text:text-input>
+                    {% endfor %}
                 </text:span>
             </text:p>
             <text:p text:style-name="P7"/>
             <text:p text:style-name="P13">
-                <text:text-input text:description="">{% endfor %}</text:text-input>
+                {% endfor %}
             </text:p>
             <text:p text:style-name="P16">
-                <text:text-input text:description="">{% endif %}</text:text-input>
+                {% endif %}
             </text:p>
 
 
