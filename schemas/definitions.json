@@ -1,0 +1,256 @@
+{
+    "definitions": {
+        "recipient":{
+            "title": "Recipient Details",
+            "type": "object",
+            "properties": {
+                "recipientType": {
+                    "title": "Recipient Type",
+                    "enum": [
+                        "individuals",
+                        "company"
+                    ],
+                    "enumNames": [
+                        "Individual(s)",
+                        "Company"
+                    ]
+                }
+            },
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "recipientType": {
+                            "enum": [
+                                "individuals"
+                            ]
+                        },
+                        "individuals": {
+                            "minItems": 1,
+                            "title": "Individual(s)",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/individual"
+                            },
+                            "default": [{}]
+                        },
+                        "contactMethod": {
+                            "$ref": "#/definitions/contactMethod"
+                        }
+                    },
+                    "required": ["individuals", "contactMethod"]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "recipientType": {
+                            "enum": [
+                                "company"
+                            ]
+                        },
+                        "companyName": {
+                            "title": "Company Name",
+                            "type": "string"
+                        },
+                        "contact": {
+                            "title": "Contact",
+                            "type": "string"
+                        },
+                        "contactMethod": {
+                            "$ref": "#/definitions/contactMethod"
+                        }
+                    },
+                    "required": ["companyName", "contact", "contactMethod"]
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "recipientType"
+                }
+            }
+        },
+        "address": {
+            "type": "object",
+            "title": "Address",
+            "properties": {
+                "line1": {
+                    "title": "Line 1",
+                    "type": "string"
+                },
+                "line2": {
+                    "title": "Line 2",
+                    "type": "string"
+                },
+                "city": {
+                    "title": "City",
+                    "type": "string"
+                },
+                "county": {
+                    "title": "County",
+                    "type": "string"
+                },
+                "state": {
+                    "title": "State/Province",
+                    "type": "string"
+                },
+                "postcode": {
+                    "title": "Postcode",
+                    "type": "string"
+                },
+                "country": {
+                    "title": "Country",
+                    "type": "string"
+                }
+            },
+            "default": {
+                "country": "New Zealand"
+            }
+        },
+        "individual": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "title": "First Name",
+                    "type": "string"
+                },
+                "lastName": {
+                    "title": "Last Name",
+                    "type": "string"
+                }
+            },
+            "required": ["firstName", "lastName"]
+        },
+        "contactMethod": {
+            "title": "Contact Method",
+            "type": "object",
+            "properties": {
+                "method": {
+                    "title": "Mode",
+                    "enum": [
+                        "email",
+                        "courier",
+                        "hand",
+                        "post",
+                        "fax"
+                    ],
+                    "enumNames": [
+                        "By email",
+                        "By courier",
+                        "By hand",
+                        "By post",
+                        "By fax"
+                    ]
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "method": {
+                            "enum": [
+                                "email"
+                            ]
+                        },
+                        "email": {
+                            "title": "Email",
+                            "type": "string"
+                        }
+                    },
+                    "required": ["email"]
+                },
+                {
+                    "properties": {
+                        "method": {
+                            "enum": [
+                                "courier"
+                            ]
+                        },
+                        "email": {
+                            "title": "Email",
+                            "type": "string"
+                        },
+                        "fax": {
+                            "title": "Fax",
+                            "type": "string"
+                        },
+                        "address": {
+                            "title": "Contact Address",
+                            "$ref": "#/definitions/address"
+                        }
+                    },
+                    "required": ["address"]
+                },
+                {
+                    "properties": {
+                        "method": {
+                            "enum": [
+                                "hand"
+                            ]
+                        },
+                        "email": {
+                            "title": "Email",
+                            "type": "string"
+                        },
+                        "fax": {
+                            "title": "Fax",
+                            "type": "string"
+                        },
+                        "address": {
+                            "title": "Contact Address",
+                            "$ref": "#/definitions/address"
+                        }
+
+                    }
+                },
+                {
+                    "properties": {
+                        "method": {
+                            "enum": [
+                                "post"
+                            ]
+                        },
+                        "email": {
+                            "title": "Email",
+                            "type": "string"
+                        },
+                        "fax": {
+                            "title": "Fax",
+                            "type": "string"
+                        },
+                        "address": {
+                            "title": "Contact Address",
+                            "$ref": "#/definitions/address"
+                        }
+                    },
+                    "required": ["address"]
+                },
+                {
+                    "properties": {
+                        "method": {
+                            "enum": [
+                                "fax"
+                            ]
+                        },
+                        "email": {
+                            "title": "Email",
+                            "type": "string"
+                        },
+                        "fax": {
+                            "title": "Fax",
+                            "type": "string"
+                        },
+                        "address": {
+                            "title": "Contact Address",
+                            "$ref": "#/definitions/address"
+                        }
+                    },
+                    "required": ["fax"]
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "method"
+                }
+            }
+        }
+    }
+}

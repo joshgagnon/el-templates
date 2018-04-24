@@ -6,11 +6,7 @@
         <style:font-face style:font-adornments="Regular" style:font-family-generic="modern" style:font-pitch="variable" style:name="Courier New" svg:font-family="'Courier New'"/>
         <style:font-face style:font-family-generic="roman" style:font-pitch="variable" style:name="Calibri" svg:font-family="Calibri"/>
         <style:font-face style:font-family-generic="roman" style:font-pitch="variable" style:name="Calibri Light" svg:font-family="'Calibri Light'"/>
-        <style:font-face style:font-family-generic="swiss" style:font-pitch="variable" style:name="Liberation Sans" svg:font-family="'Liberation Sans'"/>
-        <style:font-face style:font-family-generic="system" style:font-pitch="variable" style:name="F" svg:font-family=""/>
-        <style:font-face style:font-family-generic="system" style:font-pitch="variable" style:name="Arial Unicode MS" svg:font-family="'Arial Unicode MS'"/>
-        <style:font-face style:font-family-generic="system" style:font-pitch="variable" style:name="Calibri1" svg:font-family="Calibri"/>
-        <style:font-face style:font-family-generic="system" style:font-pitch="variable" style:name="Courier New1" svg:font-family="'Courier New'"/>
+
     </office:font-face-decls>
     <office:styles>
         <style:default-style style:family="graphic">
@@ -35,11 +31,6 @@
             <style:text-properties fo:color="#00000a" fo:font-family="Calibri" style:font-family-generic="roman" style:font-family-generic-asian="system" style:font-name="Calibri" style:font-name-asian="F" style:font-pitch="variable" style:font-pitch-asian="variable" style:font-size-complex="11pt"/>
         </style:style>
 
-
-        <style:style style:class="extra" style:family="paragraph" style:name="Caption" style:parent-style-name="Standard">
-            <style:paragraph-properties fo:margin-bottom="0.212cm" fo:margin-top="0.212cm" loext:contextual-spacing="false" text:line-number="0" text:number-lines="false"/>
-            <style:text-properties fo:font-size="11pt" fo:font-style="italic" style:font-size-asian="11pt" style:font-size-complex="11pt" style:font-style-asian="italic" style:font-style-complex="italic"/>
-        </style:style>
 
         <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_title_1" style:display-name="EL Title" style:parent-style-name="Standard">
             <style:paragraph-properties fo:text-align="justify" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
@@ -245,8 +236,6 @@
 
 
 
-        <style:style style:default-outline-level="" style:family="paragraph" style:name="Clause" style:parent-style-name="Title"/>
-        <style:style style:default-outline-level="" style:family="paragraph" style:name="Subclause" style:parent-style-name="Para"/>
 
         <style:style style:family="paragraph" style:display-name="EL Clause" style:list-style-name="el_clause_list" style:name="el_clause_para" style:parent-style-name="Clause">
               <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
@@ -259,19 +248,6 @@
 
 
 
-
-        <style:style style:default-outline-level="" style:display-name="footnote text" style:family="paragraph" style:name="footnote_20_text" style:parent-style-name="Standard">
-            <style:paragraph-properties fo:margin-left="1.501cm" fo:margin-right="0cm" fo:text-indent="-1.501cm" style:auto-text-indent="false"/>
-            <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="10pt"/>
-        </style:style>
-        <style:style style:class="extra" style:default-outline-level="" style:family="paragraph" style:name="Header" style:parent-style-name="Title">
-            <style:paragraph-properties fo:text-align="center" style:justify-single-word="false">
-                <style:tab-stops>
-                    <style:tab-stop style:position="7.96cm" style:type="center"/>
-                    <style:tab-stop style:position="15.921cm" style:type="right"/>
-                </style:tab-stops>
-            </style:paragraph-properties>
-        </style:style>
         <style:style style:class="extra" style:default-outline-level="" style:family="paragraph" style:name="Footer" style:parent-style-name="Standard">
             <style:paragraph-properties>
                 <style:tab-stops>
@@ -302,6 +278,8 @@
     <office:automatic-styles>
 
 
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="Clause" style:parent-style-name="Title"/>
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="Subclause" style:parent-style-name="Para"/>
 
 
         <style:style style:family="paragraph" style:name="MP1" style:parent-style-name="Footer">
@@ -317,14 +295,8 @@
             </style:footer-style>
         </style:page-layout>
     </office:automatic-styles>
+
     <office:master-styles>
-        <style:master-page style:name="Standard" style:page-layout-name="Mpm1">
-            <style:footer>
-                <text:p text:style-name="MP1">
-                    <text:page-number text:select-page="current">2</text:page-number>
-                </text:p>
-                <text:p text:style-name="Footer"/>
-            </style:footer>
-        </style:master-page>
+
     </office:master-styles>
 </office:document-styles>

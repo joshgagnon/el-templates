@@ -1,0 +1,268 @@
+{% extends 'layouts/default.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block body %}
+
+            <table:table table:name="Table1" table:style-name="Table1">
+                <table:table-column table:style-name="Table1.A"/>
+                <table:table-column table:style-name="Table1.B"/>
+                <table:table-row>
+                    <table:table-cell office:value-type="string" table:style-name="Table1.A1">
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{{ dateString }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19"/>
+                        <text:p text:style-name="P19"/>
+                        <text:p text:style-name="P19"/>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{% if recipient.recipientType == 'company' %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{{ recipient.companyName }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{% elif recipient.individuals %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{% for individual in recipient.individuals %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{{ individual.firstName }} {{individual.lastName }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{% endfor %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P19">
+                            <text:text-input text:description="">{% endif %}</text:text-input>
+                            <text:text-input text:description=""/>
+                        </text:p>
+                        <text:p text:style-name="P20">
+                            <text:text-input text:description="">{% for address in  recipient.contactMethod['address'] %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P20">
+                            <text:text-input text:description="">{{ address }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P20">
+                            <text:text-input text:description="">{% endfor %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P6"/>
+                    </table:table-cell>
+                    <table:table-cell office:value-type="string" table:number-rows-spanned="2" table:style-name="Table1.A1">
+                        <text:p text:style-name="P5">
+                            <draw:frame draw:name="Image2" draw:style-name="fr2" draw:z-index="0" svg:height="4.001cm" svg:width="5.851cm" svg:y="0cm" text:anchor-type="as-char">
+                                <draw:image xlink:actuate="onLoad" xlink:href="Pictures/10000201000005A90000038D0CF9F08C42DAFADC.png" xlink:show="embed" xlink:type="simple"/>
+                            </draw:frame>
+                        </text:p>
+                        <text:p text:style-name="P5"/>
+                        <text:p text:style-name="P21">
+                            <text:span text:style-name="T2">
+                                <text:text-input text:description="">{% if recipient.contactMethod %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T5">
+                                <text:text-input text:description="">{% if recipient.contactMethod.method == 'email' %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T3">By email: </text:span>
+                            <text:span text:style-name="T3">
+                                <text:text-input text:description="">{{ recipient.contactMethod.email }}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T3">
+                                <text:text-input text:description="">{% elif recipient.contactMethod.method == 'hand' %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T4">By hand </text:span>
+                            <text:span text:style-name="T4">
+                                <text:text-input text:description="">{% elif recipient.contactMethod.method == 'courier' %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T4">By courier</text:span>
+                            <text:span text:style-name="T4">
+                                <text:text-input text:description="">{% elif recipient.contactMethod.method == 'post' %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T4">By post </text:span>
+                            <text:span text:style-name="T4">
+                                <text:text-input text:description="">{% endif %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T4">
+                                <text:text-input text:description="">{% endif %}</text:text-input>
+                            </text:span>
+                        </text:p>
+                        <text:p text:style-name="P25">
+                            <text:text-input text:description="">{% if matter and matter['matterId'] %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P23">ID:
+                            <text:span text:style-name="T8">
+                                <text:text-input text:description="">{{ matter['matterId'] }}</text:text-input></text:span>
+                        </text:p>
+                        <text:p text:style-name="P22">
+                            <text:text-input text:description="">{% endif %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P24">
+                            <text:text-input text:description="">{% if status and status.mode %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P24">
+                            <text:text-input text:description="">{% if status.mode == 'custom' %}</text:text-input>
+                            <text:text-input text:description=""/>
+                            <text:text-input text:description=""/>
+                            <text:text-input text:description="">{{ status.message }}</text:text-input>
+                            <text:text-input text:description=""/>
+                            <text:text-input text:description="">{% else %}</text:text-input>
+                            <text:text-input text:description="">{{ status.mode }}</text:text-input>
+                            <text:text-input text:description="">{% endif %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P24">
+                            <text:text-input text:description="">{% endif %}</text:text-input>
+                        </text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell office:value-type="string" table:style-name="Table1.A2">
+                        <text:p text:style-name="P4">
+                            <text:text-input text:description="">{% if recipient.recipientType == 'company' %}</text:text-input>For:
+                            <text:text-input text:description="">{{ recipient['contact'] }}</text:text-input>
+                            <text:text-input text:description="">{% else %}</text:text-input>
+                            Dear
+                            <text:text-input text:description="">{{ recipient.individuals|join_and( 'firstName') }}</text:text-input>
+                            <text:span text:style-name="T7"/>
+                            <text:span text:style-name="T7">
+                                <text:text-input text:description="">{% endif %}</text:text-input></text:span>
+                        </text:p>
+                    </table:table-cell>
+                    <table:covered-table-cell/>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="P34"/>
+            <text:h text:outline-level="1" text:style-name="Heading">
+                <text:text-input text:description="">{{ subject }}</text:text-input>
+            </text:h>
+            <text:p text:style-name="Paragraph"/>
+            <table:table table:name="Table2" table:style-name="Table2">
+                <table:table-column table:style-name="Table2.A"/>
+                <table:table-row>
+                    <table:table-cell office:value-type="string" table:style-name="Table2.A1">
+                        <text:p text:style-name="P36">Yours
+                            <text:text-input text:description="">{{ valediction }}</text:text-input></text:p>
+                        <text:p text:style-name="P35">Evolution Lawyers</text:p>
+                        <text:p text:style-name="P26"/>
+                        <text:p text:style-name="P26"/>
+                        <text:p text:style-name="P26"/>
+                        <text:p text:style-name="P27"/>
+                        <text:p text:style-name="P26">
+                            <text:text-input text:description="">{% if sender %}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P28">
+                            <text:text-input text:description="">{{ sender }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P28">
+                            <text:text-input text:description="">{{ mappings.sender[sender].title }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P30">
+                            <text:span text:style-name="T15">
+                                <text:text-input text:description="">{% if mappings.sender[sender].phone %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T15">DDI: </text:span>
+                            <text:text-input text:description="">{{ mappings.sender[sender].phone }}</text:text-input>
+                            <text:span text:style-name="T13">
+                                <text:text-input text:description="">{% endif %}</text:text-input>
+                            </text:span>
+                        </text:p>
+                        <text:p text:style-name="P29">
+                            <text:span text:style-name="T13">
+                                <text:text-input text:description="">{% if mappings.sender[sender].mobile %}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T13">M: </text:span>
+                            <text:span text:style-name="T13">
+                                <text:text-input text:description="">{{ mappings.sender[sender].mobile }}</text:text-input>
+                            </text:span>
+                            <text:span text:style-name="T13">
+                                <text:text-input text:description="">{% endif %}</text:text-input>
+                            </text:span>
+                        </text:p>
+                        <text:p text:style-name="P32">
+                            <text:span text:style-name="T14">E: </text:span>
+                            <text:text-input text:description="">{{ mappings.sender[sender].email }}</text:text-input>
+                        </text:p>
+                        <text:p text:style-name="P31">
+                            <text:text-input text:description="">{% endif %}</text:text-input>
+                        </text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="P18">
+                <text:text-input text:description="">{% if copyTo %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P33"/>
+            <text:p text:style-name="P33"/>
+            <text:p text:style-name="P9">
+                <text:text-input text:description="">{% for copy in copyTo %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P17">
+                <text:text-input text:description="">{% if loop.index == 1 %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P12">Copy To:
+                <text:tab/>
+                <text:span text:style-name="T9">
+                    <text:text-input text:description="">{{ copy.name }}</text:text-input></text:span>
+            </text:p>
+            <text:p text:style-name="P14">
+                <text:text-input text:description="">{% else %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P14">
+                <text:tab/>
+                <text:tab/>
+                <text:span text:style-name="T9">
+                    <text:text-input text:description="">{{ copy.name }}</text:text-input>
+                </text:span>
+            </text:p>
+            <text:p text:style-name="P14">
+                <text:text-input text:description="">{% endif %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P10">
+                <text:tab/>
+                <text:tab/>
+                <text:span text:style-name="T10">
+                    <text:text-input text:description="">{% if copy.email %}</text:text-input>
+                </text:span>
+            </text:p>
+            <text:p text:style-name="P10">
+                <text:tab/>
+                <text:tab/>
+                <text:span text:style-name="T10">
+                    <text:text-input text:description="">{{ copy.email }}</text:text-input>
+                </text:span>
+            </text:p>
+            <text:p text:style-name="P15">
+                <text:tab/>
+                <text:tab/>
+                <text:text-input text:description="">{% endif %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P9">
+                <text:tab/>
+                <text:tab/>
+                <text:span text:style-name="T12">
+                    <text:text-input text:description="">{% for addressLine in copy['address'] %}</text:text-input>
+                </text:span>
+            </text:p>
+            <text:p text:style-name="P11">
+                <text:soft-page-break/>
+                <text:tab/>
+                <text:tab/>
+                <text:span text:style-name="T11">
+                    <text:text-input text:description="">{{ addressLine }}</text:text-input>
+                </text:span>
+            </text:p>
+            <text:p text:style-name="P8">
+                <text:tab/>
+                <text:tab/>
+                <text:span text:style-name="T11">
+                    <text:text-input text:description="">{% endfor %}</text:text-input>
+                </text:span>
+            </text:p>
+            <text:p text:style-name="P7"/>
+            <text:p text:style-name="P13">
+                <text:text-input text:description="">{% endfor %}</text:text-input>
+            </text:p>
+            <text:p text:style-name="P16">
+                <text:text-input text:description="">{% endif %}</text:text-input>
+            </text:p>
+
+
+{% endblock %}
