@@ -237,37 +237,24 @@
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19"/>
-                        <text:p text:style-name="P19">
                             {% if recipient.recipientType == 'company' %}
-                        </text:p>
                         <text:p text:style-name="P19">
                             {{ recipient.companyName }}
                         </text:p>
-                        <text:p text:style-name="P19">
                             {% elif recipient.individuals %}
-                        </text:p>
-                        <text:p text:style-name="P19">
                             {% for individual in recipient.individuals %}
-                        </text:p>
                         <text:p text:style-name="P19">
                             {{ individual.firstName }} {{individual.lastName }}
                         </text:p>
-                        <text:p text:style-name="P19">
                             {% endfor %}
-                        </text:p>
-                        <text:p text:style-name="P19">
                             {% endif %}
-                            <text:text-input text:description=""/>
-                        </text:p>
+                        {% for line in ["line1", "line2", "city", "county", "state", "postcode", "country"] %}
+                        {% if recipient.contactMethod['address'][line] %}
                         <text:p text:style-name="P20">
-                            {% for address in  recipient.contactMethod['address'] %}
+                            {{ recipient.contactMethod['address'][line] }}
                         </text:p>
-                        <text:p text:style-name="P20">
-                            {{ address }}
-                        </text:p>
-                        <text:p text:style-name="P20">
-                            {% endfor %}
-                        </text:p>
+                        {% endif %}
+                        {% endfor %}
                         <text:p text:style-name="P6"/>
                     </table:table-cell>
                     <table:table-cell office:value-type="string" table:number-rows-spanned="2" table:style-name="Table1.A1">
