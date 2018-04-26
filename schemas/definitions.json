@@ -120,6 +120,34 @@
             },
             "required": ["firstName", "lastName"]
         },
+        "sender": {
+            "type": "object",
+            "title": "Sender",
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "Title",
+                    "type": "string"
+                },
+                "phone": {
+                    "title": "Phone",
+                    "type": "string"
+                },
+                "mobile": {
+                    "title": "Mobile",
+                    "type": "string"
+                },
+                "email": {
+                    "title": "Email",
+                    "type": "string"
+                }
+
+            },
+            "required": ["name"]
+        },
         "contactMethod": {
             "title": "Contact Method",
             "type": "object",

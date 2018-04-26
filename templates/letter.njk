@@ -354,43 +354,29 @@
                         <text:p text:style-name="P26"/>
                         <text:p text:style-name="P26"/>
                         <text:p text:style-name="P27"/>
-                        <text:p text:style-name="P26">
-                            {% if sender %}
+                        <text:p text:style-name="P28">
+                            {{ sender.name }}
                         </text:p>
                         <text:p text:style-name="P28">
-                            {{ sender }}
-                        </text:p>
-                        <text:p text:style-name="P28">
-                            {{ mappings.sender[sender].title }}
+                            {{ sender.title }}
                         </text:p>
                         <text:p text:style-name="P30">
-                            <text:span text:style-name="T15">
-                                {% if mappings.sender[sender].phone %}
-                            </text:span>
-                            <text:span text:style-name="T15">DDI: </text:span>
-                            {{ mappings.sender[sender].phone }}
-                            <text:span text:style-name="T13">
-                                {% endif %}
-                            </text:span>
+                                {% if sender.phone %}
+                            <text:span text:style-name="T15">D: </text:span>
+                                {{ sender.phone }}
+                            {% endif %}
                         </text:p>
                         <text:p text:style-name="P29">
-                            <text:span text:style-name="T13">
-                                {% if mappings.sender[sender].mobile %}
-                            </text:span>
+                                {% if sender.mobile %}
                             <text:span text:style-name="T13">M: </text:span>
-                            <text:span text:style-name="T13">
-                                {{ mappings.sender[sender].mobile }}
-                            </text:span>
+                                {{ sender.mobile }}
                             <text:span text:style-name="T13">
                                 {% endif %}
                             </text:span>
                         </text:p>
                         <text:p text:style-name="P32">
                             <text:span text:style-name="T14">E: </text:span>
-                            {{ mappings.sender[sender].email }}
-                        </text:p>
-                        <text:p text:style-name="P31">
-                            {% endif %}
+                            {{ sender.email }}
                         </text:p>
                     </table:table-cell>
                 </table:table-row>
@@ -428,20 +414,8 @@
                 <text:tab/>
                 <text:tab/>
                 <text:span text:style-name="T10">
-                    {% if copy.email %}
-                </text:span>
-            </text:p>
-            <text:p text:style-name="P10">
-                <text:tab/>
-                <text:tab/>
-                <text:span text:style-name="T10">
                     {{ copy.email }}
                 </text:span>
-            </text:p>
-            <text:p text:style-name="P15">
-                <text:tab/>
-                <text:tab/>
-                {% endif %}
             </text:p>
             <text:p text:style-name="P9">
                 <text:tab/>
