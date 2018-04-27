@@ -20,12 +20,78 @@
             "title": "Subject",
             "type": "string"
         },
-        "valediction": {
-            "title": "Valediction",
-            "enum": [
-                "sincerely",
-                "faithfully"
-            ]
+        "status": {
+            "type": "object",
+            "title": "Status",
+            "properties": {
+                "mode": {
+                    "title": "Status",
+                    "enums": [
+                        "",
+                        "Without Prejudice (save as to costs)",
+                        "Private & Confidential",
+                        "Legally Privileged",
+                        "Custom"
+                    ]
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Without Prejudice (save as to costs)"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Private & Confidential"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Legally Privileged"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "custom"
+                            ]
+                        },
+                        "message": {
+                            "title": "Custom Status",
+                            "type": "string"
+                        }
+                    }
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "mode"
+                }
+            }
+
         },
         "sender": {
              "$ref": "#/definitions/sender"
