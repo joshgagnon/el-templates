@@ -20,79 +20,90 @@
             "title": "Subject",
             "type": "string"
         },
-        "status": {
+        "matter": {
+            "title": "Matter",
             "type": "object",
-            "title": "Status",
             "properties": {
-                "mode": {
-                    "title": "Status",
-                    "enum": [
-                        "",
-                        "Without Prejudice (save as to costs)",
-                        "Private & Confidential",
-                        "Legally Privileged",
-                        "Custom"
-                    ]
-                }
-            },
-            "oneOf": [
-                {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "status": {
+                    "type": "object",
                     "properties": {
                         "mode": {
+                            "title": "Status",
                             "enum": [
-                                ""
+                                "No Status",
+                                "Without Prejudice (save as to costs)",
+                                "Private & Confidential",
+                                "Legally Privileged",
+                                "Custom"
                             ]
                         }
-                    }
-                },
-                {
-                    "properties": {
-                        "mode": {
-                            "enum": [
-                                "Without Prejudice (save as to costs)"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "mode": {
-                            "enum": [
-                                "Private & Confidential"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "mode": {
-                            "enum": [
-                                "Legally Privileged"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "mode": {
-                            "enum": [
-                                "custom"
-                            ]
+                    },
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "mode": {
+                                    "enum": [
+                                        "No Status"
+                                    ]
+                                }
+                            }
                         },
-                        "message": {
-                            "title": "Custom Status",
-                            "type": "string"
+                        {
+                            "properties": {
+                                "mode": {
+                                    "enum": [
+                                        "Without Prejudice (save as to costs)"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "mode": {
+                                    "enum": [
+                                        "Private & Confidential"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "mode": {
+                                    "enum": [
+                                        "Legally Privileged"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "mode": {
+                                    "enum": [
+                                        "Custom"
+                                    ]
+                                },
+                                "message": {
+                                    "title": "Custom Status",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "mode"
                         }
                     }
-                }
-            ],
-            "x-hints": {
-                "form": {
-                    "selector": "mode"
+
                 }
             }
 
         },
+
         "sender": {
              "$ref": "#/definitions/sender"
         },

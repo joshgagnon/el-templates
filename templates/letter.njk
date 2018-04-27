@@ -305,16 +305,16 @@
                             {% endif %}
                         </text:p>
                         <text:p text:style-name="P24">
-                            {% if status and status.mode %}
+                            {% if matter.status and matter.status.mode and matter.status.mode != 'No Status' %}
                         </text:p>
                         <text:p text:style-name="P24">
-                            {% if status.mode == 'custom' %}
+                            {% if matter.status.mode == 'custom' %}
                             <text:text-input text:description=""/>
                             <text:text-input text:description=""/>
-                            {{ status.message }}
+                            {{ matter.status.message }}
                             <text:text-input text:description=""/>
                             {% else %}
-                            {{ status.mode }}
+                            {{ matter.status.mode }}
                             {% endif %}
                         </text:p>
                         <text:p text:style-name="P24">
