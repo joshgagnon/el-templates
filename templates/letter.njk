@@ -7,7 +7,7 @@
 
         <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_email_title" style:display-name="Email Title" style:parent-style-name="Standard">
             <style:paragraph-properties fo:text-align="left" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
-            <style:text-properties fo:font-weight="bold" fo:text-transform="uppercase" style:font-family-generic-asian="system" style:font-family-generic-complex="system" style:font-name-asian="F" style:font-name-complex="F" style:font-pitch-asian="variable" style:font-pitch-complex="variable" style:font-size-complex="11pt" style:font-weight-asian="bold"/>
+            <style:text-properties fo:font-weight="bold" style:font-family-generic-asian="system" style:font-family-generic-complex="system" style:font-name-asian="F" style:font-name-complex="F" style:font-pitch-asian="variable" style:font-pitch-complex="variable" style:font-size-complex="11pt" style:font-weight-asian="bold"/>
         </style:style>
 
 
@@ -294,16 +294,12 @@
                                 {% endif %}
                             </text:span>
                         </text:p>
-                        <text:p text:style-name="P25">
                             {% if matter and matter['matterId'] %}
-                        </text:p>
                         <text:p text:style-name="P23">ID:
                             <text:span text:style-name="T8">
                                 {{ matter['matterId'] }}</text:span>
                         </text:p>
-                        <text:p text:style-name="P22">
                             {% endif %}
-                        </text:p>
                         <text:p text:style-name="P24">
                             {% if matter.status and matter.status.mode and matter.status.mode != 'No Status' %}
                         </text:p>
