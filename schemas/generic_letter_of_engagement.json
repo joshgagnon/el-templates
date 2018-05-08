@@ -1,0 +1,121 @@
+{
+    "title": "Generic Letter of Engagement",
+    "formName": "generic_letter_of_engagement",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient"
+        },
+        "matter": {
+            "title": "Matter",
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "status":{
+                    "$ref": "#/definitions/status"
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Matter Name",
+                    "description": "e.g. Liquidation Advice"
+                },
+                 "description": {
+                    "type": "string",
+                    "title": "Description",
+                    "description": "e.g. advice regarding the Liquidation of the company"
+                },
+                "fee": {
+                    "title": "Fees",
+                    "type": "object",
+                    "properties": {
+                        "feeType": {
+                            "title": "Fee",
+                            "enum": [
+                                "Unspecified",
+                                "Pre-agreed",
+                                "Estimated"
+                            ]
+                        }
+                    },
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "feeType": {
+                                    "enum": [
+                                        "Unspecified"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "feeType": {
+                                    "enum": [
+                                        "Pre-agreed"
+                                    ]
+                                },
+                                "description": {
+                                    "title": "Fee Description",
+                                    "type": "string"
+
+                                },
+                                "services": {
+                                    "type": "string",
+                                    "title": "Quoted Services"
+                                }
+                            },
+                            "required": ["description"]
+                        },
+                        {
+                            "properties": {
+                                "feeType": {
+                                    "enum": [
+                                        "Estimated"
+                                    ]
+                                },
+                                "description": {
+                                    "title": "Fee Description",
+                                    "type": "string"
+
+                                },
+                                "services": {
+                                    "type": "string",
+                                    "title": "Quoted Services"
+                                }
+                            },
+                            "required": ["description"]
+                        }],
+                    "x-hints": {
+                        "form": {
+                            "selector": "feeType"
+                        }
+                    }
+                },
+                "disclosure": {
+                    "type": "string",
+                    "title": "Disclosure of Interests",
+                    "description": "e.g. We act for Company ABC Ltd"
+                }
+            }
+        },
+        "sender": {
+             "$ref": "#/definitions/sender"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    }
+}

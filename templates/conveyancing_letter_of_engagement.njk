@@ -1,0 +1,51 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+<text:h text:outline-level="1" text:style-name="Heading">
+Letter of Engagement - {{ matter.conveyancing.matterType|title }}  of {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %}(“the Property”){% else %}(“the Properties”){% endif %}
+</text:h>
+
+<text:p text:style-name="Paragraph">
+Thank you for asking Evolution Lawyers to act for {% if recipient.recipientType == 'company' %}{{ recipient.companyName }} (Company){% else %}you{% endif %}.  We understand that you would like us to assist {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} with {{ mappings.verbToNoun[matter.conveyancing.matterType] }}{% if matter.assets|length == 1 %} the Property{% else %}the Properties{% endif %}.
+</text:p>
+
+<text:p text:style-name="Paragraph">
+We would be happy to act for {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} in this matter.  {% if not isNewClient %}Any service we provide to you will be subject our standard terms, which we have provided to you previously, as varied or added to by this letter of engagement (together, the Terms).{% else %} Please find attached a copy of our standard terms of engagement.  Any service we provide to {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} will be subject to those standard terms, as varied or added to by this letter of engagement (together, the Terms).{% endif %}
+</text:p>
+<text:p text:style-name="Paragraph">
+Please confirm {% if recipient.recipientType == 'company' %}the Company's{% else %}your{% endif %} acceptance of the Terms by return email.  Evolution can commence work on the matter as soon as we receive that confirmation.
+</text:p>
+
+<text:p text:style-name="Subtitle">Your Matter</text:p>
+<text:p text:style-name="Paragraph">
+I will have overall responsibility for the matter.  I will be assisted by other lawyers in the firm as and when required.
+</text:p>
+<text:p text:style-name="Paragraph">
+Our fees will be charged and billed in accordance with the Terms.  Our standard fee estimate for a property {{ matter.conveyancing.matterType }} is {{ mappings.price[matter.conveyancing.matterType] }} plus GST and disbursements.  This is, however, an indication only, and the fee may increase if additional attendances are required.
+</text:p>
+
+<text:p text:style-name="Paragraph">
+Disbursements for a property {{ matter.conveyancing.matterType }} typically include Land Information New Zealand registration charges, which will be {% if matter.conveyancing.matterType == 'purchase' %}{{  mappings.disbursements[matter.conveyancing.matterType] }} to transfer the Property’s title and register a new mortgage{% elif matter.conveyancing.matterType == 'sale' %}{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title{% else %}{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title and register a new mortgage{% endif %}, title searches, which are $5 for each title or instrument searched, and our general office disbursement fee of $50.
+</text:p>
+<text:p text:style-name="Paragraph">
+Based on the estimate of fees and disbursements noted above, and assuming one title search, our invoice including GST and disbursements would come to {{  mappings.priceIncGST[matter.conveyancing.matterType] }}.
+</text:p>
+<text:p text:style-name="Paragraph">
+We will endeavour to inform you in advance if it appears as though our fee will exceed the estimate.
+</text:p>
+<text:p text:style-name="Paragraph">
+{% if matter.conveyancing.matterType == 'sale' %}Please note that our fee estimate does not include advice regarding the potential tax consequences of, or relationship property issues arising from, the transaction. If you would like us to provide advice on those matters, please let us know and we will prepare a revised fee estimate. However, if we do not hear from you, then the scope of our engagement will be limited to attending to your property sale conveyance.{% endif %}{% if matter.conveyancing.matterType == 'purchase' %}Please note that our fee estimate does not include advice regarding the potential tax consequences of, or relationship property issues arising from, the transaction. Nor does our fee estimate include advice on estate planning, ownership structures, or property sharing arrangements. If you would like us to provide advice on any of those matters, please let us know and we will prepare a revised fee estimate. However, if we do not hear from you, then the scope of our engagement will be limited to attending to your property purchase conveyance.{% endif %}
+</text:p>
+<text:p text:style-name="Subtitle">Disclosure of Interests</text:p>
+<text:p text:style-name="Paragraph">
+{% if disclosure %}{{ disclosure }}. However, we {% else %}We {% endif %} do not believe there is any conflict of interest that would prohibit Evolution from acting for {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} in this matter.
+</text:p>
+
+<text:p text:style-name="Paragraph">
+    If you have any queries about our engagement, please contact us.
+</text:p>
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{
+    "title": "Conveyancing Letter of Engagement",
+    "formName": "conveyancing_letter_of_engagement",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                },
+                "conveyancing": {
+                    "type": "object",
+                    "properties": {
+                        "matterType": {
+                            "title": "Conveyancing Type",
+                            "enum": [
+                                "purchase",
+                                "sale",
+                                "refinance"
+                            ],
+                            "enumNames": [
+                                "Purchase",
+                                "Sale",
+                                "Refinance"
+                            ]
+                        }
+                    },
+                    "required": ["matterType"]
+                }
+
+            },
+            "required": ["conveyancing", "assets"]
+        },
+        "disclosure": {
+            "type": "string",
+            "title": "Disclosure of Interests",
+            "description": "e.g. We act for Company ABC Ltd"
+        },
+        "sender": {
+             "$ref": "#/definitions/sender"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    }
+}

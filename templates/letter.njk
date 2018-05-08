@@ -2,6 +2,7 @@
 
 {% import 'partials/macros.njk' as macros %}
 
+{% block body %}
 {% block automaticStyles %}
   <office:automatic-styles>
 
@@ -220,11 +221,21 @@
         <style:style style:family="graphic" style:name="fr2" style:parent-style-name="Graphics">
             <style:graphic-properties draw:blue="0%" draw:color-inversion="false" draw:color-mode="standard" draw:contrast="0%" draw:gamma="100%" draw:green="0%" draw:image-opacity="100%" draw:luminance="0%" draw:red="0%" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" style:horizontal-pos="from-left" style:horizontal-rel="paragraph-content" style:mirror="none" style:vertical-pos="from-top"/>
         </style:style>
+
+        <style:style style:family="text" style:name="bold">
+            <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
+
+        <style:style style:class="chapter" style:family="paragraph" style:name="Subtitle" style:next-style-name="Normal" style:parent-style-name="Normal">
+            <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+            <style:text-properties fo:font-style="italic" fo:hyphenate="false" fo:hyphenation-push-char-count="2" fo:hyphenation-remain-char-count="2" style:font-family-asian="'MS Mincho'" style:font-family-generic-asian="modern" style:font-name-asian="MS Mincho" style:font-pitch-asian="fixed" style:font-size-complex="11pt" style:font-style-asian="italic"/>
+        </style:style>
+
     </office:automatic-styles>
 
 {% endblock %}
 
-{% block body %}
+{% block letterHeader %}
 
             <table:table table:name="Table1" table:style-name="Table1">
                 <table:table-column table:style-name="Table1.A"/>
@@ -333,10 +344,19 @@
                     <table:covered-table-cell/>
                 </table:table-row>
             </table:table>
+{% endblock %}
+{% block letterBody %}
+
             <text:p text:style-name="P34"/>
             <text:h text:outline-level="1" text:style-name="el_email_title">
                 {{ subject }}
             </text:h>
+
+
+{% endblock %}
+
+{% block letterFooter %}
+
             <text:p text:style-name="Paragraph"/>
             <table:table table:name="Table2" table:style-name="Table2">
                 <table:table-column table:style-name="Table2.A"/>
@@ -351,23 +371,23 @@
                         <text:p text:style-name="P28">
                             {{ sender.name }}
                         </text:p>
-                        <text:p text:style-name="P28">
+                        <text:p >
                             {{ sender.title }}
                         </text:p>
-                        <text:p text:style-name="P30">
-                                {% if sender.phone %}
-                            <text:span text:style-name="T15">D: </text:span>
-                                {{ sender.phone }}
+                        {% if sender.phone %}
+                            <text:p >
+                                <text:span >D: </text:span>
+                                    {{ sender.phone }}
+                            </text:p>
                             {% endif %}
-                        </text:p>
-                        <text:p text:style-name="P29">
-                                {% if sender.mobile %}
-                            <text:span text:style-name="T13">M: </text:span>
-                                {{ sender.mobile }}
-                                {% endif %}
-                        </text:p>
-                        <text:p text:style-name="P32">
-                            <text:span text:style-name="T14">E: </text:span>
+                         {% if sender.mobile %}
+                            <text:p >
+                                <text:span >M: </text:span>
+                                    {{ sender.mobile }}
+                            </text:p>
+                        {% endif %}
+                        <text:p >
+                            <text:span>E: </text:span>
                             {{ sender.email }}
                         </text:p>
                     </table:table-cell>
@@ -441,3 +461,5 @@
 
 
 {% endblock %}
+{% endblock %}
+

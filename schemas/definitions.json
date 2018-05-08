@@ -279,6 +279,128 @@
                     "selector": "method"
                 }
             }
+        },
+       "status": {
+            "type": "object",
+            "properties": {
+                "mode": {
+                    "title": "Status",
+                    "enum": [
+                        "No Status",
+                        "Without Prejudice (save as to costs)",
+                        "Private & Confidential",
+                        "Legally Privileged",
+                        "Custom"
+                    ]
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "No Status"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Without Prejudice (save as to costs)"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Private & Confidential"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Legally Privileged"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [
+                                "Custom"
+                            ]
+                        },
+                        "message": {
+                            "title": "Custom Status",
+                            "type": "string"
+                        }
+                    }
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "mode"
+                }
+            }
+
+        },
+        "copyTo": {
+            "type": "array",
+            "title": "Copy To",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "address": {
+                        "$ref": "#/definitions/address"
+                    }
+                },
+                "required": ["name"]
+            }
+        },
+        "assets": {
+            "items": {
+                "title": "Property",
+                    "properties": {
+                        "address": {
+                            "title": "Address",
+                            "type": "string"
+                        },
+                        "uniqueIdentifier": {
+                            "type": "string",
+                            "title": "Unique Identifier",
+                            "minLength": 1
+                        },
+                        "registry": {
+                            "type": "string",
+                            "title": "Registry",
+                            "minLength": 1,
+                            "description": "e.g. North Auckland"
+                        }
+                },
+                "required": [
+                    "address"
+                ],
+                "type": "object"
+            },
+            "minItems": 1,
+            "title": "Properties",
+            "type": "array"
         }
     }
 }

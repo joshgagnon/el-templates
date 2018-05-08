@@ -1,6 +1,7 @@
 {
     "title": "Letter",
     "formName": "letter",
+    "baseDoc": "letter.odt",
     "properties": {
         "dateString": {
             "title": "Date",
@@ -28,77 +29,8 @@
                     "title": "Matter ID",
                     "type": "string"
                 },
-                "status": {
-                    "type": "object",
-                    "properties": {
-                        "mode": {
-                            "title": "Status",
-                            "enum": [
-                                "No Status",
-                                "Without Prejudice (save as to costs)",
-                                "Private & Confidential",
-                                "Legally Privileged",
-                                "Custom"
-                            ]
-                        }
-                    },
-                    "oneOf": [
-                        {
-                            "properties": {
-                                "mode": {
-                                    "enum": [
-                                        "No Status"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "mode": {
-                                    "enum": [
-                                        "Without Prejudice (save as to costs)"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "mode": {
-                                    "enum": [
-                                        "Private & Confidential"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "mode": {
-                                    "enum": [
-                                        "Legally Privileged"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "mode": {
-                                    "enum": [
-                                        "Custom"
-                                    ]
-                                },
-                                "message": {
-                                    "title": "Custom Status",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    ],
-                    "x-hints": {
-                        "form": {
-                            "selector": "mode"
-                        }
-                    }
-
+                "status":{
+                    "$ref": "#/definitions/status"
                 }
             }
 
@@ -108,25 +40,7 @@
              "$ref": "#/definitions/sender"
         },
         "copyTo": {
-            "type": "array",
-            "title": "Copy To",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "title": "Name"
-                    },
-                    "email": {
-                        "type": "string",
-                        "title": "Email"
-                    },
-                    "address": {
-                        "$ref": "#/definitions/address"
-                    }
-                },
-                "required": ["name"]
-            }
+            "$ref": "#/definitions/copyTo"
         }
     }
 }

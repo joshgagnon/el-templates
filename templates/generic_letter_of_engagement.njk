@@ -1,0 +1,106 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+
+            <text:h text:outline-level="1" text:style-name="Heading">
+                <text:span>Letter of Engagement - {{ matter.name }}</text:span>
+            </text:h>
+            <text:p text:style-name="Paragraph">Thank you for asking Evolution Lawyers to act for
+                {% if recipient.recipientType == 'company' %}
+                    {{ recipient.companyName }}
+                    (<text:span text:style-name="bold">Company</text:span>).
+                {% else %}
+                    <text:span>you.</text:span>
+                {% endif %}
+                <text:span>We understand that you would like us to assist </text:span>
+                {% if recipient.recipientType == 'company' %}
+                    <text:span>the Company</text:span>
+                {% else %}
+                    <text:span>you</text:span>
+                {% endif %}
+                <text:span>with </text:span>
+                <text:span>
+                    {{ matter.description }}
+                </text:span>
+                <text:span>.</text:span>
+            </text:p>
+
+            <text:p text:style-name="Paragraph">We would be happy to act for
+                {% if recipient.recipientType == 'company' %}
+                    <text:span>the Company</text:span>
+                {% else %}
+                    <text:span>you</text:span>
+                {% endif %}
+                in this matter.
+                <text:s/>
+                Please find
+                <text:span text:style-name="bold">attached</text:span>
+                a copy of our standard terms of engagement.
+                <text:s/>
+                Any service we provide to
+
+                {% if recipient.recipientType == 'company' %}
+                    <text:span>the Company</text:span>
+                {% else %}
+                    <text:span>you</text:span>
+                {% endif %}
+                will be subject to those standard terms, as varied or added to by this letter of engagement (together, the
+                <text:span text:style-name="bold">Terms</text:span>). </text:p>
+            <text:p text:style-name="Paragraph">
+                {% if recipient.recipientType == 'company' %}
+                    <text:span>Our client for this matter will be the {{ recipient.companyName }}</text:span>
+                {% else %}
+                    <text:span>Our client{% if recipient.individuals.length > 1 %}s{% endif %} for this matter will be {{ recipient.individuals|concat(['firstName', 'lastName'])|join_and() }}.</text:span>
+                {% endif %}
+
+
+             </text:p>
+            <text:p text:style-name="Subtitle">Your Matter</text:p>
+            <text:p text:style-name="Paragraph">I will have overall responsibility for the matter.
+                <text:s/>
+                I will be assisted by other lawyers in the firm as and when required.</text:p>
+            <text:p text:style-name="Paragraph">Our fees will be charged and billed in accordance with the Terms.
+                <text:s/>
+                {% if fee.feeType == 'preagreed' or fee.feeType == 'estimated' %}
+                {% if fee.feeType == 'estimated' %}
+                    <text:span>We estimate that our fee </text:span>
+                {% else %}
+                    <text:span>We have agreed that our fee</text:span>
+                {% endif %}
+                for
+                {% if fee.services %}
+                    <text:span>
+                        {{ fee.services }}
+                    </text:span>
+                {% else %}the matter
+                {% endif %}
+                will be
+                <text:span>
+                    {{ fee.description }}</text:span>, excluding GST and disbursements.
+                <text:s/>
+                However, this is only an indication.
+                <text:s/>
+                Our fee may be higher depending on the particular attendances required.
+                <text:s/>
+                We will endeavour to let you know in advance if it appears as though our fee will exceed the estimate.
+                {% endif %}
+            </text:p>
+            <text:p text:style-name="Subtitle">Disclosure of Interests</text:p>
+            <text:p text:style-name="Paragraph">
+                {% if disclosure %}{{ disclosure }}. However, we{% else %}We{% endif %}
+                <text:span>do not believe there is any conflict of interest that would prohibit us from acting for </text:span>
+
+                {% if recipient.recipientType == 'company' %}
+                    <text:span>the Company</text:span>
+                {% else %}
+                    <text:span>you</text:span>
+                {% endif %}
+                <text:span>in this matter.</text:span>
+            </text:p>
+            <text:p text:style-name="Paragraph">
+                If you have any queries about our engagement, please contact us.
+            </text:p>
+
+{% endblock %}
