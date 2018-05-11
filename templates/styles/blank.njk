@@ -17,8 +17,16 @@
             <style:text-properties fo:color="#000000" fo:country="NZ" fo:font-size="11pt" fo:language="en" style:country-asian="US" style:country-complex="SA" style:font-name="Calibri" style:font-name-asian="Calibri1" style:font-name-complex="F" style:font-size-asian="11pt" style:font-size-complex="11pt" style:language-asian="en" style:language-complex="ar" style:letter-kerning="true"/>
         </style:default-style>
         <style:default-style style:family="paragraph">
-            <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" fo:text-align="justify" style:justify-single-word="false" style:line-break="strict" style:punctuation-wrap="hanging" style:tab-stop-distance="1.27cm" style:text-autospace="ideograph-alpha" style:writing-mode="page"/>
+            <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" fo:text-align="justify" style:justify-single-word="false" style:line-break="strict" style:punctuation-wrap="hanging" style:tab-stop-distance="1.5cm" style:text-autospace="ideograph-alpha" style:writing-mode="page"/>
             <style:text-properties fo:color="#000000" fo:country="NZ" fo:font-size="11pt" fo:hyphenate="false" fo:hyphenation-push-char-count="2" fo:hyphenation-remain-char-count="2" fo:language="en" style:country-asian="US" style:country-complex="SA" style:font-name="Calibri" style:font-name-asian="Calibri1" style:font-name-complex="F" style:font-size-asian="11pt" style:font-size-complex="11pt" style:language-asian="en" style:language-complex="ar" style:letter-kerning="true"/>
+                <style:tab-stops>
+                    <style:tab-stop style:position="1.5cm"/>
+                    <style:tab-stop style:position="3.00cm"/>
+                    <style:tab-stop style:position="4.50cm"/>
+                    <style:tab-stop style:position="6.00cm"/>
+                    <style:tab-stop style:position="7.50cm"/>
+                    <style:tab-stop style:position="9.00cm"/>
+                </style:tab-stops>
         </style:default-style>
         <style:default-style style:family="table">
             <style:table-properties table:border-model="collapsing"/>
@@ -29,6 +37,15 @@
         <style:style style:class="text" style:default-outline-level="" style:family="paragraph" style:name="Standard" style:display-name="Normal">
             <style:paragraph-properties fo:orphans="2" fo:text-align="start" fo:widows="2" style:justify-single-word="false" style:writing-mode="lr-tb"/>
             <style:text-properties fo:color="#00000a" fo:font-family="Calibri" style:font-family-generic="roman" style:font-family-generic-asian="system" style:font-name="Calibri" style:font-name-asian="F" style:font-pitch="variable" style:font-pitch-asian="variable" style:font-size-complex="11pt"/>
+                <style:tab-stops>
+                    <style:tab-stop style:position="1.5cm"/>
+                    <style:tab-stop style:position="3.00cm"/>
+                    <style:tab-stop style:position="4.50cm"/>
+                    <style:tab-stop style:position="6.00cm"/>
+                    <style:tab-stop style:position="7.50cm"/>
+                    <style:tab-stop style:position="9.00cm"/>
+                </style:tab-stops>
+
         </style:style>
 
 
@@ -137,6 +154,33 @@
 
         </text:list-style>
 
+        <text:list-style style:name="el_party_list" style:display-name="EL Party List">
+            <text:list-level-style-number style:num-format="1" style:num-letter-sync="true" style:num-suffix="." text:level="1" >
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.500cm" fo:text-indent="-1.500cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+            <text:list-level-style-number style:num-format="a" style:num-letter-sync="true" style:num-prefix="(" style:num-suffix=")" text:level="2">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="3cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+            <text:list-level-style-number style:num-format="i" style:num-prefix="(" style:num-suffix=")" text:level="3">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="4.5cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+            <text:list-level-style-number style:num-format="A" style:num-letter-sync="true" style:num-suffix="." text:level="4">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="6cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+        </text:list-style>
+
         <text:list-style style:name="el_background_list" style:display-name="EL Background List">
             <text:list-level-style-number style:num-format="A" style:num-letter-sync="true" style:num-suffix="." text:level="1" >
                 <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -206,23 +250,75 @@
             </text:list-level-style-number>
         </text:list-style>
 
+        <text:list-style style:name="el_subclause_list">
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:level="1">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="2" text:level="2">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="3" text:level="3">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="3cm" fo:text-indent="-1.499cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="4" text:level="4">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="4.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab" text:list-tab-stop-position="3cm"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="5" text:level="5">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="6.001cm" fo:text-indent="-1.499cm" text:label-followed-by="listtab" text:list-tab-stop-position="4.501cm"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="6" text:level="6">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="7" text:level="7">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="8" text:level="8">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:display-levels="9" text:level="9">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.501cm" fo:text-indent="-1.501cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+            <text:list-level-style-number style:num-format="1" style:num-suffix="." text:level="10">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="6.985cm" fo:text-indent="-0.635cm" text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+        </text:list-style>
 
          <style:style style:family="paragraph" style:display-name="EL List Paragraph"  style:list-style-name="el_list" style:name="el_list_paragraph">
-                   <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+                   <style:paragraph-properties  fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
          </style:style>
          <style:style style:family="paragraph" style:display-name="EL Numbered List Paragraph"  style:list-style-name="el_numbered_list" style:name="el_numbered_list_paragraph">
-                   <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+                   <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
          </style:style>
 
 
-         <style:style style:family="paragraph" style:display-name="EL Party List Paragraph"  style:list-style-name="el_numbered_list" style:name="el_party_list_paragraph">
-                   <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+         <style:style style:family="paragraph" style:display-name="EL Party List Paragraph"  style:list-style-name="el_party_list" style:name="el_party_list_paragraph"  >
+                   <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
                    <style:text-properties fo:font-weight="bold"/>
          </style:style>
 
 
-         <style:style style:family="paragraph" style:display-name="EL Background List Paragraph"  style:list-style-name="el_background_list_paragraph" style:name="el_background_list_paragraph">
-                   <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+         <style:style style:family="paragraph" style:display-name="EL Background List Paragraph"  style:list-style-name="el_background_list" style:name="el_background_list_paragraph">
+                   <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
                    <style:text-properties fo:font-weight="bold"/>
          </style:style>
 
@@ -239,14 +335,14 @@
 
 
         <style:style style:family="paragraph" style:display-name="EL Clause" style:list-style-name="el_clause_list" style:name="el_clause_para" style:parent-style-name="Clause">
-              <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+              <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
               <style:text-properties fo:font-weight="bold"/>
                <style:text-properties fo:text-transform="uppercase"/>
         </style:style>
-        <style:style style:family="paragraph" style:display-name="EL Subclause" style:list-style-name="el_clause_list" style:name="el_subclause_para" style:parent-style-name="Subclause">
-              <style:paragraph-properties style:display-name="EL List Pa" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
-        </style:style>
 
+        <style:style style:family="paragraph" style:display-name="EL Subclause" style:list-style-name="el_subclause_list" style:name="el_subclause_para"  style:parent-style-name="Subclause">
+              <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+        </style:style>
 
 
         <style:style style:class="extra" style:default-outline-level="" style:family="paragraph" style:name="Footer" style:parent-style-name="Standard">
@@ -286,13 +382,14 @@
 
         <style:style style:default-outline-level="" style:family="paragraph" style:name="Clause" style:parent-style-name="Title"/>
         <style:style style:default-outline-level="" style:family="paragraph" style:name="Subclause" style:parent-style-name="Para"/>
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="Party" style:parent-style-name="Para"/>
 
 
         <style:style style:family="paragraph" style:name="MP1" style:parent-style-name="Footer">
             <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
         </style:style>
-        <style:page-layout style:name="Mpm1">
-            <style:page-layout-properties fo:margin-bottom="1.251cm" fo:margin-left="2.501cm" fo:margin-right="2.501cm" fo:margin-top="2.501cm" fo:page-height="29.7cm" fo:page-width="21.001cm" style:footnote-max-height="0cm" style:layout-grid-base-height="0.423cm" style:layout-grid-base-width="0.37cm" style:layout-grid-color="#c0c0c0" style:layout-grid-display="false" style:layout-grid-lines="38" style:layout-grid-mode="none" style:layout-grid-print="false" style:layout-grid-ruby-below="false" style:layout-grid-ruby-height="0.212cm" style:layout-grid-snap-to="true" style:num-format="1" style:print-orientation="portrait" style:writing-mode="lr-tb">
+        <style:page-layout style:name="page">
+            <style:page-layout-properties fo:margin-bottom="2.501cm" fo:margin-left="2.501cm" fo:margin-right="2.501cm" fo:margin-top="2.501cm" fo:page-height="29.7cm" fo:page-width="21.001cm" style:footnote-max-height="0cm" style:layout-grid-base-height="0.423cm" style:layout-grid-base-width="0.37cm" style:layout-grid-color="#c0c0c0" style:layout-grid-display="false" style:layout-grid-lines="38" style:layout-grid-mode="none" style:layout-grid-print="false" style:layout-grid-ruby-below="false" style:layout-grid-ruby-height="0.212cm" style:layout-grid-snap-to="true" style:num-format="1" style:print-orientation="portrait" style:writing-mode="lr-tb">
                 <style:footnote-sep style:adjustment="left" style:color="#000000" style:distance-after-sep="0.101cm" style:distance-before-sep="0.101cm" style:line-style="solid" style:rel-width="0%" style:width="0.009cm"/>
             </style:page-layout-properties>
             <style:header-style/>
@@ -303,6 +400,6 @@
     </office:automatic-styles>
 
     <office:master-styles>
-
+             <style:master-page style:name="Standard" style:page-layout-name="page"/>
     </office:master-styles>
 </office:document-styles>
