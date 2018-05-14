@@ -1,0 +1,51 @@
+{% extends 'layouts/default.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block body %}
+
+            <text:table-of-content text:name="Table of Contents1" text:protected="true" text:style-name="Sect1">
+                <text:table-of-content-source text:outline-level="10" text:use-index-source-styles="true" text:use-outline-level="false">
+                    <text:index-title-template text:style-name="contents_heading">Table of Contents</text:index-title-template>
+
+                    <text:index-source-styles text:outline-level="1">
+                        <text:index-source-style text:style-name="el_clause"/>
+                    </text:index-source-styles>
+
+                    <text:index-source-styles text:outline-level="1">
+                        <text:index-source-style text:style-name="el_clause_para"/>
+                    </text:index-source-styles>
+
+                </text:table-of-content-source>
+                <text:index-body>
+                    <text:index-title text:name="Table of Contents1_Head">
+                        <text:p text:style-name="contents_heading">Table of Contents</text:p>
+                    </text:index-title>
+                </text:index-body>
+            </text:table-of-content>
+            <text:p text:style-name="EL_20_Para"/>
+
+            <text:list text:style-name="el_clause_list">
+                <text:list-item>
+                    <text:p text:style-name="el_clause_para">
+                        <text:span >asdf</text:span>
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="el_clause_para">
+                        <text:span >asdf</text:span>
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="el_clause_para">
+                        <text:span >asdf</text:span>
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="el_clause_para">
+                        <text:span >asdf</text:span>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+
+{% endblock %}

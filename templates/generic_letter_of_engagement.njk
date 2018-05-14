@@ -50,7 +50,7 @@
                 <text:span text:style-name="bold">Terms</text:span>). </text:p>
             <text:p text:style-name="Paragraph">
                 {% if recipient.recipientType == 'company' %}
-                    <text:span>Our client for this matter will be the {{ recipient.companyName }}</text:span>
+                    <text:span>Our client for this matter will be {{ recipient.companyName }}.</text:span>
                 {% else %}
                     <text:span>Our client{% if recipient.individuals.length > 1 %}s{% endif %} for this matter will be {{ recipient.individuals|concat(['firstName', 'lastName'])|join_and() }}.</text:span>
                 {% endif %}

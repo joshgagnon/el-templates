@@ -326,6 +326,11 @@
             <style:paragraph-properties fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
         </style:style>
 
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_heading" style:display-name="EL Heading" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+            <style:text-properties fo:font-weight="bold"/>
+        </style:style>
+
         <style:style style:default-outline-level="" style:family="paragraph" style:name="el_quote" style:display-name="Quote" style:parent-style-name="para">
             <style:paragraph-properties fo:margin-left="1.500cm" fo:margin-right="1.500cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
             <style:text-properties fo:color="#404040" fo:font-family="'Calibri Light'" fo:font-size="10pt" style:font-family-generic="roman" style:font-name="Calibri Light" style:font-pitch="variable" style:font-size-asian="10pt" style:font-style-complex="italic"/>
@@ -373,9 +378,25 @@
         <text:notes-configuration style:num-format="1" text:footnotes-position="page" text:note-class="footnote" text:start-numbering-at="document" text:start-value="0"/>
         <text:notes-configuration style:num-format="i" text:note-class="endnote" text:start-value="0"/>
         <text:linenumbering-configuration style:num-format="1" text:increment="5" text:number-lines="false" text:number-position="left" text:offset="0.499cm"/>
+
+
+        <style:style style:class="index" style:display-name="Contents 1" style:family="paragraph" style:master-page-name="" style:name="Contents_20_1" style:parent-style-name="Index">
+            <style:paragraph-properties fo:line-height="150%" fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto" style:shadow="none">
+                <style:tab-stops/>
+            </style:paragraph-properties>
+            <style:text-properties style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+        </style:style>
+
+        <style:style style:class="index" style:display-name="Contents Heading" style:family="paragraph" style:name="contents_heading" style:parent-style-name="Heading">
+            <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+            <style:text-properties fo:font-weight="bold" style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+        </style:style>
+
+
         <style:default-page-layout>
             <style:page-layout-properties style:layout-grid-standard-mode="true"/>
         </style:default-page-layout>
+
     </office:styles>
     <office:automatic-styles>
 
@@ -392,9 +413,11 @@
             <style:page-layout-properties fo:margin-bottom="2.501cm" fo:margin-left="2.501cm" fo:margin-right="2.501cm" fo:margin-top="2.501cm" fo:page-height="29.7cm" fo:page-width="21.001cm" style:footnote-max-height="0cm" style:layout-grid-base-height="0.423cm" style:layout-grid-base-width="0.37cm" style:layout-grid-color="#c0c0c0" style:layout-grid-display="false" style:layout-grid-lines="38" style:layout-grid-mode="none" style:layout-grid-print="false" style:layout-grid-ruby-below="false" style:layout-grid-ruby-height="0.212cm" style:layout-grid-snap-to="true" style:num-format="1" style:print-orientation="portrait" style:writing-mode="lr-tb">
                 <style:footnote-sep style:adjustment="left" style:color="#000000" style:distance-after-sep="0.101cm" style:distance-before-sep="0.101cm" style:line-style="solid" style:rel-width="0%" style:width="0.009cm"/>
             </style:page-layout-properties>
-            <style:header-style/>
+            <style:header-style>
+                <style:header-footer-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="1.15cm" fo:min-height="1.5cm" style:dynamic-spacing="true"/>
+            </style:header-style>
             <style:footer-style>
-                <style:header-footer-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="1.15cm" fo:min-height="1.251cm" style:dynamic-spacing="true"/>
+                <style:header-footer-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="1.15cm" fo:min-height="1.5cm" style:dynamic-spacing="true"/>
             </style:footer-style>
         </style:page-layout>
     </office:automatic-styles>

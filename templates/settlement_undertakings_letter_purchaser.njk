@@ -1,0 +1,34 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+
+<text:h text:outline-level="1" text:style-name="el_heading">
+    <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
+</text:h>
+
+<text:p text:style-name="para">
+<text:span>We undertake that in settlement of the above transaction:</text:span>
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            we instructed our bank at {{ time }} {{ ampm }} today to pay {{ settlementAmount|currency }} to your trust account number {{ accountNumber }} by {{ paymentType }}; and
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            the payment is from cleared funds in our trust account and will not be cancelled or changed in any respect.
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            We attach a copy of the electronic transmission report confirming the payment.
+        </text:p>
+    </text:list-item>
+</text:list>
+
+
+{% endblock %}
