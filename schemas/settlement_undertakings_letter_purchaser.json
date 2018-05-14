@@ -3,6 +3,16 @@
     "formName": "settlement_undertakings_letter_purchaser",
     "baseDoc": "letter.odt",
     "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
         "matter": {
             "type": "object",
             "properties": {
