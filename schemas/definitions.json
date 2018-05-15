@@ -124,8 +124,12 @@
             "type": "object",
             "title": "Sender",
             "properties": {
-                "name": {
-                    "title": "Name",
+                "firstName": {
+                    "title": "First Name",
+                    "type": "string"
+                },
+                "surname": {
+                    "title": "surname",
                     "type": "string"
                 },
                 "title": {
@@ -146,7 +150,20 @@
                 }
 
             },
-            "required": ["name"]
+            "required": ["name"],
+            "x-hints" : {
+                "form": {
+                  "suggestions": true,
+                  "source": "users"
+                }
+            }
+        },
+        "senders": {
+            "type": "array",
+            "title": "Senders",
+            "items": {
+                "$ref": "#/definitions/sender"
+            }
         },
         "contactMethod": {
             "title": "Contact Method",

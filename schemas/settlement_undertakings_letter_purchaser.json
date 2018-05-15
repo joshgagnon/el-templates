@@ -80,7 +80,13 @@
                 "same day cleared payment",
                 "direct credit"
             ]
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
         }
     },
-    "required": ["counterPartySolicitors", "vendorNames", "purchaserNames"]
+    "required": ["counterPartySolicitors", "vendorNames", "purchaserNames", "sender"]
 }

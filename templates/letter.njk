@@ -369,26 +369,22 @@
                         <text:p text:style-name="P26"/>
                         <text:p text:style-name="P27"/>
                         <text:p text:style-name="P28">
-                            {{ sender.name }}
+                            {{ senders|concat(['firstName', 'surname'])|join(' / ') }}
                         </text:p>
                         <text:p >
-                            {{ sender.title }}
+                            {{ senders|join(' / ', 'title') }}
                         </text:p>
-                        {% if sender.phone %}
                             <text:p >
                                 <text:span >D: </text:span>
-                                    {{ sender.phone }}
+                                    {{ senders|join(' / ', 'phone') }}
                             </text:p>
-                            {% endif %}
-                         {% if sender.mobile %}
                             <text:p >
                                 <text:span >M: </text:span>
-                                    {{ sender.mobile }}
+                                    {{ senders|join(' / ', 'mobile') }}
                             </text:p>
-                        {% endif %}
                         <text:p >
                             <text:span>E: </text:span>
-                            {{ sender.email }}
+                            {{ senders|join(' / ', 'email') }}
                         </text:p>
                     </table:table-cell>
                 </table:table-row>

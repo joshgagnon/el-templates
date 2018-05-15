@@ -50,8 +50,8 @@
             "title": "Disclosure of Interests",
             "description": "e.g. We act for Company ABC Ltd"
         },
-        "sender": {
-             "$ref": "#/definitions/sender"
+        "senders": {
+             "$ref": "#/definitions/senders"
         },
         "copyTo": {
             "$ref": "#/definitions/copyTo"

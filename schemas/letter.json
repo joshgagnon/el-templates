@@ -36,8 +36,8 @@
 
         },
 
-        "sender": {
-             "$ref": "#/definitions/sender"
+        "senders": {
+            "$ref": "#/definitions/senders"
         },
         "copyTo": {
             "$ref": "#/definitions/copyTo"
