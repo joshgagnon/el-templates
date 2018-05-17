@@ -30,7 +30,13 @@
                             "title": "Individual(s)",
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/individual"
+                                "$ref": "#/definitions/individual",
+                                "x-hints": {
+                                    "form": {
+                                          "suggestions": true,
+                                          "source": "recipients.individuals"
+                                    }
+                                }
                             },
                             "default": [{}]
                         },
@@ -58,6 +64,12 @@
                         },
                         "contactMethod": {
                             "$ref": "#/definitions/contactMethod"
+                        }
+                    },
+                    "x-hints": {
+                        "form": {
+                              "suggestions": true,
+                              "source": "recipients.organisations"
                         }
                     },
                     "required": ["companyName", "contact", "contactMethod"]
@@ -122,18 +134,17 @@
         },
         "sender": {
             "type": "object",
-            "title": "Sender",
             "properties": {
                 "firstName": {
                     "title": "First Name",
                     "type": "string"
                 },
                 "surname": {
-                    "title": "surname",
+                    "title": "Surname",
                     "type": "string"
                 },
-                "title": {
-                    "title": "Title",
+                "position": {
+                    "title": "Position",
                     "type": "string"
                 },
                 "phone": {
