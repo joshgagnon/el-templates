@@ -33,6 +33,7 @@
                                 "$ref": "#/definitions/individual",
                                 "x-hints": {
                                     "form": {
+                                         "addItem": "Add Individual",
                                           "suggestions": true,
                                           "source": "recipients.individuals"
                                     }
@@ -173,8 +174,16 @@
             "type": "array",
             "title": "Senders",
             "items": {
-                "$ref": "#/definitions/sender"
-            }
+                "$ref": "#/definitions/sender",
+                "enumeratedTitle": "Sender #{0}",
+                "x-hints": {
+                    "form": {
+                         "addItem": "Add Sender"
+                    }
+                }
+            },
+            "minItems": 1,
+            "default": [{}]
         },
         "contactMethod": {
             "title": "Contact Method",
@@ -396,6 +405,11 @@
                     },
                     "address": {
                         "$ref": "#/definitions/address"
+                    }
+                },
+                "x-hints": {
+                    "form": {
+                         "addItem": "Add Copy To"
                     }
                 },
                 "required": ["name"]
