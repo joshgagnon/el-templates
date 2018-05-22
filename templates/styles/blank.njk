@@ -411,19 +411,30 @@
             <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
         </style:style>
         <style:page-layout style:name="page">
-            <style:page-layout-properties fo:margin-bottom="2.501cm" fo:margin-left="2.501cm" fo:margin-right="2.501cm" fo:margin-top="2.501cm" fo:page-height="29.7cm" fo:page-width="21.001cm" style:footnote-max-height="0cm" style:layout-grid-base-height="0.423cm" style:layout-grid-base-width="0.37cm" style:layout-grid-color="#c0c0c0" style:layout-grid-display="false" style:layout-grid-lines="38" style:layout-grid-mode="none" style:layout-grid-print="false" style:layout-grid-ruby-below="false" style:layout-grid-ruby-height="0.212cm" style:layout-grid-snap-to="true" style:num-format="1" style:print-orientation="portrait" style:writing-mode="lr-tb">
+            <style:page-layout-properties fo:margin-bottom="1.501cm" fo:margin-left="2.501cm" fo:margin-right="2.501cm" fo:margin-top="1.501cm" fo:page-height="29.7cm" fo:page-width="21.001cm" style:footnote-max-height="0cm" style:layout-grid-base-height="0.423cm" style:layout-grid-base-width="0.37cm" style:layout-grid-color="#c0c0c0" style:layout-grid-display="false" style:layout-grid-lines="38" style:layout-grid-mode="none" style:layout-grid-print="false" style:layout-grid-ruby-below="false" style:layout-grid-ruby-height="0.212cm" style:layout-grid-snap-to="true" style:num-format="1" style:print-orientation="portrait" style:writing-mode="lr-tb">
                 <style:footnote-sep style:adjustment="left" style:color="#000000" style:distance-after-sep="0.101cm" style:distance-before-sep="0.101cm" style:line-style="solid" style:rel-width="0%" style:width="0.009cm"/>
             </style:page-layout-properties>
             <style:header-style>
-                <style:header-footer-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="1.15cm" fo:min-height="1.5cm" style:dynamic-spacing="true"/>
+                <style:header-footer-properties draw:fill="none" fo:background-color="transparent" fo:margin-bottom="0.499cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:min-height="0.6cm" style:dynamic-spacing="false"/>
             </style:header-style>
             <style:footer-style>
-                <style:header-footer-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="1.15cm" fo:min-height="1.5cm" style:dynamic-spacing="true"/>
+                <style:header-footer-properties draw:fill="none" fo:background-color="transparent" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.499cm" fo:min-height="0.6cm" style:dynamic-spacing="false"/>
             </style:footer-style>
         </style:page-layout>
     </office:automatic-styles>
 
     <office:master-styles>
-             <style:master-page style:name="Standard" style:page-layout-name="page"/>
+             <style:master-page style:name="Standard" style:page-layout-name="page">
+
+            <style:header>
+                <text:p text:style-name="Header"></text:p>
+            </style:header>
+            <style:footer>
+                <text:p text:style-name="Footer"></text:p>
+            </style:footer>
+        </style:master-page>
+
+
+
     </office:master-styles>
 </office:document-styles>
