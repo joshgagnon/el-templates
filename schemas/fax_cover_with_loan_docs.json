@@ -1,0 +1,133 @@
+{
+    "title": "Fax Cover With Load Documents",
+    "formName": "fax_cover_with_loan_docs",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "New Mortgage (repicient)"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                },
+                "conveyancing": {
+                    "type": "object",
+                    "properties": {
+                        "loanAdvance": {
+                            "$ref": "#/definitions/loanAdvance"
+                        }
+                    },
+                    "requires": ["loanAdvance"]
+                },
+                "letterFinancier": {
+                    "type": "object",
+                    "properties": {
+                        "matterType": {
+                            "title": "Letter To Financier Type",
+                            "enum": [
+                                "purchase",
+                                "refinance"
+                            ],
+                            "enumNames": [
+                                "Purchase",
+                                "Refinance"
+                            ]
+                        }
+                    },
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["purchase"]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["refinance"]
+                                }
+                            }
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "matterType"
+                        }
+                    }
+                }
+            },
+            "requires": ["assets", "conveyancing", "letterFinancier"]
+        },
+        "mortgageeInstructions": {
+            "type": "object",
+            "title": "Mortgagee Instructions",
+            "properties": {
+                "instructionsDate": {
+                    "title": "Date of Instructions from New Mortgagee",
+                    "type": "string",
+                    "x-hints" : {
+                        "form": {
+                          "inputComponent": "date"
+                        }
+                    }
+                },
+                "mortgageeReference": {
+                    "title": "New Mortgagee Reference Number",
+                    "type": "string"
+                }
+            }
+        },
+        "client": {
+             "$ref": "#/definitions/recipient",
+             "title": "Client"
+        },
+        "newMortgageeDocuments": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "documentName": {
+                        "title": "Document Name",
+                        "type": "string"
+                    },
+                    "documentDate": {
+                        "title": "Document Date",
+                        "type": "string",
+                        "x-hints" : {
+                            "form": {
+                              "inputComponent": "date"
+                            }
+                        }
+                    },
+                    "sentToBank": {
+                        "title": "Send To Bank",
+                        "type": "boolean"
+                    }
+                },
+                "required": ["documentName"]
+            },
+            "title": "Documents to be sent to Mortgagee",
+            "type": "array"
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "required": ["recipient", "purchaserNames", "facilityAgreementDate", "solicitorCertDate"]
+}

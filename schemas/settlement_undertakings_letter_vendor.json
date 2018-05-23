@@ -1,0 +1,115 @@
+{
+    "title": "Settlement Undertakings Letter - Acting for Vendor",
+    "formName": "settlement_undertakings_letter_vendor",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "Counterparty Solicitors (recipient)"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "eDealingNumber": {
+                    "type": "string",
+                    "title": "E-dealing Number"
+                },
+                "transferInstrumentNumber": {
+                    "type": "string",
+                    "title": "Transfer Instrument Number"
+                },
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                },
+
+                "settlement": {
+                    "type": "object",
+                    "properties": {
+                        "matterType": {
+                            "title": "Settlement Type",
+                            "enum": [
+                                "discharge of mortgage and transfer instruments",
+                                "transfer instrument"
+                            ]
+                        }
+                    },
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["discharge of mortgage and transfer instruments"]
+                                },
+                                "mortgageInstrumentNumber": {
+                                    "type": "string",
+                                    "title": "Mortgage Instrument Number"
+                                }
+                            },
+                            "required":["mortgageInstrumentNumber"]
+                        },
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["transfer instrument"]
+                                }
+                            }
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "matterType"
+                        }
+                    }
+                }
+            },
+            "required":["transferInstrumentNumber", "assets", "eDealingNumber", "settlement"]
+
+        },
+        "vendorNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Vendor Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Vendor Names",
+            "type": "array"
+        },
+        "purchaserNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Purchaser Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Purchaser Names",
+            "type": "array"
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "required": ["recipient", "vendorNames", "purchaserNames", "sender"]
+}

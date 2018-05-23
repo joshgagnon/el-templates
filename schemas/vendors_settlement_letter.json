@@ -1,6 +1,6 @@
 {
-    "title": "Settlement Undertakings Letter - Acting for Purchaser",
-    "formName": "settlement_undertakings_letter_purchaser",
+    "title": "Vendors Settlement Letter",
+    "formName": "vendors_settlement_letter",
     "baseDoc": "letter.odt",
     "properties": {
         "dateString": {
@@ -13,6 +13,10 @@
                 }
             }
         },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "Counterparty Solicitors (recipient)"
+        },
         "matter": {
             "type": "object",
             "properties": {
@@ -20,10 +24,6 @@
                     "$ref": "#/definitions/assets"
                 }
             }
-        },
-        "recipient": {
-             "$ref": "#/definitions/recipient",
-             "title": "Counterparty Solicitors (recipient)"
         },
         "vendorNames": {
             "items": {
@@ -55,31 +55,14 @@
             "title": "Purchaser Names",
             "type": "array"
         },
-        "time": {
-            "title": "Time",
-            "type": "string"
-        },
-        "ampm": {
-            "title": "Time of Day",
-            "enum": [
-                "am",
-                "pm"
-            ]
-        },
-        "settlementAmount": {
-            "title": "Settlement Amount",
-            "type": "string"
-        },
-        "accountNumber": {
-            "title": "Vendor’s solicitor trust account number",
-            "type": "string"
-        },
-        "paymentType": {
-            "title": "Payment Type",
-            "enum": [
-                "same day cleared payment",
-                "direct credit"
-            ]
+        "settlementDate": {
+            "title": "Settlement Date",
+            "type": "string",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
         },
         "senders": {
             "$ref": "#/definitions/senders"

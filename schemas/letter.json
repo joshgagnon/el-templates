@@ -3,44 +3,6 @@
     "formName": "letter",
     "baseDoc": "letter.odt",
     "properties": {
-        "dateString": {
-            "title": "Date",
-            "type": "string",
-            "formatDate": "D MMMM YYYY",
-            "x-hints" : {
-                "form": {
-                  "inputComponent": "date"
-                }
-            }
-        },
-
-        "recipient": {
-             "$ref": "#/definitions/recipient"
-        },
-        "subject": {
-            "title": "Subject",
-            "type": "string"
-        },
-        "matter": {
-            "title": "Matter",
-            "type": "object",
-            "properties": {
-                "matterId": {
-                    "title": "Matter ID",
-                    "type": "string"
-                },
-                "status":{
-                    "$ref": "#/definitions/status"
-                }
-            }
-
-        },
-
-        "senders": {
-            "$ref": "#/definitions/senders"
-        },
-        "copyTo": {
-            "$ref": "#/definitions/copyTo"
-        }
+        "$ref": "#/definitions/letter"
     }
 }

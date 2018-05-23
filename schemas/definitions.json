@@ -443,6 +443,97 @@
             "minItems": 1,
             "title": "Properties",
             "type": "array"
+        },
+        "repaymentOfIndebtedness": {
+            "type": "object",
+            "title": "Repayment of indebtedness to discharge Mortgage",
+            "properties": {
+                 "debit": {
+                    "title": "Debit",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100000000
+                },
+               "mortgagee": {
+                    "title": "Mortgagee",
+                    "type": "string"
+                },
+                "date": {
+                    "title": "Date",
+                    "type": "string",
+                    "x-hints": {
+                        "form": {
+                            "inputComponent": "date"
+                        }
+                    }
+                }
+            }
+        },
+        "loanAdvance": {
+            "type": "object",
+            "title": "Loan advance",
+            "properties": {
+                 "credit": {
+                    "title": "Credit",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100000000
+                },
+               "financier": {
+                    "title": "Financier",
+                    "type": "string"
+                },
+                "date": {
+                    "title": "Loan Date",
+                    "type": "string",
+                    "x-hints": {
+                        "form": {
+                            "inputComponent": "date"
+                        }
+                    }
+                }
+            }
+        },
+        "letter": {
+            "dateString": {
+                "title": "Date",
+                "type": "string",
+                "formatDate": "D MMMM YYYY",
+                "x-hints" : {
+                    "form": {
+                      "inputComponent": "date"
+                    }
+                }
+            },
+
+            "recipient": {
+                 "$ref": "#/definitions/recipient"
+            },
+            "subject": {
+                "title": "Subject",
+                "type": "string"
+            },
+            "matter": {
+                "title": "Matter",
+                "type": "object",
+                "properties": {
+                    "matterId": {
+                        "title": "Matter ID",
+                        "type": "string"
+                    },
+                    "status":{
+                        "$ref": "#/definitions/status"
+                    }
+                }
+
+            },
+
+            "senders": {
+                "$ref": "#/definitions/senders"
+            },
+            "copyTo": {
+                "$ref": "#/definitions/copyTo"
+            }
         }
     }
 }

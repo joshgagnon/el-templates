@@ -1,0 +1,50 @@
+{
+    "title": "File Closing Letter",
+    "formName": "file_closing_letter",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Matter Name"
+                },
+                 "reason": {
+                    "type": "string",
+                    "title": "Reason matter has ended",
+                    "description": "e.g. the transaction has been completed"
+                }
+            },
+            "required": ["name", "reason"]
+        },
+        "documents": {
+            "type": "array",
+            "title": "Documents",
+            "items": {
+                "title": "Document name and date",
+                "type": "string",
+                "minLength": 1
+            }
+        },
+        "senders": {
+             "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    }
+}

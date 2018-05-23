@@ -1,0 +1,144 @@
+{
+    "title": "Letter to Financier Enclosing Originals",
+    "formName": "letter_to_financier_enclosing_originals",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "New Mortgagee (recipient)"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                },
+                "letterFinancier": {
+                    "type": "object",
+                    "properties": {
+                        "matterType": {
+                            "title": "Letter To Financier Type",
+                            "enum": [
+                                "purchase",
+                                "refinance"
+                            ],
+                            "enumNames": [
+                                "Purchase",
+                                "Refinance"
+                            ]
+                        }
+                    },
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["purchase"]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["refinance"]
+                                }
+                            }
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "matterType"
+                        }
+                    }
+                }
+
+            },
+            "requires": ["assets", "letterFinancier"]
+        },
+        "purchaserNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Purchaser Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Purchaser Names",
+            "type": "array"
+        },
+        "settlementDate": {
+            "title": "Settlement Date",
+            "type": "string",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "facilityAgreementDate": {
+            "title": "Date of Facility Agreement",
+            "type": "string",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "solicitorCertDate": {
+            "title": "Date of Solicitor’s Certificate",
+            "type": "string",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "newMortgageeDocuments": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "documentName": {
+                        "title": "Document Name",
+                        "type": "string"
+                    },
+                    "documentDate": {
+                        "title": "Document Date",
+                        "type": "string",
+                        "x-hints" : {
+                            "form": {
+                              "inputComponent": "date"
+                            }
+                        }
+                    },
+                    "sentToBank": {
+                        "title": "Send To Bank",
+                        "type": "boolean"
+                    }
+                },
+                "required": ["documentName"]
+            },
+            "title": "Documents to be sent to Mortgagee",
+            "type": "array"
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "required": ["recipient", "purchaserNames", "facilityAgreementDate", "solicitorCertDate"]
+}

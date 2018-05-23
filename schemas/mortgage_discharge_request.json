@@ -1,0 +1,102 @@
+{
+    "title": "Mortgage Discharge Request",
+    "formName": "mortgage_discharge_request",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "Existing Mortgagee (recipient)"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+
+                "mortgageInstrumentNumber": {
+                    "type": "string",
+                    "title": "Mortgage Instrument Number"
+                },
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                },
+                "discharge": {
+                    "type": "object",
+                        "properties": {
+                            "matterType": {
+                                "title": "Discharge Request Type",
+                                "enum": [
+                                    "entered into an agreement to sell",
+                                    "refinancing"
+                                ]
+                        }
+                    },
+
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["entered into an agreement to sell"]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": ["refinancing"]
+                                }
+                            }
+
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "matterType"
+                        }
+                    }
+                }
+            },
+            "required":["mortgageInstrumentNumber", "discharge"]
+
+        },
+        "ownerNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Owner Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Owner Names",
+            "type": "array"
+        },
+        "settlementDate": {
+            "title": "Settlement Date",
+            "type": "string",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "required": ["recipient", "vendorNames", "purchaserNames", "sender"]
+}
