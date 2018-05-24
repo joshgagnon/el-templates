@@ -1,0 +1,95 @@
+{
+    "civNumber": "CIV X",
+    "copyTo": [],
+    "dateString": "1 May 2018",
+    "defendants": [
+        {
+            "_keyIndex": 8,
+            "name": "Mike Defendant"
+        }
+    ],
+    "depositAmount": "2",
+    "documents": [
+        {
+            "_keyIndex": 9,
+            "name": "1234123412"
+        }
+    ],
+    "filename": "Vendors Settlement Statement",
+    "filingFee": {
+        "amount": "323243",
+        "include": true
+    },
+    "matter": {
+        "assets": [
+            {
+                "_keyIndex": 11,
+                "address": "x",
+                "registry": "z",
+                "uniqueIdentifier": "y"
+            }
+        ],
+        "matterId": "234"
+    },
+    "plantiffs": [
+        {
+            "_keyIndex": 10,
+            "name": "Barry Plantiff"
+        }
+    ],
+    "purchaseAmount": "1",
+    "purchaserNames": [
+        {
+            "_keyIndex": 13,
+            "name": "purch"
+        }
+    ],
+    "recipient": {
+        "contactMethod": {
+            "address": {
+                "country": "New Zealand"
+            },
+            "email": "pewpwe@email.com",
+            "method": "email"
+        },
+        "individuals": [
+            {
+                "_keyIndex": 6,
+                "firstName": "Test",
+                "surname": "Name"
+            }
+        ],
+        "recipientType": "individuals"
+    },
+    "senders": [
+        {
+            "_keyIndex": 7,
+            "email": "asdf",
+            "firstName": "x"
+        }
+    ],
+    "settlementStatement": {
+        "levies": {
+            "include": false,
+            "instalmentsPaid": {}
+        },
+        "rates": {
+            "amount": "1",
+            "annumRate": "1",
+            "days": "1",
+            "instalmentsPaid": {
+                "paid": false
+            },
+            "localAuthourity": "1"
+        },
+        "totalAmount": "2",
+        "totalCredits": "1",
+        "totalDebits": "2"
+    },
+    "vendorNames": [
+        {
+            "_keyIndex": 12,
+            "name": "vend"
+        }
+    ]
+}

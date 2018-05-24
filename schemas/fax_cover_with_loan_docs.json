@@ -1,5 +1,5 @@
 {
-    "title": "Fax Cover With Load Documents",
+    "title": "Fax Cover With Loan Documents",
     "formName": "fax_cover_with_loan_docs",
     "baseDoc": "letter.odt",
     "properties": {

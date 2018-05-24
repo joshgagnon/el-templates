@@ -1,0 +1,57 @@
+{
+        "civNumber": "CIV X",
+        "copyTo": [],
+        "dateString": "1 May 2018",
+        "defendants": [
+            {
+                "_keyIndex": 14,
+                "name": "Mike Defendant"
+            }
+        ],
+        "documents": [
+            {
+                "_keyIndex": 12,
+                "name": "1234123412"
+            }
+        ],
+        "filename": "File Closing Letter",
+        "filingFee": {
+            "amount": "323243",
+            "include": true
+        },
+        "matter": {
+            "matterId": "x",
+            "name": "y",
+            "reason": "z"
+        },
+        "plantiffs": [
+            {
+                "_keyIndex": 15,
+                "name": "Barry Plantiff"
+            }
+        ],
+        "recipient": {
+            "contactMethod": {
+                "address": {
+                    "country": "New Zealand"
+                },
+                "email": "pewpwe@email.com",
+                "method": "email"
+            },
+            "individuals": [
+                {
+                    "_keyIndex": 11,
+                    "firstName": "Test",
+                    "surname": "Name"
+                }
+            ],
+            "recipientType": "individuals"
+        },
+        "senders": [
+            {
+                "_keyIndex": 13,
+                "email": "asdf",
+                "firstName": "x"
+            }
+        ]
+}

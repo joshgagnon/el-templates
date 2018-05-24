@@ -23,7 +23,6 @@
                     "title": "Matter ID",
                     "type": "string"
                 },
-
                 "name": {
                     "type": "string",
                     "title": "Matter Name"
@@ -40,7 +39,8 @@
             "type": "array",
             "title": "Documents",
             "items": {
-                "title": "Property",
+                "title": "Document",
+                "type": "object",
                 "properties": {
                     "name": {
                         "title": "Document name and date",
