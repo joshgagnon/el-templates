@@ -58,6 +58,7 @@
         "settlementDate": {
             "title": "Settlement Date",
             "type": "string",
+            "formatDate": "D MMMM YYYY",
             "x-hints" : {
                 "form": {
                   "inputComponent": "date"

@@ -111,7 +111,7 @@
                 }
             }
         },
-        "sendesr": {
+        "senders": {
              "$ref": "#/definitions/senders"
         },
         "copyTo": {

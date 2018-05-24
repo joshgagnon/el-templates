@@ -35,9 +35,17 @@
             "type": "array",
             "title": "Documents",
             "items": {
-                "title": "Document name and date",
-                "type": "string",
-                "minLength": 1
+                "title": "Property",
+                "properties": {
+                    "name": {
+                        "title": "Document name and date",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "name"
+                ]
             }
         },
         "senders": {

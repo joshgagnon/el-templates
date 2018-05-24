@@ -1,0 +1,44 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+
+<text:h text:outline-level="1" text:style-name="el_heading">
+    <text:span>Mortgage Discharge: {{ ownerNames|join_and('name') }} - {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %} ("the Property”) {% else %} (“the Properties”) {% endif %}</text:span>
+</text:h>
+
+<text:p text:style-name="para">
+   <text:span>
+We act for {{ ownerNames|join_and('name') }}, the registered {% if ownerNames|length == 1 %}proprietor{% else %}proprietors{% endif %} of the Property.  Our {%if matter.discharge.matterType == 'refinancing' %}{% if ownerNames|length == 1 %}client is {% else %}clients are {% endif %}refinancing {% else %} {% if ownerNames|length == 1 %}client has {% else %}clients have {% endif %}entered into an agreement to sell{% endif %}{% if matter.assets|length == 1 %} the Property{% else %} the Properties{% endif %}, with settlement scheduled to take place on {{ settlementDate }}.
+</text:span>
+</text:p>
+
+
+<text:p text:style-name="para">
+   <text:span>We </text:span><text:span text:style-name="bold">attach</text:span><text:span> unique identifier {{ matter.assets[0].uniqueIdentifier }}, {{ matter.assets[0].
+registry }} registry, for the Property. Please forward to us, prior to the settlement date, the following:
+</text:span>
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            <text:span >Discharge of mortgage instrument {{ matter.mortgageInstrumentNumber }}.</text:span>
+        </text:p>
+    </text:list-item>
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            <text:span >We undertake not to release the discharge of mortgage instrument until we are in a position to repay, in full, the amount you require to have the mortgage discharged.  We further undertake to keep your interests protected at all times pending such repayment. </text:span>
+        </text:p>
+    </text:list-item>
+
+</text:list>
+
+<text:p text:style-name="para">
+    <text:span>We undertake not to release the discharge of mortgage instrument until we are in a position to repay, in full, the amount you require to have the mortgage discharged.  We further undertake to keep your interests protected at all times pending such repayment.</text:span>
+</text:p>
+
+{% endblock %}

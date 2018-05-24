@@ -72,6 +72,7 @@
                                                     "date": {
                                                         "title": "Date",
                                                         "type": "string",
+                                                        "formatDate": "D MMMM YYYY",
                                                         "x-hints": {
                                                             "form": {
                                                                 "inputComponent": "date"
@@ -100,6 +101,7 @@
                                                     },
                                                     "date": {
                                                         "title": "Date",
+                                                        "formatDate": "D MMMM YYYY",
                                                         "type": "string",
                                                         "x-hints": {
                                                             "form": {
@@ -133,6 +135,7 @@
                                             "maximum": 100000000
                                         },
                                         "date": {
+                                                            "formatDate": "D MMMM YYYY",
                                             "title": "Payment Date",
                                             "type": "string",
                                             "x-hints": {
@@ -168,6 +171,7 @@
                                         },
                                         "date": {
                                             "title": "Date",
+                                                            "formatDate": "D MMMM YYYY",
                                             "type": "string",
                                             "x-hints": {
                                                 "form": {
@@ -196,6 +200,7 @@
                                         },
                                         "date": {
                                             "title": "Date",
+                                                            "formatDate": "D MMMM YYYY",
                                             "type": "string",
                                             "x-hints": {
                                                 "form": {
@@ -261,6 +266,7 @@
                     },
                     "date": {
                         "title": "Date",
+                                        "formatDate": "D MMMM YYYY",
                         "type": "string",
                         "x-hints": {
                             "form": {
@@ -292,6 +298,7 @@
                     },
                     "date": {
                         "title": "Date",
+                                        "formatDate": "D MMMM YYYY",
                         "type": "string",
                         "x-hints": {
                             "form": {
@@ -308,6 +315,7 @@
         "settlementDate": {
             "title": "Settlement Date",
             "type": "string",
+                            "formatDate": "D MMMM YYYY",
             "x-hints" : {
                 "form": {
                   "inputComponent": "date"
@@ -340,6 +348,7 @@
                         },
                         "date": {
                             "title": "Date",
+                                            "formatDate": "D MMMM YYYY",
                             "type": "string",
                             "x-hints": {
                                 "form": {

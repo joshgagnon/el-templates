@@ -1,4 +1,10 @@
 
 {% macro title(text) %}
-    <text:h text:style-name="el_title_1">{{ text }}</text:h>
+    <text:h text:style-name="el_title">{{ text }}</text:h>
+{% endmacro %}
+
+{% macro subject(text) %}
+<text:h text:outline-level="1" text:style-name="el_heading">
+    <text:span>{{ text }}</text:span>
+</text:h>
 {% endmacro %}

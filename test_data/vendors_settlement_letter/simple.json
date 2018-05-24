@@ -1,0 +1,75 @@
+{
+    "civNumber": "CIV X",
+    "copyTo": [],
+    "dateString": "1 May 2018",
+    "defendants": [
+        {
+            "_keyIndex": 15,
+            "name": "Mike Defendant"
+        }
+    ],
+    "documents": [
+        {
+            "_keyIndex": 16,
+            "name": "1234123412"
+        }
+    ],
+    "filename": "Vendors Settlement Letter",
+    "filingFee": {
+        "amount": "323243",
+        "include": true
+    },
+    "matter": {
+        "assets": [
+            {
+                "_keyIndex": 18,
+                "address": "asdfasdf",
+                "registry": "df",
+                "uniqueIdentifier": "asdf"
+            }
+        ]
+    },
+    "plantiffs": [
+        {
+            "_keyIndex": 17,
+            "name": "Barry Plantiff"
+        }
+    ],
+    "purchaserNames": [
+        {
+            "_keyIndex": 19,
+            "name": "dfdfd"
+        }
+    ],
+    "recipient": {
+        "contactMethod": {
+            "address": {
+                "country": "New Zealand"
+            },
+            "email": "pewpwe@email.com",
+            "method": "email"
+        },
+        "individuals": [
+            {
+                "_keyIndex": 13,
+                "firstName": "Test",
+                "surname": "Name"
+            }
+        ],
+        "recipientType": "individuals"
+    },
+    "senders": [
+        {
+            "_keyIndex": 14,
+            "email": "asdf",
+            "firstName": "x"
+        }
+    ],
+    "settlementDate": "2018-05-06T03:11:09.537Z",
+    "vendorNames": [
+        {
+            "_keyIndex": 20,
+            "name": "tes"
+        }
+    ]
+}

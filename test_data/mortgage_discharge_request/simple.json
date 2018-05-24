@@ -1,0 +1,69 @@
+{
+    "civNumber": "CIV X",
+    "copyTo": [],
+    "dateString": "1 May 2018",
+    "defendants": [
+        {
+            "_keyIndex": 8,
+            "name": "Mike Defendant"
+        }
+    ],
+    "documents": [
+        {
+            "_keyIndex": 9,
+            "name": "1234123412"
+        }
+    ],
+    "filename": "Mortgage Discharge Request",
+    "filingFee": {
+        "amount": "323243",
+        "include": true
+    },
+    "matter": {
+        "assets": [
+            {
+                "_keyIndex": 11,
+                "address": "xxx"
+            }
+        ],
+        "discharge": {
+            "matterType": "entered into an agreement to sell"
+        }
+    },
+    "ownerNames": [
+        {
+            "_keyIndex": 12,
+            "name": "owener"
+        }
+    ],
+    "plantiffs": [
+        {
+            "_keyIndex": 10,
+            "name": "Barry Plantiff"
+        }
+    ],
+    "recipient": {
+        "contactMethod": {
+            "address": {
+                "country": "New Zealand"
+            },
+            "email": "pewpwe@email.com",
+            "method": "email"
+        },
+        "individuals": [
+            {
+                "_keyIndex": 6,
+                "firstName": "Test",
+                "surname": "Name"
+            }
+        ],
+        "recipientType": "individuals"
+    },
+    "senders": [
+        {
+            "_keyIndex": 7,
+            "email": "asdf",
+            "firstName": "x"
+        }
+    ]
+}

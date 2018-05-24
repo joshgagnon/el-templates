@@ -1,0 +1,25 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+
+<text:h text:outline-level="1" text:style-name="el_heading">
+    <text:span>{% if civNumber %}{{ civNumber }}: {% endif %} {{ plantiffs[0].name }} v {{ defendants[0].name }}</text:span>
+</text:h>
+
+<text:p text:style-name="para">
+    We <text:span text:style-name="bold">enclose</text:span>, by way of service in the above matter, the following documents:
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    {% for doc in documents %}
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span >{{ doc.name }}</text:span>
+            </text:p>
+        </text:list-item>
+    {% endfor %}
+</text:list>
+
+{% endblock %}

@@ -77,6 +77,7 @@
             "title": "Mortgagee Instructions",
             "properties": {
                 "instructionsDate": {
+                                    "formatDate": "D MMMM YYYY",
                     "title": "Date of Instructions from New Mortgagee",
                     "type": "string",
                     "x-hints" : {
@@ -104,6 +105,7 @@
                         "type": "string"
                     },
                     "documentDate": {
+                                        "formatDate": "D MMMM YYYY",
                         "title": "Document Date",
                         "type": "string",
                         "x-hints" : {

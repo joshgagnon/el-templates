@@ -84,6 +84,7 @@
         },
         "settlementDate": {
             "title": "Settlement Date",
+                            "formatDate": "D MMMM YYYY",
             "type": "string",
             "x-hints" : {
                 "form": {

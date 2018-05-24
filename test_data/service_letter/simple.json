@@ -1,0 +1,47 @@
+{
+    "civNumber": "CIV X",
+    "copyTo": [],
+    "dateString": "1 May 2018",
+    "defendants": [
+        {
+            "_keyIndex": 6,
+            "name": "Mike Defendant"
+        }
+    ],
+    "documents": [
+        {
+            "_keyIndex": 7,
+            "name": "1234123412"
+        }
+    ],
+    "plantiffs": [
+        {
+            "_keyIndex": 5,
+            "name": "Barry Plantiff"
+        }
+    ],
+    "recipient": {
+        "contactMethod": {
+            "address": {
+                "country": "New Zealand"
+            },
+            "email": "pewpwe@email.com",
+            "method": "email"
+        },
+        "individuals": [
+            {
+                "_keyIndex": 3,
+                "firstName": "Test",
+                "surname": "Name"
+            }
+        ],
+        "recipientType": "individuals"
+    },
+    "senders": [
+        {
+            "_keyIndex": 4,
+            "email": "asdf",
+            "firstName": "x"
+        }
+    ]
+}

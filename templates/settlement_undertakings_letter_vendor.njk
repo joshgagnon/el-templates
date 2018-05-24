@@ -1,0 +1,90 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+
+<text:h text:outline-level="1" text:style-name="el_heading">
+    <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
+</text:h>
+
+<text:p text:style-name="para">
+    <text:span>We refer to the above transaction, which is being transacted as an electronic dealing in Landonline.</text:span>
+</text:p>
+
+<text:p text:style-name="para">
+    <text:span>We undertake that we have signed the {{ matter.matterType }} under e-dealing number {{ matter.eDealingNumber }}. </text:span>
+</text:p>
+
+<text:p text:style-name="para">
+    <text:span>Please read our settlement requirements carefully prior to completing settlement.  We reserve the right to reject your tender for settlement if our Settlement Requirements are not strictly complied with.</text:span>
+</text:p>
+
+<text:p text:style-name="para">
+    <text:span>We confirm our trust account details as:</text:span>
+</text:p>
+
+<text:list text:style-name="el_list">
+    <text:list-item>
+        <text:p text:style-name="el_list_paragraph">
+            Account Name: Evolution Lawyers Limited
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_list_paragraph">
+            Account Number: 12-3107-0010923-02
+        </text:p>
+    </text:list-item>
+</text:list>
+
+
+<text:p text:style-name="para">
+    <text:span>Immediately following satisfaction of our Settlement Requirements, we further undertake: </text:span>
+</text:p>
+
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        {% if matter.settlement.matterType == 'discharge of mortgage and transfer instruments' %}
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>to release the following instruments from the Landonline Workspace into your control: </text:span>
+            </text:p>
+            <text:list>
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>Discharge of Mortgage number {{ matter.settlement.mortgageInstrumentNumber }}; and </text:span>
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>Transfer number {{ matter.transferInstrumentNumber }}; </text:span>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+        {% else %}
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>to release the following instrument from the Landonline Workspace into your control: : </text:span>
+            </text:p>
+            <text:list>
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>Transfer number {{ matter.transferInstrumentNumber }} </text:span>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+        {% endif %}
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            <text:span>not to attempt to withdraw any release of, or alter any, instruments following release or settlement; and  </text:span>
+        </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            <text:span>to authorise the release of the keys to the Property to your client.  </text:span>
+        </text:p>
+    </text:list-item>
+</text:list>
+
+
+{% endblock %}
