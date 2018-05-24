@@ -1,0 +1,79 @@
+{
+        "civNumber": "CIV X",
+        "copyTo": [],
+        "dateString": "1 May 2018",
+        "defendants": [
+            {
+                "_keyIndex": 8,
+                "name": "Mike Defendant"
+            }
+        ],
+        "documents": [
+            {
+                "_keyIndex": 9,
+                "name": "1234123412"
+            }
+        ],
+        "facilityAgreementDate": "1 May 2018",
+        "filename": "Letter to Financier Enclosing Originals",
+        "filingFee": {
+            "amount": "323243",
+            "include": true
+        },
+        "matter": {
+            "assets": [
+                {
+                    "_keyIndex": 12,
+                    "address": "xxx",
+                    "registry": "zzz",
+                    "uniqueIdentifier": "yyy"
+                }
+            ],
+            "letterFinancier": {}
+        },
+        "newMortgageeDocuments": [
+            {
+                "_keyIndex": 13,
+                "documentDate": "1 May 2018",
+                "documentName": "asdf"
+            }
+        ],
+        "plantiffs": [
+            {
+                "_keyIndex": 10,
+                "name": "Barry Plantiff"
+            }
+        ],
+        "purchaserNames": [
+            {
+                "_keyIndex": 11,
+                "name": "asdf"
+            }
+        ],
+        "recipient": {
+            "contactMethod": {
+                "address": {
+                    "country": "New Zealand"
+                },
+                "email": "pewpwe@email.com",
+                "method": "email"
+            },
+            "individuals": [
+                {
+                    "_keyIndex": 6,
+                    "firstName": "Test",
+                    "surname": "Name"
+                }
+            ],
+            "recipientType": "individuals"
+        },
+        "senders": [
+            {
+                "_keyIndex": 7,
+                "email": "asdf",
+                "firstName": "x"
+            }
+        ],
+        "settlementDate": "1 May 2018",
+        "solicitorCertDate": "1 May 2018"
+}

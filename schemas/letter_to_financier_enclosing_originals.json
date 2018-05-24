@@ -20,6 +20,11 @@
         "matter": {
             "type": "object",
             "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+
                 "assets": {
                     "$ref": "#/definitions/assets"
                 },
@@ -81,7 +86,7 @@
         },
         "settlementDate": {
             "title": "Settlement Date",
-                            "formatDate": "D MMMM YYYY",
+             "formatDate": "D MMMM YYYY",
             "type": "string",
             "x-hints" : {
                 "form": {
@@ -91,6 +96,7 @@
         },
         "facilityAgreementDate": {
             "title": "Date of Facility Agreement",
+             "formatDate": "D MMMM YYYY",
             "type": "string",
             "x-hints" : {
                 "form": {
@@ -100,6 +106,7 @@
         },
         "solicitorCertDate": {
             "title": "Date of Solicitor’s Certificate",
+             "formatDate": "D MMMM YYYY",
             "type": "string",
             "x-hints" : {
                 "form": {
@@ -117,6 +124,8 @@
                     },
                     "documentDate": {
                         "title": "Document Date",
+             "formatDate": "D MMMM YYYY",
+
                         "type": "string",
                         "x-hints" : {
                             "form": {

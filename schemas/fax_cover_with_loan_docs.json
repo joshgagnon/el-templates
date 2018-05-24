@@ -20,6 +20,10 @@
         "matter": {
             "type": "object",
             "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
                 "assets": {
                     "$ref": "#/definitions/assets"
                 },

@@ -20,7 +20,10 @@
         "matter": {
             "type": "object",
             "properties": {
-
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
                 "mortgageInstrumentNumber": {
                     "type": "string",
                     "title": "Mortgage Instrument Number"

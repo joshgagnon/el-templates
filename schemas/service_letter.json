@@ -13,6 +13,16 @@
                 }
             }
         },
+        "matter": {
+            "title": "Matter",
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                }
+            }
+        },
         "recipient": {
              "$ref": "#/definitions/recipient"
         },

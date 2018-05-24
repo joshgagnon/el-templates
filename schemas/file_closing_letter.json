@@ -19,6 +19,11 @@
         "matter": {
             "type": "object",
             "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+
                 "name": {
                     "type": "string",
                     "title": "Matter Name"
