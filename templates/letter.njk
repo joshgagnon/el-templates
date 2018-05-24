@@ -259,7 +259,7 @@
                         </text:p>
                             {% endfor %}
                             {% endif %}
-                        {% for line in ["line1", "line2", "city", "county", "state", "postcode", "country"] %}
+                        {% for line in ["line1", "line2", "city", "county", "state", "postcode"] %}
                         {% if recipient.contactMethod['address'][line] %}
                         <text:p text:style-name="P20">
                             {{ recipient.contactMethod['address'][line] }}

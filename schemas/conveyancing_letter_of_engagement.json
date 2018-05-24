@@ -16,9 +16,17 @@
         "recipient": {
              "$ref": "#/definitions/recipient"
         },
+        "isNewClient": {
+            "type": "boolean",
+            "title": "Is New Client"
+        },
         "matter": {
             "type": "object",
             "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
                 "assets": {
                     "$ref": "#/definitions/assets"
                 },
