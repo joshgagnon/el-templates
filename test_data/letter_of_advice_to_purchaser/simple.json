@@ -1,0 +1,145 @@
+{
+    "agreementDate": "1 May 2018",
+    "chattels": [
+        {
+            "_keyIndex": 17,
+            "text": "Blinds"
+        },
+        {
+            "_keyIndex": 18,
+            "text": "Rangehood"
+        },
+        {
+            "_keyIndex": 19,
+            "text": "testing"
+        }
+    ],
+    "civNumber": "CIV X",
+    "conditions": {
+        "buildersReport": {
+            "date": "1 May 2018",
+            "include": true
+        },
+        "dueDiligence": {
+            "clause": "test",
+            "date": "1 May 2018",
+            "include": true,
+            "time": "est"
+        },
+        "finance": {
+            "date": "1 May 2018",
+            "include": true,
+            "particulars": "test"
+        },
+        "lim": {
+            "include": true,
+            "limOptions": {
+                "limOption": "request"
+            }
+        }
+    },
+    "copyTo": [],
+    "dateString": "1 May 2018",
+    "defendants": [
+        {
+            "_keyIndex": 13,
+            "name": "Mike Defendant"
+        }
+    ],
+    "depositAmount": "1",
+    "documents": [
+        {
+            "_keyIndex": 14,
+            "name": "1234123412"
+        }
+    ],
+    "encumbrances": {
+        "errors": {
+            "errorList": [
+                {
+                    "_keyIndex": 20,
+                    "name": "test"
+                }
+            ],
+            "exist": true
+        },
+        "exists": {
+            "encumbrances": [
+                {
+                    "_keyIndex": 21,
+                    "attached": true,
+                    "effect": "test",
+                    "type": "test"
+                }
+            ],
+            "exist": true
+        }
+    },
+    "filename": "Letter of Advice to Purchaser",
+    "filingFee": {
+        "amount": "323243",
+        "include": true
+    },
+    "includeGST": true,
+    "matter": {
+        "assets": [
+            {
+                "_keyIndex": 24,
+                "address": "1",
+                "registry": "t",
+                "uniqueIdentifier": "test"
+            }
+        ]
+    },
+    "payable": {
+        "when": "signed"
+    },
+    "payableTo": "1",
+    "payableToRecipient": "1",
+    "penaltyInterestRate": "1",
+    "plantiffs": [
+        {
+            "_keyIndex": 15,
+            "name": "Barry Plantiff"
+        }
+    ],
+    "purchaseAmount": "1",
+    "recipient": {
+        "contactMethod": {
+            "address": {
+                "country": "New Zealand"
+            },
+            "email": "pewpwe@email.com",
+            "method": "email"
+        },
+        "individuals": [
+            {
+                "_keyIndex": 12,
+                "firstName": "Test",
+                "surname": "Name"
+            }
+        ],
+        "recipientType": "individuals"
+    },
+    "senders": [
+        {
+            "_keyIndex": 16,
+            "email": "asdf",
+            "firstName": "x"
+        }
+    ],
+    "settlementDate": "1 May 2018",
+    "title": {
+        "amount": "1",
+        "dateEnd": "1 May 2018",
+        "dateStart": "1 May 2018",
+        "isCurrent": true,
+        "status": "stratum in freehold estate"
+    },
+    "vendorNames": [
+        {
+            "_keyIndex": 23,
+            "name": "test"
+        }
+    ]
+}

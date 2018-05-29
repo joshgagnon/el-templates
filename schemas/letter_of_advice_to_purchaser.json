@@ -1,0 +1,586 @@
+{
+    "title": "Letter of Advice to Purchaser",
+    "formName": "letter_of_advice_to_purchaser",
+    "baseDoc": "letter.odt",
+    "properties": {
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "Client (recipient)"
+        },
+        "matter": {
+            "type": "object",
+            "title": "Matter",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                }
+            }
+        },
+        "vendorNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Vendor Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Vendor Names",
+            "type": "array"
+        },
+        "agreementDate": {
+            "title": "Agreement Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "purchaseAmount": {
+            "title": "Purchase Amount",
+            "type": "number"
+        },
+        "includeGST": {
+            "type": "boolean",
+            "title": "GST Inclusive"
+        },
+        "depositAmount": {
+            "title": "Deposit Amount",
+            "type": "number"
+        },
+        "payable": {
+            "type": "object",
+            "title": "Payable When",
+            "properties": {
+                "when": {
+                    "title": "Payable When",
+                    "enum": ["signed", "unconditional"],
+                    "enumNames": [
+                        "upon signing the Agreement",
+                        "when the Agreement becomes unconditional"
+                    ]
+                }
+            },
+            "oneOf":[
+                {
+                    "properties": {
+                        "when": {"enum": ["signed"]}
+                }
+            },
+                {
+                    "properties": {
+                        "when": {"enum": ["unconditional"]}
+                    }
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "when"
+                }
+            }
+        },
+        "payableTo": {
+            "title": "Where Payable To",
+            "type": "string"
+        },
+        "payableToRecipient": {
+            "title": "Payable To",
+            "type": "string",
+            "description": "e.g. real estate agent"
+        },
+        "settlementDate": {
+            "title": "Settlement Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+
+        "conditions": {
+            "type": "object",
+            "title": "Conditions",
+            "properties": {
+                "finance": {
+                    "type": "object",
+                    "properties": {
+                        "include": {
+                            "type": "boolean",
+                            "title": "Finance"
+                        }
+                    },
+                    "oneOf":[
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [false]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [true]
+                                },
+                                "date": {
+                                    "title": "Finance Condition Date",
+                                    "formatDate": "D MMMM YYYY",
+
+                                    "type": "string",
+                                    "x-hints" : {
+                                        "form": {
+                                          "inputComponent": "date"
+                                        }
+                                    }
+                                },
+                                "particulars": {
+                                    "title": "Particulars",
+                                    "type": "string",
+                                    "description": "e.g: a lender of your choice, a major bank etc"
+                                }
+                            },
+                            "required": ["date", "particulars"]
+                        }
+
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "include"
+                        }
+                    }
+                },
+
+                "lim": {
+                    "type": "object",
+                    "properties": {
+                        "include": {
+                            "type": "boolean",
+                            "title": "LIM"
+                        }
+                    },
+                    "oneOf":[
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [false]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [true]
+                                },
+                                "date": {
+                                    "title": "LIM Condition Date",
+                                    "type": "string",
+                                    "formatDate": "D MMMM YYYY",
+                                    "x-hints" : {
+                                        "form": {
+                                          "inputComponent": "date"
+                                        }
+                                    }
+                                },
+                                "limOptions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "limOption": {
+                                            "title": "LIM Option",
+                                            "enum": [
+                                                "request",
+                                                "summary"
+                                            ],
+                                            "enumNames": [
+                                                "Offer to review LIM",
+                                                "Provide Summaries"
+                                            ]
+                                        }
+                                    },
+                                    "oneOf": [
+                                        {
+                                            "properties": {
+                                                "limOption": {
+                                                    "enum": ["request"]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "properties": {
+                                                "limOption": {
+                                                    "enum": ["summary"]
+                                                },
+                                                "limFindings": {
+                                                    "type": "array",
+                                                    "title": "LIM Findings",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "title": "LIM Finding",
+                                                        "properties": {
+                                                            "text": {
+                                                                "type": "string",
+                                                                "minLength": 1,
+                                                                "x-hints": {
+                                                                    "form": {
+                                                                        "inputComponent": "textarea"
+                                                                    }
+                                                                }
+
+                                                            }
+                                                        }
+                                                    },
+                                                    "minItems": 1
+                                                }
+                                            },
+                                            "required": ["limFindings"]
+                                        }
+                                    ],
+                                    "x-hints": {
+                                        "form": {
+                                            "selector": "limOption"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": ["date"]
+                        }
+
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "include"
+                        }
+                    }
+                },
+
+                "buildersReport": {
+                    "type": "object",
+                    "properties": {
+                        "include": {
+                            "type": "boolean",
+                            "title": "Builder's Report"
+                        }
+                    },
+                    "oneOf":[
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [false]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [true]
+                                },
+                                "date": {
+                                    "title": "Builder's Report Condition Date",
+                                    "type": "string",
+                                    "formatDate": "D MMMM YYYY",
+                                    "x-hints" : {
+                                        "form": {
+                                          "inputComponent": "date"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": ["date"]
+                        }
+
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "include"
+                        }
+                    }
+                },
+                "dueDiligence": {
+                    "type": "object",
+                    "properties": {
+                        "include": {
+                            "type": "boolean",
+                            "title": "Due Diligence"
+                        }
+                    },
+                    "oneOf":[
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [false]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "include": {
+                                    "enum": [true]
+                                },
+                                "clause": {
+                                    "type": "string",
+                                    "title": "Clause"
+                                },
+                                "time": {
+                                    "title": "Due Diligence Condition Time",
+                                    "type": "string"
+                                },
+                                "date": {
+                                    "title": "Due Diligence Condition Date",
+                                     "formatDate": "D MMMM YYYY",
+                                    "type": "string",
+                                    "x-hints" : {
+                                        "form": {
+                                          "inputComponent": "date"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": ["clause", "date", "time"]
+                        }
+
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "include"
+                        }
+                    }
+                }
+
+            }
+        },
+
+        "title": {
+            "type": "object",
+            "title": "Title Status",
+            "properties": {
+                "status": {
+                    "title": "Title Status",
+                    "enum": [
+                        "fee simple",
+                        "crosslease",
+                        "leasehold",
+                        "stratum in freehold estate"
+                    ]
+                }
+            },
+            "oneOf":[
+                {
+                    "properties": {
+                        "status": {"enum": ["fee simple"]}
+                    }
+                },
+                {
+                    "properties": {
+                        "status": {"enum": ["crosslease"]}
+                    }
+                },
+                {
+                    "properties": {
+                        "status": {"enum": ["leasehold"]},
+                        "years": {
+                            "type": "integer",
+                            "title": "Number of Years"
+                        }
+                    },
+                    "required": ["years"]
+                },
+                {
+                    "properties": {
+                        "status": {"enum": ["stratum in freehold estate"]},
+                        "dateStart": {
+                            "title": "Corporate Body Levy Start Date",
+                            "type": "string",
+                                        "formatDate": "D MMMM YYYY",
+                            "x-hints" : {
+                                "form": {
+                                  "inputComponent": "date"
+                                }
+                            }
+                        },
+                        "dateEnd": {
+                            "title": "Corporate Body Levy End Date",
+                            "type": "string",
+                                        "formatDate": "D MMMM YYYY",
+                            "x-hints" : {
+                                "form": {
+                                  "inputComponent": "date"
+                                }
+                            }
+                        },
+                        "isCurrent": {
+                            "type": "boolean",
+                            "title": "Is Current"
+                        },
+                        "amount": {
+                            "title": "Corporate Body Levy Amount",
+                            "type": "number"
+                        }
+                    },
+                    "required": ["dateStart", "dateEnd", "amount"]
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "status"
+                }
+            }
+        },
+
+        "encumbrances": {
+            "type": "object",
+            "title": "Encumbrances",
+            "properties": {
+                "exists": {
+                    "type": "object",
+                    "properties": {
+                        "exist": {
+                            "title": "Has encumbrances",
+                            "type": "boolean"
+                        }
+                    },
+                    "oneOf":[
+                        {
+                            "properties": {
+                                "exist": {"enum": [false]}
+                            }
+                        },
+                        {
+                            "properties": {
+                                "exist": {"enum": [true]},
+                                "encumbrances": {
+                                    "type": "array",
+                                    "title": "Encumbrance Types",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "title": "Type",
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "effect": {
+                                                "title": "Effect",
+                                                "type": "string",
+                                                "description": "e.g. to create a right of way for neighbours of the Property",
+                                                "minLength": 1
+                                            },
+                                            "attached": {
+                                                "title": "Copy Attached",
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    },
+                                    "minItems": 1
+                                }
+                            },
+                            "required": ["encumbrances"]
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "exist"
+                        }
+                    }
+                },
+                "errors": {
+                    "type": "object",
+                    "properties": {
+                        "exist": {
+                            "title": "Has Misdescriptions/Errors",
+                            "type": "boolean"
+                        }
+                    },
+                    "oneOf":[
+                        {
+                            "properties": {
+                                "exist": {"enum": [false]}
+                            }
+                        },
+                        {
+                            "properties": {
+                                "exist": {"enum": [true]},
+                                "errorList": {
+                                    "type": "array",
+                                    "title": "Misdescriptions/Errors",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "text": {
+                                                "title": "Description",
+                                                "type": "string",
+                                                "minLength": 1
+                                            }
+                                        }
+                                    },
+                                    "minItems": 1
+                                }
+                            },
+                            "required": ["errorList"]
+                        }
+                    ],
+                    "x-hints": {
+                        "form": {
+                            "selector": "exist"
+                        }
+                    }
+                }
+            },
+            "required": ["uniqueIdentifier", "registry"]
+        },
+        "chattels": {
+            "title": "Chattels",
+            "type": "array",
+            "items": {
+                "title": "Item Description",
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "title": "Schedule",
+                        "description": "eg Stove, Blinds",
+                        "enumeratedTitle": "Description #{0}",
+                        "x-hints": {
+                            "form": {
+                                "inputComponent": "textarea"
+                            }
+                        }
+                    }
+                },
+                "required": ["text"],
+                "x-hints": {
+                    "form": {
+                        "addItem": "Add Item",
+                        "suggestions": [
+                            {"title": "Stove", "value": {"text": "Stove"}},
+                            {"title": "Fixed floor coverings", "value": {"text": "Fixed floor coverings"}},
+                            {"title": "Blinds", "value": {"text": "Blinds"}},
+                            {"title": "Curtains", "value": {"text": "Curtains"}},
+                            {"title": "Light fittings", "value": {"text": "Light fittings"}},
+                            {"title": "Rangehood", "value": {"text": "Rangehood"}},
+                            {"title": "Dishwasher", "value": {"text": "Dishwasher"}},
+                            {"title": "Extractor fan", "value": {"text": "Extractor fan"}},
+                            {"title": "Heated towel rail", "value": {"text": "Heated towel rail"}}
+                        ]
+                    }
+                }
+
+            }
+        },
+        "penaltyInterestRate": {
+            "type": "number",
+            "title": "Penalty Interest Rate"
+        }
+    },
+    "required": ["recipient", "vendorNames", "agreementDate", "purchaseAmount", "depositAmount", "payableTo", "payableToRecipient", "settlementDate", "titleStatus", "encumbrances", "penaltyInterestRate"]
+}

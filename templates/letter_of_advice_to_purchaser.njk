@@ -1,0 +1,401 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+
+<text:h text:outline-level="1" text:style-name="el_heading">
+    Purchase of {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %} ("the Property”) {% else %} (“the Properties”) {% endif %}
+</text:h>
+
+<text:list text:style-name="el_numbered_list">
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+        Thank you for asking us to act for {% if recipient.recipientType == 'company' %}{{ recipient.companyName }}{{ recipient.companyName }} (<text:span text:style-name="bold">Company</text:span>){% else %}you{% endif %} in the purchase of the Property.
+        </text:p>
+    </text:list-item>
+
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+
+ We have reviewed the agreement for sale and purchase of the {% if matter.assets|length == 1 %}Property{% else %}Properties{% endif %}, dated {{ agreementDate }} (<text:span text:style-name="bold">Agreement</text:span>), which {% if recipient.recipientType == 'company' %}the Company has{% else %}you have{% endif %} entered into with {{ vendorNames|join_and('name') }} {% if vendorNames|length == 1 %}(<text:span text:style-name="bold">Vendor</text:span>){% else %}(<text:span text:style-name="bold">Vendors</text:span>){% endif %}.  The purpose of this letter is to summarise the Agreement, explain the key aspects of the transaction process, and, ultimately, help prepare you for what lies ahead.
+        </text:p>
+    </text:list-item>
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+
+       As a preliminary step, please provide us with confirmation of your identity in the form of a driver’s licence, passport, or firearms licence.  We are required to obtain such confirmation under the Financial Transactions Reporting Act 1996.  A scanned copy of the relevant document may be emailed to the writer.
+        </text:p>
+        </text:list-item>
+</text:list>
+
+
+        <text:h text:outline-level="2" text:style-name="el_subheading">
+        The Agreement
+
+        </text:h>
+
+<text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+
+            The Agreement is subject to the standard terms of the Auckland District Law Society Agreement for Sale and Purchase of Real Estate.  This is the form of agreement used in most real estate transactions in New Zealand.
+        </text:p>
+        </text:list-item>
+
+
+    <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+            The particulars set out on the front page of the Agreement are summarised below:
+        </text:p>
+        <text:list  text:style-name="el_list">
+            <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+                        Purchase price: {{ purchaseAmount|currency }}  {% if includeGST %}including{% else %}plus{% endif %} GST.
+                    </text:p>
+                    <text:p text:style-name="para">
+                        {% if includeGST %}The purchase price includes GST, if any.  Because of this, the purchase price will not be affected by the GST status of the transaction.{% else %}The purchase price excludes GST, if any.  Because of this, the purchase price may be affected by the GST status of the transaction .{% endif %}
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+                    Deposit amount: {{ depositAmount|currency }}
+                </text:p>
+                    <text:p text:style-name="para">
+                    The deposit is payable {% if payable.when == 'unconditional' %}when the Agreement becomes unconditional.{% else %}upon signing the Agreement.{% endif %}  The deposit should be paid in full to the {{ payableTo }} immediately when it falls due to avoid the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} cancelling the Agreement.  If the {{ payableToRecipient }} has not provided their trust account details, let us know, and we can request this from them.
+                </text:p>
+                </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+Settlement Date:  The date settlement is scheduled to take place is {{ settlementDate.date }} (Settlement Date).  You are entitled to take possession of the Property on the Settlement Date once settlement is completed.  The Settlement Date may be brought forward by agreement between you and the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}.
+                    </text:p>
+            </text:list-item>
+
+        </text:list>
+    </text:list-item>
+</text:list>
+
+{% if conditions|length %}
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The Agreement is subject to {{ conditions|length }} {% if conditions|length > 1 %}conditions{% else %}condition{% endif %}.  We explain each condition in further detail below.  You are not under an obligation to complete the purchase until all conditions are satisfied or waived.
+        </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+    If any one of the conditions is not satisfied by the relevant due date, the Agreement may be cancelled by either party.  You may seek to extend the date for satisfaction of a particular condition if required.  The {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} must agree to the extension in order for it to be granted.
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+{% endif %}
+
+
+{% if conditions and conditions.finance and conditions.finance.include %}
+        <text:h text:outline-level="2" text:style-name="el_subheading">
+        Finance condition
+
+        </text:h>
+
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+It is a condition of the Agreement that you obtain finance sufficient to purchase the Property.  The date for satisfaction of this condition is <text:span text:style-name="bold">{{ conditions.finance.date }}</text:span>.  You may seek finance from {{ conditions.finance.particulars }}.
+        </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+Please contact us as soon as you receive a lending offer or approval.  It is important to confirm that the lending is unconditionally approved before satisfying the finance condition.
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+{% endif %}
+
+
+
+{% if conditions and conditions.lim and conditions.lim.include %}
+        <text:h text:outline-level="2" text:style-name="el_subheading">
+        LIM Condition
+        </text:h>
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+It is a condition of the Agreement that you are satisfied with the contents of the LIM report relating to the Property.  {% if conditions.lim.limOptions and conditions.lim.limOptions.limOption == "summary" %}You have asked us to assist with this by reviewing the LIM report.  A summary of our review is set out below under the heading <text:span text:style-name="italic">LIM Report Review</text:span>.{% else %}Please let us know if you would like us to review the LIM for the Property. {% endif %}
+        </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+If you are not satisfied with any matter contained in the LIM report you must notify the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}, in writing, by <text:span text:style-name="bold">{{ conditions.lim.date }}</text:span>.
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The notice must set out the matters you require the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} to rectify before you approve the LIM report.  If the Vendors are unable or unwilling to remedy the matters raised, you may cancel the Agreement.
+            </text:p>
+        </text:list-item>
+
+    </text:list>
+
+{% endif %}
+
+
+{% if conditions and conditions.buildersReport and conditions.buildersReport.include %}
+    <text:h text:outline-level="2" text:style-name="el_subheading">
+       Builder's Report Condition
+    </text:h>
+
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+It is a condition of the Agreement that you are satisfied with a builder’s report.  The date for satisfaction or otherwise of this condition is <text:span text:style-name="bold">{{ conditions.buildersReport.date }}</text:span>.  The report must be prepared, at your expense, by a suitably qualified building inspector.
+        </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+If you are not satisfied with the builder’s report, you may cancel the Agreement.  If you seek to cancel the Agreement for non-satisfaction of this condition, you must provide a copy of the builder’s report to the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} if requested.  The {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} may then challenge the cancellation on the grounds the builder’s report was not prepared in accordance with the terms of the Agreement.
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+{% endif %}
+
+
+
+{% if conditions and conditions.dueDiligence and conditions.dueDiligence.include %}
+    <text:h text:outline-level="2" text:style-name="el_subheading">
+       Due Diligence Condition
+    </text:h>
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+It is a condition of the Agreement that you obtain finance sufficient to purchase the Property.  The date for satisfaction of this condition is <text:span text:style-name="bold">{{ conditions.finance.date }}</text:span>.  You may seek finance from {{ conditions.finance.particulars }}.
+        </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+It is a condition of the Agreement that you are satisfied with the outcome of a due diligence investigation in relation to the Property.  This condition is contained in clause {{ conditions.dueDiligence.clause }} of the Agreement.  Clause {{ conditions.dueDiligence.clause }} gives you broad discretion to terminate the Agreement if you are not satisfied with any aspect of your investigation.  You are not required to disclose your reasons for dissatisfaction to the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}.  The time and date for satisfaction or otherwise of the due diligence condition is {{ conditions.dueDiligence.time }} on <text:span text:style-name="bold">{{ conditions.dueDiligence.date }}</text:span>.
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+{% endif %}
+
+
+<text:h text:outline-level="2" text:style-name="el_subheading">
+Title
+</text:h>
+{% if titleStatus.status == 'crosslease' %}
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The Property’s title is a crosslease.  This provides shared ownership of the Property with exclusive rights to access and use the dwelling and certain areas of the land.
+        </text:p>
+        </text:list-item>
+    </text:list>
+{% elif title.status == 'leasehold' %}
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The Property’s title is a leasehold.  This provides the right to exclusively occupy the Property for {{ titleStatus.years }} years.
+        </text:p>
+        </text:list-item>
+    </text:list>
+{% elif title.status == 'stratum in freehold estate' %}
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The Property’s title is a stratum in freehold estate, also known as a unit title.  This provides outright ownership of the unit and shared ownership of the common areas as a member of the body corporate.
+        </text:p>
+        </text:list-item>
+    </text:list>
+{% else %}
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The Property’s title is a 'stratum in freehold estate.  This provides outright ownership of the land and buildings within the Property’s boundary.
+        </text:p>
+        </text:list-item>
+    </text:list>
+{% endif %}
+
+
+{% if encumbrances and encumbrances.exists and encumbrances.exists.exist %}
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The title is subject to the following {% if encumbrances.exists.encumbrances|length == 1 %}encumbrance{% else %}encumbrances{% endif %}:
+
+        <text:list  text:style-name="el_list">
+        {% for e in  encumbrances.exists.encumbrances %}
+            <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+                        {{ e.type }}
+                </text:p>
+            </text:list-item>
+            {% endfor %}
+        </text:list>
+        </text:p>
+
+        {% for e in  encumbrances.exists.encumbrances %}
+        <text:p text:style-name="para">
+        The effect of the {{ e.type }} is {{ e.effect }}.  {% if e.attached %}A copy of the encumbrance is <text:span text:style-name="bold">attached</text:span>, for your records.{% endif %}
+    </text:p>
+        {% endfor %}
+        </text:list-item>
+    </text:list>
+{% else %}
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+           The title is not subject to any encumbrances.
+        </text:p>
+    </text:list-item>
+</text:list>
+{% endif %}
+
+<text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+        <text:p text:style-name="para">
+        A search copy of the title for the Property, being {{ matter.assets[0].uniqueIdentifier }}, {{ matter.assets[0].registry }} registry, is attached.  If you believe the property title contains an error or misdescription, you may ask the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} to have the title corrected or ‘requisitioned’.  A title requisition request must be made to the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} in writing within 10 working days of the date the Agreement was entered into.  {% if encumbrances.errors and encumbrances.errors.exist %}We have identified the following possible {% if encumbrances.errors and encumbrances.errors.errorList|length == 1 %}error or misdescription{% else %}errors or misdescriptions{% endif %} in the title: {% else %} We have not identified any apparent errors or misdescriptions in the title.{% endif %}
+        </text:p>
+
+        <text:list  text:style-name="el_list">
+        {% for e in encumbrances.errors.errorList %}
+            <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+                        {{ e.text }}
+                </text:p>
+            </text:list-item>
+            {% endfor %}
+        </text:list>
+
+    </text:list-item>
+</text:list>
+
+{% if title.status == 'stratum in freehold estate' %}
+    <text:h text:outline-level="2" text:style-name="el_subheading">
+       Unit Title
+    </text:h>
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+Owning a unit title property means you are a member of a body corporate.  The body corporate is responsible for insuring the building and maintaining the building’s common areas.  Body corporate members must pay annual levies.  The pre-contract disclosure statement provided by the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} states that the annual levy for the period from {{ title.dateStart }} to {{ title.dateEnd }} was {{ title.amount|currency }}.  {% if not title.isCurrent %}The annual levy for the current period is likely to be approximately the same as for the previous period as specified in the pre-contract disclosure statement.  This should, however, only be taken as a guide. {% endif %}
+        </text:p>
+        </text:list-item>
+    </text:list>
+
+{% endif %}
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+The {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} must provide a pre-settlement disclosure statement at least 5 working days before the Settlement Date.  If the pre-settlement disclosure statement is not provided within this timeframe, you may elect to defer settlement until five working days after it is provided, or you may cancel the Agreement by giving written notice to the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}.
+        </text:p>
+        </text:list-item>
+    </text:list>
+
+{% if chattels|length > 0 %}
+    <text:h text:outline-level="2" text:style-name="el_subheading">
+       Chattels
+    </text:h>
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                The chattels listed in the Agreement as being included in the purchase are as follows:
+            </text:p>
+
+        <text:list  text:style-name="el_list">
+        {% for e in chattels %}
+            <text:list-item>
+                    <text:p text:style-name="el_list_paragraph">
+                        {{ e.text }}
+                </text:p>
+            </text:list-item>
+        {% endfor %}
+        </text:list>
+
+        <text:p  text:style-name="para">
+The {% if vendorNames|length == 1 %}Vendor gives{% else %}Vendors give{% endif %} a warranty under the Agreement that the listed chattels will be in reasonable working order at the Settlement Date.  A breach of this warranty gives rise to a right to seek compensation from the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}.  It does not, however, give you the right to delay settlement if a breach has occurred.
+            </text:p>
+        </text:list-item>
+    </text:list>
+{% endif %}
+
+{% if conditions and conditions.lim and conditions.lim.include and conditions.lim.limOptions and conditions.lim.limOptions.limOption == "sumary" %}
+    <text:h text:outline-level="2" text:style-name="el_subheading">
+       LIM Report Review
+    </text:h>
+
+    <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+    {% for finding in  conditions.lim.limOptions.limFindings %}
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+              {{ finding.text }}
+            </text:p>
+        </text:list-item>
+        {% endfor %}
+    </text:list>
+
+{% endif %}
+
+
+<text:h text:outline-level="2" text:style-name="el_subheading">
+   Preparation for Settlement
+</text:h>
+
+<text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+         We will arrange to meet you prior to the Settlement Date to sign all documentation required to complete settlement.  This will include your loan agreement, and an Authority and Instruction Form authorising us to complete the mortgage registration and property transfer on your behalf.
+        </text:p>
+    </text:list-item>
+</text:list>
+
+
+<text:h text:outline-level="2" text:style-name="el_subheading">
+   Settlement Day
+</text:h>
+
+<text:list text:continue-numbering="true" text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+We will use our best endeavours to settle as early as possible on the Settlement Date.  However, settlements are frequently delayed for a variety of reasons that are not within your or our control. We are, therefore, unable to give you any firm indication as to the time settlement will take place.
+        </text:p>
+    </text:list-item>
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+The Agreement provides that if settlement is effected after 4pm due to the fault of the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}, you are entitled to charge the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} penalty interest until settlement has been completed. You may also take possession of the property, if the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} agree, however, you will not be able to charge penalty interest if you do so.
+        </text:p>
+    </text:list-item>
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+Similarly, if settlement is delayed due to your fault, for example by not having sufficient funds available, the {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} may charge penalty interest.  Interest is calculated on a daily basis until settlement occurs.  The penalty interest rate is {{ penaltyInterestRate }}%.
+        </text:p>
+    </text:list-item>
+
+        <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+If you would like to discuss any matter raised in this letter or any aspect of the Agreement, please contact us.  Otherwise, we look forward to receiving the documents and information requested.
+        </text:p>
+    </text:list-item>
+
+</text:list>
+
+{% endblock %}

@@ -68,11 +68,11 @@
                 </style:list-level-properties>
                 <style:text-properties style:font-name="Symbol"/>
             </text:list-level-style-bullet>
-            <text:list-level-style-bullet style:num-suffix="o" text:bullet-char="o" text:level="2" >
+            <text:list-level-style-bullet style:num-suffix="" text:bullet-char="" text:level="2" >
                 <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
                     <style:list-level-label-alignment fo:margin-left="3cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
                 </style:list-level-properties>
-                <style:text-properties style:font-name="Courier New"/>
+                <style:text-properties style:font-name="Symbol"/>
             </text:list-level-style-bullet>
             <text:list-level-style-bullet style:num-suffix="" text:bullet-char="" text:level="3">
                 <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -331,6 +331,11 @@
             <style:text-properties fo:font-weight="bold"/>
         </style:style>
 
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_subheading" style:display-name="EL Subheading" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+            <style:text-properties fo:font-style="italic"/>
+        </style:style>
+
         <style:style style:default-outline-level="" style:family="paragraph" style:name="el_quote" style:display-name="Quote" style:parent-style-name="para">
             <style:paragraph-properties fo:margin-left="1.500cm" fo:margin-right="1.500cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
             <style:text-properties fo:color="#404040" fo:font-family="'Calibri Light'" fo:font-size="10pt" style:font-family-generic="roman" style:font-name="Calibri Light" style:font-pitch="variable" style:font-size-asian="10pt" style:font-style-complex="italic"/>
@@ -407,9 +412,16 @@
         <style:style style:default-outline-level="" style:family="paragraph" style:name="Party" style:parent-style-name="Para"/>
 
 
+    <style:style style:family="text" style:name="italic">
+          <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+    </style:style>
+
         <style:style style:family="paragraph" style:name="MP1" style:parent-style-name="Footer">
             <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
         </style:style>
+
+
+
         <style:page-layout style:name="page">
             <style:page-layout-properties fo:margin-bottom="1.501cm" fo:margin-left="2.501cm" fo:margin-right="2.501cm" fo:margin-top="1.501cm" fo:page-height="29.7cm" fo:page-width="21.001cm" style:footnote-max-height="0cm" style:layout-grid-base-height="0.423cm" style:layout-grid-base-width="0.37cm" style:layout-grid-color="#c0c0c0" style:layout-grid-display="false" style:layout-grid-lines="38" style:layout-grid-mode="none" style:layout-grid-print="false" style:layout-grid-ruby-below="false" style:layout-grid-ruby-height="0.212cm" style:layout-grid-snap-to="true" style:num-format="1" style:print-orientation="portrait" style:writing-mode="lr-tb">
                 <style:footnote-sep style:adjustment="left" style:color="#000000" style:distance-after-sep="0.101cm" style:distance-before-sep="0.101cm" style:line-style="solid" style:rel-width="0%" style:width="0.009cm"/>
