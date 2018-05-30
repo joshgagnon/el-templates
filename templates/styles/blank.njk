@@ -157,6 +157,7 @@
 
         </text:list-style>
 
+
         <text:list-style style:name="el_party_list" style:display-name="EL Party List">
             <text:list-level-style-number style:num-format="1" style:num-letter-sync="true" style:num-suffix="." text:level="1" >
                 <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -306,6 +307,15 @@
             </text:list-level-style-number>
         </text:list-style>
 
+
+        <text:list-style style:name="el_alpha_list">
+            <text:list-level-style-number style:num-format="a" style:num-prefix="(" style:num-suffix=")" text:level="1">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+        </text:list-style>
+
          <style:style style:family="paragraph" style:display-name="EL List Paragraph"  style:list-style-name="el_list" style:name="el_list_paragraph">
                    <style:paragraph-properties  fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
          </style:style>
@@ -408,6 +418,8 @@
             <style:page-layout-properties style:layout-grid-standard-mode="true"/>
         </style:default-page-layout>
 
+
+
     </office:styles>
     <office:automatic-styles>
 
@@ -438,6 +450,11 @@
                 <style:header-footer-properties draw:fill="none" fo:background-color="transparent" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.499cm" fo:min-height="0.6cm" style:dynamic-spacing="false"/>
             </style:footer-style>
         </style:page-layout>
+
+
+
+
+
     </office:automatic-styles>
 
     <office:master-styles>

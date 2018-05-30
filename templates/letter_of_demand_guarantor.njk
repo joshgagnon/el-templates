@@ -1,0 +1,150 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+
+{% block automaticStyles %}
+
+{{ super() }}
+    {% block additionalAutomaticStyles %}
+            <style:style style:family="table" style:name="inset_list_table">
+                <style:table-properties fo:margin-left="1.5cm" fo:margin-right="1.5cm" style:may-break-between-rows="false" style:width="13cm" table:align="margins" />
+            </style:style>
+            <style:style style:family="table-column" style:name="inset_list_table.A">
+                <style:table-column-properties style:column-width="1.5cm"/>
+            </style:style>
+            <style:style style:family="table-column" style:name="inset_list_table.B">
+                <style:table-column-properties style:column-width="8cm"/>
+            </style:style>
+            <style:style style:family="table-column" style:name="inset_list_table.C">
+                <style:table-column-properties style:column-width="3.5cm"/>
+            </style:style>
+            <style:style style:family="paragraph" style:name="column_right">
+                <style:paragraph-properties fo:text-align="right"  />
+          </style:style>
+
+            <style:style style:family="paragraph" style:name="table_total">
+                <style:paragraph-properties fo:text-align="right"  />
+                    <style:text-properties fo:font-weight="bold" />
+          </style:style>
+
+    {% endblock %}
+{% endblock %}
+
+
+
+{% block letterBody %}
+
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>{{ creditor }} (“the Creditor”) – Letter of Demand</text:span>
+</text:p>
+
+<text:p text:style-name="para">
+We act for the Creditor.  We refer to the guarantee you executed on {{ documentDate }} in favour of the Creditor (<text:span text:style-name="bold">Guarantee</text:span>).
+</text:p>
+
+<text:p text:style-name="para">
+Under the Guarantee, you have personally guaranteed, and accepted liability as principal debtor for, the payment of all amounts owed by {{ debtor }} (<text:span text:style-name="bold">Debtor</text:span>) to the Creditor.  To date, you have not been discharged from your obligations under the Guarantee.  Our client now wishes to enforce those obligations.
+</text:p>
+
+{% if breakdown and breakdown.show == 'Yes' %}
+
+<text:p text:style-name="para">
+The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDate }} was {{ totalIndebtedness|currency }}, comprised as follows:
+</text:p>
+
+<table:table table:name="item_list" table:style-name="inset_list_table">
+    <table:table-column table:style-name="inset_list_table.A"/>
+    <table:table-column table:style-name="inset_list_table.B"/>
+    <table:table-column table:style-name="inset_list_table.C"/>
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:list text:style-name="el_alpha_list">
+                <text:list-item>
+                    <text:p text:style-name="para" />
+                </text:list-item>
+            </text:list>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p>
+            Principal sum owing under the Agreement
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p text:style-name="column_right">
+            {{ breakdown.principalSum.amount|currency }}
+            </text:p>
+        </table:table-cell>
+
+    </table:table-row>
+
+{% for line in  breakdown.userDefined %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:list text:continue-numbering="true" text:style-name="el_alpha_list">
+                <text:list-item>
+                    <text:p text:style-name="para" />
+                </text:list-item>
+            </text:list>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p>
+            {{ line.description }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p text:style-name="column_right">
+            {{ line.amount |currency}}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% endfor %}
+
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p text:style-name="table_total">
+                Total
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p text:style-name="column_right">
+            {{ totalIndebtedness|currency}}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+</table:table>
+
+
+{% else %}
+<text:p text:style-name="para">
+The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDate }} was {{ totalIndebtedness|currency }}
+</text:p>
+
+{% endif %}
+{% if interestIncluded %}
+<text:p text:style-name="para">
+Interest continues to accrue on the outstanding amount in accordance with the Agreement, until the date of actual payment.
+</text:p>
+
+{% endif %}
+<text:p text:style-name="para">
+On behalf of the Creditor, we hereby make formal demand on the Debtor for full payment of {{ totalIndebtedness|currency}}.  Payment must be made in cleared funds by electronic funds transfer to our trust account, account number <text:span text:style-name="bold">12-3107-0010923-02</text:span>, using the reference “ID {{ matter.matterId }}”.
+</text:p>
+
+<text:p text:style-name="para">
+If full payment of the amount demanded is not received by <text:span text:style-name="bold">5:00 pm on {{ deadline }}</text:span>, we may be instructed to take further action to recover the amount owing.  This may include issuing legal proceedings against you.
+</text:p>
+
+<text:p text:style-name="para">
+We look forward to hearing from you shortly.
+</text:p>
+{% endblock %}
