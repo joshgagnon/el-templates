@@ -3,9 +3,6 @@
 {% import 'partials/macros.njk' as macros %}
 
 
-{% block automaticStyles %}
-
-{{ super() }}
     {% block additionalAutomaticStyles %}
             <style:style style:family="table" style:name="inset_list_table">
                 <style:table-properties fo:margin-left="1.5cm" fo:margin-right="1.5cm" style:may-break-between-rows="false" style:width="13cm" table:align="margins" />
@@ -29,7 +26,7 @@
           </style:style>
 
     {% endblock %}
-{% endblock %}
+
 
 
 

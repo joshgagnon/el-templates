@@ -2,7 +2,6 @@
 
 {% import 'partials/macros.njk' as macros %}
 
-
     {% block additionalAutomaticStyles %}
             <style:style style:family="table" style:name="inset_list_table">
                 <style:table-properties fo:margin-left="1.5cm" fo:margin-right="1.5cm" style:may-break-between-rows="false" style:width="13cm" table:align="margins" />
@@ -32,21 +31,33 @@
 {% block letterBody %}
 
 <text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ creditor }} (“the Creditor”) – Letter of Demand</text:span>
+    <text:span>{{ creditor }} (“the Creditor”) – Statutory Demand</text:span>
+</text:p>
+
+{% if demandSent.status == 'sent' %}
+
+<text:p text:style-name="para">
+We refer to our letter demand, dated {{ demandSent.date }}.
 </text:p>
 
 <text:p text:style-name="para">
-We act for the Creditor.  We refer to the guarantee you executed on {{ documentDate }} in favour of the Creditor (<text:span text:style-name="bold">Guarantee</text:span>).
+We did not receive any response to our demand or any payment of the amount demanded within the time required.  Accordingly, the Creditor has instructed us to serve this statutory demand on the Debtor in accordance with section 289 of the Companies Act 1993 (<text:span text:style-name="bold">Act</text:span>).
+</text:p>
+
+{% else %}
+
+<text:p text:style-name="para">
+We act for the Creditor.  We refer to the {{ documentName }} between the Creditor and {{ recipientCompany.companyName }} (<text:span text:style-name="bold">Debtor</text:span>), dated {{ documentDate }} (the <text:span text:style-name="bold">Agreement</text:span>).  Please address all future correspondence in connection with the Agreement to us in the first instance.
 </text:p>
 
 <text:p text:style-name="para">
-Under the Guarantee, you have personally guaranteed, and accepted liability as principal debtor for, the payment of all amounts owed by {{ debtor }} (<text:span text:style-name="bold">Debtor</text:span>) to the Creditor.  To date, you have not been discharged from your obligations under the Guarantee.  Our client now wishes to enforce those obligations.
+The Debtor has failed to pay amounts owing to the Creditor under the Agreement.  Accordingly, the Creditor has instructed us to serve this statutory demand on the Debtor in accordance with section 289 of the Companies Act 1993 (<text:span text:style-name="bold">Act</text:span>).
 </text:p>
-
+{% endif %}
 {% if breakdown and breakdown.show == 'Yes' %}
 
 <text:p text:style-name="para">
-The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDate }} was {{ totalIndebtedness|currency }}, comprised as follows:
+As at {{ debtDate }}, the Debtor owed the Creditor the sum of {{ totalIndebtedness|currency }} (<text:span text:style-name="bold">Debt</text:span>), comprised as follows:
 </text:p>
 
 <table:table table:name="item_list" table:style-name="inset_list_table">
@@ -118,29 +129,54 @@ The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDat
     </table:table-row>
 
 </table:table>
+    <text:p text:style-name="para"/>
 
+    {% if interestIncluded %}
+    <text:p text:style-name="para">
+    Interest continues to accrue on the outstanding amount in accordance with the Agreement, until the date of actual payment.
+    </text:p>
+    {% endif %}
 
 {% else %}
 <text:p text:style-name="para">
-The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDate }} was {{ totalIndebtedness|currency }}
+As at {{ debtDate }}, the Debtor owed the Creditor the sum of {{ totalIndebtedness|currency }} (<text:span text:style-name="bold">Debt</text:span>).
 </text:p>
 
 {% endif %}
-{% if interestIncluded %}
-<text:p text:style-name="para">
-Interest continues to accrue on the outstanding amount in accordance with the Agreement, until the date of actual payment.
-</text:p>
-
-{% endif %}
-<text:p text:style-name="para">
-On behalf of the Creditor, we hereby make formal demand on the Debtor for full payment of {{ totalIndebtedness|currency}}.  Payment must be made in cleared funds by electronic funds transfer to our trust account, account number <text:span text:style-name="bold">12-3107-0010923-02</text:span>, using the reference “ID {{ matter.matterId }}”.
-</text:p>
 
 <text:p text:style-name="para">
-If full payment of the amount demanded is not received by <text:span text:style-name="bold">5:00 pm on {{ deadline }}</text:span>, we may be instructed to take further action to recover the amount owing.  This may include issuing legal proceedings against you.
+The Creditor requires the Debtor, within 15 working days of the date this statutory demand is served, or such longer period as the High Court may order, to:
 </text:p>
 
+            <text:list  text:style-name="el_alpha_list">
+                <text:list-item>
+                    <text:p text:style-name="para">
+                       pay the Debt in full.  Payment must be made in cleared funds by electronic funds transfer to our trust account, account number 12-3107-0010923-02, using the reference “ID {{ matter.matterId }}”.
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="para">
+                        enter into a compromise under Part 14 of the Act, or otherwise compound with the Creditor; or
+                    </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="para">
+                        give a charge over its property to secure payment of the Debt, to the reasonable satisfaction of the Creditor.
+                    </text:p>
+                </text:list-item>
+
+
+            </text:list>
+
 <text:p text:style-name="para">
-We look forward to hearing from you shortly.
+If the Debtor fails to comply with the above, it will be presumed to be unable to pay its debts, as set out in section 287(a) of the Act.  We will then be instructed to apply to the High Court for an order putting the Debtor into liquidation.
 </text:p>
 {% endblock %}
+
+
+
+
+        {% block valediction %}
+            <text:p text:style-name="P36"><text:span text:style-name="bold">Signed</text:span> on behalf of the Creditor by its solicitor</text:p>
+        {% endblock %}
+

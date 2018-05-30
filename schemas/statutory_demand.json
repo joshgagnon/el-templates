@@ -1,0 +1,195 @@
+{
+    "title": "Statutory Demand",
+    "formName": "statutory_demand",
+    "baseDoc": "letter.odt",
+    "calculations": ["letter_of_demand"],
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "Debtor (recipient)"
+
+        },
+     "recipientCompany": {
+            "title": "Recipient Company",
+            "type": "object",
+            "properties": {
+                "companyName": {
+                    "title": "Company Name",
+                    "type": "string"
+                },
+                "contact": {
+                    "title": "Contact",
+                    "type": "string"
+                }
+            },
+            "required": ["companyName", "contact"]
+        },
+        "creditor": {
+            "type": "string",
+            "title": "Name of Creditor"
+        },
+        "documentName": {
+            "type": "string",
+            "title": "Name of Document",
+            "description": "Name of document under which debt arises"
+        },
+        "documentDate": {
+            "title": "Date of Document",
+            "formatDate": "D MMMM YYYY",
+            "type": "string",
+            "x-hints": {
+                "form": {
+                    "inputComponent": "date"
+                }
+            }
+        },
+        "debtDate": {
+            "title": "Date Debt Calculated",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints": {
+                "form": {
+                    "inputComponent": "date"
+                }
+            }
+        },
+        "demandSent": {
+            "type": "object",
+            "title": "Demand",
+            "properties": {
+                "status": {
+                    "title": "Demand Letter",
+                    "enum": ["Not Sent", "Sent"]
+                }
+            },
+            "oneOf": [{
+                "properties": {
+                    "status": {
+                        "enum": ["Not Sent"]
+                    }
+                }
+                },{
+                    "properties":{
+                        "status": {
+                            "enum": ["Sent"]
+                        },
+                       "date": {
+                            "title": "Date Demand Sent",
+            "formatDate": "D MMMM YYYY",
+                            "type": "string",
+                            "x-hints": {
+                                "form": {
+                                    "inputComponent": "date"
+                                }
+                            }
+                    }
+                },
+                "required": ["date"]
+            }],
+            "x-hints": {
+                "form": {
+                    "selector": "status"
+                }
+            }
+        },
+        "totalIndebtedness": {
+            "title": "Total Indebtedness",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100000000
+        },
+        "breakdown": {
+            "type": "object",
+            "title": "Breakdown",
+            "properties": {
+                "show": {
+                    "title": "Show Breakdown",
+                    "enum": ["No", "Yes"]
+                }
+            },
+            "oneOf": [{
+                    "properties": {
+                        "show": {
+                            "enum": ["No"]
+                        }
+                    }
+                },{
+                    "properties": {
+                        "show": {
+                            "enum": ["Yes"]
+                        },
+                        "principalSum": {
+                            "type": "object",
+                            "properties": {
+                                "amount": {
+                                    "title": "Principal Sum Amount",
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 100000000,
+                                    "description": "Principal sum owing under the Agreement"
+                                }
+                            },
+                            "required": ["amount"]
+                        },
+                        "userDefined": {
+                            "type": "array",
+                            "title": "User Defined Line Items",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "description": {
+                                        "title": "Description",
+                                        "type": "string"
+                                    },
+                                    "amount": {
+                                        "title": "Amount",
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 100000000
+                                    }
+                                },
+                                "required": [
+                                    "description", "amount"
+                                ]
+                            },
+                            "description": "Eg. Interest, collection costs"
+                        },
+                        "calculatedAmount": {
+                            "type": "number",
+                            "title": "Calculated Amount",
+                            "x-hints": {
+                                "form": {
+                                    "inputComponent": "readOnlyCurrency"
+                                }
+                            }
+                        }
+                    },
+                    "required": ["principalSum"]
+                }],
+            "x-hints": {
+                "form": {
+                    "selector": "show"
+                }
+            }
+        },
+        "interestIncluded": {
+            "type": "boolean",
+            "title": "Interest Amount Included",
+            "description": "Interest continues to accrue on the outstanding amount in accordance with the Agreement"
+        }
+
+    },
+    "required": [
+        "recipient", "recipientCompany", "creditor", "documentName", "documentDate", "debtDate", "breakdown"
+    ]
+}
