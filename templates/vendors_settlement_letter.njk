@@ -4,20 +4,20 @@
 
 {% block letterBody %}
 
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
     <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
-</text:h>
+</text:p>
 
 <text:p text:style-name="para">
    <text:span>
-We refer to the above transaction, which is due to settle on {{ settlementDate }}.  In anticipation of settlement, we attach the following:
+We refer to the above transaction, which is due to settle on {{ settlementDate }}.  In anticipation of settlement, we <text:span text:style-name="bold">attach</text:span> the following:
 </text:span>
 </text:p>
 
 
 <text:p text:style-name="para">
-   <text:span>We </text:span><text:span text:style-name="bold">attach</text:span><text:span> unique identifier {{ matter.assets[0].uniqueIdentifier }}, {{ matter.assets[0].
-registry }} registry, for the Property. Please forward to us, prior to the settlement date, the following:
+   <text:span>
+Please forward to us, prior to the settlement date, the following:
 </text:span>
 </text:p>
 

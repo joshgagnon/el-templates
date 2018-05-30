@@ -4,9 +4,9 @@
 
 {% block letterBody %}
 
-            <text:h text:outline-level="1" text:style-name="Heading">
+            <text:p text:outline-level="1" text:style-name="Heading">
                 <text:span>Letter of Engagement - {{ matter.name }}</text:span>
-            </text:h>
+            </text:p>
             <text:p text:style-name="Paragraph">Thank you for asking Evolution Lawyers to act for
                 {% if recipient.recipientType == 'company' %}
                     {{ recipient.companyName }}

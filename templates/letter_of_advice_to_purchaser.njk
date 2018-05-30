@@ -4,9 +4,9 @@
 
 {% block letterBody %}
 
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
     Purchase of {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %} ("the Property”) {% else %} (“the Properties”) {% endif %}
-</text:h>
+</text:p>
 
 <text:list text:style-name="el_numbered_list">
 
@@ -33,10 +33,10 @@
 </text:list>
 
 
-        <text:h text:outline-level="2" text:style-name="el_subheading">
+        <text:p text:outline-level="2" text:style-name="el_subheading">
         The Agreement
 
-        </text:h>
+        </text:p>
 
 <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
 
@@ -99,10 +99,10 @@ The Agreement is subject to {{ conditions|length }} {% if conditions|length > 1 
 
 
 {% if conditions and conditions.finance and conditions.finance.include %}
-        <text:h text:outline-level="2" text:style-name="el_subheading">
+        <text:p text:outline-level="2" text:style-name="el_subheading">
         Finance condition
 
-        </text:h>
+        </text:p>
 
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
@@ -123,9 +123,9 @@ Please contact us as soon as you receive a lending offer or approval.  It is imp
 
 
 {% if conditions and conditions.lim and conditions.lim.include %}
-        <text:h text:outline-level="2" text:style-name="el_subheading">
+        <text:p text:outline-level="2" text:style-name="el_subheading">
         LIM Condition
-        </text:h>
+        </text:p>
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
         <text:list-item>
@@ -150,9 +150,9 @@ The notice must set out the matters you require the {% if vendorNames|length == 
 
 
 {% if conditions and conditions.buildersReport and conditions.buildersReport.include %}
-    <text:h text:outline-level="2" text:style-name="el_subheading">
+    <text:p text:outline-level="2" text:style-name="el_subheading">
        Builder's Report Condition
-    </text:h>
+    </text:p>
 
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
@@ -173,9 +173,9 @@ If you are not satisfied with the builder’s report, you may cancel the Agreeme
 
 
 {% if conditions and conditions.dueDiligence and conditions.dueDiligence.include %}
-    <text:h text:outline-level="2" text:style-name="el_subheading">
+    <text:p text:outline-level="2" text:style-name="el_subheading">
        Due Diligence Condition
-    </text:h>
+    </text:p>
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
         <text:list-item>
@@ -193,9 +193,9 @@ It is a condition of the Agreement that you are satisfied with the outcome of a 
 {% endif %}
 
 
-<text:h text:outline-level="2" text:style-name="el_subheading">
+<text:p text:outline-level="2" text:style-name="el_subheading">
 Title
-</text:h>
+</text:p>
 {% if titleStatus.status == 'crosslease' %}
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
         <text:list-item>
@@ -286,9 +286,9 @@ The title is subject to the following {% if encumbrances.exists.encumbrances|len
 </text:list>
 
 {% if title.status == 'stratum in freehold estate' %}
-    <text:h text:outline-level="2" text:style-name="el_subheading">
+    <text:p text:outline-level="2" text:style-name="el_subheading">
        Unit Title
-    </text:h>
+    </text:p>
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
         <text:list-item>
@@ -309,9 +309,9 @@ The {% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %} must prov
     </text:list>
 
 {% if chattels|length > 0 %}
-    <text:h text:outline-level="2" text:style-name="el_subheading">
+    <text:p text:outline-level="2" text:style-name="el_subheading">
        Chattels
-    </text:h>
+    </text:p>
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
         <text:list-item>
@@ -336,10 +336,10 @@ The {% if vendorNames|length == 1 %}Vendor gives{% else %}Vendors give{% endif %
     </text:list>
 {% endif %}
 
-{% if conditions and conditions.lim and conditions.lim.include and conditions.lim.limOptions and conditions.lim.limOptions.limOption == "sumary" %}
-    <text:h text:outline-level="2" text:style-name="el_subheading">
+{% if conditions and conditions.lim and conditions.lim.include and conditions.lim.limOptions and conditions.lim.limOptions.limOption == "summary" %}
+    <text:p text:outline-level="2" text:style-name="el_subheading">
        LIM Report Review
-    </text:h>
+    </text:p>
 
     <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
     {% for finding in  conditions.lim.limOptions.limFindings %}
@@ -354,9 +354,9 @@ The {% if vendorNames|length == 1 %}Vendor gives{% else %}Vendors give{% endif %
 {% endif %}
 
 
-<text:h text:outline-level="2" text:style-name="el_subheading">
+<text:p text:outline-level="2" text:style-name="el_subheading">
    Preparation for Settlement
-</text:h>
+</text:p>
 
 <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
     <text:list-item>
@@ -367,9 +367,9 @@ The {% if vendorNames|length == 1 %}Vendor gives{% else %}Vendors give{% endif %
 </text:list>
 
 
-<text:h text:outline-level="2" text:style-name="el_subheading">
+<text:p text:outline-level="2" text:style-name="el_subheading">
    Settlement Day
-</text:h>
+</text:p>
 
 <text:list text:continue-numbering="true" text:style-name="el_numbered_list">
     <text:list-item>

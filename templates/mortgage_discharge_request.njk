@@ -4,9 +4,9 @@
 
 {% block letterBody %}
 
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
     <text:span>Mortgage Discharge: {{ ownerNames|join_and('name') }} - {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %} ("the Property”) {% else %} (“the Properties”) {% endif %}</text:span>
-</text:h>
+</text:p>
 
 <text:p text:style-name="para">
    <text:span>

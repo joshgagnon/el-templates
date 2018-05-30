@@ -4,16 +4,16 @@
 
 {% block letterBody %}
 
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
     <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
-</text:h>
+</text:p>
 
 <text:p text:style-name="para">
     <text:span>We refer to the above transaction, which is being transacted as an electronic dealing in Landonline.</text:span>
 </text:p>
 
 <text:p text:style-name="para">
-    <text:span>We undertake that we have signed the {{ matter.matterType }} under e-dealing number {{ matter.eDealingNumber }}. </text:span>
+    <text:span>We undertake that we have signed the {{ matter.settlement.matterType }} under e-dealing number {{ matter.eDealingNumber }}. </text:span>
 </text:p>
 
 <text:p text:style-name="para">
@@ -63,7 +63,7 @@
             </text:list>
         {% else %}
             <text:p text:style-name="el_numbered_list_paragraph">
-                <text:span>to release the following instrument from the Landonline Workspace into your control: : </text:span>
+                <text:span>to release the following instrument from the Landonline Workspace into your control: </text:span>
             </text:p>
             <text:list>
                 <text:list-item>

@@ -4,9 +4,9 @@
 
 {% block letterBody %}
 
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
     <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
-</text:h>
+</text:p>
 
 <text:p text:style-name="para">
 <text:span>We undertake that in settlement of the above transaction:</text:span>

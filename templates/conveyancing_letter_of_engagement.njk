@@ -3,9 +3,9 @@
 {% import 'partials/macros.njk' as macros %}
 
 {% block letterBody %}
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
 Letter of Engagement - {{ matter.conveyancing.matterType|title }}  of {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %}(“the Property”){% else %}(“the Properties”){% endif %}
-</text:h>
+</text:p>
 
 <text:p text:style-name="para">
 Thank you for asking Evolution Lawyers to act for {% if recipient.recipientType == 'company' %}{{ recipient.companyName }} (Company){% else %}you{% endif %}.  We understand that you would like us to assist {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} with {{ mappings.verbToNoun[matter.conveyancing.matterType] }}{% if matter.assets|length == 1 %} the Property{% else %}the Properties{% endif %}.

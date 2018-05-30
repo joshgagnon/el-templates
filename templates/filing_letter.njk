@@ -4,9 +4,9 @@
 
 {% block letterBody %}
 
-<text:h text:outline-level="1" text:style-name="el_heading">
+<text:p text:outline-level="1" text:style-name="el_heading">
     <text:span>{% if civNumber %}{{ civNumber }}: {% endif %} {{ plantiffs[0].name }} v {{ defendants[0].name }}</text:span>
-</text:h>
+</text:p>
 
 <text:p text:style-name="para">
     We <text:span text:style-name="bold">enclose</text:span>, for filing in the above matter, the following documents:

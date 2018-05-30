@@ -348,18 +348,23 @@
 {% block letterBody %}
 
             <text:p text:style-name="P34"/>
-            <text:h text:outline-level="1" text:style-name="el_email_title">
+            <text:p text:outline-level="1" text:style-name="el_email_title">
                 {{ subject }}
-            </text:h>
+            </text:p>
 
 
 {% endblock %}
 
 {% block letterFooter %}
 
-            <text:p text:style-name="Paragraph"/>
+
             <table:table table:name="Table2" table:style-name="Table2">
                 <table:table-column table:style-name="Table2.A"/>
+                <table:table-row>
+                    <table:table-cell office:value-type="string" table:style-name="Table2.A1">
+                        <text:p text:style-name="P26"/>
+                    </table:table-cell>
+                </table:table-row>
                 <table:table-row>
                     <table:table-cell office:value-type="string" table:style-name="Table2.A1">
                         <text:p text:style-name="P36">Yours sincerely</text:p>
@@ -389,6 +394,7 @@
                     </table:table-cell>
                 </table:table-row>
             </table:table>
+
             <text:p text:style-name="P18">
                 {% if copyTo %}
             </text:p>
