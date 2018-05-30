@@ -2,6 +2,7 @@
     "title": "Trust Account Statement",
     "formName": "trust_account_statement",
     "baseDoc": "letter.odt",
+    "calculations": ["trust_account_statement"],
     "properties": {
         "dateString": {
             "title": "Date",

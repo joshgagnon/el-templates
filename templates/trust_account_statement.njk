@@ -1,0 +1,497 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+{% block automaticStyles %}
+    {{ super() }}
+    {% block additionalAutomaticStyles %}
+
+
+        <style:style style:family="table" style:name="trust_account_table">
+            <style:table-properties style:width="16cm" table:align="left"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="trust_account_table.A">
+            <style:table-column-properties style:column-width="3.0cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="trust_account_table.B">
+            <style:table-column-properties style:column-width="8.0cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="trust_account_table.C">
+            <style:table-column-properties style:column-width="2.5cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="trust_account_table.D">
+            <style:table-column-properties style:column-width="2.5cm"/>
+        </style:style>
+        <style:style style:family="table-cell" style:name="trust_account_table.border">
+            <style:table-cell-properties fo:background-color="transparent" fo:border-bottom="0.05pt solid #000000" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:padding-bottom="0.6cm" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.101cm">
+                <style:background-image/>
+            </style:table-cell-properties>
+        </style:style>
+        <style:style style:family="table-cell" style:name="trust_account_table.no_border">
+            <style:table-cell-properties fo:background-color="transparent" fo:border="none" fo:padding-bottom="0.6cm" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.101cm">
+                <style:background-image/>
+            </style:table-cell-properties>
+        </style:style>
+
+         <style:style style:family="paragraph" style:name="column_right">
+             <style:paragraph-properties fo:text-align="right"  />
+        </style:style>
+
+
+    {% endblock %}
+{% endblock %}
+
+
+
+{% block letterBody %}
+
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>Trust Account Statement - {{ matter.conveyancing.matterType|title }} of {{ matter.assets|join_and('address') }}</text:span>
+</text:p>
+
+<table:table table:name="table" table:style-name="trust_account_table">
+    <table:table-column table:style-name="trust_account_table.A"/>
+    <table:table-column table:style-name="trust_account_table.B"/>
+    <table:table-column table:style-name="trust_account_table.C"/>
+    <table:table-column table:style-name="trust_account_table.D"/>
+
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p><text:span text:style-name="bold">Date</text:span>
+        </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p >
+               <text:span text:style-name="bold">Description</text:span>
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p >
+               <text:span text:style-name="bold">Deposit</text:span>
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p >
+               <text:span text:style-name="bold">Withdrawal</text:span>
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% if matter.conveyancing.matterType == 'purchase' %}
+
+    {% if matter.conveyancing.loanAdvance %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+       <table:table-row>
+
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.loanAdvance.date }}
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Loan advance from {{ matter.conveyancing.loanAdvance.financier }}
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.loanAdvance.credit|currency }}
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+
+    </table:table-row>
+
+
+    {% endif %}
+
+
+    {% for client in matter.conveyancing.clients %}
+        {% if client.kiwiSaverWithdrawal %}
+
+           <table:table-row>
+
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+                    {{ client.kiwiSaverWithdrawal.date }}
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+                    KiwiSaver First Home Buyer Withdrawal for {{ client.clientName }}
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+                    {{ client.kiwiSaverWithdrawal.credit|currency }}
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        {% endif %}
+    {% endfor %}
+
+    {% for client in matter.conveyancing.clients %}
+        {% if client.kiwiSaverHomeStart %}
+
+            <table:table-row>
+                <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                    <text:p>
+                        {{ client.kiwiSaverHomeStart.date }}
+                    </text:p>
+                </table:table-cell>
+                <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                    <text:p>
+                        KiwiSaver HomeStart Grant for {{ client.clientName }}
+                    </text:p>
+                </table:table-cell>
+                <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                    <text:p>
+                        {{ client.kiwiSaverHomeStart.credit|currency }}
+                    </text:p>
+                </table:table-cell>
+                <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                    <text:p>
+
+                    </text:p>
+                </table:table-cell>
+            </table:table-row>
+        {% endif %}
+    {% endfor %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.balancePurchasePrice.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Payment of balance of purchase price as per vendor’s settlement statement, dated {{ settlementDate }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.balancePurchasePrice.debit|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% elif matter.conveyancing.matterType == 'sale' %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.balancePurchasePrice.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Payment of balance of purchase price by purchaser as per settlement statement dated {{ settlementDate }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.balancePurchasePrice.credit|currency }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.deposit.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Payment of deposit {% if matter.conveyancing.deposit.lessCommission %}less real estate agent’s commission{% endif %} by purchaser
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.deposit.credit|currency }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.repaymentOfIndebtedness.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Repayment of indebtedness to {{  matter.conveyancing.repaymentOfIndebtedness.mortgagee }} to discharge mortgage
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.repaymentOfIndebtedness.debit|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+
+{% else %}
+    {% if matter.conveyancing.loanAdvance %}
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+                    {{ matter.conveyancing.loanAdvance.date }}
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+                    Loan advance from {{ matter.conveyancing.loanAdvance.financier }}
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+                    {{ matter.conveyancing.loanAdvance.credit|currency }}
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+                <text:p>
+
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+    {% endif %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.repaymentOfIndebtedness.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Repayment of indebtedness to {{  matter.conveyancing.repaymentOfIndebtedness.mortgagee }} to discharge mortgage
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ matter.conveyancing.repaymentOfIndebtedness.debit|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+{% endif %}
+
+{% for credit in credits %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ credit.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ credit.description }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ credit.credit|currency }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% endfor %}
+
+{% for debit in debits %}
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ debit.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ debit.description }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ debit.debit|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+{% endfor %}
+
+{% if paidByTrust and paidByTrust.paidByTrust == 'Yes' %}
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ paidByTrust.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                Evolution Lawyers invoice, dated {{ paidByTrust.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ paidByTrust.debit|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+{% endif %}
+
+{% if totalDebits - totalCredits != 0 %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+                <text:span text:style-name="bold">Balance paid to you</text:span>
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+                  <text:span text:style-name="bold">{{ (totalCredits - totalDebits)|currency }}</text:span>
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% else %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% endif %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ totalCredits|currency }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ totalDebits|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+</table:table>
+
+{% endblock %}
+
