@@ -47,7 +47,29 @@
                             ]
                         }
                     },
-                    "required": ["matterType"]
+
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": [
+                                        "purchase"
+                                    ]
+                                },
+                                "firstHome": {
+                                    "title": "First Home Buyer",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": ["email"]
+                        }
+                    ],
+                    "required": ["matterType"],
+                    "x-hints": {
+                        "form": {
+                            "selector":"matterType"
+                        }
+                    }
                 }
 
             },

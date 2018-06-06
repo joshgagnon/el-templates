@@ -19,12 +19,7 @@
                     <text:span>the Company</text:span>
                 {% else %}
                     <text:span>you</text:span>
-                {% endif %}
-                <text:span>with </text:span>
-                <text:span>
-                    {{ matter.description }}
-                </text:span>
-                <text:span>.</text:span>
+                {% endif %}.
             </text:p>
 
             <text:p text:style-name="Paragraph">We would be happy to act for
@@ -52,7 +47,7 @@
                 {% if recipient.recipientType == 'company' %}
                     <text:span>Our client for this matter will be {{ recipient.companyName }}.</text:span>
                 {% else %}
-                    <text:span>Our client{% if recipient.individuals.length > 1 %}s{% endif %} for this matter will be {{ recipient.individuals|concat(['firstName', 'lastName'])|join_and() }}.</text:span>
+                    <text:span>Our client{% if recipient.individuals.length > 1 %}s{% endif %} for this matter will be {{ recipient.individuals|concat(['firstName', 'surname'])|join_and() }}.</text:span>
                 {% endif %}
 
 

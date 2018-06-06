@@ -37,7 +37,7 @@
 </text:p>
 
 <text:p text:style-name="para">
-We act for the Creditor.  We refer to the {{ documentName }} between the Creditor and {% if recipient.recipientType == 'company' %}{{ recipient.companyName }}{{ recipient.companyName }} (<text:span text:style-name="bold">Debtor</text:span>){% else %}{{ recipient.individuals|join_and( 'firstName', 'lastName') }}{% if recipient.individuals|length == 1 %} (<text:span text:style-name="bold">Debtor</text:span>){% else %} (<text:span text:style-name="bold">Debtors</text:span>){% endif %}{% endif %}, dated {{ documentDate }} (the Agreement).  Please address all future correspondence in connection with the Agreement to us in the first instance.
+We act for the Creditor.  We refer to the {{ documentName }} between the Creditor and {% if recipient.recipientType == 'company' %}{{ recipient.companyName }}{{ recipient.companyName }} (<text:span text:style-name="bold">Debtor</text:span>){% else %}{{ recipient.individuals|join_and( 'firstName', 'surname') }}{% if recipient.individuals|length == 1 %} (<text:span text:style-name="bold">Debtor</text:span>){% else %} (<text:span text:style-name="bold">Debtors</text:span>){% endif %}{% endif %}, dated {{ documentDate }} (the <text:span text:style-name="bold">Agreement</text:span>).  Please address all future correspondence in connection with the Agreement to us in the first instance.
 </text:p>
 
 {% if breakdown and breakdown.show == 'Yes' %}

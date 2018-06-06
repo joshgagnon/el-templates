@@ -19,6 +19,15 @@
              "title": "Debtor (recipient)"
 
         },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                }
+            }
+        },
      "recipientCompany": {
             "title": "Recipient Company",
             "type": "object",

@@ -18,6 +18,10 @@
              "$ref": "#/definitions/recipient",
              "title": "Guarantor (recipient)"
         },
+        "creditor": {
+            "type": "string",
+            "title": "Name of Creditor"
+        },
         "matter": {
             "type": "object",
             "properties": {
