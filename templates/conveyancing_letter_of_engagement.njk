@@ -33,15 +33,15 @@ Our fees will be charged and billed in accordance with the Terms.  Our standard 
 </text:p>
 
 <text:p text:style-name="para">
-Disbursements and expenses for a property {{matter.conveyancing.matterType}} typically include Land Information New Zealand registration charges, which will be
+<text:span>Disbursements and expenses for a property {{matter.conveyancing.matterType}} typically include Land Information New Zealand registration charges, which will be </text:span>
 {% if matter.conveyancing.matterType == 'purchase' %}
-    {{  mappings.disbursements[matter.conveyancing.matterType] }} to transfer the Property’s title and register a new mortgage
+    <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to transfer the Property’s title and register a new mortgage,</text:span>
 {% elif matter.conveyancing.matterType == 'sale' %}
-    {{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title
+    <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s titl,e</text:span>
 {% else %}
-    {{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title and register a new mortgage
-{% endif %},
-title searches, which are $5 for each title or instrument searched, our general office fee of $50, and a file storage fee of $25.
+    <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title and register a new mortgage,</text:span>
+{% endif %}
+<text:span>title searches, which are $5 for each title or instrument searched, our general office fee of $50, and a file storage fee of $25.</text:span>
 </text:p>
 
 <text:p text:style-name="para">
