@@ -1,0 +1,109 @@
+{
+    "title": "Trust Account Statement - Generic",
+    "formName": "trust_account_statement_generic",
+    "baseDoc": "letter.odt",
+    "calculations": ["trust_account_statement_generic"],
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient",
+             "title": "Client (repicient)"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "matterName": {
+                    "title": "Matter ID",
+                    "type": "string"
+                }
+            }
+        },
+        "receipts": {
+            "type": "array",
+            "title": "Receipts",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "title": "Date",
+                                        "formatDate": "D MMMM YYYY",
+                        "type": "string",
+                        "x-hints": {
+                            "form": {
+                                "inputComponent": "date"
+                            }
+                        }
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "amount": {
+                        "title": "Amount",
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000000
+                    }
+                },
+                "required": [
+                    "credit", "date", "description"
+                ]
+            }
+        },
+
+        "payments": {
+            "type": "array",
+            "title": "Payments",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "title": "Date",
+                                        "formatDate": "D MMMM YYYY",
+                        "type": "string",
+                        "x-hints": {
+                            "form": {
+                                "inputComponent": "date"
+                            }
+                        }
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "amount": {
+                        "title": "Amount",
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000000
+                    }
+                },
+                "required": [
+                    "debit", "date"
+                ]
+            }
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "required": [
+        "client", "matter", "settlementDate", "paidByTrust"
+    ]
+}
