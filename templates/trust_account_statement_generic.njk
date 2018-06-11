@@ -10,10 +10,10 @@
             <style:table-properties style:width="16cm" table:align="left"/>
         </style:style>
         <style:style style:family="table-column" style:name="trust_account_table.A">
-            <style:table-column-properties style:column-width="3.0cm"/>
+            <style:table-column-properties style:column-width="3.5cm"/>
         </style:style>
         <style:style style:family="table-column" style:name="trust_account_table.B">
-            <style:table-column-properties style:column-width="8.0cm"/>
+            <style:table-column-properties style:column-width="7.0cm"/>
         </style:style>
         <style:style style:family="table-column" style:name="trust_account_table.C">
             <style:table-column-properties style:column-width="2.5cm"/>
@@ -22,12 +22,12 @@
             <style:table-column-properties style:column-width="2.5cm"/>
         </style:style>
         <style:style style:family="table-cell" style:name="trust_account_table.border">
-            <style:table-cell-properties fo:background-color="transparent" fo:border-bottom="0.05pt solid #000000" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:padding-bottom="0.6cm" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.101cm">
+            <style:table-cell-properties fo:background-color="transparent" fo:border-top="0.05pt solid #000000" fo:border-left="none" fo:border-right="none" fo:border-bottom="none" fo:padding-bottom="0.6cm" fo:padding-left="0cm" fo:padding-right="0.6cm" fo:padding-top="0.101cm">
                 <style:background-image/>
             </style:table-cell-properties>
         </style:style>
         <style:style style:family="table-cell" style:name="trust_account_table.no_border">
-            <style:table-cell-properties fo:background-color="transparent" fo:border="none" fo:padding-bottom="0.6cm" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.101cm">
+            <style:table-cell-properties fo:background-color="transparent" fo:border="none" fo:padding-bottom="0.6cm" fo:padding-left="0cm" fo:padding-right="0.6cm" fo:padding-top="0.101cm">
                 <style:background-image/>
             </style:table-cell-properties>
         </style:style>
@@ -45,7 +45,7 @@
 {% block letterBody %}
 
 <text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ matter.conveyancing.matterName }}</text:span>
+    <text:span>{{ matter.matterName }}</text:span>
 </text:p>
 
 <table:table table:name="table" table:style-name="trust_account_table">
@@ -67,12 +67,12 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
             <text:p >
-               <text:span text:style-name="bold">Payments</text:span>
+               <text:span text:style-name="bold">Receipts</text:span>
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
             <text:p >
-               <text:span text:style-name="bold">Receipts</text:span>
+               <text:span text:style-name="bold">Payments</text:span>
             </text:p>
         </table:table-cell>
     </table:table-row>
@@ -93,12 +93,12 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ payment.amount|currency }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
 
+                {{ payment.amount|currency }}
             </text:p>
         </table:table-cell>
     </table:table-row>
@@ -119,12 +119,12 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
+                {{ receipt.amount|currency }}
 
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ receipt.amount|currency }}
             </text:p>
         </table:table-cell>
     </table:table-row>
@@ -144,35 +144,11 @@
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
-            <text:p>
-
-            </text:p>
-        </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
-            <text:p>
-
-            </text:p>
-        </table:table-cell>
-    </table:table-row>
-
-
-    <table:table-row>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
-            <text:p>
-
-            </text:p>
-        </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
-            <text:p>
-
-            </text:p>
-        </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p >
                <text:span text:style-name="bold"> {{ totalPayments|currency }}</text:span>
             </text:p>
         </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.border">
             <text:p >
                 <text:span text:style-name="bold">{{ totalReceipts|currency }}</text:span>
             </text:p>
