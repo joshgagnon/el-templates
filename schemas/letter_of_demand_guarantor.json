@@ -59,7 +59,6 @@
         },
         "breakdown": {
             "type": "object",
-            "title": "Breakdown",
             "properties": {
                 "show": {
                     "title": "Show Breakdown",
@@ -112,15 +111,6 @@
                                 ]
                             },
                             "description": "Eg. Interest, collection costs"
-                        },
-                        "calculatedAmount": {
-                            "type": "number",
-                            "title": "Calculated Amount",
-                            "x-hints": {
-                                "form": {
-                                    "inputComponent": "readOnlyCurrency"
-                                }
-                            }
                         }
                     },
                     "required": ["principalSum"]
@@ -131,10 +121,40 @@
                 }
             }
         },
-        "interestIncluded": {
-            "type": "boolean",
-            "title": "Interest Amount Included",
-            "description": "Interest continues to accrue on the outstanding amount in accordance with the Agreement"
+        "interest": {
+            "type": "object",
+            "title": "Breakdown",
+            "properties": {
+                "include": {
+                    "title": "Interest Amount Included",
+                    "description": "Interest continues to accrue on the outstanding amount in accordance with the Agreement",
+                    "type": "boolean"
+                }
+            },
+            "oneOf": [{
+                    "properties": {
+                        "include": {
+                            "enum": [false]
+                        }
+                    }
+                },{
+                    "properties": {
+                        "include": {
+                            "enum": [true]
+                        },
+                        "amount": {
+                            "title": "Interest Amount",
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100000000
+                        }
+                    }
+                }],
+            "x-hints": {
+                "form": {
+                    "selector": "include"
+                }
+            }
         },
         "deadline": {
             "title": "Deadline for Payment",

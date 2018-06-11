@@ -20,41 +20,9 @@
             "type": "string",
             "title": "CIV Number"
         },
-        "plantiffs": {
-            "type": "array",
-            "minItems": 1,
-            "title": "Plantiffs/Applicants",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "title": "Name",
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            }
-        },
-        "defendants": {
-            "type": "array",
-            "minItems": 1,
-            "title": "Defendants/Respondents",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "title": "Name",
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            }
+        "caseName": {
+            "type": "string",
+            "title": "Case Name"
         },
          "filingFee": {
             "title": "Filing Fee",

@@ -26,7 +26,7 @@
                     "type": "string"
                 },
                 "matterName": {
-                    "title": "Matter ID",
+                    "title": "Matter Name",
                     "type": "string"
                 }
             }

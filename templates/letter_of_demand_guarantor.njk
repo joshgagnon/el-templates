@@ -99,6 +99,29 @@ The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDat
 
 {% endfor %}
 
+{% if interest.include %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:list text:continue-numbering="true" text:style-name="el_alpha_list">
+                <text:list-item>
+                    <text:p text:style-name="para" />
+                </text:list-item>
+            </text:list>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p>
+            Interest
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
+            <text:p text:style-name="column_right">
+            {{ interest.amount |currency}}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% endif %}
 
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="inset_list_table.A1">
@@ -118,7 +141,7 @@ The total amount of the Debtor’s indebtedness to the Creditor as at {{ debtDat
     </table:table-row>
 
 </table:table>
-
+<text:p text:style-name="para"/>
 
 {% else %}
 <text:p text:style-name="para">

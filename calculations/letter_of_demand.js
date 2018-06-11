@@ -6,6 +6,9 @@ module.exports = function calculate(values){
         amount += (breakdown.userDefined || []).reduce((acc, d) => {
             return acc + parseFloat((d || {}).amount) || 0;
         }, 0);
+        if(values.interest.include){
+            amount += parseFloat(values.interest.amount) || 0;
+        }
     }
     return {breakdown: {calculatedAmount: amount}};
 }
