@@ -22,6 +22,10 @@
             "type": "string",
             "title": "Name of Creditor"
         },
+        "debtor": {
+            "type": "string",
+            "title": "Name of Debtor"
+        },
         "matter": {
             "type": "object",
             "properties": {
