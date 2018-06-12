@@ -37,7 +37,7 @@ Our fees will be charged and billed in accordance with the Terms.  Our standard 
 {% if matter.conveyancing.matterType == 'purchase' %}
     <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to transfer the Property’s title and register a new mortgage,</text:span>
 {% elif matter.conveyancing.matterType == 'sale' %}
-    <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title</text:span>
+    <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title,</text:span>
 {% else %}
     <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title and register a new mortgage,</text:span>
 {% endif %}

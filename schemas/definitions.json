@@ -440,6 +440,7 @@
                 ],
                 "type": "object"
             },
+            "default": [{}],
             "minItems": 1,
             "title": "Properties",
             "type": "array"
