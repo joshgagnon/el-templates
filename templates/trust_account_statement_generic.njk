@@ -86,17 +86,18 @@
     </table:table-row>
 
 
-{% for payment in payments %}
+{% for transaction in transactions %}
+{% if transaction.type === 'payment' %}
 
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ payment.date }}
+                {{ transaction.date }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ payment.description }}
+                {{ transaction.description }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
@@ -106,28 +107,26 @@
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
 
-                {{ payment.amount|currency }}
+                {{transaction.amount|currency }}
             </text:p>
         </table:table-cell>
     </table:table-row>
+{% else %}
 
-{% endfor %}
-
-{% for receipt in receipts %}
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ receipt.date }}
+                {{transaction.date }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ receipt.description }}
+                {{ transaction.description }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ receipt.amount|currency }}
+                {{ transaction.amount|currency }}
 
             </text:p>
         </table:table-cell>
@@ -136,6 +135,9 @@
             </text:p>
         </table:table-cell>
     </table:table-row>
+
+{% endif %}
+
 {% endfor %}
 
 

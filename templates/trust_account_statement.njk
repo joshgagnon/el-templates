@@ -86,17 +86,18 @@
     </table:table-row>
 
 
-{% for payment in payments %}
+{% for transaction in transactions %}
+{% if transaction.type === 'payment' %}
 
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ payment.date }}
+                {{ transaction.date }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                {{ payment.description }}
+                {{ transaction.description }}
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
@@ -106,39 +107,40 @@
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
 
-                {{ payment.amount|currency }}
+                {{transaction.amount|currency }}
             </text:p>
         </table:table-cell>
     </table:table-row>
+{% else %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{transaction.date }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ transaction.description }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+                {{ transaction.amount|currency }}
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
+            <text:p>
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+{% endif %}
 
 {% endfor %}
 
-{% for receipt in receipts %}
-    <table:table-row>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
-            <text:p>
-                {{ receipt.date }}
-            </text:p>
-        </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
-            <text:p>
-                {{ receipt.description }}
-            </text:p>
-        </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
-            <text:p>
-                {{ receipt.amount|currency }}
-
-            </text:p>
-        </table:table-cell>
-        <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
-            <text:p>
-            </text:p>
-        </table:table-cell>
-    </table:table-row>
-{% endfor %}
-
-{% if totalReceipts - totalPayments > 0 %}
+{% if totalReceipts < totalPayments %}
 
 
     <table:table-row>
@@ -149,12 +151,12 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                <text:span text:style-name="bold">Balance required to settle</style:style>
+                <text:span text:style-name="bold">Balance required to settle</text:span>
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                <text:span text:style-name="bold">{{ (totalReceipts - totalPayments)|currency }}</text:span>
+                <text:span text:style-name="bold">{{ (totalPayments - totalReceipts)|currency }}</text:span>
 
             </text:p>
         </table:table-cell>
@@ -164,7 +166,32 @@
         </table:table-cell>
     </table:table-row>
 
-{% elif totalReceipts - totalPayments < 0 %}
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
+            <text:p >
+                <text:span text:style-name="bold">{{ totalPayments|currency }}</text:span>
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
+            <text:p >
+               <text:span text:style-name="bold"> {{ totalPayments|currency }}</text:span>
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+
+
+{% elif totalReceipts > totalPayments %}
 
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
@@ -184,12 +211,10 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.no_border">
             <text:p>
-                <text:span text:style-name="bold">{{ (totalPayments - totalReceipts )|currency }}</text:span>
+                <text:span text:style-name="bold">{{ (totalReceipts  - totalPayments )|currency }}</text:span>
             </text:p>
         </table:table-cell>
     </table:table-row>
-
-{% endif %}
 
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
@@ -209,12 +234,15 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
             <text:p >
-               <text:span text:style-name="bold"> {{ totalPayments|currency }}</text:span>
+               <text:span text:style-name="bold"> {{ totalReceipts|currency }}</text:span>
             </text:p>
         </table:table-cell>
     </table:table-row>
 
+{% endif %}
 </table:table>
+
+
 
 {% endblock %}
 

@@ -31,15 +31,19 @@
                 }
             }
         },
-        "receipts": {
+        "transactions": {
             "type": "array",
-            "title": "Receipts",
+            "title": "Transactions",
             "items": {
                 "type": "object",
                 "properties": {
+                    "type": {
+                        "enum": ["receipt", "payment"],
+                        "title": "Type"
+                    },
                     "date": {
                         "title": "Date",
-                                        "formatDate": "D MMMM YYYY",
+                        "formatDate": "D MMMM YYYY",
                         "type": "string",
                         "x-hints": {
                             "form": {
@@ -58,66 +62,40 @@
                         "maximum": 100000000
                     }
                 },
-                "x-hints": {
-                    "form": {
-                        "addItem": "Add Receipt",
-                        "suggestions": [
-                            {"title": "Drawdown under facility agreement", "value": {"description": "Drawdown under facility agreement"}},
-                            {"title": "First home buyer KiwiSaver withdrawal", "value": {"description": "First home buyer KiwiSaver withdrawal"}},
-                            {"title": "KiwiSaver HomeStart Grant", "value": {"description": "KiwiSaver HomeStart Grant"}},
-                            {"title": "Payment to top up trust funds for settlement", "value": {"description": "Payment to top up trust funds for settlement"}},
-                            {"title": "Release of deposit less real estate agent's commission", "value": {"description": "Release of deposit less real estate agent's commissions"}}
-                        ]
+                "oneOf": [
+                    {
+                        "properties": {
+                            "type": {"enum": ["receipt"]}
+                        }
+                    },
+                    {
+                        "properties": {
+                            "type": {"enum": ["payment"]}
+                        }
                     }
-                },
-                "required": [
-                    "credit", "date", "description"
-                ]
-            }
-        },
+                ],
+                "default": {"type": "receipt"},
+                "required": ["type", "description", "amount"],
 
-        "payments": {
-            "type": "array",
-            "title": "Payments",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "date": {
-                        "title": "Date",
-                                        "formatDate": "D MMMM YYYY",
-                        "type": "string",
-                        "x-hints": {
-                            "form": {
-                                "inputComponent": "date"
-                            }
-                        }
-                    },
-                    "description": {
-                        "title": "Description",
-                        "type": "string"
-                    },
-                    "amount": {
-                        "title": "Amount",
-                        "type": "number",
-                        "minimum": 0,
-                        "maximum": 100000000
-                    }
-                },
                 "x-hints": {
                     "form": {
-                        "addItem": "Add Payment",
+                        "selector": "type",
+                        "addItem": "Add Transaction",
                         "suggestions": [
-                            {"title": "Payment to discharge existing mortgage over property", "value": {"description": "Payment to discharge existing mortgage over property"}},
-                            {"title": "Pay balance of purchase price to vendor's solicitors", "value": {"description": "Pay balance of purchase price to vendor's solicitors"}},
-                            {"title": "Pay deposit to real estate agent", "value": {"description": "Pay deposit to real estate agent"}},
-                            {"title": "Pay rates owing for property", "value": {"description": "Pay rates owing for property"}},
-                            {"title": "Pay body corporate levies owing for property", "value": {"description": "Pay body corporate levies owing for property"}}
+                            {"title": "Receipt - Drawdown under facility agreement", "value": {"type": "receipt", "description": "Drawdown under facility agreement"}},
+                            {"title": "Receipt - First home buyer KiwiSaver withdrawal", "value": {"type": "receipt", "description": "First home buyer KiwiSaver withdrawal"}},
+                            {"title": "Receipt - KiwiSaver HomeStart Grant", "value": {"type": "receipt", "description": "KiwiSaver HomeStart Grant"}},
+                            {"title": "Receipt - Payment to top up trust funds for settlement", "value": {"type": "receipt", "description": "Payment to top up trust funds for settlement"}},
+                            {"title": "Receipt - Release of deposit less real estate agent's commission", "value": {"type": "receipt", "description": "Release of deposit less real estate agent's commissions"}},
+                            {"title": "Payment - Payment to discharge existing mortgage over property", "value": {"type": "payment", "description": "Payment to discharge existing mortgage over property"}},
+                            {"title": "Payment - Pay balance of purchase price to vendor's solicitors", "value": {"type": "payment", "description": "Pay balance of purchase price to vendor's solicitors"}},
+                            {"title": "Payment - Pay deposit to real estate agent", "value": {"type": "payment", "description": "Pay deposit to real estate agent"}},
+                            {"title": "Payment - Pay rates owing for property", "value": {"type": "payment", "description": "Pay rates owing for property"}},
+                            {"title": "Payment - Pay body corporate levies owing for property", "value": {"type": "payment", "description": "Pay body corporate levies owing for property"}},
+                            {"title": "Payment - Payment of our invoice", "value": {"type": "payment", "description": "Payment of our invoice"}}
                         ]
                     }
-                },
-                "required": [
-                    "debit", "date"
-                ]
+                }
             }
         },
         "senders": {

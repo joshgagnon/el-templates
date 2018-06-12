@@ -311,6 +311,10 @@
                     "required": ["fax"]
                 }
             ],
+
+            "default": {
+                "method": "email"
+            },
             "x-hints": {
                 "form": {
                     "selector": "method"
