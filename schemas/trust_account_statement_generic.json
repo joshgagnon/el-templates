@@ -58,6 +58,18 @@
                         "maximum": 100000000
                     }
                 },
+                "x-hints": {
+                    "form": {
+                        "addItem": "Add Receipt",
+                        "suggestions": [
+                            {"title": "Drawdown under facility agreement", "value": {"description": "Drawdown under facility agreement"}},
+                            {"title": "First home buyer KiwiSaver withdrawal", "value": {"description": "First home buyer KiwiSaver withdrawal"}},
+                            {"title": "KiwiSaver HomeStart Grant", "value": {"description": "KiwiSaver HomeStart Grant"}},
+                            {"title": "Payment to top up trust funds for settlement", "value": {"description": "Payment to top up trust funds for settlement"}},
+                            {"title": "Release of deposit less real estate agent's commission", "value": {"description": "Release of deposit less real estate agent's commissions"}}
+                        ]
+                    }
+                },
                 "required": [
                     "credit", "date", "description"
                 ]
@@ -89,6 +101,18 @@
                         "type": "number",
                         "minimum": 0,
                         "maximum": 100000000
+                    }
+                },
+                "x-hints": {
+                    "form": {
+                        "addItem": "Add Receipt",
+                        "suggestions": [
+                            {"title": "Payment to discharge existing mortgage over property", "value": {"description": "Payment to discharge existing mortgage over property"}},
+                            {"title": "Pay balance of purchase price to vendor's solicitors", "value": {"description": "Pay balance of purchase price to vendor's solicitors"}},
+                            {"title": "Pay deposit to real estate agent", "value": {"description": "Pay deposit to real estate agent"}},
+                            {"title": "Pay rates owing for property", "value": {"description": "Pay rates owing for property"}},
+                            {"title": "Pay body corporate levies owing for property", "value": {"description": "Pay body corporate levies owing for property"}}
+                        ]
                     }
                 },
                 "required": [

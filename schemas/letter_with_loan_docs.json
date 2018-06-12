@@ -1,6 +1,6 @@
 {
-    "title": "Fax Cover With Loan Documents",
-    "formName": "fax_cover_with_loan_docs",
+    "title": "Letter With Loan Documents",
+    "formName": "letter_with_loan_docs",
     "baseDoc": "letter.odt",
     "properties": {
         "dateString": {
@@ -15,7 +15,7 @@
         },
         "recipient": {
              "$ref": "#/definitions/recipient",
-             "title": "New Mortgage (repicient)"
+             "title": "Recipient"
         },
         "matter": {
             "type": "object",
@@ -24,8 +24,9 @@
                     "title": "Matter ID",
                     "type": "string"
                 },
-                "assets": {
-                    "$ref": "#/definitions/assets"
+                "matterName": {
+                    "title": "Matter Name",
+                    "type": "string"
                 },
                 "conveyancing": {
                     "type": "object",
@@ -75,58 +76,6 @@
                 }
             },
             "requires": ["assets", "conveyancing", "letterFinancier"]
-        },
-        "mortgageeInstructions": {
-            "type": "object",
-            "title": "Mortgagee Instructions",
-            "properties": {
-                "instructionsDate": {
-                                    "formatDate": "D MMMM YYYY",
-                    "title": "Date of Instructions from New Mortgagee",
-                    "type": "string",
-                    "x-hints" : {
-                        "form": {
-                          "inputComponent": "date"
-                        }
-                    }
-                },
-                "mortgageeReference": {
-                    "title": "New Mortgagee Reference Number",
-                    "type": "string"
-                }
-            }
-        },
-        "client": {
-             "$ref": "#/definitions/recipient",
-             "title": "Client"
-        },
-        "newMortgageeDocuments": {
-            "items": {
-                "type": "object",
-                "properties": {
-                    "documentName": {
-                        "title": "Document Name",
-                        "type": "string"
-                    },
-                    "documentDate": {
-                                        "formatDate": "D MMMM YYYY",
-                        "title": "Document Date",
-                        "type": "string",
-                        "x-hints" : {
-                            "form": {
-                              "inputComponent": "date"
-                            }
-                        }
-                    },
-                    "sentToBank": {
-                        "title": "Send To Bank",
-                        "type": "boolean"
-                    }
-                },
-                "required": ["documentName"]
-            },
-            "title": "Documents to be sent to Mortgagee",
-            "type": "array"
         },
         "senders": {
             "$ref": "#/definitions/senders"
