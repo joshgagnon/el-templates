@@ -37,7 +37,7 @@
         },
         "documents": {
             "type": "array",
-            "title": "Documents",
+            "title": "Documents to be Returned",
             "items": {
                 "title": "Document",
                 "type": "object",

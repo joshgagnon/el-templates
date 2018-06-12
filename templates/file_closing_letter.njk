@@ -9,13 +9,13 @@
 </text:p>
 
 <text:p text:style-name="para">
-It has been a pleasure to serve as your counsel with regard to the above matter.  Now that {{ matter.reason }}, we understand that no further legal services are required.  Unless otherwise instructed, we will take no further action in connection with the matter and proceed to close our file.
+It has been our pleasure to serve as your solicitors in the above matter.  Now that {{ matter.reason }}, we understand that no further legal services are required.  Unless otherwise instructed, we will take no further action in connection with the matter and proceed to close our file.
 </text:p>
 
 {% if documents %}
 
 <text:p text:style-name="para">
-We will keep the following original documents in our deeds system for safe-keeping:
+We <text:span text:style-name="bold">enclose</text:span> the following documents, for your records:
 </text:p>
 
 <text:list text:style-name="el_numbered_list">
@@ -27,9 +27,7 @@ We will keep the following original documents in our deeds system for safe-keepi
         </text:list-item>
     {% endfor %}
 </text:list>
-<text:p text:style-name="para">
-If you require access to these documents or wish to store them yourself, please let us know.
-</text:p>
+
 {% endif %}
 
 <text:p text:style-name="para">
