@@ -139,7 +139,6 @@
 {% endfor %}
 
 
-
     <table:table-row>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
             <text:p>
@@ -153,12 +152,12 @@
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
             <text:p >
-               <text:span text:style-name="bold"> {{ totalPayments|currency }}</text:span>
+                <text:span text:style-name="bold">{{ totalReceipts|currency }}</text:span>
             </text:p>
         </table:table-cell>
         <table:table-cell office:value-type="string" table:style-name="trust_account_table.top_border">
             <text:p >
-                <text:span text:style-name="bold">{{ totalReceipts|currency }}</text:span>
+               <text:span text:style-name="bold"> {{ totalPayments|currency }}</text:span>
             </text:p>
         </table:table-cell>
     </table:table-row>

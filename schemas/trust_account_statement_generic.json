@@ -105,7 +105,7 @@
                 },
                 "x-hints": {
                     "form": {
-                        "addItem": "Add Receipt",
+                        "addItem": "Add Payment",
                         "suggestions": [
                             {"title": "Payment to discharge existing mortgage over property", "value": {"description": "Payment to discharge existing mortgage over property"}},
                             {"title": "Pay balance of purchase price to vendor's solicitors", "value": {"description": "Pay balance of purchase price to vendor's solicitors"}},
