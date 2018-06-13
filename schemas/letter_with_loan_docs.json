@@ -92,7 +92,7 @@
                     }
                 }
             },
-            "default": [{"name": "Solicitor’s certificate"}]
+            "default": [{"documentName": "Solicitor’s certificate"}]
         },
         "senders": {
             "$ref": "#/definitions/senders"
