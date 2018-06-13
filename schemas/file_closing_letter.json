@@ -2,6 +2,7 @@
     "title": "File Closing Letter",
     "formName": "file_closing_letter",
     "baseDoc": "letter.odt",
+    "category": "Matter Management",
     "properties": {
         "dateString": {
             "title": "Date",

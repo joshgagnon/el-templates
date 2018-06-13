@@ -2,6 +2,7 @@
     "title": "Filing Letter",
     "formName": "filing_letter",
     "baseDoc": "letter.odt",
+    "category": "Ligitation",
     "properties": {
         "dateString": {
             "title": "Date",

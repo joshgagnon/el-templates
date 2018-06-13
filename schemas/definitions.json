@@ -82,6 +82,82 @@
                 }
             }
         },
+        "contact": {
+            "title": "Contact",
+            "type": "object",
+            "properties": {
+                "recipientType": {
+                    "title": "Client Type",
+                    "enum": [
+                        "individuals",
+                        "company"
+                    ],
+                    "enumNames": [
+                        "Individual(s)",
+                        "Organisation"
+                    ]
+                }
+            },
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "recipientType": {
+                            "enum": [
+                                "individuals"
+                            ]
+                        },
+                        "individuals": {
+                            "minItems": 1,
+                            "title": "Individual(s)",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/individual",
+                                "x-hints": {
+                                    "form": {
+                                         "addItem": "Add Individual",
+                                          "suggestions": true,
+                                          "source": "recipients.individuals"
+                                    }
+                                }
+                            },
+                            "default": [{}]
+                        }
+                    },
+                    "required": ["individuals"]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "recipientType": {
+                            "enum": [
+                                "company"
+                            ]
+                        },
+                        "companyName": {
+                            "title": "Name",
+                            "type": "string"
+                        },
+                        "contact": {
+                            "title": "Contact",
+                            "type": "string"
+                        }
+                    },
+                    "x-hints": {
+                        "form": {
+                              "suggestions": true,
+                              "source": "recipients.organisations"
+                        }
+                    },
+                    "required": ["companyName", "contact"]
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "recipientType"
+                }
+            }
+        },
         "address": {
             "type": "object",
             "title": "Address",
@@ -541,6 +617,20 @@
             "copyTo": {
                 "$ref": "#/definitions/copyTo"
             }
+        },
+        "documents": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "documentName": {
+                        "title": "Document",
+                        "type": "string"
+                    }
+                },
+                "required": ["name"]
+            },
+            "title": "Documents",
+            "type": "array"
         }
     }
 }

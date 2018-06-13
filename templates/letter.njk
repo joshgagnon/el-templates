@@ -339,11 +339,11 @@
                 <table:table-row>
                     <table:table-cell office:value-type="string" table:style-name="Table1.A2">
                         <text:p text:style-name="P4">
-                            {% if recipient.recipientType == 'company' %}For:
+                            {% block salutation %}{% if recipient.recipientType == 'company' %}For:{% else %}Dear{%endif%}{% endblock %}
+                            {% if recipient.recipientType == 'company' %}
                             {{ recipient['contact'] }}
                             {% else %}
-                            Dear
-                            {{ recipient.individuals|join_and( 'firstName') }}
+                            {{ recipient.individuals|join_and('firstName') }}
                             <text:span text:style-name="T7"/>
                                 {% endif %}
                         </text:p>

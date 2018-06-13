@@ -2,6 +2,7 @@
     "title": "Letter",
     "formName": "letter",
     "baseDoc": "letter.odt",
+    "category": "Generic",
     "properties": {
         "$ref": "#/definitions/letter"
     }

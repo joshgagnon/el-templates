@@ -2,6 +2,7 @@
     "title": "Letter of Engagement - Generic",
     "formName": "generic_letter_of_engagement",
     "baseDoc": "letter.odt",
+    "category": "Matter Management",
     "properties": {
         "dateString": {
             "title": "Date",

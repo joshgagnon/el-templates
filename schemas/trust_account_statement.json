@@ -3,6 +3,7 @@
     "formName": "trust_account_statement",
     "baseDoc": "letter.odt",
     "calculations": ["trust_account_statement_generic"],
+    "category": "Conveyancing",
     "properties": {
         "dateString": {
             "title": "Date",

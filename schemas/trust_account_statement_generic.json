@@ -2,6 +2,7 @@
     "title": "Trust Account Statement - Generic",
     "formName": "trust_account_statement_generic",
     "baseDoc": "letter.odt",
+    "category": "Matter Management",
     "calculations": ["trust_account_statement_generic"],
     "properties": {
         "dateString": {

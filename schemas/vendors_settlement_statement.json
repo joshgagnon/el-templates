@@ -2,6 +2,7 @@
     "title": "Vendors Settlement Statement",
     "formName": "vendors_settlement_statement",
     "baseDoc": "letter.odt",
+    "category": "Conveyancing",
     "calculations": ["vendors_settlement_statement"],
     "properties": {
         "dateString": {

@@ -2,6 +2,7 @@
     "title": "Letter With Loan Documents",
     "formName": "letter_with_loan_docs",
     "baseDoc": "letter.odt",
+    "category": "Conveyancing",
     "properties": {
         "dateString": {
             "title": "Date",
@@ -17,6 +18,10 @@
              "$ref": "#/definitions/recipient",
              "title": "Recipient"
         },
+        "client": {
+             "$ref": "#/definitions/contact",
+             "title": "Client"
+        },
         "matter": {
             "type": "object",
             "properties": {
@@ -28,20 +33,14 @@
                     "title": "Matter Name",
                     "type": "string"
                 },
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                },
                 "conveyancing": {
                     "type": "object",
                     "properties": {
-                        "loanAdvance": {
-                            "$ref": "#/definitions/loanAdvance"
-                        }
-                    },
-                    "requires": ["loanAdvance"]
-                },
-                "letterFinancier": {
-                    "type": "object",
-                    "properties": {
                         "matterType": {
-                            "title": "Letter To Financier Type",
+                            "title": "Type",
                             "enum": [
                                 "purchase",
                                 "refinance"
@@ -75,7 +74,25 @@
                     }
                 }
             },
-            "requires": ["assets", "conveyancing", "letterFinancier"]
+            "requires": ["assets", "conveyancing"]
+        },
+        "documents": {
+            "$ref": "#/definitions/documents",
+            "items": {
+                 "x-hints": {
+                    "form": {
+                        "addItem": "Add Document",
+                        "suggestions": [
+                            {"title": "Solicitor’s certificate", "value": {"documentName": "Solicitor’s certificate"}},
+                            {"title": "Facility agreement", "value": {"documentName": "Facility agreement"}},
+                            {"title": "Facility agreements", "value": {"documentName": "Facility agreements"}},
+                            {"title": "Authority to disburse funds", "value": {"documentName": "Authority to disburse funds"}},
+                            {"title": "Cash contribution offer", "value": {"documentName": "Cash contribution offer"}}
+                        ]
+                    }
+                }
+            },
+            "default": [{"name": "Solicitor’s certificate"}]
         },
         "senders": {
             "$ref": "#/definitions/senders"
@@ -84,5 +101,5 @@
             "$ref": "#/definitions/copyTo"
         }
     },
-    "required": ["recipient", "purchaserNames", "facilityAgreementDate", "solicitorCertDate"]
+    "required": ["recipient", "client", "matter", "sender"]
 }

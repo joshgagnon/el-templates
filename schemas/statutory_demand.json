@@ -2,6 +2,7 @@
     "title": "Statutory Demand",
     "formName": "statutory_demand",
     "baseDoc": "letter.odt",
+    "category": "Debt Recovery",
     "calculations": ["letter_of_demand"],
     "properties": {
         "dateString": {

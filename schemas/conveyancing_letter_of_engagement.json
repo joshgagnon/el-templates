@@ -2,6 +2,7 @@
     "title": "Letter of Engagement - Conveyancing",
     "formName": "conveyancing_letter_of_engagement",
     "baseDoc": "letter.odt",
+    "category": "Conveyancing",
     "properties": {
         "dateString": {
             "title": "Date",

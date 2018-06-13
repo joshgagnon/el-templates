@@ -2,6 +2,7 @@
     "title": "Letter of Demand - Guarantor",
     "formName": "letter_of_demand_guarantor",
     "baseDoc": "letter.odt",
+    "category": "Debt Recovery",
     "calculations": ["letter_of_demand"],
     "properties": {
         "dateString": {

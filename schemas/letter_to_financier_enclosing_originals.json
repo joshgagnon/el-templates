@@ -2,6 +2,7 @@
     "title": "Letter to Financier Enclosing Originals",
     "formName": "letter_to_financier_enclosing_originals",
     "baseDoc": "letter.odt",
+    "category": "Conveyancing",
     "properties": {
         "dateString": {
             "title": "Date",
@@ -124,8 +125,7 @@
                     },
                     "documentDate": {
                         "title": "Document Date",
-             "formatDate": "D MMMM YYYY",
-
+                        "formatDate": "D MMMM YYYY",
                         "type": "string",
                         "x-hints" : {
                             "form": {

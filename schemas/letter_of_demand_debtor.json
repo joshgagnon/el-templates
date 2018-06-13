@@ -2,6 +2,7 @@
     "title": "Letter of Demand - Debtor",
     "formName": "letter_of_demand_debtor",
     "baseDoc": "letter.odt",
+    "category": "Debt Recovery",
     "calculations": ["letter_of_demand"],
     "properties": {
         "dateString": {
