@@ -2,7 +2,7 @@
     "title": "Filing Letter",
     "formName": "filing_letter",
     "baseDoc": "letter.odt",
-    "category": "Ligitation",
+    "category": "Litigation",
     "properties": {
         "dateString": {
             "title": "Date",

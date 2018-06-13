@@ -23,39 +23,33 @@ module.exports = function calculate(values, deps){
         return {days: days, amount: sumOfRates};
     }
 
-    var ratesObj = (values.settlementStatement && values.settlementStatement.rates) || {};
-    var leviesObj = (values.settlementStatement && values.settlementStatement.levies) || {};
-    var rates = annumFees(values.settlementDate, ratesObj);
-    var levies = annumFees(values.settlementDate, leviesObj);
-    var debits = values.purchaseAmount || 0;
-    var credits = values.depositAmount || 0;
+    var debits = parseFloat(values.purchaseAmount) || 0;
+    var credits = parseFloat(values.depositAmount) || 0;
 
-    if(ratesObj.instalmentsPaid && !ratesObj.instalmentsPaid.paid){
-        credits += parseFloat(rates.amount) || 0;
-        debits += parseFloat(ratesObj.instalmentsPaid.totalAmountInstalments) || 0;
-    }
-    else if(ratesObj.instalmentsPaid && ratesObj.instalmentsPaid.paid){
-        debits += parseFloat(rates.amount) || 0;
-    }
 
-    if(leviesObj.include){
-        if(leviesObj.instalmentsPaid && !leviesObj.instalmentsPaid.paid){
-            credits += parseFloat(levies.amount);
-            debits += parseFloat(leviesObj.instalmentsPaid.totalAmountInstalments) || 0;
+    var ratesAndApportionments = values.ratesAndApportionments;
+    var settlementDate = moment(values.settlementDate, "D MMMM YYYY");
+    ratesAndApportionments.map(item => {
+        if(item.type === 'rate'){
+            debits += parseFloat(item.amount) || 0;
         }
-        else if(leviesObj.instalmentsPaid && leviesObj.instalmentsPaid.paid){
-            debits += parseFloat(levies.amount) || 0;
+        else{
+            var start =  moment(item.startDate, "D MMMM YYYY");
+            var end =  moment(item.endDate, "D MMMM YYYY");
+            var periodDays = parseInt(moment.duration(end.diff(start)).asDays(), 10);
+
+            var apportionmentDays = parseInt(moment.duration(settlementDate.diff(start)).asDays(), 10);
+            var periodAmount = parseFloat(item.periodAmount) || 0;
+            var perDay = periodAmount / periodDays;
+            var amount = perDay * apportionmentDays;
+            item.amount = amount;
+            item.days = apportionmentDays;
+            credits += amount;
         }
-    }
+    });
 
+    var finalAmount = debits - credits;
+    var total = Math.max(debits, credits);
 
-
-
-    return {settlementStatement: {
-        rates: rates,
-        levies: levies,
-        totalDebits: debits,
-        totalCredits: credits,
-        totalAmount: debits - credits
-    }};
+    return {calculatedRatesAndApportionments: ratesAndApportionments, totalReceipts: debits, totalPayments: credits};
 }

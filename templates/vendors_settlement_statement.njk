@@ -51,7 +51,7 @@
 
 {% block letterBody %}
 <text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
+    <text:span>{{ matter.matterName }}</text:span>
 </text:p>
 
 <text:p text:outline-level="1" text:style-name="el_heading">
@@ -91,147 +91,141 @@
                 </text:p>
             </table:table-cell>
         </table:table-row>
-         {% endif %}
-
-   {% if not settlementStatement.rates.instalmentsPaid.paid %}
-
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p>Allowance for {{ settlementStatement.rates.localAuthority }} rates at {{ settlementStatement.rates.annumRate|currency }} per annum for the period from {{ settlementStatement.rates.startOfYear }}
-                            to {{ settlementDate }} ({{ settlementStatement.rates.days }} days)
-                            <text:s/></text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.rates.amount|currency }}
-                        </text:p>
-                    </table:table-cell>
-                </table:table-row>
-                <text:soft-page-break/>
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="para">
-Purchaser’s share of {{ settlementStatement.rates.localAuthority }} rates paid by vendor at {{ settlementStatement.rates.annumRate|currency }} per annum for the period from {{ settlementStatement.rates.startOfYear }} to {{ settlementDate }} ({{ settlementStatement.rates.days }} days)
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.rates.instalmentsPaid.totalAmountInstalments|currency }}
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                </table:table-row>
-
-      {% else %}
-
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="para">
-Purchaser’s share of {{ settlementStatement.rates.localAuthority }} rates paid by vendor at {{ settlementStatement.rates.annumRate|currency }} per annum for the period from {{ settlementStatement.rates.startOfYear }} to {{ settlementDate }} ({{ settlementStatement.rates.days }} days)
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.rates.amount|currency }}
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                </table:table-row>
-        {% endif %}
+    {% endif %}
 
 
- {% if settlementStatement.levies and settlementStatement.levies.include %}
-    {% if not settlementStatement.levies.instalmentsPaid.paid %}
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="para">Allowance for body corporate levies at {{ settlementStatement.levies.annumRate|currency }} per annum for the period the period from {{ settlementStatement.levies.startOfYear }} to {{ settlementDate }} {{ settlementStatement.levies.days }} days)
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.levies.amount|currency }}
-                        </text:p>
-                    </table:table-cell>
-                </table:table-row>
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="para">
-                            {{ settlementStatement.levies.instalmentsPaid.numberOfInstalmentsPaid }} instalment(s) of {{ settlementStatement.levies.localAuthority }} of body corporate levy paid by vendor
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.levies.instalmentsPaid.totalAmountInstalments|currency }}
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                </table:table-row>
+{% for item in calculatedRatesAndApportionments %}
+    <table:table-row>
+    {% if item.type === 'rate' %}
+            <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+                <text:p text:style-name="para">{{ item.description }}</text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+                <text:p text:style-name="column_right">
+                    {{ item.amount|currency }}
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+                <text:p text:style-name="column_right">
+                </text:p>
+            </table:table-cell>
+    {% else %}
+            <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+                <text:p text:style-name="para">{{ item.description }} at {{ item.periodAmount|currency }} per rates/levies period from {{ item.startDate }} to {{ settlementDate }} ({{ item.days }} days)  </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+                <text:p text:style-name="column_right">
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+                <text:p text:style-name="column_right">
+                    {{ item.amount|currency }}
+                </text:p>
+            </table:table-cell>
+    {% endif %}
+    </table:table-row>
 
-     {% else %}
 
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p>
-Purchaser’s share of body corporate levies paid by vendor at {{ settlementStatement.levies.annumRate|currency }} per annum for the period the period from {{ settlementStatement.lavies.startOfYear }} to {{ settlementDate }} ({{ settlementStatement.levies.days }}
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.levies.amount|currency }}
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                </table:table-row>
-         {% endif %}
-{% endif %}
+{% endfor %}
 
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="para"><text:span text:style-name="bold">Balance required to settle</text:span></text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right"/>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            <text:span text:style-name="bold">{{ settlementStatement.totalAmount|currency }}</text:span>
-                        </text:p>
-                    </table:table-cell>
-                </table:table-row>
-                <table:table-row>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p />
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.totalDebits|currency }}
-                        </text:p>
-                    </table:table-cell>
-                    <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                        <text:p text:style-name="column_right">
-                            {{ settlementStatement.totalCredits|currency }}
-                        </text:p>
-                    </table:table-cell>
-                </table:table-row>
+{% if totalReceipts < totalPayments %}
+
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p>
+                <text:span text:style-name="bold">Balance required to settle</text:span>
+
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+             <text:p text:style-name="column_right">
+                <text:span text:style-name="bold">{{ (totalPayments - totalReceipts)|currency }}</text:span>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p>
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p text:style-name="column_right">
+               {{ totalPayments|currency }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p text:style-name="column_right">
+              {{ totalPayments|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
 
 </table:table>
   <text:p text:style-name="para"/>
   <text:p text:style-name="para">
-We undertake that the {{ settlementStatement.rates.localAuthority }} rates {% if  settlementStatement.rates.waterCharges %}and water charges{% endif %} have been paid as set out above.  {% if settlementStatement.levies and settlementStatement.levies.include %}We undertake that the annual body corporate levy for the year ending {{ settlementStatement.levies.startOfYear }} has been paid or will be paid from the proceeds of sale as set out above.{% endif %}  {% if  settlementStatement.rates.waterCharges %}The water usage charges for the property are included in the body corporate levy.{% endif %}
+    We undertake that the rates have been or will be paid as set out above on settlement.
 </text:p>
+
+{% elif totalReceipts > totalPayments %}
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p>
+
+                <text:span text:style-name="bold">Balance remaining on settlement</text:span>
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+           <text:p text:style-name="column_right">
+                <text:span text:style-name="bold">{{ (totalReceipts  - totalPayments )|currency }}</text:span>
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p>
+
+            </text:p>
+        </table:table-cell>
+
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p text:style-name="column_right">
+                {{ totalReceipts|currency }}
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
+            <text:p text:style-name="column_right">
+               {{ totalReceipts|currency }}
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+</table:table>
+  <text:p text:style-name="para"/>
+  <text:p text:style-name="para">
+    We undertake that the rates have been or will be paid as set out above on settlement.
+
+We undertake that the body corporate levies, rates, and rent have been paid as set out above.  A final water meter reading has been arranged and the account will be paid as at the settlement date.
+</text:p>
+{% endif %}
+
+
 
 {% endblock %}
 
