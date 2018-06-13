@@ -34,9 +34,9 @@
             <style:table-properties table:border-model="collapsing"/>
         </style:default-style>
 
-        <style:default-style style:family="table-row">
-            <style:table-row-properties fo:keep-together="auto"/>
-        </style:default-style>
+        <style:style style:display-name="Strong Emphasis" style:family="text" style:name="strong_emphasis">
+            <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
 
         <style:style style:class="text" style:default-outline-level="" style:family="paragraph" style:name="Standard" style:display-name="Normal">
             <style:paragraph-properties fo:orphans="2" fo:text-align="start" fo:widows="2" style:justify-single-word="false" style:writing-mode="lr-tb"/>
@@ -53,14 +53,15 @@
         </style:style>
 
 
-        <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_title_1" style:display-name="EL Title" style:parent-style-name="Standard">
-            <style:paragraph-properties fo:text-align="justify" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+        <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_title_1" style:display-name="ELB Left Title" style:parent-style-name="Standard">
+            <style:paragraph-properties loext:contextual-spacing="true" fo:keep-with-next="always" fo:text-align="justify" fo:margin-bottom="0.388cm" fo:margin-top="0cm" />
             <style:text-properties fo:font-weight="bold" fo:text-transform="uppercase" style:font-family-generic-asian="system" style:font-family-generic-complex="system" style:font-name-asian="F" style:font-name-complex="F" style:font-pitch-asian="variable" style:font-pitch-complex="variable" style:font-size-complex="11pt" style:font-weight-asian="bold"/>
+
         </style:style>
 
 
-        <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_schedule" style:display-name="EL Schedule" style:parent-style-name="Standard">
-            <style:paragraph-properties fo:text-align="center" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+        <style:style style:auto-update="true" style:class="chapter" style:default-outline-level="" style:family="paragraph" style:name="el_center_title" style:display-name="ELA Centre Title" style:parent-style-name="Standard">
+            <style:paragraph-properties loext:contextual-spacing="true" fo:text-align="center" fo:margin-bottom="0.388cm" fo:margin-top="0cm" />
             <style:text-properties fo:font-weight="bold" fo:text-transform="uppercase" style:font-family-generic-asian="system" style:font-family-generic-complex="system" style:font-name-asian="F" style:font-name-complex="F" style:font-pitch-asian="variable" style:font-pitch-complex="variable" style:font-size-complex="11pt" style:font-weight-asian="bold"/>
         </style:style>
 
@@ -154,7 +155,32 @@
                     <style:list-level-label-alignment fo:margin-left="6cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
                 </style:list-level-properties>
             </text:list-level-style-number>
+        </text:list-style>
 
+        <text:list-style style:name="el_court_numbered_list" style:display-name="EL Court Numbered List">
+            <text:list-level-style-number style:num-format="1" style:num-letter-sync="true" style:num-suffix="." text:level="1" >
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="1.500cm" fo:text-indent="-1.500cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+            <text:list-level-style-number style:num-format="a" style:num-letter-sync="true" style:num-prefix="(" style:num-suffix=")" text:level="2">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="3cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+            <text:list-level-style-number style:num-format="i" style:num-prefix="(" style:num-suffix=")" text:level="3">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="4.5cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
+
+            <text:list-level-style-number style:num-format="A" style:num-letter-sync="true" style:num-suffix="." text:level="4">
+                <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+                    <style:list-level-label-alignment fo:margin-left="6cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
+                </style:list-level-properties>
+            </text:list-level-style-number>
         </text:list-style>
 
 
@@ -186,16 +212,18 @@
         </text:list-style>
 
         <text:list-style style:name="el_background_list" style:display-name="EL Background List">
-            <text:list-level-style-number style:num-format="A" style:num-letter-sync="true" style:num-suffix="." text:level="1" >
+            <text:list-level-style-number style:num-format="A" style:num-letter-sync="true" style:num-suffix="." text:level="1" text:style-name="strong_emphasis">
                 <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
                     <style:list-level-label-alignment fo:margin-left="1.500cm" fo:text-indent="-1.500cm" text:label-followed-by="listtab"/>
                 </style:list-level-properties>
+                 <style:text-properties fo:font-weight="bold"/>
             </text:list-level-style-number>
 
-            <text:list-level-style-number style:num-format="i" style:num-letter-sync="true" style:num-prefix="(" style:num-suffix=")" text:level="2">
+            <text:list-level-style-number style:num-format="i" style:num-letter-sync="true" style:num-prefix="(" style:num-suffix=")" text:level="2" text:style-name="strong_emphasis">
                 <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
                     <style:list-level-label-alignment fo:margin-left="3cm" fo:text-indent="-1.50cm" text:label-followed-by="listtab"/>
                 </style:list-level-properties>
+                 <style:text-properties fo:font-weight="bold"/>
             </text:list-level-style-number>
 
 
@@ -316,56 +344,65 @@
             </text:list-level-style-number>
         </text:list-style>
 
-         <style:style style:family="paragraph" style:display-name="EL List Paragraph"  style:list-style-name="el_list" style:name="el_list_paragraph">
-                   <style:paragraph-properties  fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+         <style:style style:family="paragraph" style:display-name="ELJ List Paragraph"  style:list-style-name="el_list" style:name="el_list_paragraph">
+                   <style:paragraph-properties  fo:keep-together="always" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
          </style:style>
 
-         <style:style style:family="paragraph" style:display-name="EL Numbered List Paragraph"  style:list-style-name="el_numbered_list" style:name="el_numbered_list_paragraph">
-                   <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+         <style:style style:family="paragraph" style:display-name="ELG Numbered List Paragraph"  style:list-style-name="el_numbered_list" style:name="el_numbered_list_paragraph">
+                   <style:paragraph-properties fo:keep-together="always" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
          </style:style>
 
+         <style:style style:family="paragraph" style:display-name="ELN Court Numbered List Paragraph"  style:list-style-name="el_court_numbered_list" style:name="el_court_numbered_list_paragraph">
+                   <style:paragraph-properties fo:keep-together="always" fo:line-height="150%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+         </style:style>
 
-         <style:style style:family="paragraph" style:display-name="EL Party List Paragraph"  style:list-style-name="el_party_list" style:name="el_party_list_paragraph"  >
-                   <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+         <style:style style:family="paragraph" style:display-name="ELK Party List Paragraph"  style:list-style-name="el_party_list" style:name="el_party_list_paragraph"  >
+                   <style:paragraph-properties fo:keep-together="always" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
                    <style:text-properties fo:font-weight="bold"/>
          </style:style>
 
 
-         <style:style style:family="paragraph" style:display-name="EL Background List Paragraph"  style:list-style-name="el_background_list" style:name="el_background_list_paragraph">
-                   <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
-                   <style:text-properties fo:font-weight="bold"/>
+         <style:style style:family="paragraph" style:display-name="ELL Background List Paragraph"  style:list-style-name="el_background_list" style:name="el_background_list_paragraph">
+                   <style:paragraph-properties fo:keep-together="always" fo:line-height="150%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+
          </style:style>
 
-        <style:style style:default-outline-level="" style:family="paragraph" style:name="para" style:display-name="EL Para" style:parent-style-name="Standard">
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="para" style:display-name="ELE Paragraph" style:parent-style-name="Standard">
             <style:paragraph-properties fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
-
         </style:style>
 
-        <style:style style:default-outline-level="" style:class="text" style:family="paragraph" style:name="el_heading" style:display-name="EL Heading" style:parent-style-name="Standard">
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="court_para" style:display-name="ELM Court Paragraph" style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+        </style:style>
+
+        <style:style style:default-outline-level="" style:class="text" style:family="paragraph" style:name="el_heading" style:display-name="ELC Heading" style:parent-style-name="Standard">
             <style:paragraph-properties fo:background-color="transparent" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm"  fo:text-align="justify" fo:text-indent="0cm" style:auto-text-indent="false" style:justify-single-word="false" />
             <style:text-properties fo:font-weight="bold"/>
         </style:style>
 
-        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_subheading" style:display-name="EL Subheading" style:parent-style-name="Standard">
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_subheading" style:display-name="ELD Subheading" style:parent-style-name="Standard">
             <style:paragraph-properties fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
             <style:text-properties fo:font-style="italic"/>
         </style:style>
 
-        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_quote" style:display-name="Quote" style:parent-style-name="para">
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_quote" style:display-name="ELF Quote" style:parent-style-name="para">
             <style:paragraph-properties fo:margin-left="1.500cm" fo:margin-right="1.500cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
             <style:text-properties fo:color="#404040" fo:font-family="'Calibri Light'" fo:font-size="10pt" style:font-family-generic="roman" style:font-name="Calibri Light" style:font-pitch="variable" style:font-size-asian="10pt" style:font-style-complex="italic"/>
         </style:style>
 
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="el_court_quote" style:display-name="ELO Court Quote" style:parent-style-name="para">
+            <style:paragraph-properties fo:line-height="150%" fo:margin-left="1.500cm" fo:margin-right="1.500cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+            <style:text-properties fo:color="#404040" fo:font-family="'Calibri Light'" fo:font-size="10pt" style:font-family-generic="roman" style:font-name="Calibri Light" style:font-pitch="variable" style:font-size-asian="10pt" style:font-style-complex="italic"/>
+        </style:style>
 
 
-
-        <style:style style:default-outline-level="1" style:family="paragraph" style:display-name="EL Clause" style:list-style-name="el_clause_list" style:name="el_clause_para" style:parent-style-name="Clause">
-              <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+        <style:style style:default-outline-level="1" style:family="paragraph" style:display-name="ELH Clause" style:list-style-name="el_clause_list" style:name="el_clause_para" style:parent-style-name="Clause">
+              <style:paragraph-properties fo:keep-with-next="always" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
               <style:text-properties fo:font-weight="bold" fo:text-transform="uppercase"/>
         </style:style>
 
-        <style:style style:default-outline-level="2" style:family="paragraph" style:display-name="EL Subclause" style:list-style-name="el_clause_list" style:name="el_subclause_para"  style:parent-style-name="el_clause_para">
-              <style:paragraph-properties fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
+        <style:style style:default-outline-level="2" style:family="paragraph" style:display-name="ELI Subclause" style:list-style-name="el_clause_list" style:name="el_subclause_para"  style:parent-style-name="el_clause_para">
+              <style:paragraph-properties fo:keep-together="always" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
                 <style:text-properties fo:font-variant="normal" fo:font-weight="normal" fo:text-transform="none" style:font-weight-asian="normal"/>
 
         </style:style>
@@ -382,18 +419,16 @@
         <style:style style:class="text" style:default-outline-level="" style:family="paragraph" style:name="Signature" style:parent-style-name="Standard">
             <style:paragraph-properties fo:margin-left="7.502cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
         </style:style>
-        <style:style style:default-outline-level="" style:family="paragraph" style:name="Parties" style:parent-style-name="para">
-            <style:paragraph-properties fo:margin-left="1.501cm" fo:margin-right="0cm" fo:text-indent="-1.501cm" style:auto-text-indent="false"/>
-        </style:style>
+
         <style:style style:default-outline-level="" style:family="paragraph" style:name="Schedule" style:parent-style-name="Title">
             <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
         </style:style>
 
-        <style:style style:class="extra" style:family="paragraph" style:name="Footnote" style:style-name="EL Footnote">
-            <style:paragraph-properties fo:margin-left="1.5cm" fo:margin-right="0cm" fo:text-indent="-1.5cm" style:auto-text-indent="false" style:shadow="none" text:line-number="0" text:number-lines="false">
+        <style:style style:class="extra" style:family="paragraph" style:name="footnote" style:display-name="ELP Footnote">
+            <style:paragraph-properties fo:margin-left="1.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:shadow="none" text:line-number="0" text:number-lines="false">
                 <style:tab-stops/>
             </style:paragraph-properties>
-            <style:text-properties fo:background-color="transparent" fo:font-size="9pt" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
+            <style:text-properties fo:background-color="transparent" fo:font-size="8pt" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
         </style:style>
 
         <text:notes-configuration style:num-format="1" text:footnotes-position="page" text:note-class="footnote" text:start-numbering-at="document" text:start-value="0"/>
@@ -428,10 +463,18 @@
         <style:style style:default-outline-level="" style:family="paragraph" style:name="Subclause" style:parent-style-name="Para"/>
         <style:style style:default-outline-level="" style:family="paragraph" style:name="Party" style:parent-style-name="Para"/>
 
+    <style:style style:family="text" style:name="bold">
+        <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold" />
+    </style:style>
+
 
     <style:style style:family="text" style:name="italic">
           <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
     </style:style>
+
+        <style:style style:default-outline-level="" style:family="paragraph" style:name="parties" style:parent-style-name="para">
+            <style:paragraph-properties fo:margin-left="1.501cm" fo:margin-right="0cm" fo:text-indent="-1.501cm" style:auto-text-indent="false"/>
+        </style:style>
 
         <style:style style:family="paragraph" style:name="MP1" style:parent-style-name="Footer">
             <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
