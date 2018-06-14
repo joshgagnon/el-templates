@@ -16,10 +16,12 @@ module.exports = function calculate(values, deps){
         }
         else{
             var start =  moment(item.startDate, "D MMMM YYYY");
-            var end =  moment(item.endDate, "D MMMM YYYY");
-            var periodDays = parseInt(moment.duration(end.diff(start)).asDays(), 10) + 1;
+            var end =  start.clone().add('year', 1);
 
-            var apportionmentDays = parseInt(moment.duration(settlementDate.diff(start)).asDays(), 10) + 1;
+            var periodDays = parseInt(moment.duration(end.diff(start)).asDays(), 10);
+            console.log(periodDays)
+
+            var apportionmentDays = parseInt(moment.duration(settlementDate.diff(start)).asDays(), 10);
             var periodAmount = parseFloat(item.periodAmount) || 0;
             var perDay = periodAmount / periodDays;
             var amount = perDay * apportionmentDays;

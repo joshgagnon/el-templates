@@ -79,7 +79,7 @@
                         "properties": {
                             "type": {"enum": ["apportionment"]},
                             "startDate": {
-                                "title": "Start Date of Rates/Levies Period",
+                                "title": "Start Date of Annual Rates/Levies Period",
                                 "type": "string",
                                 "formatDate": "D MMMM YYYY",
                                 "x-hints" : {
@@ -88,24 +88,13 @@
                                     }
                                 }
                             },
-                            "endDate": {
-                                "title": "End Date of Rates/Levies Period",
-                                "type": "string",
-                                "formatDate": "D MMMM YYYY",
-                                "x-hints" : {
-                                    "form": {
-                                      "inputComponent": "date"
-                                    }
-                                }
-                            },
-
                             "description": {
                                 "title": "Description",
-                                "type": "string"
+                                "enum": ["rates", "levies"]
                             },
                             "periodAmount": {
                                 "type": "number",
-                                "title": "Rates/Levies Amount"
+                                "title": "Annual Amount"
                             }
                         }
                     }],
