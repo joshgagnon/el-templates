@@ -18,10 +18,7 @@
              "$ref": "#/definitions/recipient",
              "title": "Recipient"
         },
-        "client": {
-             "$ref": "#/definitions/contact",
-             "title": "Client"
-        },
+
         "matter": {
             "type": "object",
             "properties": {
@@ -32,9 +29,6 @@
                 "matterName": {
                     "title": "Matter Name",
                     "type": "string"
-                },
-                "assets": {
-                    "$ref": "#/definitions/assets"
                 },
                 "conveyancing": {
                     "type": "object",
@@ -76,6 +70,22 @@
             },
             "requires": ["assets", "conveyancing"]
         },
+
+        "loanAmount": {
+            "type": "number",
+            "title": "Loan Amount"
+        },
+        "dateOfInstructions": {
+            "title": "Date of Instruction",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+
         "documents": {
             "$ref": "#/definitions/documents",
             "items": {
@@ -86,13 +96,24 @@
                             {"title": "Solicitor’s certificate", "value": {"documentName": "Solicitor’s certificate"}},
                             {"title": "Facility agreement", "value": {"documentName": "Facility agreement"}},
                             {"title": "Facility agreements", "value": {"documentName": "Facility agreements"}},
+                            {"title": "Authority and Instruction form", "value": {"documentName": "Authority and Instruction form"}},
                             {"title": "Authority to disburse funds", "value": {"documentName": "Authority to disburse funds"}},
-                            {"title": "Cash contribution offer", "value": {"documentName": "Cash contribution offer"}}
+                            {"title": "Cash contribution offer", "value": {"documentName": "Cash contribution offer"}},
+                            {"title": "Insurance certificate", "value": {"documentName": "Insurance certificate"}},
+                            {"title": "Guaranteed search of Unique Identifier [Unique Identifier], [Registry] registry", "value": {"documentName": "Guaranteed search of Unique Identifier [Unique Identifier], [Registry] registry"}},
+                            {"title": "Our trust account deposit slip", "value": {"documentName": "Our trust account deposit slip"}}
                         ]
                     }
                 }
             },
-            "default": [{"documentName": "Solicitor’s certificate"}]
+            "default": [
+                {"documentName": "Solicitor’s certificate"},
+                {"documentName": "Facility agreements"},
+                {"documentName": "Authority and Instruction form"},
+                {"documentName": "Insurance certificate"},
+                {"documentName": "Guaranteed search of Unique Identifier [Unique Identifier], [Registry] registry"},
+                {"documentName": "Our trust account deposit slip"}
+            ]
         },
         "senders": {
             "$ref": "#/definitions/senders"
@@ -101,5 +122,5 @@
             "$ref": "#/definitions/copyTo"
         }
     },
-    "required": ["recipient", "client", "matter", "sender"]
+    "required": ["recipient", "loanAmount", "matter", "sender"]
 }

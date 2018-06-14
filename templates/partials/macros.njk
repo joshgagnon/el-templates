@@ -8,3 +8,13 @@
     <text:span>{{ text }}</text:span>
 </text:p>
 {% endmacro %}
+
+{% macro fullNames(recipient) %}
+    {% if recipient.recipientType == 'company' %}
+    {{ recipient.companyName }}
+    {% else %}
+    {{ recipient.individuals|join_and('firstName', 'surname') }}
+     {% endif %}
+{% endmacro %}
+
+

@@ -3,19 +3,14 @@
 {% import 'partials/macros.njk' as macros %}
 
 
-{% block salutation %}For:{% endblock %}
+
 {% block letterBody %}
 
 <text:p text:outline-level="1" text:style-name="el_heading">
-    {% if clientrecipientType == 'company' %}
-    {{ client['contact'] }} (“the Borrower”)
-    {% else %}
-    {{ client.individuals|join_and('firstName', 'surname') }}
-    {% if client.individuals|length > 0 %} (“the Borrower”) {% else %} (“the Borrowers”) {% endif %}
-    {% endif %}
-    - {{ matter.conveyancing.matterType | title }} of
-    {{ matter.assets|join_and('address') }} (“the Property”)
-
+{{ matter.matterName}}
+</text:p>
+<text:p text:style-name="para">
+We refer to your letter of instructions, dated {{ dateOfInstructions }}.  We confirm we accept your instructions to act for {{ macros.fullNames(recipient) }} in the Borrowers’ {{  matter.conveyancing.matterType }} of the Property.
 </text:p>
 
 <text:p text:style-name="para">
@@ -35,6 +30,10 @@ We <text:span text:style-name="bold">enclose</text:span> in relation to the Borr
 
 
 </text:list>
+
+<text:p text:style-name="para">
+Please credit the sum of {{ loanAmount|currency }} to our trust account as early as possible today by <text:span text:style-name="bold">Same Day Cleared Payment</text:span>.
+</text:p>
 
 
 {% endblock %}
