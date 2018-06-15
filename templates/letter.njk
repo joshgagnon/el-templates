@@ -255,23 +255,23 @@
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19"/>
                         <text:p text:style-name="P19"/>
+
+                        {% block careOf %}
                             {% if recipient.recipientType == 'company' %}
-                        <text:p text:style-name="P19">
-                            {{ recipient.companyName }}
-                        </text:p>
-                            {% elif recipient.individuals %}
-                            {% for individual in recipient.individuals %}
-                        <text:p text:style-name="P19">
-                            {{ individual.firstName }} {{individual.surname }}
-                        </text:p>
-                            {% endfor %}
+                                    <text:p>{{ recipient.companyName }}</text:p>
+                                {% elif recipient.individuals %}
+                                {% for individual in recipient.individuals %}
+                                        <text:p>{{ individual.firstName }} {{individual.surname }}</text:p>
+                                {% endfor %}
                             {% endif %}
+                        {% endblock %}
+
                         {% for line in ["line1", "line2", "city", "county", "state", "postcode"] %}
-                        {% if recipient.contactMethod['address'][line] %}
-                        <text:p text:style-name="P20">
-                            {{ recipient.contactMethod['address'][line] }}
-                        </text:p>
-                        {% endif %}
+                            {% if recipient.contactMethod['address'][line] %}
+                                <text:p text:style-name="P20">
+                                    {{ recipient.contactMethod['address'][line] }}
+                                </text:p>
+                            {% endif %}
                         {% endfor %}
                         <text:p text:style-name="P6"/>
                     </table:table-cell>
@@ -404,9 +404,8 @@
                 </table:table-row>
             </table:table>
 
-            <text:p text:style-name="P18">
-                {% if copyTo %}
-            </text:p>
+
+                {% if copyTo and copyTo|length > 0 %}
             <text:p text:style-name="P33"/>
             <text:p text:style-name="P33"/>
             <text:p text:style-name="P9">
@@ -466,9 +465,9 @@
             <text:p text:style-name="P13">
                 {% endfor %}
             </text:p>
-            <text:p text:style-name="P16">
+
                 {% endif %}
-            </text:p>
+
 
 
 {% endblock %}

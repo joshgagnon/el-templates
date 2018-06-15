@@ -19,6 +19,10 @@
              "$ref": "#/definitions/recipient",
              "title": "Counterparty Solicitors (recipient)"
         },
+        "purchaser": {
+             "$ref": "#/definitions/contact",
+             "title": "Purchaser"
+        },
         "matter": {
             "type": "object",
             "properties": {
@@ -107,6 +111,19 @@
             }
         },
 
+         "bodyCorporateLevyIncluded": {
+             "type": "boolean",
+             "title": "Body Corporate Levy Included"
+        },
+
+         "rentIncluded": {
+             "type": "boolean",
+             "title": "Rent Included"
+        },
+         "waterMetered": {
+             "type": "boolean",
+             "title": "Water Metered"
+        },
 
 
 
