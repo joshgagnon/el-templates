@@ -22,7 +22,12 @@ We <text:span text:style-name="bold">enclose</text:span> in relation to the Borr
     {% for document in documents %}
     <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
+        {% if document.documentName === 'Guaranteed search of Unique Identifier [Unique Identifier], [Registry] registry' %}
+            <text:span >Guaranteed search of Unique Identifier {{ uniqueIdentifier }}, {{ registry }}  registry</text:span>
+        {% else %}
             <text:span >{{ document.documentName }}</text:span>
+        {% endif %}
+
         </text:p>
     </text:list-item>
 

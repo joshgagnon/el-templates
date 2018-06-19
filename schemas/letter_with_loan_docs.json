@@ -85,7 +85,14 @@
                 }
             }
         },
-
+        "uniqueIdentifier": {
+            "type": "string",
+            "title": "Unique Identifier"
+        },
+        "registry": {
+            "type": "string",
+            "title": "Registry"
+        },
         "documents": {
             "$ref": "#/definitions/documents",
             "items": {
