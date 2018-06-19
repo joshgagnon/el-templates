@@ -294,6 +294,10 @@
                         "email": {
                             "title": "Email",
                             "type": "string"
+                        },
+                        "address": {
+                            "title": "Contact Address",
+                            "$ref": "#/definitions/address"
                         }
                     },
                     "required": ["email"]
