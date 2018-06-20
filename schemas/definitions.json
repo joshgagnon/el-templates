@@ -18,62 +18,10 @@
             },
             "oneOf": [
                 {
-                    "type": "object",
-                    "properties": {
-                        "recipientType": {
-                            "enum": [
-                                "individuals"
-                            ]
-                        },
-                        "individuals": {
-                            "minItems": 1,
-                            "title": "Individual(s)",
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/individual",
-                                "x-hints": {
-                                    "form": {
-                                         "addItem": "Add Individual",
-                                          "suggestions": true,
-                                          "source": "recipients.individuals"
-                                    }
-                                }
-                            },
-                            "default": [{}]
-                        },
-                        "contactMethod": {
-                            "$ref": "#/definitions/contactMethod"
-                        }
-                    },
-                    "required": ["individuals", "contactMethod"]
+                    "$ref": "#/definitions/individualRecipient"
                 },
                 {
-                    "type": "object",
-                    "properties": {
-                        "recipientType": {
-                            "enum": [
-                                "company"
-                            ]
-                        },
-                        "companyName": {
-                            "title": "Name",
-                            "type": "string"
-                        },
-                        "contact": {
-                            "title": "Contact",
-                            "type": "string"
-                        },
-                        "contactMethod": {
-                            "$ref": "#/definitions/contactMethod"
-                        }
-                    },
-                    "x-hints": {
-                        "form": {
-                              "suggestions": true,
-                              "source": "recipients.organisations"
-                        }
-                    },
-                    "required": ["companyName", "contact", "contactMethod"]
+                    "$ref": "#/definitions/companyRecipient"
                 }
             ],
             "x-hints": {
@@ -81,6 +29,64 @@
                     "selector": "recipientType"
                 }
             }
+        },
+        "individualRecipient":{
+            "type": "object",
+            "properties": {
+                "recipientType": {
+                    "enum": [
+                        "individuals"
+                    ]
+                },
+                "individuals": {
+                    "minItems": 1,
+                    "title": "Individual(s)",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/individual",
+                        "x-hints": {
+                            "form": {
+                                 "addItem": "Add Individual",
+                                  "suggestions": true,
+                                  "source": "recipients.individuals"
+                            }
+                        }
+                    },
+                    "default": [{}]
+                },
+                "contactMethod": {
+                    "$ref": "#/definitions/contactMethod"
+                }
+            },
+            "required": ["individuals", "contactMethod"]
+        },
+        "companyRecipient":{
+            "type": "object",
+            "properties": {
+                "recipientType": {
+                    "enum": [
+                        "company"
+                    ]
+                },
+                "companyName": {
+                    "title": "Name",
+                    "type": "string"
+                },
+                "contact": {
+                    "title": "Contact",
+                    "type": "string"
+                },
+                "contactMethod": {
+                    "$ref": "#/definitions/contactMethod"
+                }
+            },
+            "x-hints": {
+                "form": {
+                      "suggestions": true,
+                      "source": "recipients.organisations"
+                }
+            },
+            "required": ["companyName", "contact", "contactMethod"]
         },
         "contact": {
             "title": "Contact",

@@ -5,7 +5,7 @@
 {% block letterBody %}
 
 <text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ vendorNames|join_and('name') }} to {{ purchaserNames|join_and('name') }} – {{ matter.assets|join_and('address') }}</text:span>
+    <text:span>{{ vendorNames|join_and('name', join='&') }} to {{ purchaserNames|join_and('name', join='&') }} – {{ matter.assets|join_and('address', join='&') }}</text:span>
 </text:p>
 
 <text:p text:style-name="para">
