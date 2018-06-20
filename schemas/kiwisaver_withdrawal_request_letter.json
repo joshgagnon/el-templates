@@ -1,0 +1,120 @@
+{
+    "title": "KiwiSaver Withdrawal Request Letter",
+    "formName": "kiwisaver_withdrawal_request_letter",
+    "baseDoc": "letter.odt",
+    "category": "Conveyancing",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/companyRecipient",
+             "properties": {
+                "companyName": {
+                    "readOnly": true
+                }
+            },
+             "default": {
+                 "recipientType": "company"
+             },
+            "x-hints": {
+                "form": {
+                        "source": false,
+                        "suggestions": [
+                            {"title": "ANZ", "value": {
+                                "recipientType": "company", "companyName": "ANZ",
+                                "contactMethod":{
+                                    "method":"email",
+                                    "address":{"country":"New Zealand","line1":"KiwiSaver Scheme Addressee","line2":"Address Line 1","city":"Address Line 1"},"email":"pewpwe@email.com"}
+                                }
+                            },
+                            {"title": "Westpac", "value": {
+                                 "recipientType": "company", "companyName": "Westpac KiwiSaver Scheme",
+                                 "contact": "The Manager of the Westpac KiwiSaver Scheme",
+                                "contactMethod":{
+                                    "method":"email",
+                                    "address":{"country":"New Zealand","line1":"PO Box 695", "city":"Wellington", "postcode": "6140"},"email":""
+                                }
+                                }
+                            }
+
+
+                            ]
+                    }
+                }
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "assets": {
+                    "$ref": "#/definitions/assets"
+                }
+            }
+        },
+        "dateOfAgreement": {
+            "title": "Date of Agreement",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "settlementDate": {
+            "title": "Settlement Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "kiwiSaverMember": {
+            "type": "string",
+            "title": "Fullname of KiwiSaver Member"
+        },
+        "kiwiSaverMemberNumber": {
+            "type": "string",
+            "title": "KiwiSaver Member Number"
+        },
+        "vendorNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Vendor Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Vendor Names",
+            "type": "array"
+        },
+        "agreementState": {
+            "enum": ["conditional", "unconditional"],
+            "title": "Agreement State"
+        },
+        "senders": {
+             "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "required": ["plantiffs", "defendants", "documents", "senders", "recipient"]
+}

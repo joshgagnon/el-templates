@@ -16,10 +16,10 @@
             <style:table-properties style:page-number="auto" style:width="17cm" table:align="margins"/>
         </style:style>
         <style:style style:family="table-column" style:name="Table1.A">
-            <style:table-column-properties style:column-width="8.497cm" style:rel-column-width="32753*"/>
+            <style:table-column-properties style:column-width="10.497cm" />
         </style:style>
         <style:style style:family="table-column" style:name="Table1.B">
-            <style:table-column-properties style:column-width="8.504cm" style:rel-column-width="32782*"/>
+            <style:table-column-properties style:column-width="6.504cm" />
         </style:style>
         <style:style style:family="table-cell" style:name="Table1.A1">
             <style:table-cell-properties fo:border="none" fo:padding="0cm"/>
@@ -339,11 +339,10 @@
                         <text:p text:style-name="P4">
                             {% block salutation %}{% if recipient.recipientType == 'company' %}For:{% else %}Dear{%endif%}{% endblock %}
                             {% if recipient.recipientType == 'company' %}
-                            {{ recipient['contact'] }}
+                                {{ recipient['contact'] }}
                             {% else %}
-                            {{ recipient.individuals|join_and('firstName') }}
-
-                                {% endif %}
+                                {{ recipient.individuals|join_and('firstName') }}
+                            {% endif %}
                         </text:p>
                     </table:table-cell>
                     <table:covered-table-cell/>
