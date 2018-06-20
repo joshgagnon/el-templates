@@ -93,6 +93,11 @@
             "type": "string",
             "title": "Registry"
         },
+        "multipleBorrowers": {
+            "type": "boolean",
+            "title": "Multiple Borrowers"
+        },
+
         "documents": {
             "$ref": "#/definitions/documents",
             "items": {

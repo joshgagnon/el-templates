@@ -5,7 +5,7 @@
 {% block letterBody %}
 
 <text:p text:outline-level="1" text:style-name="el_heading">
-{{ purchaserNames|join_and('name') }}{% if purchaserNames|length == 1 %} (“the Borrower”) {% else %} (“the Borrowers”) {% endif %}–  {{ matter.letterFinancier.matterType|title }} of {{ matter.assets|join_and('address') }} {% if matter.assets|length == 1 %} ("the Property”) {% else %} (“the Properties”) {% endif %}
+{{ purchaserNames|join_and('name', join='&') }}{% if purchaserNames|length == 1 %} (“the Borrower”) {% else %} (“the Borrowers”) {% endif %}–  {{ matter.letterFinancier.matterType|title }} of {{ matter.assets|join_and('address', join='&') }} {% if matter.assets|length == 1 %} ("the Property”) {% else %} (“the Properties”) {% endif %}
 </text:p>
 <text:p text:style-name="para">
 We <text:span text:style-name="bold">enclose</text:span> the following original documents in connection with the {% if purchaserNames|length == 1 %}Borrower's{% else %}Borrowers'{% endif %}  {{ matter.letterFinancier.matterType}} of the {% if matter.assets|length == 1 %}Property{% else %}Properties{% endif %}:

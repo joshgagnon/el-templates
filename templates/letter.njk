@@ -283,34 +283,32 @@
                         </text:p>
                         <text:p text:style-name="P5"/>
                         <text:p text:style-name="P21">
-                            <text:span text:style-name="T2">
+
                                 {% if recipient.contactMethod %}
-                            </text:span>
-                            <text:span text:style-name="T5">
-                                {% if recipient.contactMethod.method == 'email' %}
-                            </text:span>
+
+                                {% if recipient.contactMethod.method == 'email' and recipient.contactMethod.email  %}
+
                             <text:span text:style-name="T3">By email: </text:span>
                             <text:span text:style-name="T3">
                                 {{ recipient.contactMethod.email }}
                             </text:span>
-                            <text:span text:style-name="T3">
+
                                 {% elif recipient.contactMethod.method == 'hand' %}
-                            </text:span>
+
                             <text:span text:style-name="T4">By hand </text:span>
                             <text:span text:style-name="T4">
                                 {% elif recipient.contactMethod.method == 'courier' %}
                             </text:span>
                             <text:span text:style-name="T4">By courier</text:span>
-                            <text:span text:style-name="T4">
+
                                 {% elif recipient.contactMethod.method == 'post' %}
-                            </text:span>
+
                             <text:span text:style-name="T4">By post </text:span>
-                            <text:span text:style-name="T4">
+
                                 {% endif %}
-                            </text:span>
-                            <text:span text:style-name="T4">
+
                                 {% endif %}
-                            </text:span>
+
                         </text:p>
                             {% if matter and matter['matterId'] %}
                         <text:p text:style-name="P23">ID:
