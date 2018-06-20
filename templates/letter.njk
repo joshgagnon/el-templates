@@ -286,12 +286,12 @@
 
                                 {% if recipient.contactMethod %}
 
-                                {% if recipient.contactMethod.method == 'email' and recipient.contactMethod.email  %}
-
-                            <text:span text:style-name="T3">By email: </text:span>
-                            <text:span text:style-name="T3">
-                                {{ recipient.contactMethod.email }}
-                            </text:span>
+                                {% if recipient.contactMethod.method == 'email' %}
+                                {% if recipient.contactMethod.email  %}
+                                    <text:span text:style-name="T3">By email: {{ recipient.contactMethod.email }}</text:span>
+                                {% else %}
+                                    <text:span text:style-name="T3">By email</text:span>
+                                {% endif %}
 
                                 {% elif recipient.contactMethod.method == 'hand' %}
 

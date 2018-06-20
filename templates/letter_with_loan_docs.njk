@@ -10,11 +10,11 @@
 {{ matter.matterName}}
 </text:p>
 <text:p text:style-name="para">
-We refer to your letter of instructions, dated {{ dateOfInstructions }}.  We confirm we accept your instructions to act for {{ macros.fullNames(recipient) }} in the Borrowers’ {{  matter.conveyancing.matterType }} of the Property.
+We refer to your letter of instructions, dated {{ dateOfInstructions }}.  We confirm we accept your instructions to act for {{ macros.fullNames(recipient) }} in the {% if multipleBorrowers %}Borrowers’{% else %}Borrower{% endif %} {{ matter.conveyancing.matterType }} {{  matter.conveyancing.matterType }} of the Property.
 </text:p>
 
 <text:p text:style-name="para">
-We <text:span text:style-name="bold">enclose</text:span> in relation to the {% if multipleBorrowers %}Borrowers’{% else %}Borrower{% endif %} {{ matter.conveyancing.matterType }} of the Property, the following documents:
+In accordance with your instructions, please find <text:span text:style-name="bold">attached</text:span> the following documents:
 
 </text:p>
 
