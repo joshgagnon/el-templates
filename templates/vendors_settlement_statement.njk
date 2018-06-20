@@ -117,7 +117,7 @@
     <table:table-row>
     {% if item.type === 'rate' %}
             <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                <text:p text:style-name="para">{{ item.description }}</text:p>
+                <text:p >{{ item.description }}</text:p>
             </table:table-cell>
             <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
                 <text:p text:style-name="column_right">
@@ -130,7 +130,7 @@
             </table:table-cell>
     {% else %}
             <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
-                <text:p text:style-name="para">Allowance for {{ item.description }} at {{ item.periodAmount|currency }} per annum for the period from {{ item.startDate }} to {{ settlementDate }} ({{ item.days }} days)  </text:p>
+                <text:p>Allowance for {{ item.description }} at {{ item.periodAmount|currency }} per annum for the period from {{ item.startDate }} to {{ settlementDate }} ({{ item.days }} days)  </text:p>
             </table:table-cell>
             <table:table-cell office:value-type="string" table:style-name="settlement_table.A1">
                 <text:p text:style-name="column_right">
