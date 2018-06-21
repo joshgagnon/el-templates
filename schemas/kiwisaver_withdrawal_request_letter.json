@@ -29,10 +29,11 @@
                         "source": false,
                         "suggestions": [
                             {"title": "ANZ", "value": {
-                                "recipientType": "company", "companyName": "ANZ",
+                                "recipientType": "company", "companyName": "ANZ New Zealand Investments Limited",
+                                "contact": "The New Zealand Guardian Trust Company Limited as trustee and ANZ New Zealand Investments Limited as Issuer, Manager, and Scheme Provider of the ANZ KiwiSaver Scheme",
                                 "contactMethod":{
                                     "method":"email",
-                                    "address":{"country":"New Zealand","line1":"KiwiSaver Scheme Addressee","line2":"Address Line 1","city":"Address Line 1"},"email":"pewpwe@email.com"}
+                                    "address":{"country":"New Zealand","line1":"PO Box 7149","line2":"Wellesley Street","city":"Auckland", "postcode": "1141"},"email":""}
                                 }
                             },
                             {"title": "Westpac", "value": {
@@ -41,6 +42,33 @@
                                 "contactMethod":{
                                     "method":"email",
                                     "address":{"country":"New Zealand","line1":"PO Box 695", "city":"Wellington", "postcode": "6140"},"email":""
+                                }
+                                }
+                            },
+                            {"title": "Generate", "value": {
+                                 "recipientType": "company", "companyName": "Generate KiwiSaver Scheme",
+                                 "contact": "Generate Investment Management Limited as Manager of the Generate KiwiSaver Scheme",
+                                "contactMethod":{
+                                    "method":"email",
+                                    "address":{"country":"New Zealand","line1":"PO Box 91609", "line2": "Victoria Street West", "city":"Auckland", "postcode": "6140"},"email":""
+                                }
+                                }
+                            },
+                            {"title": "AMP", "value": {
+                                 "recipientType": "company", "companyName": "AMP KiwiSaver Scheme",
+                                 "contact": "AMP Wealth Management New Zealand Limited as Manager of the AMP KiwiSaver Scheme",
+                                "contactMethod":{
+                                    "method":"email",
+                                    "address":{"country":"New Zealand","line1":"Freepost 170, PO Box 55", "line2": "Shortland Street", "city":"Auckland", "postcode": "1140"},"email":""
+                                }
+                                }
+                            },
+                            {"title": "BNZ", "value": {
+                                 "recipientType": "company", "companyName": "BNZ Investment Services Limited",
+                                 "contact": "The New Zealand Guardian Trust Company Limited as trustee and BNZ New Zealand Investments Limited as Issuer, Manager, and Scheme Provider of the ANZ KiwiSaver Scheme ",
+                                "contactMethod":{
+                                    "method":"email",
+                                    "address":{"country":"New Zealand","line1":"as Manager of the BNZ KiwiSaver Scheme", "line2": "Private Bag 92208", "city":"Auckland", "postcode": "1142"},"email":""
                                 }
                                 }
                             }
@@ -108,6 +136,16 @@
         "agreementState": {
             "enum": ["conditional", "unconditional"],
             "title": "Agreement State"
+        },
+        "dateAgreementUnconditional": {
+            "title": "Date Agreement Becomes Unconditional",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
         },
         "senders": {
              "$ref": "#/definitions/senders"

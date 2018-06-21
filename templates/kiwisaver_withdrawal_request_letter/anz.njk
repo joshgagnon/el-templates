@@ -1,0 +1,117 @@
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>{{ kiwiSaverMember }} (“the Member”) {{ kiwiSaverMemberNumber}}</text:span>
+</text:p>
+
+
+  <text:p text:style-name="para">
+We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the intended purchase of {{ matter.assets[0].address }} (<text:span text:style-name="bold">Property</text:span>).
+</text:p>
+  <text:p text:style-name="para">
+The settlement date for the purchase of the Property is {{ settlementDate }} (<text:span text:style-name="bold">Settlement Date</text:span>).
+</text:p>
+  <text:p text:style-name="para">
+We <text:span text:style-name="bold">enclose</text:span> copies of the following:
+</text:p>
+
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+the agreement for sale and purchase of the Property with {{ vendorNames|join_and('name') }} (<text:span text:style-name="bold">{% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}</text:span>)  dated {{ dateOfAgreement}} (<text:span text:style-name="bold">Agreement</text:span>).
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+Our trust account deposit slip.
+    </text:p>
+</text:list-item>
+  <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+Where the member is purchasing an interest in a dwellinghouse on Māori land, evidence of the member’s right to occupy the property or land.
+
+    </text:p>
+</text:list-item>
+  <text:list-item>
+       <text:p text:style-name="el_numbered_list_paragraph">
+Where the member has previously owned a home, an eligibility confirmation letter from Housing New Zealand.
+
+    </text:p>
+</text:list-item>
+  <text:list-item>
+       <text:p text:style-name="el_numbered_list_paragraph">
+Where the member has received member tax credits while working overseas, evidence that they were working for the New Zealand Government or a charitable organisation while receiving member tax credits.
+    </text:p>
+</text:list-item>
+</text:list>
+
+  <text:p text:style-name="para">
+We confirm that we act for the Member, who is to purchase the Property under the Agreement, and we undertake to you that:
+</text:p>
+
+{% if agreementState === 'unconditional' %}
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+as at the date of this letter any conditions to the Agreement are fulfilled or waived and the Vendor and the purchasers are unconditionally obliged to settle; and
+    </text:p>
+</text:list-item>
+  <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+any funds received by us pursuant to the Application (<text:span text:style-name="bold">Funds</text:span>) will be paid to the Vendor as part of the purchase price; or
+
+    </text:p>
+</text:list-item>
+  <text:list-item>
+       <text:p text:style-name="el_numbered_list_paragraph">
+if settlement under the Agreement is not completed by the due date in the Agreement or any extended date, the Funds will be repaid to you as soon as practicable on account of the Member with no deductions or disbursements; and
+
+
+    </text:p>
+</text:list-item>
+  <text:list-item>
+       <text:p text:style-name="el_numbered_list_paragraph">
+where we have sent the Application to you by email, the copy of the Application attached to that email is a true and correct copy of the original document that we have sighted
+    </text:p>
+</text:list-item>
+</text:list>
+
+
+{% else %}
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+as at the date of this letter, any funds received by us pursuant to the Application (Funds) will be paid to a stakeholder or vendor who is obliged to hold the funds while the Agreement is conditional; and
+    </text:p>
+</text:list-item>
+  <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+if settlement under the Agreement is not completed by the due date in the Agreement or any extended date:
+</text:p>
+    <text:list text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+except where the non-completion is due to the default of the purchasers, the stakeholder or vendor is obliged to repay the Funds to us; and
+        </text:p>
+    </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+we will, as soon as possible, repay to you the Funds received from the stakeholder or vendor on account of the Member with no deductions or disbursements; and
+
+        </text:p>
+    </text:list-item>
+
+</text:list>
+</text:list-item>
+  <text:list-item>
+       <text:p text:style-name="el_numbered_list_paragraph">
+where we have sent the Application to you by email, the copy of the Application attached to that email is a true and correct copy of the original document that we have sighted.
+
+    </text:p>
+</text:list-item>
+</text:list>
+
+
+
+
+{% endif %}

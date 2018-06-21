@@ -1,0 +1,189 @@
+{% if agreementState === 'unconditional' %}
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>Re {{ kiwiSaverMember }} (“the Member”)</text:span>
+</text:p>
+
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>Member’s BNZ KiwiSaver Scheme number: {{ kiwiSaverMemberNumber}}</text:span>
+</text:p>
+
+
+  <text:p text:style-name="para">
+We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the intended purchase of {{ matter.assets[0].address }} (<text:span text:style-name="bold">Property</text:span>).
+</text:p>
+
+  <text:p text:style-name="para">
+The settlement date for the purchase of the Property is {{ settlementDate }} (<text:span text:style-name="bold">Settlement Date</text:span>).
+</text:p>
+
+  <text:p text:style-name="para">
+We <text:span text:style-name="bold">enclose</text:span> copies of the following:
+</text:p>
+
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+the agreement for sale and purchase of the Property with {{ vendorNames|join_and('name') }} (<text:span text:style-name="bold">{% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}</text:span>)  dated {{ dateOfAgreement}} (<text:span text:style-name="bold">Agreement</text:span>).
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+Our trust account deposit slip.
+    </text:p>
+</text:list-item>
+</text:list>
+
+<text:p text:style-name="para">
+We confirm we act for the Member, who is to purchase the Property under the Agreement.
+</text:p>
+<text:p text:style-name="para">
+We undertake to you that:
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+as at the date of the letter any conditions to the Agreement are fulfilled or waived and the Vendors and the purchasers are unconditionally obliged to settle; and
+
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+such funds as are received by us pursuant to the Application (<text:span text:style-name="bold">Funds</text:span>) will be paid to the Vendor as part of the purchase price; or
+    </text:p>
+</text:list-item>
+   <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+if settlement under the Agreement is not completed by the due date in the Agreement or any agreed extended date, the Funds will be repaid to you as soon as practicable on account of the Member with no deductions or disbursements.
+   </text:p>
+</text:list-item>
+</text:list>
+
+{% else %}
+
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>Legal undertaking for the purposes of using KiwiSaver savings to put towards deposit payments (with any balance paid at settlement) for {{ kiwiSaverMember }} (“the Member”)</text:span>
+</text:p>
+
+<text:p text:outline-level="1" text:style-name="el_heading">
+    <text:span>Member’s BNZ KiwiSaver Scheme number: {{ kiwiSaverMemberNumber}}</text:span>
+</text:p>
+
+  <text:p text:style-name="para">
+We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the intended purchase of {{ matter.assets[0].address }} (<text:span text:style-name="bold">Property</text:span>).
+</text:p>
+
+  <text:p text:style-name="para">
+The date that the Agreement is expected to become unconditional (the date on which the deposit is payable) is {{ dateAgreementUnconditional }}.
+</text:p>
+
+  <text:p text:style-name="para">
+The currently anticipated settlement date for the purchase of the Property is {{ settlementDate }} (<text:span text:style-name="bold">Settlement Date</text:span>).
+</text:p>
+
+  <text:p text:style-name="para">
+We <text:span text:style-name="bold">enclose</text:span> copies of the following:
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+the agreement for sale and purchase of the Property with {{ vendorNames|join_and('name') }} (<text:span text:style-name="bold">{% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}</text:span>)  dated {{ dateOfAgreement}} (<text:span text:style-name="bold">Agreement</text:span>).
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+Our trust account deposit slip.
+    </text:p>
+</text:list-item>
+</text:list>
+
+
+<text:p text:style-name="para">
+We confirm that we act for the Member, who is interested in purchasing the Property under the Agreement.
+</text:p>
+<text:p text:style-name="para">
+We undertake to you that:
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+as at the date of the letter any conditions to the Agreement are fulfilled or waived and the Vendors and the purchasers are unconditionally obliged to settle; and
+
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+as at the date of this letter the Agreement remains subject to a condition or conditions which have yet to be either fulfilled or waived (i.e. the Vendors and the purchasers are not yet contractually obliged to settle);
+    </text:p>
+</text:list-item>
+   <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+such funds as are received by us pursuant to the Application and are to be applied towards paying a deposit under the Agreement (<text:span text:style-name="bold">Deposit Funds</text:span>) will be held by a stakeholder who is obliged to
+   </text:p>
+        <text:list text:style-name="el_numbered_list">
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+        hold the Deposit Funds while the Agreement is conditional; and
+            </text:p>
+        </text:list-item>
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+            repay the Deposit Funds to us if settlement under the Agreement is not completed by the due date in the Agreement or any agreed extended date (except where non-completion of the settlement is due to the purchasers’ default);
+
+            </text:p>
+        </text:list-item>
+    </text:list>
+        </text:list-item>
+
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+we will repay to you as soon as practicable on account of the Member (with no further deductions or disbursements) any Deposit Funds that the stakeholder repays to us if settlement is not completed; and
+    </text:p>
+</text:list-item>
+
+
+   <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+any funds received by us pursuant to the Application which exceed the amount to be applied towards paying a deposit under the Agreement:
+   </text:p>
+        <text:list text:style-name="el_numbered_list">
+            <text:list-item>
+               <text:p text:style-name="el_numbered_list_paragraph">
+will be paid to the Vendors as part of the purchase price on settlement of the Agreement; or
+            </text:p>
+        </text:list-item>
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+if settlement under the Agreement is not completed by the due date in the Agreement or any agreed extended date, will be repaid to you as soon as practicable on account of the Member with no deductions or disbursements.
+            </text:p>
+        </text:list-item>
+    </text:list>
+        </text:list-item>
+
+</text:list>
+
+<text:p text:style-name="para">
+The undertakings in paragraph 2 above are restricted to confirming that the stakeholder owes <text:span text:style-name="bold">obligations</text:span>:
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+to hold the Deposit Funds while the Agreement is Conditional, and
+
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+to repay the Deposit Funds to us if settlement of the Agreement is not completed as described
+    </text:p>
+</text:list-item>
+</text:list>
+
+<text:p text:style-name="para">
+We give no undertaking that the stakeholder will actually comply with these obligations, and accordingly we accept no liability in the event that the stakeholder breaches either obligation.]
+</text:p>
+{% endif %}

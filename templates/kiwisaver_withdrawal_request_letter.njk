@@ -4,176 +4,42 @@
 {% block salutation %}To: {% endblock %}
 
 {% block letterBody %}
+  <text:p text:style-name="para"/>
 
 {% if recipient.companyName === 'Westpac KiwiSaver Scheme' %}
-<text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ kiwiSaverMember }} (“the Member”) {{ kiwiSaverMemberNumber}}</text:span>
-</text:p>
-
-  <text:p text:style-name="para">
-    We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the intended purchase of {{ matter.assets[0].address }}, Auckland (<text:span text:style-name="bold">Property</text:span>).
-  </text:p>
-
-  <text:p text:style-name="para">
-    The currently anticipated settlement date for the purchase of the Property is {{ settlementDate }}.
-  </text:p>
+    {% include "kiwisaver_withdrawal_request_letter/westpac.njk" %}
+{% endif %}
 
 
-  <text:p text:style-name="para">
-   We <text:span text:style-name="bold">enclose</text:span> copies of the following:
-  </text:p>
+{% if recipient.companyName === 'Generate KiwiSaver Scheme' %}
 
-<text:list text:style-name="el_numbered_list">
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-The agreement for sale and purchase of the Property with {{ vendorNames|join_and('name') }} (<text:span text:style-name="bold">{% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}</text:span>) dated {{ dateOfAgreement }} (<text:span text:style-name="bold">Agreement</text:span>).
-        </text:p>
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-Our trust account deposit slip
-        </text:p>
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-            Where the member is purchasing an interest in a dwellinghouse on Māori land, evidence of the member’s right to occupy the property or land.
-        </text:p>
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-Where the member has previously owned a home, an eligibility confirmation letter from Housing New Zealand.
-
-        </text:p>
-    </text:list-item>
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-Where the member has received member tax credits while working overseas, evidence that they were working for the New Zealand Government or a charitable organisation while receiving member tax credits.
-        </text:p>
-    </text:list-item>
-</text:list>
-
-
-  <text:p text:style-name="para">
-We confirm that the Agreement does stipulate “and/or nominee” and the Member is a purchaser of the Property in the Agreement.
-  </text:p>
-
-  <text:p text:style-name="para">
-We undertake to you that:
-  </text:p>
-
-{% if agreementState === 'unconditional' %}
-
-<text:list text:style-name="el_numbered_list">
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-As at the date of this letter any conditions to the Agreement are fulfilled or waived and the Vendors and Purchasers are unconditionally obliged to settle; and
-        </text:p>
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-Any funds received by us pursuant to the Application (<text:span text:style-name="bold">Funds</text:span>) will be paid to the Vendors as part of the purchase price; or
-        </text:p>
-    </text:list-item>
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-If settlement under the Agreement is not completed by the due date in the Agreement or any agreed extended date, the Funds will be repaid to you as soon as practicable on account of the Member with no deductions or disbursements.
-        </text:p>
-    </text:list-item>
-</text:list>
-
-{% else %}
-
-<text:list text:style-name="el_numbered_list">
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-as at the date of this letter the Agreement remains subject to a condition or conditions which have yet to be either fulfilled or waived (i.e. the Vendors and the purchasers are not yet contractually obliged to settle);
-        </text:p>
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-such funds as are received by us pursuant to the Application and are to be applied towards paying a deposit under the Agreement (Deposit Funds) will be held by a stakeholder who is obliged to:
-        </text:p>
-
-        <text:list text:style-name="el_numbered_list">
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-                    hold the Deposit Funds while the Agreement is conditional; and
-                </text:p>
-            </text:list-item>
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-                    repay the Deposit Funds to us if settlement under the Agreement is not completed by the due date in the Agreement or any agreed extended date (except where non-completion of the settlement is due to the Member’s default;
-                </text:p>
-            </text:list-item>
-        </text:list>
-
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-we will repay to you as soon as practicable on account of the Member (with no further deductions or disbursements) any Deposit Funds that the stakeholder repays to us if settlement is not completed; and
-
-        </text:p>
-    </text:list-item>
-
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-any funds received by us pursuant to the Application which exceed the amount to be applied towards paying a deposit under the Agreement:
-        </text:p>
-        <text:list text:style-name="el_numbered_list">
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-                    will be paid to the Vendors as part of the purchase price on settlement of the Agreement; or
-
-                </text:p>
-            </text:list-item>
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-if settlement under the Agreement is not completed by the due date in the Agreement or any agreed extended date, will be repaid to you as soon as practicable on account of the Member with no deductions or disbursements.
-
-                </text:p>
-            </text:list-item>
-        </text:list>
-    </text:list-item>
-
-</text:list>
-
-  <text:p text:style-name="para">
-The undertakings in paragraphs 2 and 3 above are restricted to confirming that the stakeholder owes obligations:
-  </text:p>
-
-<text:list text:style-name="el_list">
-    <text:list-item>
-        <text:p text:style-name="el_list_paragraph">
-to hold the Deposit Funds while the Agreement is conditional; and
-
-        </text:p>
-    </text:list-item>
-    <text:list-item>
-        <text:p text:style-name="el_list_paragraph">
-to repay the Deposit Funds to us if settlement of the Agreement is not completed as described.
-        </text:p>
-    </text:list-item>
-
-</text:list>
-
-  <text:p text:style-name="para">
-We give no undertaking that the stakeholder will actually comply with these obligations, and accordingly we accept no liability in the event that the stakeholder breaches either obligation.
-  </text:p>
-
+    {% include "kiwisaver_withdrawal_request_letter/generate.njk" %}
 
 {% endif %}
 
 
+{% if recipient.companyName === 'ANZ New Zealand Investments Limited' %}
+
+    {% include "kiwisaver_withdrawal_request_letter/anz.njk" %}
+
 {% endif %}
 
 
-  <text:p text:style-name="para">
+{% if recipient.companyName === 'AMP KiwiSaver Scheme' %}
+
+    {% include "kiwisaver_withdrawal_request_letter/amp.njk" %}
+
+{% endif %}
+
+{% if recipient.companyName === 'BNZ Investment Services Limited' %}
+
+    {% include "kiwisaver_withdrawal_request_letter/bnz.njk" %}
+
+{% endif %}
+
+
+
+  <text:p text:style-name="para_keep_with_next">
 I confirm that I hold a current practising certificate issued under the Lawyers and Conveyancers Act 2006.
   </text:p>
 
