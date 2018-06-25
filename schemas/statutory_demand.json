@@ -196,6 +196,12 @@
             "type": "boolean",
             "title": "Interest Amount Included",
             "description": "Interest continues to accrue on the outstanding amount in accordance with the Agreement"
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
         }
 
     },

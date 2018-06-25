@@ -581,6 +581,12 @@
         "penaltyInterestRate": {
             "type": "number",
             "title": "Penalty Interest Rate"
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
         }
     },
     "required": ["recipient", "vendorNames", "agreementDate", "purchaseAmount", "depositAmount", "payableTo", "payableToRecipient", "settlementDate", "titleStatus", "encumbrances", "penaltyInterestRate"]

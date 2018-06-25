@@ -170,6 +170,12 @@
                     "inputComponent": "date"
                 }
             }
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
         }
     },
     "required": [

@@ -146,6 +146,12 @@
         "secuiredDebt": {
             "type": "boolean",
             "title": "Is Secured Debt"
+        },
+        "senders": {
+            "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
         }
     },
     "required": [
