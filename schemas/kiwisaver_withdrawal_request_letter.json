@@ -59,7 +59,7 @@
                                  "contact": "AMP Wealth Management New Zealand Limited as Manager of the AMP KiwiSaver Scheme",
                                 "contactMethod":{
                                     "method":"email",
-                                    "address":{"country":"New Zealand","line1":"Freepost 170, PO Box 55", "line2": "Shortland Street", "city":"Auckland", "postcode": "1140"},"email":""
+                                    "address":{"country":"New Zealand","line1":"Freepost 170, PO Box 55", "line2": "Shortland Street", "city":"Auckland", "postcode": ""},"email":""
                                 }
                                 }
                             },

@@ -2,9 +2,10 @@
     <text:span>{{ kiwiSaverMember }} (“the Member”) {{ kiwiSaverMemberNumber}}</text:span>
 </text:p>
 
+{% if agreementState === 'unconditional' %}
 
   <text:p text:style-name="para">
-We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the intended purchase of {{ matter.assets[0].address }} (<text:span text:style-name="bold">Property</text:span>).
+We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the purchase of {{ matter.assets[0].address }} (<text:span text:style-name="bold">Property</text:span>).
 </text:p>
   <text:p text:style-name="para">
 The settlement date for the purchase of the Property is {{ settlementDate }} (<text:span text:style-name="bold">Settlement Date</text:span>).
@@ -28,14 +29,14 @@ Our trust account deposit slip.
 </text:list>
 
 
-{% if agreementState === 'unconditional' %}
 
-      <text:p text:style-name="para">
-        We confirm we act for the Member, who is to purchase the Property under the Agreement.
-    </text:p>
-      <text:p text:style-name="para">
-        We undertake to you that:
-    </text:p>
+
+  <text:p text:style-name="para">
+    We confirm we act for the Member, who is to purchase the Property under the Agreement.
+</text:p>
+  <text:p text:style-name="para">
+    We undertake to you that:
+</text:p>
 
 
 <text:list text:style-name="el_numbered_list">
@@ -57,6 +58,32 @@ if settlement under the Agreement is not completed by the due date in the Agreem
 </text:list>
 
 {% else %}
+
+  <text:p text:style-name="para">
+We refer to the Member’s application for a home purchase withdrawal from the Scheme (<text:span text:style-name="bold">Application</text:span>), which relates to the intended purchase of {{ matter.assets[0].address }} (<text:span text:style-name="bold">Property</text:span>).
+</text:p>
+
+  <text:p text:style-name="para">
+The settlement date for the purchase of the Property is {{ settlementDate }} (<text:span text:style-name="bold">Settlement Date</text:span>).
+</text:p>
+
+  <text:p text:style-name="para">
+We <text:span text:style-name="bold">enclose</text:span> copies of the following:
+</text:p>
+
+<text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+the agreement for sale and purchase of the Property with {{ vendorNames|join_and('name') }} (<text:span text:style-name="bold">{% if vendorNames|length == 1 %}Vendor{% else %}Vendors{% endif %}</text:span>)  dated {{ dateOfAgreement}} (<text:span text:style-name="bold">Agreement</text:span>).
+    </text:p>
+</text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+Our trust account deposit slip.
+    </text:p>
+</text:list-item>
+</text:list>
+
 <text:p text:style-name="para">
 We confirm that we act for the Member, who is interested in purchasing the Property under the Agreement.
 </text:p>
