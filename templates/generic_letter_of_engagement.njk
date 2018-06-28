@@ -4,10 +4,10 @@
 
 {% block letterBody %}
 
-            <text:p text:outline-level="1" text:style-name="Heading">
+            <text:p text:outline-level="1" text:style-name="el_heading">
                 <text:span>Letter of Engagement - {{ matter.name }}</text:span>
             </text:p>
-            <text:p text:style-name="Paragraph">Thank you for asking Evolution Lawyers to act for
+            <text:p text:style-name="para">Thank you for asking Evolution Lawyers to act for
                 {% if recipient.recipientType == 'company' %}
                     {{ recipient.companyName }}
                     (<text:span text:style-name="bold">Company</text:span>).
@@ -19,10 +19,11 @@
                     <text:span>the Company</text:span>
                 {% else %}
                     <text:span>you</text:span>
-                {% endif %}.
+                {% endif %}
+                with {{ matter.description }}.
             </text:p>
 
-            <text:p text:style-name="Paragraph">We would be happy to act for
+            <text:p text:style-name="para">We would be happy to act for
                 {% if recipient.recipientType == 'company' %}
                     <text:span>the Company</text:span>
                 {% else %}
@@ -43,7 +44,7 @@
                 {% endif %}
                 will be subject to those standard terms, as varied or added to by this letter of engagement (together, the
                 <text:span text:style-name="bold">Terms</text:span>). </text:p>
-            <text:p text:style-name="Paragraph">
+            <text:p text:style-name="para">
                 {% if recipient.recipientType == 'company' %}
                     <text:span>Our client for this matter will be {{ recipient.companyName }}.</text:span>
                 {% else %}
@@ -52,11 +53,11 @@
 
 
              </text:p>
-            <text:p text:style-name="Subtitle">Your Matter</text:p>
-            <text:p text:style-name="Paragraph">I will have overall responsibility for the matter.
+            <text:p text:style-name="el_heading">Your Matter</text:p>
+            <text:p text:style-name="para">I will have overall responsibility for the matter.
                 <text:s/>
                 I will be assisted by other lawyers in the firm as and when required.</text:p>
-            <text:p text:style-name="Paragraph">Our fees will be charged and billed in accordance with the Terms.
+            <text:p text:style-name="para">Our fees will be charged and billed in accordance with the Terms.
                 <text:s/>
                 {% if fee.feeType == 'preagreed' or fee.feeType == 'estimated' %}
                 {% if fee.feeType == 'estimated' %}
@@ -82,8 +83,8 @@
                 We will endeavour to let you know in advance if it appears as though our fee will exceed the estimate.
                 {% endif %}
             </text:p>
-            <text:p text:style-name="Subtitle">Disclosure of Interests</text:p>
-            <text:p text:style-name="Paragraph">
+            <text:p text:style-name="el_heading">Disclosure of Interests</text:p>
+            <text:p text:style-name="para">
                 {% if disclosure %}{{ disclosure }}. However, we{% else %}We{% endif %}
                 <text:span>do not believe there is any conflict of interest that would prohibit us from acting for </text:span>
 
@@ -94,7 +95,7 @@
                 {% endif %}
                 <text:span>in this matter.</text:span>
             </text:p>
-            <text:p text:style-name="Paragraph">
+            <text:p text:style-name="para">
                 If you have any queries about our engagement, please contact us.
             </text:p>
 

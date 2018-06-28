@@ -1,2 +1,70 @@
+{% extends 'layouts/default.njk' %}
 
+{% import 'partials/macros.njk' as macros %}
+
+    {% block automaticStyles %}
+  <office:automatic-styles>
+
+        <style:style style:family="graphic" style:name="cover_parties" style:parent-style-name="Frame">
+            <style:graphic-properties fo:border="none" fo:margin-left="0.319cm" fo:margin-right="0.319cm" fo:padding-bottom="0.129cm" fo:padding-left="0.256cm" fo:padding-right="0.256cm" fo:padding-top="0.129cm" style:horizontal-pos="from-left" style:horizontal-rel="page-content" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="page" style:wrap="run-through"/>
+        </style:style>
+
+        <style:style style:family="graphic" style:name="cover_date" style:parent-style-name="Frame">
+            <style:graphic-properties fo:border="none" fo:margin-left="0.319cm" fo:margin-right="0.319cm" fo:padding-bottom="0.129cm" fo:padding-left="0.256cm" fo:padding-right="0.256cm" fo:padding-top="0.129cm" style:horizontal-pos="center" style:horizontal-rel="page-content" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="page" style:wrap="run-through"/>
+        </style:style>
+        <style:style style:family="graphic" style:name="cover_title" style:parent-style-name="Frame">
+            <style:graphic-properties draw:fill-image-height="0cm" draw:fill-image-width="0cm" draw:shadow-opacity="100%" draw:textarea-vertical-align="middle" fo:border-bottom="0.5pt solid #000000" fo:border-left="none" fo:border-right="none" fo:border-top="0.5pt solid #000000" fo:margin-left="0.319cm" fo:margin-right="0.319cm" fo:padding-bottom="0.3cm" fo:padding-left="0.259cm" fo:padding-right="0.259cm" fo:padding-top="0.3cm" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" style:number-wrapped-paragraphs="no-limit" style:shadow="none" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:wrap="run-through"/>
+        </style:style>
+        <style:style style:family="graphic" style:name="cover_logo" style:parent-style-name="Graphics">
+            <style:graphic-properties draw:blue="0%" draw:color-inversion="false" draw:color-mode="standard" draw:contrast="0%" draw:gamma="100%" draw:green="0%" draw:image-opacity="100%" draw:luminance="0%" draw:red="0%" fo:border="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" fo:margin-left="0.319cm" fo:margin-right="0.319cm" fo:padding="0.002cm" style:horizontal-pos="from-left" style:horizontal-rel="page" style:mirror="none" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="page" style:wrap="run-through"/>
+        </style:style>
+
+        <style:style style:family="paragraph" style:name="cover_title_text" style:parent-style-name="paras">
+            <style:paragraph-properties fo:font-weight="bold"  fo:text-align="end" style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="22pt" officeooo:paragraph-rsid="00fbcb28" style:font-name="Calibri" style:font-size-asian="11pt" style:font-size-complex="11pt"/>
+        </style:style>
+
+
+</office:automatic-styles>
+{% endblock %}
+
+{% block body %}
+<text:p>
+
+
+                <draw:frame draw:name="cover_title" draw:style-name="cover_title" draw:z-index="5" svg:width="12.621cm" svg:x="1.64cm" svg:y="5.5cm" text:anchor-type="char">
+                    <draw:text-box fo:min-height="1.852cm">
+                        <text:p text:style-name="cover_title_text">Name of AGREEMENT</text:p>
+                    </draw:text-box>
+                </draw:frame>
+
+
+                <draw:frame draw:name="Frame1" draw:style-name="cover_parties" draw:z-index="4" svg:height="8.939cm" svg:width="8.28cm" svg:x="6.001cm" svg:y="12.002cm" text:anchor-type="char">
+                    <draw:text-box>
+                        <text:p text:style-name="Cover_20_Parties">Party 1 Name</text:p>
+                        <text:p text:style-name="Cover_20_Parties">Role</text:p>
+                        <text:p text:style-name="P5"/>
+                        <text:p text:style-name="Cover_20_Parties">Party 2 Name</text:p>
+                        <text:p text:style-name="Cover_20_Parties">Role</text:p>
+                        <text:p text:style-name="P5"/>
+                    </draw:text-box>
+                </draw:frame>
+
+                <draw:frame draw:name="Frame2" draw:style-name="cover_date" draw:z-index="3" svg:height="1.559cm" svg:width="12.621cm" svg:y="22.962cm" text:anchor-type="char">
+                    <draw:text-box>
+                        <text:p text:style-name="Cover_20_Title">
+                            <text:span text:style-name="T5">DATE OF Agreement</text:span>
+                        </text:p>
+                    </draw:text-box>
+                </draw:frame>
+</text:p>
+
+<text:p>
+<draw:frame draw:name="Logo" draw:style-name="cover_logo" draw:z-index="0" svg:height="1.469cm" svg:width="9.79cm" svg:x="5.606cm" svg:y="25.46cm" text:anchor-type="char">
+    <draw:image xlink:actuate="onLoad" xlink:href="Pictures/evolutionlogowide.png" xlink:show="embed" xlink:type="simple"/>
+</draw:frame>
+
+</text:p>
+
+{% endblock %}
 

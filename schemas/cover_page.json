@@ -1,2 +1,8 @@
-{}
-
+{
+    "title": "Cover Page",
+    "formName": "cover_page",
+    "baseDoc": "letter.odt",
+    "category": "Generic",
+    "properties": {
+    }
+}
