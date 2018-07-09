@@ -76,6 +76,10 @@
             },
             "required": ["conveyancing", "assets"]
         },
+        "includeAMLCFT": {
+            "type": "boolean",
+            "title": "Include AML/CFT Customer Due Diligence"
+        },
         "disclosure": {
             "type": "string",
             "title": "Disclosure of Interests",

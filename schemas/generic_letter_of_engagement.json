@@ -112,6 +112,10 @@
                 }
             }
         },
+        "includeAMLCFT": {
+            "type": "boolean",
+            "title": "Include AML/CFT Customer Due Diligence"
+        },
         "senders": {
              "$ref": "#/definitions/senders"
         },
