@@ -56,7 +56,7 @@ Based on the estimate of fees, disbursements, and expenses noted above, our invo
 {% if matter.conveyancing.matterType == 'purchase' and matter.conveyancing.firstHome %}
 <text:p text:style-name="el_heading">First Home Buyer</text:p>
 <text:p text:style-name="para">
-If the Property will be your first home and you intend to apply Kiwisaver funds towards the purchase price, please let us know as soon as possible.  Depending on your provider, it can take up to 15 working days from the date your application is submitted for Kiwisaver funds to be released to us.  It is important to take that potential delay into account when determining how and when the purchase price will be paid.
+If the Property will be your first home and you intend to apply KiwiSaver funds towards the purchase price, please let us know as soon as possible.  Depending on your provider, it can take up to 15 working days from the date your application is submitted for KiwiSaver funds to be released to us.  It is important to take that potential delay into account when determining how and when the purchase price will be paid.
 </text:p>
 {% endif %}
 
@@ -64,7 +64,7 @@ If the Property will be your first home and you intend to apply Kiwisaver funds 
             {% if includeAMLCFT %}
                 <text:p text:style-name="el_heading">Customer Due Diligence</text:p>
                  <text:p text:style-name="para">
-    We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>).  To comply with our obligations under the AML/CFT Act, we need the client(s) named in this letter to provide us with the following information:
+    We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>).  To comply with our obligations under the AML/CFT Act, we need the client{% if recipient.individuals.length > 1 %}s{% endif %} named in this letter to provide us with the following information:
                 </text:p>
     <text:list text:style-name="el_numbered_list">
             <text:list-item>
