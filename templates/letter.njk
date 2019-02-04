@@ -287,18 +287,18 @@
                                 {% if recipient.contactMethod %}
 
                                 {% if recipient.contactMethod.method == 'email' %}
-                                {% if recipient.contactMethod.email  %}
-                                    <text:span text:style-name="T3">By email: {{ recipient.contactMethod.email }}</text:span>
-                                {% else %}
-                                    <text:span text:style-name="T3">By email</text:span>
-                                {% endif %}
+                                    {% if recipient.contactMethod.email  %}
+                                        <text:span text:style-name="T3">By email: {{ recipient.contactMethod.email }}</text:span>
+                                    {% else %}
+                                        <text:span text:style-name="T3">By email</text:span>
+                                    {% endif %}
 
                                 {% elif recipient.contactMethod.method == 'hand' %}
 
                             <text:span text:style-name="T4">By hand </text:span>
-                            <text:span text:style-name="T4">
+
                                 {% elif recipient.contactMethod.method == 'courier' %}
-                            </text:span>
+
                             <text:span text:style-name="T4">By courier</text:span>
 
                                 {% elif recipient.contactMethod.method == 'post' %}
