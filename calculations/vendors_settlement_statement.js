@@ -21,7 +21,8 @@ module.exports = function calculate(values, deps){
             var periodDays = parseInt(moment.duration(end.diff(start)).asDays(), 10);
             var apportionmentDays = parseInt(moment.duration(settlementDate.diff(start)).asDays(), 10) + 1;
             var periodAmount = currency(item.periodAmount || 0);
-            var perDay = periodAmount.divide(periodDays)
+            var perDay = periodAmount.divide(periodDays);
+
             var amount = perDay.multiply(apportionmentDays);
             item.amount = amount;
             item.days = apportionmentDays;
