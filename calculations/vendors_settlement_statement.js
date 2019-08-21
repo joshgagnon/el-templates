@@ -33,5 +33,5 @@ module.exports = function calculate(values, deps){
     var finalAmount = debits.subtract(credits);
 
 
-    return {calculatedRatesAndApportionments: ratesAndApportionments, totalReceipts: debits, totalPayments: credits};
+    return {calculatedRatesAndApportionments: ratesAndApportionments, totalReceipts: debits.value, totalPayments: credits.value};
 }
