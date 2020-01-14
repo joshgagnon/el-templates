@@ -239,22 +239,25 @@
   <text:p text:style-name="para"/>
   <text:p text:style-name="keep_with_next">
     We undertake that the
-{% if bodyCorporateLevyIncluded and rentIncluded %}
-    rates, body corporate levies, and rent
-{% elif bodyCorporateLevyIncluded %}
-    rates and body corporate levies
+    {% if bodyCorporateLevyIncluded and rentIncluded %}
+        rates, body corporate levies, and rent
+    {% elif bodyCorporateLevyIncluded %}
+        rates and body corporate levies
 
-{% elif rentIncluded %}
-    rates and rent
-{% else %}
-    rates
-{% endif %}
+    {% elif rentIncluded %}
+        rates and rent
+    {% else %}
+        rates
+    {% endif %}
     have been or will be paid as set out above on settlement.
 
-{% if waterMetered %}
-A final water meter reading has been arranged and the account will be paid as at the settlement date.
-{% endif %}
+    {% if waterMetered %}
+    A final water meter reading has been arranged and the account will be paid as at the settlement date.
+    {% endif %}
+
 </text:p>
+    {% else %}
+    </table:table>
 {% endif %}
 
 

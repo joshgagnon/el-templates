@@ -12,24 +12,28 @@
     <text:span>We refer to the above transaction, which is being transacted as an electronic dealing in Landonline.</text:span>
 </text:p>
 
-<text:p text:style-name="para">
-    <text:span>We undertake that we have signed the {{ matter.settlement.matterType }} under e-dealing number {{ matter.eDealingNumber }}. </text:span>
-</text:p>
 
 <text:p text:style-name="para">
     <text:span>Please read our settlement requirements carefully prior to completing settlement.  We reserve the right to reject your tender for settlement if our Settlement Requirements are not strictly complied with.</text:span>
 </text:p>
 
+
+
 <text:p text:style-name="para">
-    <text:span>Immediately following satisfaction of our Settlement Requirements, we further undertake: </text:span>
+    <text:span>In accordance with the Property Transactions and E-Dealing Practice Guidelines prepared by the New Zealand Law Society’s Property Law Section, we undertake that:</text:span>
 </text:p>
 
 
 <text:list text:style-name="el_numbered_list">
     <text:list-item>
-        {% if matter.settlement.matterType == 'discharge of mortgage and transfer instruments' %}
             <text:p text:style-name="el_numbered_list_paragraph">
-                <text:span>to release the following instruments from the Landonline Workspace into your control: </text:span>
+                <text:span>any relevant documents are in our possession or control, or will be on settlement; </text:span>
+            </text:p>
+    </text:list-item>
+
+    <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>we have pre-validated, certified, and signed the following instruments to which our {% if vendorNames|length == 1 %}client is party{% else %}clients are parties{% endif %} in the e-dealing created for the transaction, in our capacity as lawyer for the {% if vendorNames|length == 1 %}vendor{% else %}vendors{% endif %}, and we will not withdraw or alter the instruments or any other instrument in the e-dealing prior to their release: </text:span>
             </text:p>
             <text:list>
                 <text:list-item>
@@ -37,36 +41,83 @@
                         <text:span>Discharge of Mortgage number {{ matter.settlement.mortgageInstrumentNumber }}; and </text:span>
                     </text:p>
                 </text:list-item>
+
                 <text:list-item>
                     <text:p text:style-name="el_numbered_list_paragraph">
                         <text:span>Transfer number {{ matter.transferInstrumentNumber }}; </text:span>
                     </text:p>
                 </text:list-item>
             </text:list>
-        {% else %}
-            <text:p text:style-name="el_numbered_list_paragraph">
-                <text:span>to release the following instrument from the Landonline Workspace into your control: </text:span>
-            </text:p>
+    </text:list-item>
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            <text:span>on payment of the settlement funds in accordance with our Settlement Statement and Settlement Requirements, we will: </text:span>
+        </text:p>
             <text:list>
                 <text:list-item>
                     <text:p text:style-name="el_numbered_list_paragraph">
-                        <text:span>Transfer number {{ matter.transferInstrumentNumber }} </text:span>
+                        <text:span>immediately release the instruments (subject only to the qualification in subparagraph 4 below); </text:span>
                     </text:p>
                 </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>not prevent or reverse the release of any instruments or withdraw any instruments after their release; </text:span>
+                    </text:p>
+                </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>send to you any relevant documents;</text:span>
+                    </text:p>
+                </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>promptly authorise the release of any keys, electronic door openers, and security codes; and</text:span>
+                    </text:p>
+                </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>if the e-dealing is rejected or requisitioned, assist in relation to the instruments we signed and certified and take all reasonable steps within our control to correct the instruments so that registration is completed as soon as possible; and</text:span>
+                    </text:p>
+                </text:list-item>
+
+
             </text:list>
-        {% endif %}
+
     </text:list-item>
     <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
-            <text:span>not to attempt to withdraw any release of, or alter any, instruments following release or settlement; and  </text:span>
+            <text:span>where circumstances beyond our control result in a delay in the release, we will:  </text:span>
         </text:p>
-    </text:list-item>
-    <text:list-item>
-        <text:p text:style-name="el_numbered_list_paragraph">
-            <text:span>to authorise the release of the keys to the Property to your client.  </text:span>
-        </text:p>
+            <text:list>
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>advise you of the delay and the cause of the delay;</text:span>
+                    </text:p>
+                </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span>take all available steps to effect the release as soon as possible; and </text:span>
+                    </text:p>
+                </text:list-item>
+
+                <text:list-item>
+                    <text:p text:style-name="el_numbered_list_paragraph">
+                        <text:span> not disburse any of the settlement funds until the release has been effected unless the delay is occasioned by matters solely within the control of you or the purchaser.</text:span>
+                    </text:p>
+                </text:list-item>
+
+            </text:list>
+
+
     </text:list-item>
 </text:list>
+
+
 
 
 {% endblock %}

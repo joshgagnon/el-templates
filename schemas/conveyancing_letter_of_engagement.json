@@ -94,8 +94,8 @@
     },
     "mappings": {
         "price": {
-            "purchase": "$880",
-            "sale": "$780",
+            "purchase": "$950",
+            "sale": "$850",
             "refinance": "$680"
         },
         "disbursements": {
@@ -104,8 +104,8 @@
             "refinance": "$160"
         },
         "priceIncGST": {
-            "purchase": "$1,300.00",
-            "sale": "$1,100.00",
+            "purchase": "$1,400.00",
+            "sale": "$1,200.00",
             "refinance": "$1,050.00"
         },
         "verbToNoun": {
