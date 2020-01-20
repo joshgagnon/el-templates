@@ -1,0 +1,34 @@
+{
+    "title": "File Uplift Request",
+    "formName": "file_uplift_request",
+    "baseDoc": "letter.odt",
+    "category": "Matter Management",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/companyRecipient"
+        },
+        "clients": {
+            "$ref": "#/definitions/contact",
+            "title": "Clients"
+        }
+    }
+}

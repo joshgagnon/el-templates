@@ -1,0 +1,23 @@
+{
+    "copyTo": [],
+    "dateString": "1 May 2018",
+
+   "recipient":{
+      "recipientType":"company",
+      "companyName": "Test firm",
+      "contactMethod":{
+         "method":"email",
+         "address":{
+            "country":"New Zealand",
+            "line1":"PO Box 7149",
+            "line2":"Wellesley Street",
+            "city":"Auckland",
+            "postcode":"1141"
+         },
+         "email":"test@email.com
+      }
+  },
+  "clients": [
+  ]
+
+}
