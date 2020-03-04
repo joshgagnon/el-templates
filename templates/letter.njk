@@ -401,6 +401,9 @@
                 </table:table-row>
             </table:table>
 
+            {% block signingBlock %}
+
+            {% endblock %}
 
                 {% if copyTo and copyTo|length > 0 %}
             <text:p text:style-name="P33"/>
@@ -465,8 +468,9 @@
 
                 {% endif %}
 
-
-
 {% endblock %}
+
+
+
 {% endblock %}
 

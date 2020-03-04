@@ -24,11 +24,34 @@
             }
         },
         "recipient": {
-             "$ref": "#/definitions/companyRecipient"
+            "$ref": "#/definitions/companyRecipient",
+            "type": "object",
+            "properties": {
+                "companyName": {
+                    "title": "Law Firm Name",
+                    "type": "string"
+                }
+            }
         },
-        "clients": {
-            "$ref": "#/definitions/contact",
-            "title": "Clients"
+        "clientNames": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Vendor Name",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "minItems": 1,
+            "title": "Clients",
+            "type": "array"
         }
+
+
     }
 }
+
+
+

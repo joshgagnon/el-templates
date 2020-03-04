@@ -5,14 +5,28 @@
 {% block letterBody %}
 
 <text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ clients.individuals|concat(['firstName', 'surname'])|join_and() }} </text:span>
+    <text:span>{{ clientNames|join_and() }} | File Uplift Request</text:span>
 </text:p>
 
 <text:p text:style-name="para">
-    We <text:span text:style-name="bold">enclose</text:span>, by way of service in the above matter, the following documents:
+    <text:span>We act for {{ clientNames|join_and() }} (the <text:span text:style-name="bold">{% if clientNames|length == 1 %}Client{% else %}Clients {% endif %}</text:span>).  We understand your firm previously acted for the
+Client(s).</text:span>
 </text:p>
 
 
-</text:list>
+<text:p text:style-name="para">
+    <text:span>We are instructed to request the uplift of all deeds and other documents held by {{ recipient.companyName }} for {% if clientNames|length == 1 %}the Client{% else %}each Client{% endif %}. This request includes, without limitation, any will, deed, power of
+attorney (enduring or otherwise), memorandum of wishes, contract, resolution, or other document executed by the Client/any Client, in any capacity.</text:span>
+</text:p>
+
+<text:p text:style-name="para">
+    <text:span>Please courier the requested documents to Evolution Lawyers, 18/465 Mount Eden Road, Mount Eden, Auckland. If there is any charge to the {% if clientNames|length == 1 %}Client{% else %}Clients {% endif %} for providing the requested documents, please also include an invoice for that charge.</text:span>
+</text:p>
+
+<text:p text:style-name="para">
+    <text:span>The {% if clientNames|length == 1 %}Client has{% else %}Clients have{% endif %} countersigned this letter as confirmation of our authority to make this uplift request.</text:span>
+</text:p>
+
+
 
 {% endblock %}

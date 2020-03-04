@@ -14,10 +14,19 @@
             "city":"Auckland",
             "postcode":"1141"
          },
-         "email":"test@email.com
+         "email":"test@email.com"
       }
   },
-  "clients": [
-  ]
+    "matter": {
+        "matterId": "x"
+    },
 
+  "clientNames": ["john"],
+    "senders": [
+        {
+            "_keyIndex": 8,
+            "email": "asdf",
+            "firstName": "x"
+        }
+    ]
 }

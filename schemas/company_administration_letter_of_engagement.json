@@ -1,0 +1,54 @@
+{
+    "title": "Letter of Engagement - Conveyancing",
+    "formName": "conveyancing_letter_of_engagement",
+    "baseDoc": "letter.odt",
+    "category": "Company Administration",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient"
+        },
+        "isNewClient": {
+            "type": "boolean",
+            "title": "Is New Client"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "companyName": {
+                    "type": "string",
+                    "title": "New Company Name"
+                }
+
+            },
+            "required": ["companyName"]
+        },
+        "senders": {
+             "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "mappings": {
+        "price": {
+            "purchase": "$950",
+            "sale": "$850",
+            "refinance": "$680"
+        }
+
+    }
+}
