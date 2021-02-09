@@ -1,6 +1,6 @@
 {
     "definitions": {
-        "recipient":{
+        "recipient": {
             "title": "Recipient Details",
             "type": "object",
             "properties": {
@@ -30,7 +30,7 @@
                 }
             }
         },
-        "individualRecipient":{
+        "individualRecipient": {
             "type": "object",
             "properties": {
                 "recipientType": {
@@ -46,21 +46,26 @@
                         "$ref": "#/definitions/individual",
                         "x-hints": {
                             "form": {
-                                 "addItem": "Add Individual",
-                                  "suggestions": true,
-                                  "source": "recipients.individuals"
+                                "addItem": "Add Individual",
+                                "suggestions": true,
+                                "source": "recipients.individuals"
                             }
                         }
                     },
-                    "default": [{}]
+                    "default": [
+                        {}
+                    ]
                 },
                 "contactMethod": {
                     "$ref": "#/definitions/contactMethod"
                 }
             },
-            "required": ["individuals", "contactMethod"]
+            "required": [
+                "individuals",
+                "contactMethod"
+            ]
         },
-        "companyRecipient":{
+        "companyRecipient": {
             "type": "object",
             "properties": {
                 "recipientType": {
@@ -82,11 +87,15 @@
             },
             "x-hints": {
                 "form": {
-                      "suggestions": true,
-                      "source": "recipients.organisations"
+                    "suggestions": true,
+                    "source": "recipients.organisations"
                 }
             },
-            "required": ["companyName", "contact", "contactMethod"]
+            "required": [
+                "companyName",
+                "contact",
+                "contactMethod"
+            ]
         },
         "contact": {
             "title": "Contact",
@@ -121,16 +130,20 @@
                                 "$ref": "#/definitions/individual",
                                 "x-hints": {
                                     "form": {
-                                         "addItem": "Add Individual",
-                                          "suggestions": true,
-                                          "source": "recipients.individuals"
+                                        "addItem": "Add Individual",
+                                        "suggestions": true,
+                                        "source": "recipients.individuals"
                                     }
                                 }
                             },
-                            "default": [{}]
+                            "default": [
+                                {}
+                            ]
                         }
                     },
-                    "required": ["individuals"]
+                    "required": [
+                        "individuals"
+                    ]
                 },
                 {
                     "type": "object",
@@ -151,11 +164,14 @@
                     },
                     "x-hints": {
                         "form": {
-                              "suggestions": true,
-                              "source": "recipients.organisations"
+                            "suggestions": true,
+                            "source": "recipients.organisations"
                         }
                     },
-                    "required": ["companyName", "contact"]
+                    "required": [
+                        "companyName",
+                        "contact"
+                    ]
                 }
             ],
             "x-hints": {
@@ -213,7 +229,10 @@
                     "type": "string"
                 }
             },
-            "required": ["firstName", "lastName"]
+            "required": [
+                "firstName",
+                "lastName"
+            ]
         },
         "sender": {
             "type": "object",
@@ -242,13 +261,14 @@
                     "title": "Email",
                     "type": "string"
                 }
-
             },
-            "required": ["name"],
-            "x-hints" : {
+            "required": [
+                "name"
+            ],
+            "x-hints": {
                 "form": {
-                  "suggestions": true,
-                  "source": "users"
+                    "suggestions": true,
+                    "source": "users"
                 }
             }
         },
@@ -260,12 +280,14 @@
                 "enumeratedTitle": "Sender #{0}",
                 "x-hints": {
                     "form": {
-                         "addItem": "Add Sender"
+                        "addItem": "Add Sender"
                     }
                 }
             },
             "minItems": 1,
-            "default": [{}]
+            "default": [
+                {}
+            ]
         },
         "contactMethod": {
             "title": "Contact Method",
@@ -306,7 +328,9 @@
                             "$ref": "#/definitions/address"
                         }
                     },
-                    "required": ["email"]
+                    "required": [
+                        "email"
+                    ]
                 },
                 {
                     "properties": {
@@ -328,7 +352,9 @@
                             "$ref": "#/definitions/address"
                         }
                     },
-                    "required": ["address"]
+                    "required": [
+                        "address"
+                    ]
                 },
                 {
                     "properties": {
@@ -349,7 +375,6 @@
                             "title": "Contact Address",
                             "$ref": "#/definitions/address"
                         }
-
                     }
                 },
                 {
@@ -372,7 +397,9 @@
                             "$ref": "#/definitions/address"
                         }
                     },
-                    "required": ["address"]
+                    "required": [
+                        "address"
+                    ]
                 },
                 {
                     "properties": {
@@ -394,10 +421,11 @@
                             "$ref": "#/definitions/address"
                         }
                     },
-                    "required": ["fax"]
+                    "required": [
+                        "fax"
+                    ]
                 }
             ],
-
             "default": {
                 "method": "email"
             },
@@ -407,7 +435,7 @@
                 }
             }
         },
-       "status": {
+        "status": {
             "type": "object",
             "properties": {
                 "mode": {
@@ -477,7 +505,6 @@
                     "selector": "mode"
                 }
             }
-
         },
         "copyTo": {
             "type": "array",
@@ -499,38 +526,42 @@
                 },
                 "x-hints": {
                     "form": {
-                         "addItem": "Add Copy To"
+                        "addItem": "Add Copy To"
                     }
                 },
-                "required": ["name"]
+                "required": [
+                    "name"
+                ]
             }
         },
         "assets": {
             "items": {
                 "title": "Property",
-                    "properties": {
-                        "address": {
-                            "title": "Address",
-                            "type": "string"
-                        },
-                        "uniqueIdentifier": {
-                            "type": "string",
-                            "title": "Unique Identifier",
-                            "minLength": 1
-                        },
-                        "registry": {
-                            "type": "string",
-                            "title": "Registry",
-                            "minLength": 1,
-                            "description": "e.g. North Auckland"
-                        }
+                "properties": {
+                    "address": {
+                        "title": "Address",
+                        "type": "string"
+                    },
+                    "uniqueIdentifier": {
+                        "type": "string",
+                        "title": "Unique Identifier",
+                        "minLength": 1
+                    },
+                    "registry": {
+                        "type": "string",
+                        "title": "Registry",
+                        "minLength": 1,
+                        "description": "e.g. North Auckland"
+                    }
                 },
                 "required": [
                     "address"
                 ],
                 "type": "object"
             },
-            "default": [{}],
+            "default": [
+                {}
+            ],
             "minItems": 1,
             "title": "Properties",
             "type": "array"
@@ -539,19 +570,19 @@
             "type": "object",
             "title": "Repayment of indebtedness to discharge Mortgage",
             "properties": {
-                 "debit": {
+                "debit": {
                     "title": "Debit",
                     "type": "number",
                     "minimum": 0,
                     "maximum": 100000000
                 },
-               "mortgagee": {
+                "mortgagee": {
                     "title": "Mortgagee",
                     "type": "string"
                 },
                 "date": {
                     "title": "Date",
-                "formatDate": "D MMMM YYYY",
+                    "formatDate": "D MMMM YYYY",
                     "type": "string",
                     "x-hints": {
                         "form": {
@@ -565,13 +596,13 @@
             "type": "object",
             "title": "Loan advance",
             "properties": {
-                 "credit": {
+                "credit": {
                     "title": "Credit",
                     "type": "number",
                     "minimum": 0,
                     "maximum": 100000000
                 },
-               "financier": {
+                "financier": {
                     "title": "Financier",
                     "type": "string"
                 },
@@ -592,15 +623,14 @@
                 "title": "Date",
                 "type": "string",
                 "formatDate": "D MMMM YYYY",
-                "x-hints" : {
+                "x-hints": {
                     "form": {
-                      "inputComponent": "date"
+                        "inputComponent": "date"
                     }
                 }
             },
-
             "recipient": {
-                 "$ref": "#/definitions/recipient"
+                "$ref": "#/definitions/recipient"
             },
             "subject": {
                 "title": "Subject",
@@ -614,13 +644,11 @@
                         "title": "Matter ID",
                         "type": "string"
                     },
-                    "status":{
+                    "status": {
                         "$ref": "#/definitions/status"
                     }
                 }
-
             },
-
             "senders": {
                 "$ref": "#/definitions/senders"
             },
@@ -637,10 +665,32 @@
                         "type": "string"
                     }
                 },
-                "required": ["name"]
+                "required": [
+                    "name"
+                ]
             },
             "title": "Documents",
             "type": "array"
+        },
+        "supervisingDirector": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "title": "Supervising Director",
+                    "enum": [
+                        "Thomas Bloy",
+                        "Tamina Cunningham-Adams"
+                    ]
+                }
+            },
+            "default": {
+                "name": "Thomas Bloy"
+            },
+            "x-hints": {
+                "form": {
+                    "selector": "name"
+                }
+            }
         }
     }
 }
