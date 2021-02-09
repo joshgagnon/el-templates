@@ -22,7 +22,8 @@
             "title": "Is New Client"
         },
         "supervisingDirector": {
-            "$ref": "#/definitions/supervisingDirector"
+            "$ref": "#/definitions/supervisingDirector",
+            "title": "Supervising Director"
         },
         "matter": {
             "type": "object",
