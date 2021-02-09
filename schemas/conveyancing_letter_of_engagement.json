@@ -21,6 +21,9 @@
             "type": "boolean",
             "title": "Is New Client"
         },
+        "supervisingDirector": {
+            "$ref": "#/definitions/supervisingDirector"
+        },
         "matter": {
             "type": "object",
             "properties": {
