@@ -47,7 +47,7 @@ Our fees will be charged and billed in accordance with the Terms.  Our standard 
 
 <text:p text:style-name="para">
 <text:span>Disbursements and expenses for a property {{matter.conveyancing.matterType}} typically include Land Information New Zealand registration charges, which will be </text:span>
-{% if matter.conveyancing.matterType == 'purchase' %}
+{% if ["purchase", "purchase_off_the_plans", "purchase_by_a_trust"].indexOf(matter.conveyancing.matterType) > -1 %}
     <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to transfer the Property’s title and register a new mortgage,</text:span>
 {% elif matter.conveyancing.matterType == 'sale' %}
     <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to discharge the existing mortgage on the Property’s title,</text:span>
@@ -66,7 +66,7 @@ Based on the estimate of fees, disbursements, and expenses noted above, our invo
 {% if matter.conveyancing.matterType == 'sale' %}Please note that our fee estimate does not include advice regarding the potential tax consequences of, or relationship property issues arising from, the transaction. If you would like us to provide advice on those matters, please let us know and we will prepare a revised fee estimate. However, if we do not hear from you, then the scope of our engagement will be limited to attending to your property sale conveyance.{% endif %}{% if matter.conveyancing.matterType == 'purchase' %}Please note that our fee estimate does not include advice regarding the potential tax consequences of, or relationship property issues arising from, the transaction. Nor does our fee estimate include advice on estate planning, ownership structures, or property sharing arrangements. If you would like us to provide advice on any of those matters, please let us know and we will prepare a revised fee estimate. However, if we do not hear from you, then the scope of our engagement will be limited to attending to your property purchase conveyance.{% endif %}
 </text:p>
 
-{% if matter.conveyancing.matterType == 'purchase' and matter.conveyancing.firstHome %}
+{% if ["purchase", "purchase_off_the_plans", "purchase_by_a_trust"].indexOf(matter.conveyancing.matterType) > -1 and matter.conveyancing.firstHome %}
 <text:p text:style-name="el_heading">First Home Buyer</text:p>
 <text:p text:style-name="para">
 If the Property will be your first home and you intend to apply KiwiSaver funds towards the purchase price, please let us know as soon as possible.  Depending on your provider, it can take up to 15 working days from the date your application is submitted for KiwiSaver funds to be released to us.  It is important to take that potential delay into account when determining how and when the purchase price will be paid.
@@ -82,7 +82,7 @@ If the Property will be your first home and you intend to apply KiwiSaver funds 
     <text:list text:style-name="el_numbered_list">
             <text:list-item>
                 <text:p text:style-name="el_numbered_list_paragraph">
-    A certified copy of your photo identification.  The copy may be certified by a lawyer, Justice of the Peace, Court Registrar, or another person authorised to provide certifications as to the authenticity of documents.
+    A certified copy of your photo identification. The copy may be certified by a lawyer, Justice of the Peace, Court Registrar, or another person authorised to provide certifications as to the authenticity of documents.
                 </text:p>
             </text:list-item>
             <text:list-item>

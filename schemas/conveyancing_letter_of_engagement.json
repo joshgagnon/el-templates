@@ -42,11 +42,15 @@
                             "title": "Conveyancing Type",
                             "enum": [
                                 "purchase",
+                                "purchase_off_the_plans",
+                                "purchase_by_a_trust",
                                 "sale",
                                 "refinance"
                             ],
                             "enumNames": [
                                 "Purchase",
+                                "Purchase Off the Plans",
+                                "Purchase by a Trust",
                                 "Sale",
                                 "Refinance"
                             ]
@@ -59,6 +63,34 @@
                                 "matterType": {
                                     "enum": [
                                         "purchase"
+                                    ]
+                                },
+                                "firstHome": {
+                                    "title": "First Home Buyer",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": ["email"]
+                        },
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": [
+                                        "purchase_off_the_plans"
+                                    ]
+                                },
+                                "firstHome": {
+                                    "title": "First Home Buyer",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": ["email"]
+                        },
+                        {
+                            "properties": {
+                                "matterType": {
+                                    "enum": [
+                                        "purchase_by_a_trust"
                                     ]
                                 },
                                 "firstHome": {
@@ -99,21 +131,29 @@
     "mappings": {
         "price": {
             "purchase": "$1,050",
+            "purchase_off_the_plans": "$1,650",
+            "purchase_by_a_trust": "$1,250",
             "sale": "$940",
             "refinance": "$700"
         },
         "disbursements": {
             "purchase": "$160",
+            "purchase_off_the_plans": "$160",
+            "purchase_by_a_trust":"$160",
             "sale": "$80",
             "refinance": "$160"
         },
         "priceIncGST": {
             "purchase": "$1,500.00",
+            "purchase_off_the_plans": "$2,180",
+            "purchase_by_a_trust":  "$1,745",
             "sale": "$1,300.00",
             "refinance": "$1,120.00"
         },
         "verbToNoun": {
             "purchase": "purchasing",
+            "purchase_off_the_plans": "purchasing",
+            "purchase_by_a_trust": "purchasing",
             "sale": "selling",
             "refinance": "refinancing"
         }
