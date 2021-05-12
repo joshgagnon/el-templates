@@ -4,7 +4,7 @@
 
 {% block letterBody %}
 <text:p text:outline-level="1" text:style-name="el_heading">
-Letter of Engagement - {{ mappings.renderWord[matter.conveyancing.matterType]|title }}  of {{ matter.assets|join_and('address', join='&') }} {% if matter.assets|length == 1 %}(“the Property”){% else %}(“the Properties”){% endif %}
+Letter of Engagement - {{ mappings.renderType[matter.conveyancing.matterType]|title }}  of {{ matter.assets|join_and('address', join='&') }} {% if matter.assets|length == 1 %}(“the Property”){% else %}(“the Properties”){% endif %}
 </text:p>
 
 <text:p text:style-name="para">
@@ -42,11 +42,11 @@ In the event you are unable to contact, or are not receiving a timely response f
 
 <text:p text:style-name="el_heading">Our Fees</text:p>
 <text:p text:style-name="para">
-Our fees will be charged and billed in accordance with the Terms.  Our standard fee estimate for a property {{ mappings.renderWord[matter.conveyancing.matterType] }} is {{ mappings.price[matter.conveyancing.matterType] }} plus GST,  disbursements, and expenses.  This is, however, an indication only, and the fee may increase if additional attendances are required.
+Our fees will be charged and billed in accordance with the Terms.  Our standard fee estimate for a property {{ mappings.renderType[matter.conveyancing.matterType] }} is {{ mappings.price[matter.conveyancing.matterType] }} plus GST,  disbursements, and expenses.  This is, however, an indication only, and the fee may increase if additional attendances are required.
 </text:p>
 
 <text:p text:style-name="para">
-<text:span>Disbursements and expenses for a property {{ mappings.renderWord[matter.conveyancing.matterType] }} typically include Land Information New Zealand registration charges, which will be </text:span>
+<text:span>Disbursements and expenses for a property {{ mappings.renderType[matter.conveyancing.matterType] }} typically include Land Information New Zealand registration charges, which will be </text:span>
 {% if ["purchase", "purchase_off_the_plans", "purchase_by_a_trust"].indexOf(matter.conveyancing.matterType) > -1 %}
     <text:span>{{  mappings.disbursements[matter.conveyancing.matterType] }} to transfer the Property’s title and register a new mortgage,</text:span>
 {% elif matter.conveyancing.matterType == 'sale' %}
