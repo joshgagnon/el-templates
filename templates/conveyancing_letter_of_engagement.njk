@@ -4,7 +4,7 @@
 
 {% block letterBody %}
 <text:p text:outline-level="1" text:style-name="el_heading">
-Letter of Engagement - {{ mappings.renderType[matter.conveyancing.matterType]|title }}  of {{ matter.assets|join_and('address', join='&') }} {% if matter.assets|length == 1 %}(“the Property”){% else %}(“the Properties”){% endif %}
+Letter of Engagement - {{ mappings.renderTypeFull[matter.conveyancing.matterType]|title }}  of {{ matter.assets|join_and('address', join='&') }} {% if matter.assets|length == 1 %}(“the Property”){% else %}(“the Properties”){% endif %}
 </text:p>
 
 <text:p text:style-name="para">

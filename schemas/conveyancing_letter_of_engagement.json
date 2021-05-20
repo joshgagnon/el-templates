@@ -163,6 +163,13 @@
             "purchase_by_a_trust": "purchase",
             "sale": "sale",
             "refinance": "refinance"
+        },
+        "renderTypeFull": {
+            "purchase": "purchase",
+            "purchase_off_the_plans": "Purchase off the Plans",
+            "purchase_by_a_trust": "Purchase by a Trust",
+            "sale": "sale",
+            "refinance": "refinance"
         }
     }
 }
