@@ -499,7 +499,39 @@
             <style:paragraph-properties fo:keep-with-next="always" fo:text-align="justify" fo:line-height="115%" fo:margin-bottom="0.388cm" fo:margin-top="0cm" loext:contextual-spacing="false"/>
         </style:style>
 
-
+        <style:style style:name="MP1" style:family="paragraph" style:parent-style-name="Header">
+            <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:name="MP2" style:family="paragraph" style:parent-style-name="Footer">
+            <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding-left="0cm"
+                                        fo:padding-right="0cm" fo:padding-top="0.035cm" fo:padding-bottom="0cm"
+                                        fo:border-left="none" fo:border-right="none"
+                                        fo:border-top="0.26pt solid #7f7f7f" fo:border-bottom="none"/>
+        </style:style>
+        <style:style style:name="MP3" style:family="paragraph" style:parent-style-name="_5b_Basic_20_Paragraph_5d_">
+            <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:name="MP4" style:family="paragraph" style:parent-style-name="Footer">
+            <style:paragraph-properties fo:margin-left="7.96cm" fo:margin-right="0cm" fo:text-align="center"
+                                        style:justify-single-word="false" fo:text-indent="-7.96cm"
+                                        style:auto-text-indent="false"/>
+        </style:style>
+        <style:style style:name="MT1" style:family="text">
+            <style:text-properties style:font-name="LibreFranklin-Bold" fo:font-size="10pt" fo:font-weight="bold"
+                                   style:font-size-asian="10pt" style:font-weight-asian="bold"
+                                   style:font-name-complex="LibreFranklin-Bold1" style:font-size-complex="10pt"
+                                   style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:name="MT2" style:family="text">
+            <style:text-properties style:font-name="LibreFranklin-Regular" fo:font-size="10pt"
+                                   style:font-size-asian="10pt" style:font-name-complex="LibreFranklin-Regular1"
+                                   style:font-size-complex="10pt"/>
+        </style:style>
+        <style:style style:name="MT3" style:family="text">
+            <style:text-properties style:font-name="LibreFranklin-Regular" fo:font-size="8pt"
+                                   style:font-size-asian="8pt" style:font-name-complex="LibreFranklin-Regular1"
+                                   style:font-size-complex="8pt"/>
+        </style:style>
     </office:automatic-styles>
 
     <office:master-styles>
@@ -509,7 +541,17 @@
                 <text:p text:style-name="Header"></text:p>
             </style:header>
             <style:footer>
-                <text:p text:style-name="Footer"></text:p>
+                <text:p text:style-name="MP2"/>
+                <text:p text:style-name="MP3">
+                    <text:span text:style-name="MT1">Evolution Lawyers</text:span>
+                    <text:span text:style-name="MT2"><text:s/>|<text:s/>Barristers &amp; Solicitors
+                    </text:span>
+                </text:p>
+                <text:p text:style-name="MP4">
+                    <text:span text:style-name="MT3">www.evolutionlawyers.nz<text:s text:c="2"/>|<text:s text:c="2"/>
+                        Suite 8 Floor 1, 72 Dominion Road, Mount Eden, Auckland, 1024
+                    </text:span>
+                </text:p>
             </style:footer>
         </style:master-page>
 
