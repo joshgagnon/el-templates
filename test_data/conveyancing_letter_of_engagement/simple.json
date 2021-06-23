@@ -34,7 +34,10 @@
             "conveyancing": {
                 "matterType": "purchase"
             },
-            "matterId": "234"
+            "matterId": "234",
+          "status": {
+            "mode": "Test"
+          }
         },
         "plantiffs": [
             {

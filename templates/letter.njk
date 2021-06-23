@@ -13,8 +13,9 @@
 
 
         <style:style style:family="table" style:master-page-name="First_20_Page" style:name="Table1">
-            <style:table-properties style:page-number="auto" style:width="17cm" table:align="margins"/>
+            <style:table-properties style:page-number="auto" style:width="17cm" table:align="margins" fo:margin-bottom="0.388cm"/>
         </style:style>
+
         <style:style style:family="table-column" style:name="Table1.A">
             <style:table-column-properties style:column-width="9.497cm" />
         </style:style>
@@ -25,7 +26,7 @@
             <style:table-cell-properties fo:border="none" fo:padding="0cm"/>
         </style:style>
         <style:style style:family="table-cell" style:name="Table1.A2">
-            <style:table-cell-properties fo:border="none" fo:padding="0cm" style:vertical-align="middle"/>
+            <style:table-cell-properties fo:border="none" fo:padding="0cm" style:vertical-align="bottom" />
         </style:style>
         <style:style style:family="table" style:name="Table2">
             <style:table-properties style:may-break-between-rows="false" style:width="17cm" table:align="margins"/>
@@ -311,27 +312,22 @@
 
                         </text:p>
                             {% if matter and matter['matterId'] %}
-                        <text:p text:style-name="P23">ID:
-                            <text:span text:style-name="T8">
-                                {{ matter['matterId'] }}</text:span>
-                        </text:p>
+                             <text:p text:style-name="P23">ID:
+                                <text:span text:style-name="T8">
+                                    {{ matter['matterId'] }}</text:span>
+                            </text:p>
                             {% endif %}
-                        <text:p text:style-name="P24">
+
                             {% if matter.status and matter.status.mode and matter.status.mode != 'No Status' %}
-                        </text:p>
-                        <text:p text:style-name="P24">
-                            {% if matter.status.mode == 'custom' %}
-                            <text:text-input text:description=""/>
-                            <text:text-input text:description=""/>
-                            {{ matter.status.message }}
-                            <text:text-input text:description=""/>
-                            {% else %}
-                            {{ matter.status.mode }}
+                                <text:p text:style-name="P24">
+                                    {% if matter.status.mode == 'custom' %}
+                                        {{ matter.status.message }}
+                                    {% else %}
+                                        {{ matter.status.mode }}
+                                    {% endif %}
+                                </text:p>
                             {% endif %}
-                        </text:p>
-                        <text:p text:style-name="P24">
-                            {% endif %}
-                        </text:p>
+
                     </table:table-cell>
                 </table:table-row>
                 <table:table-row>
