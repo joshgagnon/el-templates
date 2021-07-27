@@ -1,0 +1,174 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block letterBody %}
+<text:p text:outline-level="1" text:style-name="el_heading">
+Letter of Engagement - {{ matter.matterName }}(“the Property”)
+</text:p>
+
+<text:p text:style-name="para">
+Thank you for asking Evolution Lawyers to act for you. We understand that you would like us to assist you with purchasing the Property.
+</text:p>
+
+<text:p text:style-name="para">We would be happy to act for you in this matter. Any service we provide to you will be subject our standard terms, which we have provided to you previously, as varied or added to by this letter of engagement (together, the <text:span text:style-name="bold">Terms</text:span>).
+
+<text:p text:style-name="para">
+    {% if recipient.recipientType == 'company' %}
+        Our client for this matter will be the {{ recipient.companyName }}.
+    {% else %}
+        Our client{% if recipient.individuals.length > 1 %}s{% endif %} for this matter will be {{ recipient.individuals|concat(['firstName', 'surname'])|join_and() }}.
+    {% endif %}
+</text:p>
+
+<text:p text:style-name="el_heading">Your Matter</text:p>
+<text:p text:style-name="para">
+    The director of Evolution Lawyers with overall responsibility for your matter will be {{ supervisingDirector.name }}. However, the person who will be completing most of the day-to-day attendances required in your matter will be Kieran Boyle, our senior solicitor and conveyancing specialist.
+</text:p>
+
+<text:p text:style-name="para">
+    If you have any enquiries about your matter, please contact Kieran in the first instance. His contact details are noted at the end of this letter.
+</text:p>
+
+<text:p text:style-name="para">
+    Alternatively, if you have a simple and non-urgent administrative enquiry, please feel free to contact our administration team by email to mail@evolutionlawyers.nz. Our administration team can deal with most of the non-legal aspects of your matter and may, depending on your enquiry and the firm’s capacity at the time, be able to assist you more promptly than our legal team.
+</text:p>
+
+<text:p text:style-name="para">
+In the event you are unable to contact, or are not receiving a timely response from, Kieran or our administration team, or if you have a serious concern or complaint in connection with your matter, please contact the director.
+</text:p>
+
+<text:p text:style-name="para">
+    In the event you are unable to contact, or are not receiving a timely response from, Kieran or our administration team, or if you have a serious concern or complaint in connection with your matter, please contact the director.
+</text:p>
+
+<text:p text:style-name="el_heading">Our Services</text:p>
+
+<text:p text:style-name="para">
+    We will provide all legal services reasonably required to complete the conveyancing aspects of the transaction.  Our engagement will be limited to that extent.
+</text:p>
+
+    <text:p text:style-name="para">
+        Our services may include, depending on your instructions and the circumstances of your matter:
+    </text:p>
+
+    <text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            reviewing and providing advice about the agreement for sale and purchase of the Property, the Record of Title for the Property, and any instruments registered on the title to the Property;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            reviewing other documents in connection with your due diligence investigation, as instructed by you, such as land information memoranda, Body Corporate documents, and rules for Incorporated Societies;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            assisting with the satisfaction of conditions in the agreement (if any);
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            dealing with third parties involved in the transaction, such as mortgage brokers, real estate agents, solicitors, and financial institutions, as necessary to complete your instructions;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            preparing documents required by third parties providing funds for the transaction, such as KiwiSaver providers, Kainga Ora, relatives, and mortgagee banks or other financial institutions providing secured lending;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            receiving and paying out funds in connection with the matter via our trust account, including funds required for the deposit under the agreement, KiwiSaver and HomeStart Grant funds, and the balance required to settle the transaction;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            preparing for and attending a document signing meeting at which documents required for the transaction will be executed;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            settlement -day attendances;
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            effecting the electronic transfer of the legal title to the Property and registration of a new mortgage (if applicable) in Landonline; and
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            all other attendances that you have instructed us to complete or are reasonably required in connection with the above.
+        </text:p>
+    </text:list-item>
+    </text:list>
+    <text:p text:style-name="para">
+        This list is merely a general indication of the type of services we will provide in the matter.  At this early stage, we are not able to accurately anticipate the specific attendances that will be required to complete your transaction.
+    </text:p>
+    <text:p text:style-name="para">
+        We can, however, set out clearly the services that will not be provided as part of your matter, unless we agree otherwise in writing.  These excluded services are as follows:
+    </text:p>
+    <text:list text:style-name="el_numbered_list">
+    <text:list-item>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            Taxation, commercial, or financial matters.  These are excluded under our standard Terms.  In the context of your transaction, the standard exclusions cover (without limitation) advice about the potential tax consequences of the transaction, including application of the Bright Line test, and the commercial or financial merits of the transaction.
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            A due diligence investigation of the Property, apart from the legal review of relevant documents as described above.  Unless you instruct us otherwise, due diligence will be your sole responsibility.
+        </text:p>
+        <text:p text:style-name="el_numbered_list_paragraph">
+            Advice and other services related to alternative ownership structures, estate planning, property sharing arrangements, and the application of the Property (Relationships) Act 1976.
+        </text:p>
+    </text:list-item>
+    </text:list>
+
+    <text:p text:style-name="para">
+        If you require any of the above excluded services, please advise.  We may be able to provide the services ourselves or, if not, refer you to an independent specialist who can help.  If we agree to provide the services you request, such services will be subject to the Terms but outside the scope of the fee estimates provided in this letter.
+    </text:p>
+
+
+    <text:p text:style-name="el_heading">Our Fees, Disbursements, and Expenses</text:p>
+
+    <text:p text:style-name="para">
+        Our fees will be charged and billed in accordance with the Terms.  Please see the sections headed “Our Fees”, “Estimates and Fixed Fees”, “Conveyancing Fee Estimates”, and “Disbursements and Expenses”.
+    </text:p>
+
+    <text:p text:style-name="para">
+        Because we are not able to precisely anticipate the amount of work we will need to complete for you, we cannot provide a fixed fee or quote.  The nature of conveyancing is that, while most transactions have predictable attendances and go smoothly, every matter and client are unique, the time required to complete attendances can vary widely, and unforeseen difficulties do arise.  Due to such unpredictability, we ultimately charge by the time it takes us to complete the work required.
+    </text:p>
+
+    <text:p text:style-name="el_subheading">Fee Estimates</text:p>
+
+    <text:p text:style-name="para">
+        Because we are not able to precisely anticipate the amount of work we will need to complete for you, we cannot provide a fixed fee or quote.  The nature of conveyancing is that, while most transactions have predictable attendances and go smoothly, every matter and client are unique, the time required to complete attendances can vary widely, and unforeseen difficulties do arise.  Due to such unpredictability, we ultimately charge by the time it takes us to complete the work required.
+    </text:p>
+
+            {% if includeAMLCFT %}
+                <text:p text:style-name="el_heading">Customer Due Diligence</text:p>
+                 <text:p text:style-name="para">
+    We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>).  To comply with our obligations under the AML/CFT Act, we need the client{% if recipient.individuals.length > 1 %}s{% endif %} named in this letter to provide us with the following information:
+                </text:p>
+    <text:list text:style-name="el_numbered_list">
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+    A certified copy of your photo identification. The copy may be certified by a lawyer, Justice of the Peace, Court Registrar, or another person authorised to provide certifications as to the authenticity of documents.
+                </text:p>
+            </text:list-item>
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+    A copy of a bank statement or utilities bill addressed to you and showing your current residential address.
+                </text:p>
+            </text:list-item>
+            <text:list-item>
+                <text:p text:style-name="el_numbered_list_paragraph">
+    Confirmation of whether or not our client will be a trust or other entity for holding personal assets, such as a look-through company.
+                </text:p>
+            </text:list-item>
+    </text:list>
+             <text:p text:style-name="para">
+             Thank you in advance for your assistance.
+         </text:p>
+
+             <text:p text:style-name="para">
+Please note that while we require a certified copy of your photo identification, we are happy to rely on an uncertified copy in the first instance, provided we meet you in person at least once during the matter.  This will most likely occur when we meet you to execute the documents required for the transaction.  At that meeting, we can take our own certified copy of your photo identification.
+         </text:p>
+
+            {% endif %}
+
+
+<text:p text:style-name="el_heading">Disclosure of Interests</text:p>
+
+<text:p text:style-name="para">
+{% if disclosure %}{{ disclosure }}. However, we {% else %}We {% endif %} do not believe there is any conflict of interest that would prohibit us from acting for {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} in this matter.
+</text:p>
+
+<text:p text:style-name="para">
+    If you have any queries about our engagement, please contact us.
+</text:p>
+
+
+{% endblock %}

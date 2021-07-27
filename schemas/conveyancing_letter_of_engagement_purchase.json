@@ -1,0 +1,102 @@
+{
+    "title": "Letter of Engagement for Purchase Conveyance",
+    "formName": "conveyancing_letter_of_engagement_purchase",
+    "baseDoc": "letter.odt",
+    "category": "Conveyancing",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient"
+        },
+        "isNewClient": {
+            "type": "boolean",
+            "title": "Is New Client"
+        },
+        "supervisingDirector": {
+            "$ref": "#/definitions/supervisingDirector",
+            "title": "Supervising Director"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "matterName": {
+                    "title": "Matter Name",
+                    "type": "string"
+                }
+            },
+            "required": ["matterId", "matterName"]
+        },
+        "includeAMLCFT": {
+            "type": "boolean",
+            "title": "Include AML/CFT Customer Due Diligence"
+        },
+        "disclosure": {
+            "type": "string",
+            "title": "Disclosure of Interests",
+            "description": "e.g. We act for Company ABC Ltd"
+        },
+        "senders": {
+             "$ref": "#/definitions/senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    },
+    "mappings": {
+        "price": {
+            "purchase": "$1,050",
+            "purchase_off_the_plans": "$1,650",
+            "purchase_by_a_trust": "$1,250",
+            "sale": "$940",
+            "refinance": "$700"
+        },
+        "disbursements": {
+            "purchase": "$160",
+            "purchase_off_the_plans": "$160",
+            "purchase_by_a_trust":"$160",
+            "sale": "$80",
+            "refinance": "$160"
+        },
+        "priceIncGST": {
+            "purchase": "$1,500.00",
+            "purchase_off_the_plans": "$2,180",
+            "purchase_by_a_trust":  "$1,745",
+            "sale": "$1,300.00",
+            "refinance": "$1,120.00"
+        },
+        "verbToNoun": {
+            "purchase": "purchasing",
+            "purchase_off_the_plans": "purchasing",
+            "purchase_by_a_trust": "purchasing",
+            "sale": "selling",
+            "refinance": "refinancing"
+        },
+        "renderType": {
+            "purchase": "purchase",
+            "purchase_off_the_plans": "purchase",
+            "purchase_by_a_trust": "purchase",
+            "sale": "sale",
+            "refinance": "refinance"
+        },
+        "renderTypeFull": {
+            "purchase": "purchase",
+            "purchase_off_the_plans": "Purchase off the Plans",
+            "purchase_by_a_trust": "Purchase by a Trust",
+            "sale": "sale",
+            "refinance": "refinance"
+        }
+    }
+}
