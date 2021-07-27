@@ -1,0 +1,59 @@
+{
+
+        "civNumber": "CIV X",
+        "copyTo": [],
+        "dateString": "1 May 2018",
+        "disclosure": "234",
+        "documents": [
+            {
+                "_keyIndex": 9,
+                "name": "1234123412"
+            }
+        ],
+        "filename": "Conveyancing Letter of Engagement",
+        "filingFee": {
+            "amount": "323243",
+            "include": true
+        },
+        "isNewClient": true,
+        "matter": {
+            "assets": [
+                {
+                    "_keyIndex": 11,
+                    "address": "234",
+                    "registry": "234",
+                    "uniqueIdentifier": "234"
+                }
+            ],
+            "matterName": "blah blah blash",
+            "matterId": "234",
+          "status": {
+            "mode": "Test"
+          }
+        },
+        "includeAMLCFT" : true,
+        "recipient": {
+            "contactMethod": {
+                "address": {
+                    "country": "New Zealand"
+                },
+                "email": "pewpwe@email.com",
+                "method": "email"
+            },
+            "individuals": [
+                {
+                    "_keyIndex": 6,
+                    "firstName": "Test",
+                    "surname": "Name"
+                }
+            ],
+            "recipientType": "individuals"
+        },
+        "senders": [
+            {
+                "_keyIndex": 7,
+                "email": "asdf",
+                "firstName": "x"
+            }
+        ]
+}

@@ -1,10 +1,35 @@
 {% extends 'letter.njk' %}
 
 {% import 'partials/macros.njk' as macros %}
+{% block automaticStyles %}
+    {{ super() }}
+    {% block additionalAutomaticStyles %}
 
+
+        <style:style style:family="table" style:name="conveyancing_prices_table">
+            <style:table-properties style:width="16cm" table:align="left"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="conveyancing_prices.A">
+            <style:table-column-properties style:column-width="3.5cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="conveyancing_prices.B">
+            <style:table-column-properties style:column-width="7.0cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="conveyancing_prices.C">
+            <style:table-column-properties style:column-width="2.5cm"/>
+        </style:style>
+
+        <style:style style:family="table-cell" style:name="conveyancing_prices.A1">
+            <style:table-cell-properties   fo:border="0.05pt solid #000000" fo:padding-bottom="0.2cm" fo:padding-left="0.2cm" fo:padding-right="0.2cm" fo:padding-top="0.2cm">
+                <style:background-image/>
+            </style:table-cell-properties>
+        </style:style>
+
+    {% endblock %}
+{% endblock %}
 {% block letterBody %}
 <text:p text:outline-level="1" text:style-name="el_heading">
-Letter of Engagement - {{ matter.matterName }}(“the Property”)
+Letter of Engagement - {{ matter.matterName }} (“the Property”)
 </text:p>
 
 <text:p text:style-name="para">
@@ -12,6 +37,7 @@ Thank you for asking Evolution Lawyers to act for you. We understand that you wo
 </text:p>
 
 <text:p text:style-name="para">We would be happy to act for you in this matter. Any service we provide to you will be subject our standard terms, which we have provided to you previously, as varied or added to by this letter of engagement (together, the <text:span text:style-name="bold">Terms</text:span>).
+</text:p>
 
 <text:p text:style-name="para">
     {% if recipient.recipientType == 'company' %}
@@ -57,35 +83,55 @@ In the event you are unable to contact, or are not receiving a timely response f
         <text:p text:style-name="el_numbered_list_paragraph">
             reviewing and providing advice about the agreement for sale and purchase of the Property, the Record of Title for the Property, and any instruments registered on the title to the Property;
         </text:p>
+    </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             reviewing other documents in connection with your due diligence investigation, as instructed by you, such as land information memoranda, Body Corporate documents, and rules for Incorporated Societies;
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             assisting with the satisfaction of conditions in the agreement (if any);
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             dealing with third parties involved in the transaction, such as mortgage brokers, real estate agents, solicitors, and financial institutions, as necessary to complete your instructions;
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             preparing documents required by third parties providing funds for the transaction, such as KiwiSaver providers, Kainga Ora, relatives, and mortgagee banks or other financial institutions providing secured lending;
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             receiving and paying out funds in connection with the matter via our trust account, including funds required for the deposit under the agreement, KiwiSaver and HomeStart Grant funds, and the balance required to settle the transaction;
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             preparing for and attending a document signing meeting at which documents required for the transaction will be executed;
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             settlement -day attendances;
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             effecting the electronic transfer of the legal title to the Property and registration of a new mortgage (if applicable) in Landonline; and
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             all other attendances that you have instructed us to complete or are reasonably required in connection with the above.
         </text:p>
     </text:list-item>
     </text:list>
+
+
     <text:p text:style-name="para">
         This list is merely a general indication of the type of services we will provide in the matter.  At this early stage, we are not able to accurately anticipate the specific attendances that will be required to complete your transaction.
     </text:p>
@@ -97,9 +143,13 @@ In the event you are unable to contact, or are not receiving a timely response f
         <text:p text:style-name="el_numbered_list_paragraph">
             Taxation, commercial, or financial matters.  These are excluded under our standard Terms.  In the context of your transaction, the standard exclusions cover (without limitation) advice about the potential tax consequences of the transaction, including application of the Bright Line test, and the commercial or financial merits of the transaction.
         </text:p>
+    </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             A due diligence investigation of the Property, apart from the legal review of relevant documents as described above.  Unless you instruct us otherwise, due diligence will be your sole responsibility.
         </text:p>
+        </text:list-item>
+        <text:list-item>
         <text:p text:style-name="el_numbered_list_paragraph">
             Advice and other services related to alternative ownership structures, estate planning, property sharing arrangements, and the application of the Property (Relationships) Act 1976.
         </text:p>
@@ -124,13 +174,288 @@ In the event you are unable to contact, or are not receiving a timely response f
     <text:p text:style-name="el_subheading">Fee Estimates</text:p>
 
     <text:p text:style-name="para">
-        Because we are not able to precisely anticipate the amount of work we will need to complete for you, we cannot provide a fixed fee or quote.  The nature of conveyancing is that, while most transactions have predictable attendances and go smoothly, every matter and client are unique, the time required to complete attendances can vary widely, and unforeseen difficulties do arise.  Due to such unpredictability, we ultimately charge by the time it takes us to complete the work required.
+        The best indication we can offer are fee estimates, which we provide below.  All such fee estimates are stated exclusive of GST, disbursements, and expenses.
     </text:p>
 
-            {% if includeAMLCFT %}
+    <text:p text:style-name="para">
+        Our standard fee estimate for a property purchase conveyance is <text:span text:style-name="bold">A$1,050.00</text:span>.  Importantly, this estimate:
+    </text:p>
+
+
+    <text:list text:style-name="el_numbered_list">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                assumes an unconditional sale and purchase agreement, simple loan and mortgage documentation, and a straightforward transaction and settlement.  In general terms, our standard estimate includes only those attendances that we anticipate would usually be required in a basic property purchase conveyance matter; and
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                does not consider the unique circumstances of your matter.  Because we are legally obliged to send this letter of engagement to you before we commence work on your matter, and wish to start acting as soon as possible, we have not had sufficient time to prepare a matter-specific fee estimate.
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+    <text:p text:style-name="para">
+        If you fail to buy the Property at auction or the agreement for sale and purchase of the Property fails to become unconditional, we estimate that our fees will be <text:span text:style-name="bold">$275.00</text:span>, for each Property that you attempt to purchase.</text:p>
+    <text:p text:style-name="para">
+        The following attendances are excluded from the above standard fee estimates:</text:p>
+
+
+    <table:table table:name="conveyancing_prices" table:style-name="conveyancing_prices_table">
+    <table:table-column table:style-name="conveyancing_prices.A"/>
+    <table:table-column table:style-name="conveyancing_prices.B"/>
+    <table:table-column table:style-name="conveyancing_prices.C"/>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    <text:span text:style-name="bold">Name</text:span>
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    <text:span text:style-name="bold">Description</text:span>
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    <text:span text:style-name="bold">Fee Estimate</text:span>
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+    <table:table-row>
+        <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+            <text:p>
+                Preparing Agreement
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+            <text:p>
+                Drafting simple agreement for sale and purchase of property
+            </text:p>
+        </table:table-cell>
+        <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+            <text:p>
+                $275
+            </text:p>
+        </table:table-cell>
+    </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Off the Plans
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Reviewing agreement for the purchase of land without a title and for the construction of a residential dwelling
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $600
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    LIM
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Reviewing land information memorandum for property
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $110
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Body Corporate Documents
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Reviewing Body Corporate documents, including disclosure statements and meeting minutes
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $110 per document
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Conditions
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Attendances in connection with the satisfaction of agreement conditions
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    At time - $275 per hour
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    KiwiSaver Withdrawal
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Attendances in connection with first home buyer KiwiSaver withdrawal, including providing solicitor’s undertakings
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $165 Per withdrawal
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    HomeStart Grant
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Attendances in connection with HomeStart Grant application, including providing solicitor’s certificate
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $165 Per application
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Nomination
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Preparing and attending to execution of deed nominating alternative purchaser(s)
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $110
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Trust/Company
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Preparing and attending to execution of additional documents for entry into transaction by trust or company
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $165
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Additional Loan Documents
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Reviewing and attending to execution of additional documents required by mortgagee (beyond the two loan agreements anticipated by the standard estimate)
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $110 per document
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Pre-Settlement Issues
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Dealing with pre-settlement issues, including issues related to pre-settlement inspection of property
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    At time - $275 per hour
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Additional Correspondence
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Receiving, considering, and responding to correspondence from you or third parties such as agents, brokers, and solicitors (beyond the amount normally anticipated for a purchase)
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    At time - $165 per hour
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+
+    </table:table>
+
+
+    <text:p text:style-name="para">
+        We provide the above table by way of indication only.  The actual fee charged for any stated attendance may be more or less than the given estimate. </text:p>
+
+    <text:p text:style-name="el_subheading">Disbursements and Expenses</text:p>
+    <text:p text:style-name="para">
+        Disbursements and expenses for a property purchase typically include Land Information New Zealand registration charges, for example the $80 charge to register a transfer of title or a new mortgage, Landonline search charges, which are $5 for each title or instrument searched, our general office fee of $50, and a file storage fee of $25.  These amounts include GST.  Additional disbursements may be charged depending on the requirements of your matter.</text:p>
+
+
+    {% if includeAMLCFT %}
                 <text:p text:style-name="el_heading">Customer Due Diligence</text:p>
                  <text:p text:style-name="para">
-    We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>).  To comply with our obligations under the AML/CFT Act, we need the client{% if recipient.individuals.length > 1 %}s{% endif %} named in this letter to provide us with the following information:
+    We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>). To comply with our obligations under the AML/CFT Act, we need the client{% if recipient.individuals.length > 1 %}s{% endif %} named in this letter to provide us with the following information:
                 </text:p>
     <text:list text:style-name="el_numbered_list">
             <text:list-item>
