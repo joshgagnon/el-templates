@@ -1,6 +1,6 @@
 {
-    "title": "Letter of Engagement for Purchase Conveyance",
-    "formName": "conveyancing_letter_of_engagement_purchase",
+    "title": "Letter of Engagement for Refinance Conveyance",
+    "formName": "conveyancing_letter_of_engagement_refinance",
     "baseDoc": "letter.odt",
     "category": "Conveyancing",
     "properties": {
@@ -8,14 +8,14 @@
             "title": "Date",
             "type": "string",
             "formatDate": "D MMMM YYYY",
-            "x-hints": {
+            "x-hints" : {
                 "form": {
-                    "inputComponent": "date"
+                  "inputComponent": "date"
                 }
             }
         },
         "recipient": {
-            "$ref": "#/definitions/recipient"
+             "$ref": "#/definitions/recipient"
         },
         "isNewClient": {
             "type": "boolean",
@@ -37,10 +37,7 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "matterId",
-                "matterName"
-            ]
+            "required": ["matterId", "matterName"]
         },
         "includeAMLCFT": {
             "type": "boolean",
@@ -52,7 +49,7 @@
             "description": "e.g. We act for Company ABC Ltd"
         },
         "senders": {
-            "$ref": "#/definitions/senders"
+             "$ref": "#/definitions/senders"
         },
         "copyTo": {
             "$ref": "#/definitions/copyTo"

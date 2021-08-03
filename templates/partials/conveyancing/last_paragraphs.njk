@@ -1,0 +1,50 @@
+<text:p text:style-name="para">
+    We provide the above table by way of indication only.  The actual fee charged for any stated attendance may be more or less than the given estimate. </text:p>
+
+<text:p text:style-name="el_subheading">Disbursements and Expenses</text:p>
+<text:p text:style-name="para">
+    Disbursements and expenses for a property purchase typically include Land Information New Zealand registration charges, for example the $80 charge to register a transfer of title or a new mortgage, Landonline search charges, which are $5 for each title or instrument searched, our general office fee of $50, and a file storage fee of $25.  These amounts include GST.  Additional disbursements may be charged depending on the requirements of your matter.</text:p>
+
+
+{% if includeAMLCFT %}
+    <text:p text:style-name="el_heading">Customer Due Diligence</text:p>
+    <text:p text:style-name="para">
+        We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>). To comply with our obligations under the AML/CFT Act, we need the client{% if recipient.individuals.length > 1 %}s{% endif %} named in this letter to provide us with the following information:
+    </text:p>
+    <text:list text:style-name="el_numbered_list" text:continue-numbering="false">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                A certified copy of your photo identification. The copy may be certified by a lawyer, Justice of the Peace, Court Registrar, or another person authorised to provide certifications as to the authenticity of documents.
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                A copy of a bank statement or utilities bill addressed to you and showing your current residential address.
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                Confirmation of whether or not our client will be a trust or other entity for holding personal assets, such as a look-through company.
+            </text:p>
+        </text:list-item>
+    </text:list>
+    <text:p text:style-name="para">
+        Thank you in advance for your assistance.
+    </text:p>
+
+    <text:p text:style-name="para">
+        Please note that while we require a certified copy of your photo identification, we are happy to rely on an uncertified copy in the first instance, provided we meet you in person at least once during the matter.  This will most likely occur when we meet you to execute the documents required for the transaction.  At that meeting, we can take our own certified copy of your photo identification.
+    </text:p>
+
+{% endif %}
+
+
+<text:p text:style-name="el_heading">Disclosure of Interests</text:p>
+
+<text:p text:style-name="para">
+    {% if disclosure %}{{ disclosure }}. However, we {% else %}We {% endif %} do not believe there is any conflict of interest that would prohibit us from acting for {% if recipient.recipientType == 'company' %}the Company{% else %}you{% endif %} in this matter.
+</text:p>
+
+<text:p text:style-name="para">
+    If you have any queries about our engagement, please contact us.
+</text:p>
