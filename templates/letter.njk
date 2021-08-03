@@ -12,8 +12,9 @@
         </style:style>
 
 
+
         <style:style style:family="table" style:master-page-name="First_20_Page" style:name="Table1">
-            <style:table-properties style:page-number="auto" style:width="17cm" table:align="margins" fo:margin-bottom="0.388cm"/>
+            <style:table-properties style:page-number="auto" style:width="17cm" table:align="margins" />
         </style:style>
 
         <style:style style:family="table-column" style:name="Table1.A">
@@ -344,10 +345,11 @@
                     <table:covered-table-cell/>
                 </table:table-row>
             </table:table>
+    <text:p></text:p>
 {% endblock %}
 {% block letterBody %}
 
-            <text:p text:style-name="P34"/>
+
             <text:p text:outline-level="1" text:style-name="el_email_title">
                 {{ subject }}
             </text:p>
