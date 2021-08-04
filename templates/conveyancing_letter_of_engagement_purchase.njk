@@ -30,7 +30,17 @@
 {% endblock %}
 
 {% block letterBody %}
-{% include 'partials/conveyancing/preamble.njk' %}
+
+    <text:p text:outline-level="1" text:style-name="el_heading">
+        Letter of Engagement - {{ matter.matterName }} (“the Property”)
+    </text:p>
+
+    <text:p text:style-name="para">
+        Thank you for asking Evolution Lawyers to act for you. We understand that you would like us to assist you with purchasing the Property.
+    </text:p>
+
+
+    {% include 'partials/conveyancing/preamble.njk' %}
 
 
     <text:list text:style-name="el_numbered_list">
