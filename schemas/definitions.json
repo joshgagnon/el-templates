@@ -691,6 +691,45 @@
                     "selector": "name"
                 }
             }
+        },
+        "includeSigningBlock": {
+            "title": "Signing Block",
+            "type": "object",
+            "properties": {
+                "include": {
+                    "type": "boolean",
+                    "title": "Include countersigning block"
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "include": {
+                            "enum": [
+                                false
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "include": {
+                            "enum": [
+                                true
+                            ]
+                        },
+                        "include_guarantee": {
+                            "title": "Include guarantee",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            ],
+            "x-hints": {
+                "form": {
+                    "selector": "include"
+                }
+            }
         }
     }
 }

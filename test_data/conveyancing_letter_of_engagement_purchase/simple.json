@@ -40,14 +40,13 @@
                 "email": "pewpwe@email.com",
                 "method": "email"
             },
-            "individuals": [
+            "company": [
                 {
                     "_keyIndex": 6,
-                    "firstName": "Test",
-                    "surname": "Name"
+                    "companyName": "Name"
                 }
             ],
-            "recipientType": "individuals"
+            "recipientType": "company"
         },
         "senders": [
             {
@@ -55,5 +54,9 @@
                 "email": "asdf",
                 "firstName": "x"
             }
-        ]
+        ],
+    "includeSigningBlock": {
+      "include": true,
+      "includeGuarantee": true
+    }
 }

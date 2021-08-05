@@ -48,6 +48,9 @@
             "title": "Disclosure of Interests",
             "description": "e.g. We act for Company ABC Ltd"
         },
+        "includeSigningBlock": {
+            "$ref": "#/definitions/includeSigningBlock"
+        },
         "senders": {
              "$ref": "#/definitions/senders"
         },

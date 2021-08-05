@@ -1,20 +1,159 @@
-
 {% macro title(text) %}
     <text:p text:style-name="el_title">{{ text }}</text:p>
 {% endmacro %}
 
 {% macro subject(text) %}
-<text:p text:outline-level="1" text:style-name="el_heading">
-    <text:span>{{ text }}</text:span>
-</text:p>
+    <text:p text:outline-level="1" text:style-name="el_heading">
+        <text:span>{{ text }}</text:span>
+    </text:p>
+{% endmacro %}
+
+{% macro heading(text) %}
+    <text:p text:outline-level="1" text:style-name="el_heading">
+        <text:span>{{ text }}</text:span>
+    </text:p>
 {% endmacro %}
 
 {% macro fullNames(recipient) %}
     {% if recipient.recipientType == 'company' %}
-    {{ recipient.companyName }}
+        {{ recipient.companyName }}
     {% else %}
-    {{ recipient.individuals|join_and('firstName', 'surname') }}
-     {% endif %}
+        {{ recipient.individuals|join_and('firstName', 'surname') }}
+    {% endif %}
 {% endmacro %}
 
 
+{% macro individualSigningSection() %}
+
+    <text:p text:style-name="signing_block">
+        <text:span text:style-name="signing_block_text">Client Name:</text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+    </text:p>
+    <text:p text:style-name="signing_block"/>
+    <text:p text:style-name="signing_block">
+        <text:span text:style-name="signing_block_text">Signature:</text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+        <text:span text:style-name="signing_block_text">
+            <text:tab/>
+            Date:
+        </text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+    </text:p>
+    <text:p text:style-name="signing_block"/>
+    <text:p text:style-name="signing_block"/>
+
+{% endmacro %}
+
+{% macro individualSigningBlock(count) %}
+    {{ heading('Client Signature') }}
+    <text:p text:style-name="para">
+        {% if count == 1 %}I, the client{% else %}We, the clients{% endif %} named above, confirm acceptance of the
+        terms set out in this letter of engagement, including the standard terms of engagement of Evolution Lawyers
+        applying from time to time (except to the extent those standard terms are varied by this letter).
+    </text:p>
+    {% for i in range(0, count) %}
+        {{ individualSigningSection() }}
+    {% endfor %}
+
+{% endmacro %}
+
+
+{% macro companySigningSection() %}
+    <text:p text:style-name="signing_block">
+        <text:span text:style-name="signing_block_text">Name of Signatory:</text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+    </text:p>
+    <text:p text:style-name="signing_block"/>
+    <text:p text:style-name="signing_block">
+        <text:span text:style-name="signing_block_text">Position/Office Held:</text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+    </text:p>
+    <text:p text:style-name="signing_block"/>
+    <text:p text:style-name="signing_block">
+        <text:span text:style-name="signing_block_text">Signature:
+        </text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+        <text:span text:style-name="signing_block_text"><text:tab/>Date:
+        </text:span>
+        <text:span text:style-name="signing_block_line">
+            <text:tab/>
+            <text:tab/>
+            <text:tab/>
+        </text:span>
+    </text:p>
+{% endmacro %}
+
+{% macro companySigningBlock() %}
+    {{ heading('Authorised Signature') }}
+    <text:p text:style-name="para">
+        I, the signatory named below, confirm acceptance of the terms set out in this letter of engagement,
+        including the standard terms of engagement of Evolution Lawyers applying from time to time (except
+        to the extent those standard terms are varied by this letter), on behalf of the client named above.
+    </text:p>
+
+    {{ companySigningSection() }}
+
+{% endmacro %}
+
+{% macro companySigningBlockWithGuarantee() %}
+    {{ heading('Authorised Signature and Personal Guarantee') }}
+    <text:p text:style-name="para">
+        I, the signatory named below, confirm acceptance of the terms set out in this letter of engagement,
+        including the standard terms of engagement of Evolution Lawyers applying from time to time (except
+        to the extent those standard terms are varied by this letter), on behalf of the client named above.
+    </text:p>
+
+    <text:p text:style-name="para">
+    In consideration of the services to be provided per this letter, I personally guarantee the client’s
+    obligations to Evolution Lawyers in accordance with the section of the terms of engagement headed
+    “Guarantee”.
+    </text:p>
+    {{ companySigningSection() }}
+
+{% endmacro %}

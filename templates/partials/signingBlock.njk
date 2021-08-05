@@ -1,0 +1,17 @@
+{% import './macros.njk' as macros %}
+
+{%  if includeSigningBlock.include %}
+    {%  if recipient.recipientType == 'individuals' %}
+        {{  macros.individualSigningBlock(recipient.individuals|length) }}
+    {%  endif %}
+
+    {%  if recipient.recipientType == 'company' %}
+        {% if includeSigningBlock.include_guarantee %}
+            {{  macros.companySigningBlock() }}
+        {%  else  %}
+            {{  macros.companySigningBlockWithGuarantee() }}
+        {%  endif %}
+
+    {%  endif %}
+
+{%  endif %}
