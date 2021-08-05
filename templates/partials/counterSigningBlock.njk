@@ -1,5 +1,5 @@
 {% import './macros.njk' as macros %}
-
+<text:p text:style-name="para"></text:p>
 {%  if includeSigningBlock.include %}
     {%  if recipient.recipientType == 'individuals' %}
         {{  macros.individualSigningBlock(recipient.individuals|length) }}

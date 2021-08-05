@@ -3,12 +3,6 @@
         "civNumber": "CIV X",
         "copyTo": [],
         "dateString": "1 May 2018",
-        "defendants": [
-            {
-                "_keyIndex": 8,
-                "name": "Mike Defendant"
-            }
-        ],
         "disclosure": "234",
         "documents": [
             {
@@ -31,20 +25,13 @@
                     "uniqueIdentifier": "234"
                 }
             ],
-            "conveyancing": {
-                "matterType": "purchase"
-            },
+            "matterName": "blah blah blash",
             "matterId": "234",
           "status": {
             "mode": "Test"
           }
         },
-        "plantiffs": [
-            {
-                "_keyIndex": 10,
-                "name": "Barry Plantiff"
-            }
-        ],
+        "includeAMLCFT" : true,
         "recipient": {
             "contactMethod": {
                 "address": {
@@ -58,7 +45,11 @@
                     "_keyIndex": 6,
                     "firstName": "Test",
                     "surname": "Name"
-                }
+                },                {
+                "_keyIndex": 6,
+                "firstName": "Test2",
+                "surname": "Name"
+              }
             ],
             "recipientType": "individuals"
         },
@@ -68,5 +59,8 @@
                 "email": "asdf",
                 "firstName": "x"
             }
-        ]
+        ],
+      "includeSigningBlock": {
+        "include": true
+      }
 }
