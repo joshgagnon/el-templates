@@ -116,6 +116,9 @@
             "type": "boolean",
             "title": "Include AML/CFT Customer Due Diligence"
         },
+        "includeSigningBlock": {
+            "$ref": "#/definitions/includeSigningBlock"
+        },
         "senders": {
              "$ref": "#/definitions/senders"
         },
