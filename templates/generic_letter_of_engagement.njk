@@ -85,31 +85,7 @@
             </text:p>
 
             {% if includeAMLCFT %}
-                <text:p text:style-name="el_heading">Customer Due Diligence</text:p>
-                 <text:p text:style-name="para">
-    We are required to complete customer due diligence on new clients under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009 (<text:span text:style-name="bold">AML/CFT Act</text:span>).  To comply with our obligations under the AML/CFT Act, we need the client(s) named in this letter to provide us with the following information:
-                </text:p>
-    <text:list text:style-name="el_numbered_list">
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-    A certified copy of your photo identification.  The copy may be certified by a lawyer, Justice of the Peace, Court Registrar, or another person authorised to provide certifications as to the authenticity of documents.
-                </text:p>
-            </text:list-item>
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-    A copy of a bank statement or utilities bill addressed to you and showing your current residential address.
-                </text:p>
-            </text:list-item>
-            <text:list-item>
-                <text:p text:style-name="el_numbered_list_paragraph">
-    Confirmation of whether or not our client will be a trust or other entity for holding personal assets, such as a look-through company.
-                </text:p>
-            </text:list-item>
-    </text:list>
-             <text:p text:style-name="para">
-             Thank you in advance for your assistance.
-         </text:p>
-
+                {% include 'partials/conveyancing/amlctf.njk' %}
             {% endif %}
 
             <text:p text:style-name="el_heading">Disclosure of Interests</text:p>
