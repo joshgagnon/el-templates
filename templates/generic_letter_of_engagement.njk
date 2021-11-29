@@ -58,32 +58,11 @@
                 <text:s/>
                 I will be assisted by other lawyers in the firm as and when required.</text:p>
             <text:p text:style-name="para">Our fees will be charged and billed in accordance with the Terms.
-                <text:s/>
-                {% if fee.feeType == 'preagreed' or fee.feeType == 'estimated' %}
-                {% if fee.feeType == 'estimated' %}
-                    <text:span>We estimate that our fee </text:span>
-                {% else %}
-                    <text:span>We have agreed that our fee</text:span>
-                {% endif %}
-                for
-                {% if fee.services %}
-                    <text:span>
-                        {{ fee.services }}
-                    </text:span>
-                {% else %}the matter
-                {% endif %}
-                will be
-                <text:span>
-                    {{ fee.description }}</text:span>, excluding GST and disbursements.
-                <text:s/>
-                However, this is only an indication.
-                <text:s/>
-                Our fee may be higher depending on the particular attendances required.
-                <text:s/>
-                We will endeavour to let you know in advance if it appears as though our fee will exceed the estimate.
-                {% endif %}
+               Please see the sections headed “Our Fees”, “Hourly Rates”, “Estimates and Fixed Fees”, and “Disbursements and Expenses”
             </text:p>
-
+            <text:p text:style-name="para">
+We charge an office administration expense fee of $100 on every invoice we issue to you. This fee covers office and other administration costs that we incur when providing our services to you.
+            </text:p>
             {% if includeAMLCFT %}
                 {% include 'partials/conveyancing/amlctf.njk' %}
             {% endif %}
