@@ -396,16 +396,12 @@
                         <text:p >
                             {{ senders|join(' / ', 'position') }}
                         </text:p>
-                            <text:p >
-                                <text:span >D: </text:span>
-                                    {{ senders|join(' / ', 'phone') }}
-                            </text:p>
-                            <text:p >
-                                <text:span >M: </text:span>
-                                    {{ senders|join(' / ', 'mobile') }}
-                            </text:p>
                         <text:p >
-                            <text:span>E: </text:span>
+                                <text:span >DDI: </text:span>
+                                    {{ senders|join(' / ', 'phone') }}
+                         </text:p>
+                        <text:p >
+                            <text:span>Email: </text:span>
                             {{ senders|join(' / ', 'email') }}
                         </text:p>
                     </table:table-cell>
