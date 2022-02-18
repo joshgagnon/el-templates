@@ -1,0 +1,46 @@
+{
+  "recipient": {
+    "individuals": [
+      {
+        "firstName": "x",
+        "surname": "Y"
+      }
+    ],
+    "contactMethod": {
+      "method": "email",
+      "address": {
+        "country": "New Zealand"
+      }
+    }
+  },
+  "supervisingDirector": {
+    "name": "Thomas Bloy"
+  },
+  "matter": {
+    "trustName": "asdfasdf asdfasdf "
+  },
+  "includeSigningBlock": {
+    "include": true
+  },
+  "senders": [
+    {
+      "id": 8,
+      "title": "Mr",
+      "firstName": "Joshua",
+      "middleName": null,
+      "surname": "Gagnon",
+      "preferredName": "Josh",
+      "email": "josh@catalex.nz",
+      "lawAdmissionDate": null,
+      "irdNumber": null,
+      "bankAccountNumber": null,
+      "phone": null,
+      "mobile": null,
+      "position": "asdf",
+      "roles": [
+        "admin",
+        "organisation admin"
+      ]
+    }
+  ]
+}

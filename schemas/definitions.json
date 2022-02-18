@@ -730,6 +730,33 @@
                     "selector": "include"
                 }
             }
+        },
+        "user": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "title": "First Name",
+                    "type": "string"
+                },
+                "surname": {
+                    "title": "Surname",
+                    "type": "string"
+                },
+                "position": {
+                    "title": "Position",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "firstName",
+                "surname"
+            ],
+            "x-hints": {
+                "form": {
+                    "suggestions": true,
+                    "source": "users"
+                }
+            }
         }
     }
 }

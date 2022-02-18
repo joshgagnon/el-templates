@@ -1,0 +1,63 @@
+{
+    "title": "Letter of Engagement - Establishing Family Trust",
+    "formName": "trust_letter_of_engagement_family_trust",
+    "baseDoc": "letter.odt",
+    "category": "Trusts",
+    "properties": {
+        "dateString": {
+            "title": "Date",
+            "type": "string",
+            "formatDate": "D MMMM YYYY",
+            "x-hints" : {
+                "form": {
+                  "inputComponent": "date"
+                }
+            }
+        },
+        "recipient": {
+             "$ref": "#/definitions/recipient"
+        },
+        "supervisingDirector": {
+            "$ref": "#/definitions/supervisingDirector",
+            "title": "Supervising Director"
+        },
+        "matter": {
+            "type": "object",
+            "properties": {
+                "matterId": {
+                    "title": "Matter ID",
+                    "type": "string"
+                },
+                "matterName": {
+                    "title": "Matter Name",
+                    "type": "string"
+                },
+                "trustName": {
+                    "title": "Trust Name",
+                    "type": "string"
+                }
+            },
+            "required": ["matterId", "matterName"]
+        },
+
+        "includeAMLCFT": {
+            "type": "boolean",
+            "title": "Include AML/CFT Customer Due Diligence"
+        },
+        "disclosure": {
+            "type": "string",
+            "title": "Disclosure of Interests",
+            "description": "e.g. We act for Company ABC Ltd"
+        },
+        "includeSigningBlock": {
+            "$ref": "#/definitions/includeSigningBlock"
+        },
+        "senders": {
+             "$ref": "#/definitions/senders",
+            "title": "Managing Authors and Senders"
+        },
+        "copyTo": {
+            "$ref": "#/definitions/copyTo"
+        }
+    }
+}

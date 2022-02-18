@@ -1,0 +1,434 @@
+{% extends 'letter.njk' %}
+
+{% import 'partials/macros.njk' as macros %}
+
+{% block automaticStyles %}
+    {{ super() }}
+    {% block additionalAutomaticStyles %}
+
+
+        <style:style style:family="table" style:name="conveyancing_prices_table">
+            <style:table-properties style:width="16cm" table:align="left" fo:margin-bottom="0.388cm"
+                                    style:may-break-between-rows="false"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="conveyancing_prices.A">
+            <style:table-column-properties style:column-width="2.5cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="conveyancing_prices.B">
+            <style:table-column-properties style:column-width="7.0cm"/>
+        </style:style>
+        <style:style style:family="table-column" style:name="conveyancing_prices.C">
+            <style:table-column-properties style:column-width="3.5cm"/>
+        </style:style>
+        <style:style style:family="table-cell" style:name="conveyancing_prices.A1">
+            <style:text-properties fo:font-size="10pt"/>
+            <style:table-cell-properties fo:border="0.05pt solid #000000" fo:padding-bottom="0.2cm"
+                                         fo:padding-left="0.2cm" fo:padding-right="0.2cm" fo:padding-top="0.2cm">
+                <style:background-image/>
+            </style:table-cell-properties>
+        </style:style>
+
+    {% endblock %}
+{% endblock %}
+
+{% block letterBody %}
+    {% set managingAuthor = senders[0] %}
+
+    <text:p text:outline-level="1" text:style-name="el_heading">
+        Letter of Engagement - Establishment of the {{ matter.trustName }} (“the Trust”)
+    </text:p>
+
+    <text:p text:style-name="para">
+        Thank you for asking Evolution Lawyers to act for you. We understand that you would like us to assist
+        with the establishment of the Trust.
+    </text:p>
+
+    <text:p text:style-name="para">
+        We would be happy to act for you in this matter. Any service we provide to you will be subject to our
+        standard terms, which we have provided to you previously, as varied or added to by this letter of
+        engagement (together, the <text:span text:style-name="bold">Terms</text:span>).
+    </text:p>
+
+    <text:p text:style-name="para">
+        {% if recipient.recipientType == 'company' %}
+            <text:span>Our client for this matter will be {{ recipient.companyName }}.</text:span>
+        {% else %}
+            <text:span>Our client{% if recipient.individuals.length > 1 %}s{% endif %} for this matter will
+                be {{ recipient.individuals|concat(['firstName', 'surname'])|join_and() }}.
+            </text:span>
+        {% endif %}
+    </text:p>
+
+    <text:p text:style-name="el_heading">Your Matter</text:p>
+    <text:p text:style-name="para">
+        The director of Evolution Lawyers with overall responsibility for your matter will
+        be {{ supervisingDirector.name }}.
+        However, the person who will be completing most of the day-to-day attendances required
+        in your matter will be {{ managingAuthor.firstName }} {{ managingAuthor.surname }}, {{ managingAuthor.position }}.
+    </text:p>
+
+    <text:p text:style-name="para">
+        If you have any enquiries about your matter, please contact {{ managingAuthor.firstName }} in the first
+        instance. Their contact details are noted at the end of this letter.
+    </text:p>
+
+    <text:p text:style-name="para">
+        Alternatively, if you have a simple and non-urgent administrative enquiry, please feel free to contact
+        our administration team by email to mail@evolutionlawyers.nz. Our administration team can deal
+        with most of the non-legal aspects of your matter and may, depending on your enquiry and the
+        firm’s capacity at the time, be able to assist you more promptly than our legal team.
+    </text:p>
+
+    <text:p text:style-name="para">
+        In the event you are unable to contact, or are not receiving a timely response
+        from {{ managingAuthor.firstName }}
+        or our administration team, or if you have a serious concern or complaint in connection
+        with your matter, please contact the supervising director.
+    </text:p>
+
+    <text:p text:style-name="el_heading">Our Services</text:p>
+
+    <text:p text:style-name="para">
+        We will provide all legal services reasonably required to establish the Trust in accordance with all
+        applicable legal requirements. Our engagement will be limited to that extent, unless you instruct us
+        to provide additional legal services.
+    </text:p>
+
+    <text:p text:style-name="para">
+        Our services may include, depending on your instructions and the circumstances of your matter, the
+        following:
+    </text:p>
+
+    <text:list text:style-name="el_numbered_list">
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Correspondence and discussions with you regarding the purpose of the Trust, the
+                    particulars for the deed establishing the Trust (<text:span text:style-name="bold">Deed</text:span>),
+                    including as to settlor(s), trustee(s), beneficiary(ies), and the next steps required to be
+                    completed by the trustees of the Trust.
+                </text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Preparing the Deed, an initial resolution of trustees of the Trust, and our letter of advice
+                    regarding the documents and the powers, duties, and obligations of the trustees.
+                </text:span>
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Correspondence and discussions with you regarding the documents and requirements for
+                    the Trust.
+                </text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Preparing a memorandum of guidance for the trustees of the Trust (if required).</text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Providing advice and preparing documents associated with the transfer of property to the
+                    Trust, including gifting arrangements (if required).
+                </text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Storing the Trust’s core documents (if required).</text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>All other attendances that you have instructed us to complete or are reasonably required in
+                    connection with the above.
+                </text:span>
+            </text:p>
+        </text:list-item>
+
+    </text:list>
+
+
+    <text:p text:style-name="para">
+        This list is merely a general indication of the type of services we will provide in the matter. At this
+        early stage, we are not able to accurately anticipate the specific attendances that will be required to
+        complete the establishment of the Trust.
+    </text:p>
+
+    <text:p text:style-name="para">
+        We can, however, set out clearly the services that will not be provided as part of your matter, unless
+        we agree otherwise in writing. These excluded services are as follows:
+    </text:p>
+
+    <text:list text:style-name="el_numbered_list">
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>Taxation, commercial, or financial matters. These are excluded under our standard Terms. In
+                    the context of your transaction, the standard exclusions cover (without limitation) advice about the
+                    potential tax consequences of transferring property to the Trust, including application of the
+                    Bright Line test, and the commercial or financial merits of Trust transactions.
+                </text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>A due diligence investigation in connection with Trust transactions, apart from the legal
+                    review of relevant documents.
+                </text:span>
+            </text:p>
+        </text:list-item>
+
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                <text:span>3. Advice and other services related to alternative ownership structures, wills and estate
+                    planning, property sharing arrangements, personal or corporate insolvency, and the application of
+                    the Property (Relationships) Act 1976.
+                </text:span>
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+
+    {% include 'partials/conveyancing/services_explanation.njk' %}
+
+
+    <text:p text:style-name="el_subheading">Fee Estimates</text:p>
+
+    <text:p text:style-name="para">
+        The best indication we can offer are fee estimates, which we provide below. All such fee estimates are stated
+        exclusive of GST, disbursements, and expenses.
+    </text:p>
+
+    <text:p text:style-name="para">
+        Our standard fee estimate for establishing a family trust is
+        <text:span text:style-name="bold">$1,500.00</text:span>. Importantly, this estimate:
+    </text:p>
+
+
+    <text:list text:style-name="el_numbered_list" text:continue-numbering="false">
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                assumes no significant variations to the standard documents we work with in trust matters, including
+                the Deed. While our standard documents work well in most scenarios, occasionally significant amendments
+                are required to suite unusual, complicated, or bespoke client needs. Such amendments will mean our
+                estimate will be exceed. In general terms, our standard estimate includes only those attendances that we
+                anticipate would usually be required in a basic family trust creation matter; and
+            </text:p>
+        </text:list-item>
+        <text:list-item>
+            <text:p text:style-name="el_numbered_list_paragraph">
+                does not consider the unique circumstances of your matter. Because we are legally obliged to send
+                this letter of engagement to you before we commence work on your matter, and wish to start acting as
+                soon as possible, we have not had sufficient time to prepare a matter-specific fee estimate.
+            </text:p>
+        </text:list-item>
+    </text:list>
+
+    <text:p text:style-name="para">
+        The following attendances are excluded from the above standard fee estimates:
+    </text:p>
+
+
+    <table:table table:name="conveyancing_prices" table:style-name="conveyancing_prices_table">
+        <table:table-column table:style-name="conveyancing_prices.A"/>
+        <table:table-column table:style-name="conveyancing_prices.B"/>
+        <table:table-column table:style-name="conveyancing_prices.C"/>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    <text:span text:style-name="bold">Name</text:span>
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    <text:span text:style-name="bold">Description</text:span>
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    <text:span text:style-name="bold">Fee Estimate</text:span>
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Memorandum of Guidance
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Drafting memorandum of guidance for trustees
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $350 - $750
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Gifting Advice
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Advice regarding implications for gifting property into trust, including considerations regarding long term residential care subsidy and drafting deed of gift
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $350 - $750
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Transfer of Real Estate
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Transfer of real estate into Trust
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $750 - $950 (no refinance)
+                </text:p>
+                <text:p>
+                    $1,100 - $1,300 (refinance)
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Transfer of Financial Products
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Transfer of shares or other financial products into the Trust
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $350 - $750
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Independent Trustee
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Acting as independent trustee for the Trust, including incorporating new trustee company
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $1,000 (establishment)
+                </text:p>
+                <text:p>
+                    $500 (minimum ongoing annual fee)
+                </text:p>
+                <text:p>
+                    Additional attendances at time - $200 per hour
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Annual Trust Compliance
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Acting as independent trustee for the Trust, including incorporating new trustee company
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $750 - $1,000
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Updating Wills
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Updating or drafting new Will due to establishment of Trust
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    $500 - $950 (per will)
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    AMLCFT Compliance
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Attendances regarding third party customer due diligence in connection with the Trust under the Anti-Money Laundering and Countering Financing of Terrorism Act 2009
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    At time - $200 per hour
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+        <table:table-row>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    Additional Correspondence
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>Receiving, considering, and responding to correspondence from you or third parties such as accountants and independent trustees (beyond the amount normally anticipated for a purchase)
+                </text:p>
+            </table:table-cell>
+            <table:table-cell office:value-type="string" table:style-name="conveyancing_prices.A1">
+                <text:p>
+                    At time - $200 per hour
+                </text:p>
+            </table:table-cell>
+        </table:table-row>
+
+    </table:table>
+    <text:p></text:p>
+
+    {% include 'partials/conveyancing/last_paragraphs.njk' %}
+{% endblock %}
