@@ -1,5 +1,5 @@
 {
-    "title": "Trust Account Statement - Generic",
+    "title": "MATTAS - Trust Account Statement - General",
     "formName": "trust_account_statement_generic",
     "baseDoc": "letter.odt",
     "category": "Matter Management",

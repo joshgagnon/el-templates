@@ -1,5 +1,5 @@
 {
-    "title": "Indicative Trust Account Statement - Conveyancing",
+    "title": "CONTAS - Trust Account Statement - Conveyancing",
     "formName": "indicative_trust_account_statement",
     "baseDoc": "letter.odt",
     "calculations": ["trust_account_statement_generic"],

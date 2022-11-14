@@ -1,5 +1,5 @@
 {
-    "title": "Letter of Demand - Debtor",
+    "title": "DEBDEM - Letter of Demand - Debtor",
     "formName": "letter_of_demand_debtor",
     "baseDoc": "letter.odt",
     "category": "Debt Recovery",
