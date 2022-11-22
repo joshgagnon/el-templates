@@ -2,7 +2,7 @@
     "title": "DISSERVE - Service Letter",
     "formName": "service_letter",
     "baseDoc": "letter.odt",
-    "category": "Litigation",
+    "category": "Disputes and Litigation",
     "properties": {
         "dateString": {
             "title": "Date",

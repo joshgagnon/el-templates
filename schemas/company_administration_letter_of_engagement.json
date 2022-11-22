@@ -2,7 +2,7 @@
     "title": "COMADMINLOE - Letter of Engagement - Company Administration",
     "formName": "company_administration_letter_of_engagement",
     "baseDoc": "letter.odt",
-    "category": "Company Administration",
+    "category": "Companies",
     "properties": {
         "dateString": {
             "title": "Date",

@@ -2,7 +2,7 @@
     "title": "DEBSTAT - Statutory Demand",
     "formName": "statutory_demand",
     "baseDoc": "letter.odt",
-    "category": "Debt Recovery",
+    "category": "Debt Recovery and Insolvency",
     "calculations": ["letter_of_demand"],
     "properties": {
         "dateString": {

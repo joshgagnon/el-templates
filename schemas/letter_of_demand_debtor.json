@@ -2,7 +2,7 @@
     "title": "DEBDEM - Letter of Demand - Debtor",
     "formName": "letter_of_demand_debtor",
     "baseDoc": "letter.odt",
-    "category": "Debt Recovery",
+    "category": "Debt Recovery and Insolvency",
     "calculations": ["letter_of_demand"],
     "properties": {
         "dateString": {
